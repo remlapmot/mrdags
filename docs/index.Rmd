@@ -3,17 +3,17 @@ title: "Code to plot DAGs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: '2019-01-24'
 output:
-  md_document:
-    variant: markdown_github
-    toc: true
+  html_notebook:
+    toc: yes
     toc_depth: 2
-    dev: svg
+#  md_document:
+#    variant: markdown_github
+#    toc: true
+#    toc_depth: 2
+#    dev: svg
 #  github_document:
 #    dev: 'svg'
 #    toc: true
-#    toc_depth: 2
-#  html_notebook:
-#    toc: yes
 #    toc_depth: 2
 always_allow_html: yes
 ---
@@ -35,7 +35,7 @@ library(DiagrammeR)
 
 ## Single genotype
 
-```{r, eval = FALSE}
+```{r}
 grViz("
       digraph mrdag {
 
@@ -66,7 +66,7 @@ grViz("
 
 ## Multiple genotypes
 
-```{r, eval = FALSE}
+```{r}
 grViz("
       digraph mrdag {
 
