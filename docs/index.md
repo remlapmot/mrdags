@@ -1,7 +1,12 @@
-Code to plot DAGs for Mendelian randomization analyses
-================
-Tom Palmer
-2019-01-24
+-   [DiagrammeR package](#diagrammer-package)
+    -   [Single genotype](#single-genotype)
+    -   [Multiple genotypes](#multiple-genotypes)
+-   [dagitty package](#dagitty-package)
+    -   [Using dot syntax](#using-dot-syntax)
+    -   [Version using ggdag](#version-using-ggdag)
+    -   [Using ggdag dagify R model type
+        syntax](#using-ggdag-dagify-r-model-type-syntax)
+    -   [Multiple genotypes](#multiple-genotypes-1)
 
 This webpage shows the code for generating figures for Mendelian
 randomization analyses.
@@ -13,16 +18,19 @@ the pipe and the ggplot2 package, amongst other features.
 library(tidyverse)
 ```
 
-# DiagrammeR package
+DiagrammeR package
+==================
 
 The website for DiagrammeR is here:
-<http://rich-iannone.github.io/DiagrammeR/> .
+<a href="http://rich-iannone.github.io/DiagrammeR/" class="uri">http://rich-iannone.github.io/DiagrammeR/</a>
+.
 
 ``` r
 library(DiagrammeR)
 ```
 
-## Single genotype
+Single genotype
+---------------
 
 ``` r
 grViz("
@@ -48,7 +56,8 @@ grViz("
       ")
 ```
 
-## Multiple genotypes
+Multiple genotypes
+------------------
 
 ``` r
 grViz("
@@ -78,15 +87,19 @@ grViz("
       ")
 ```
 
-# dagitty package
+dagitty package
+===============
 
-The website for DAGitty is here <http://www.dagitty.net/> .
+The website for DAGitty is here
+<a href="http://www.dagitty.net/" class="uri">http://www.dagitty.net/</a>
+.
 
 ``` r
 library(dagitty)
 ```
 
-## Using dot syntax
+Using dot syntax
+----------------
 
 ``` r
 mrdag <- dagitty('dag {
@@ -101,9 +114,10 @@ mrdag <- dagitty('dag {
 plot(mrdag)
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-7-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-7-1.svg)
 
-## Version using ggdag
+Version using ggdag
+-------------------
 
 ``` r
 library(ggdag)
@@ -134,9 +148,9 @@ ggmrdag <- tidy_dagitty(mrdag)
 ggdag(ggmrdag)
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-9-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-9-1.svg)
 
-Alternatively we could position \(U\) over \(X\).
+Alternatively we could position *U* over *X*.
 
 ``` r
 mrdag <- dagitty('dag {
@@ -152,7 +166,7 @@ ggmrdag <- tidy_dagitty(mrdag)
 ggdag(ggmrdag)
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-10-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-10-1.svg)
 
 This can be labelled as follows.
 
@@ -167,7 +181,7 @@ mrdag <- mrdag %>%
 ggdag(mrdag,  use_labels = "label")
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-11-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-11-1.svg)
 
 Dagitty can identify the instrumental variable on the DAG.
 
@@ -175,9 +189,10 @@ Dagitty can identify the instrumental variable on the DAG.
 mrdag %>% ggdag_instrumental()
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-12-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-12-1.svg)
 
-## Using ggdag dagify R model type syntax
+Using ggdag dagify R model type syntax
+--------------------------------------
 
 ``` r
 coords <- list(x = c(
@@ -210,7 +225,7 @@ mrdag <- dagify(
 ggdag(mrdag, use_labels = "label")
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-13-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-13-1.svg)
 
 Plotting directly with ggplot2 functions.
 
@@ -228,7 +243,7 @@ mrdag %>%
   theme_dag()
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-14-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-14-1.svg)
 
 Showing the paths.
 
@@ -240,9 +255,9 @@ dagify(Y ~ X + U,
 ggdag_paths()
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-15-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-15-1.svg)
 
-Adjustment set for the effect of \(X\) on \(Y\).
+Adjustment set for the effect of *X* on *Y*.
 
 ``` r
 dagify(Y ~ X + U,
@@ -253,9 +268,10 @@ dagify(Y ~ X + U,
   ggdag_adjustment_set()
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-16-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-16-1.svg)
 
-## Multiple genotypes
+Multiple genotypes
+------------------
 
 ``` r
 coords2 <- list(x = c(
@@ -291,4 +307,4 @@ mrdag <- dagify(
 ggdag(mrdag)
 ```
 
-![](index_files/figure-gfm/unnamed-chunk-17-1.svg)<!-- -->
+![](index_files/figure-markdown_github/unnamed-chunk-17-1.svg)
