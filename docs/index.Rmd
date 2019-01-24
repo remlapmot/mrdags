@@ -1,5 +1,5 @@
 ---
-title: "Code to plot DAGs for Mendelian randomization analyses"
+title: "R code to plot DAGs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: '2019-01-24'
 output:
@@ -18,9 +18,11 @@ output:
 always_allow_html: yes
 ---
 
-This webpage shows the code for generating figures for Mendelian randomization analyses.
+# Introduction
 
-First we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
+This webpage shows some R code for generating figures for Mendelian randomization analyses.
+
+First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
