@@ -5,6 +5,8 @@ date: '2019-01-24'
 output:
   github_document:
     dev: 'svg'
+    toc: true
+    toc_depth: 2
 #  html_notebook:
 #    toc: yes
 #    toc_depth: 2
