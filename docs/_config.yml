@@ -1,1 +1,6 @@
 theme: minima
+permalink: pretty
+email: tom.palmer@lancaster.ac.uk
+github_username: remlapmot
+keywords: "Mendelian randomization, R"
+repo: "https://github.com/remlapmot/mrdags"
