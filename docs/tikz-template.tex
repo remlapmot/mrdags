@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[active,tightpage]{preview}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc, shapes.geometric, shapes.multipart,
+	shapes, arrows.meta, arrows,decorations.markings, external, trees}
+
+% Create custom arrow style:
+\tikzstyle{Arrow} = [
+thick,
+decoration={
+markings,
+mark=at position 1 with {
+\arrow[thick]{latex}
+}
+},
+shorten >= 3pt, preaction = {decorate}
+]
+
+\begin{document}
+\begin{preview}
+%% TIKZ_CODE %%
+\end{preview}
+\end{document}
