@@ -5,7 +5,9 @@ date: "2019-01-24"
 output:
   html_document:
     toc: true
-    toc_float: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
     dev: svg
 ---
 
