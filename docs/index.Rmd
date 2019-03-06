@@ -357,14 +357,14 @@ shorten >= 3pt, preaction = {decorate}
 \end{document}
 ```
 
+We can now plot our DAGs.
 
-Now we can plot our Mendelian randomization DAGs.
-
+Aside: I should note that I could not get this code to run on my MacBook. This is because by default the `dvisvg` executable on MacOS appears to be missing `libgs` support. It is possible to compile `dvisvg` from source including `libgs` support but I did not try this.
 
 ## Single genotype DAG using tikz
 
 
-```
+```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
 \node (1) at (0,0) {G};
 \node (2) at (1.5,0) {X};
@@ -378,7 +378,7 @@ Now we can plot our Mendelian randomization DAGs.
 ```
 
 
-```{r, echo=FALSE, out.width=288}
+```{r, echo=FALSE, out.width=288, include=FALSE}
 knitr::include_graphics("tikz-single.svg")
 ```
 
@@ -386,7 +386,7 @@ knitr::include_graphics("tikz-single.svg")
 ## Multiple genotype DAG using tikz
 
 
-```
+```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {X};
@@ -404,10 +404,9 @@ knitr::include_graphics("tikz-single.svg")
 ```
 
 
-```{r, echo=FALSE, out.width=288}
+```{r, echo=FALSE, out.width=288, include=FALSE}
 knitr::include_graphics("tikz-multiple.svg")
 ```
 
 
 Again this could be extended for more genotypes.
-
