@@ -61,26 +61,26 @@ DiagrammeR::grViz("
 DiagrammeR::grViz("
       digraph mrdag {
 
-      graph [rankdir=LR]
+      graph [rankdir=TB, layout=neato]
 
       node [shape=ellipse]
-      U [label='Confounders', pos='2,1!']
+      U [label='Confounders', pos='3,1!']
 
       node [shape=box]
-      G1 [label='Genotype@_{1}', pos='0,1!']
-      G2 [label='Genotype@_{2}', pos='0,0!']
-      G3 [label='Genotype@_{3}', pos='0,-1!']
-      X [label='Phenotype', pos='1,0!']
-      Y [label='Outcome', pos='3,0!']
+      G1 [label='G@_{1}', pos='0,0.75!']
+      G2 [label='G@_{2}', pos='0,0!']
+      G3 [label='G@_{3}', pos='0,-0.75!']
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
 
-      { rank = same; G1 G2 G3 }
+      { rank = same; G2 X Y }
 
-      G1 -> X [minlen=1]
-      G2 -> X [minlen=1]
-      G3 -> X [minlen=1]
+      G1 -> X 
+      G2 -> X 
+      G3 -> X 
       U -> X
       U -> Y
-      X -> Y [minlen=1]
+      X -> Y 
       }
       ", height = 200)
 ```
@@ -330,7 +330,7 @@ In its LaTeX preamble, this code loads in several tikz libraries. As such for ou
 Note that I only include the `fig.ext='svg'` chunk option for html output. The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
 
 
-```
+```tex
 \documentclass{article}
 \usepackage[active,tightpage]{preview}
 \usepackage{amsmath}
