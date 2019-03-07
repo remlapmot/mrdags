@@ -64,23 +64,23 @@ DiagrammeR::grViz("
       graph [rankdir=LR]
 
       node [shape=ellipse]
-      U [label='Confounders']
+      U [label='Confounders', pos='2,1!']
 
       node [shape=box]
-      G1 [label='Genotype 1']
-      G2 [label='Genotype 2']
-      G3 [label='Genotype 3']
-      X [label='Phenotype']
-      Y [label='Outcome']
+      G1 [label='Genotype@_{1}', pos='0,1!']
+      G2 [label='Genotype@_{2}', pos='0,0!']
+      G3 [label='Genotype@_{3}', pos='0,-1!']
+      X [label='Phenotype', pos='1,0!']
+      Y [label='Outcome', pos='3,0!']
 
       { rank = same; G1 G2 G3 }
 
-      G1 -> X 
-      G2 -> X 
-      G3 -> X 
+      G1 -> X [minlen=1]
+      G2 -> X [minlen=1]
+      G3 -> X [minlen=1]
       U -> X
       U -> Y
-      X -> Y
+      X -> Y [minlen=1]
       }
       ", height = 200)
 ```
