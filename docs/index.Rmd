@@ -38,7 +38,7 @@ DiagrammeR::grViz("
       node [shape=ellipse]
       U [label='Confounders']
 
-      node [shape=box]
+      node [shape=box, height=0.3, width=0.3]
       G [label='Genotype']
       X [label='Phenotype']
       Y [label='Outcome']
@@ -66,7 +66,7 @@ DiagrammeR::grViz("
       node [shape=ellipse]
       U [label='Confounders', pos='3,1!']
 
-      node [shape=box]
+      node [shape=box, height=0.3, width=0.3]
       G1 [label='G@_{1}', pos='0,0.75!']
       G2 [label='G@_{2}', pos='0,0!']
       G3 [label='G@_{3}', pos='0,-0.75!']
@@ -85,25 +85,77 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-
-
 This could be extended for more genotypes.
 
+## Single genotype path diagram
+
+Explicitly including the confounder, $U$.
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse, height=0.3, width=0.3]
+      U [pos='3,1!']
+
+      node [shape=box, height=0.3, width=0.3]
+      G [pos='0,0!']
+      X [pos='2,0!']
+      Y [pos='4,0!']
+
+      node [shape=circle, height=0.35, fixedsize=true]
+      Ex [label='&epsilon;@_{X}', pos='2,1!']
+      Ey [label='&epsilon;@_{Y}', pos='4,1!']
+
+      G -> X 
+      Ex -> X 
+      Ey -> Y
+      U -> X
+      U -> Y
+      X -> Y
+      U -> U [dir='both', headport='n', tailport='n']
+      }
+      ", height = 200)
+```
+
+Instead drawing correlated error terms between $X$ and $Y$.
+
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=box, height=0.3, width=0.3]
+      G [pos='0,0!']
+      X [pos='2,0!']
+      Y [pos='4,0!']
+
+      node [shape=circle, height=0.35, fixedsize=true]
+      Ex [label='&epsilon;@_{X}', pos='2,1!']
+      Ey [label='&epsilon;@_{Y}', pos='4,1!']
+
+      G -> X 
+      Ex -> X 
+      Ey -> Y
+      X -> Y
+      Ex -> Ey [dir='both']
+      }
+      ", height = 200)
+```
 
 # dagitty package
 
-
 The website for DAGitty is here http://www.dagitty.net/
-
 
 ```{r, warning=FALSE, message=FALSE}
 library(dagitty)
 ```
 
-
 ## Using dot syntax
 
-
+The DAG for a single genotype.
 ```{r}
 mrdag <- dagitty('dag {
   G -> X -> Y
@@ -117,12 +169,7 @@ mrdag <- dagitty('dag {
 plot(mrdag)
 ```
 
-
-The DAG for a single genotype.
-
-
 ## Using ggdag
-
 
 ```{r, warning=FALSE, message=FALSE}
 library(ggdag)
@@ -142,9 +189,7 @@ ggmrdag <- tidy_dagitty(mrdag)
 ggdag(ggmrdag)
 ```
 
-
 We can position U above X.
-
 
 ```{r}
 mrdag <- dagitty('dag {
@@ -160,9 +205,7 @@ ggmrdag <- tidy_dagitty(mrdag)
 ggdag(ggmrdag)
 ```
 
-
 This can be labelled as follows.
-
 
 ```{r}
 mrdag <- mrdag %>% 
@@ -175,20 +218,15 @@ mrdag <- mrdag %>%
 ggdag(mrdag,  use_labels = "label")
 ```
 
-
 Dagitty can identify the instrumental variable on the DAG.
-
 
 ```{r}
 mrdag %>% ggdag_instrumental()
 ```
 
-
 It correctly identifies the genotype, G, as the instrumental variable.
 
-
 ## Using R model type syntax in ggdag
-
 
 ```{r}
 coords <- list(x = c(
@@ -221,9 +259,7 @@ mrdag <- dagify(
 ggdag(mrdag, use_labels = "label")
 ```
 
-
 Plotting directly with ggplot2 functions.
-
 
 ```{r}
 mrdag %>%
@@ -239,9 +275,7 @@ mrdag %>%
   theme_dag()
 ```
 
-
 Showing the paths.
-
 
 ```{r, fig.ext = 'svg'}
 dagify(Y ~ X + U,
@@ -251,9 +285,7 @@ dagify(Y ~ X + U,
 ggdag_paths()
 ```
 
-
 Adjustment set for the effect of $X$ on $Y$.  
-
 
 ```{r}  
 dagify(Y ~ X + U,
@@ -264,12 +296,9 @@ dagify(Y ~ X + U,
   ggdag_adjustment_set()
 ```  
 
-
 This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
 
-
 ## Multiple genotype DAG
-
 
 ```{r}
 coords2 <- list(x = c(
@@ -305,12 +334,9 @@ mrdag <- dagify(
 ggdag(mrdag)
 ```
 
-
 This could be extended for more genotypes.
 
-
 # TikZ diagrams using the tikz code chunk engine
-
 
 I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`. 
 
@@ -328,7 +354,6 @@ In its LaTeX preamble, this code loads in several tikz libraries. As such for ou
     ```
     
 Note that I only include the `fig.ext='svg'` chunk option for html output. The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
-
 
 ```tex
 \documentclass{article}
@@ -363,7 +388,6 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 
 ## Single genotype DAG using tikz
 
-
 ```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
 \node (1) at (0,0) {G};
@@ -377,14 +401,11 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 \end{tikzpicture}
 ```
 
-
 ```{r, echo=FALSE, out.width=288, include=FALSE}
 knitr::include_graphics("tikz-single.svg")
 ```
 
-
 ## Multiple genotype DAG using tikz
-
 
 ```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
@@ -403,10 +424,8 @@ knitr::include_graphics("tikz-single.svg")
 \end{tikzpicture}
 ```
 
-
 ```{r, echo=FALSE, out.width=288, include=FALSE}
 knitr::include_graphics("tikz-multiple.svg")
 ```
-
 
 Again this could be extended for more genotypes.
