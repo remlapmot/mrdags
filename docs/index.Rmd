@@ -115,6 +115,7 @@ DiagrammeR::grViz("
       U -> Y
       X -> Y
       U -> U [dir='both', headport='n', tailport='n']
+      G -> G [dir='both', headport='w', tailport='w']
       }
       ", height = 200)
 ```
@@ -141,6 +142,7 @@ DiagrammeR::grViz("
       Ey -> Y
       X -> Y
       Ex -> Ey [dir='both']
+      G -> G [dir='both', headport='w', tailport='w']
       }
       ", height = 200)
 ```
