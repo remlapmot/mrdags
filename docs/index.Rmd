@@ -109,8 +109,8 @@ DiagrammeR::grViz("
       Ey [label='&epsilon;@_{Y}', pos='4,1!']
 
       G -> X 
-      Ex -> X 
-      Ey -> Y
+      Ex -> X [label=1]
+      Ey -> Y [label=1]
       U -> X
       U -> Y
       X -> Y
@@ -138,10 +138,10 @@ DiagrammeR::grViz("
       Ey [label='&epsilon;@_{Y}', pos='4,1!']
 
       G -> X 
-      Ex -> X 
-      Ey -> Y
+      Ex -> X [label=1]
+      Ey -> Y [label=1]
       X -> Y
-      Ex -> Ey [dir='both']
+      Ex -> Ey [dir='both', label='&rho;']
       G -> G [dir='both', headport='w', tailport='w']
       }
       ", height = 200)
