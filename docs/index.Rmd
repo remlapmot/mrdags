@@ -1,7 +1,7 @@
 ---
 title: "R code to plot DAGs for Mendelian randomization analyses"
 author: "Tom Palmer"
-date: "2019-01-24"
+date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
@@ -108,12 +108,12 @@ DiagrammeR::grViz("
       Ex [label='&epsilon;@_{X}', pos='2,1!']
       Ey [label='&epsilon;@_{Y}', pos='4,1!']
 
-      G -> X 
+      G -> X [label='&beta;@_{GX}']
       Ex -> X [label=1]
       Ey -> Y [label=1]
-      U -> X
-      U -> Y
-      X -> Y
+      U -> X [label='&beta;@_{UX}']
+      U -> Y [label='&beta;@_{UY}']
+      X -> Y [label='&beta;@_{XY}']
       U -> U [dir='both', headport='n', tailport='n']
       G -> G [dir='both', headport='w', tailport='w']
       }
@@ -137,10 +137,10 @@ DiagrammeR::grViz("
       Ex [label='&epsilon;@_{X}', pos='2,1!']
       Ey [label='&epsilon;@_{Y}', pos='4,1!']
 
-      G -> X 
+      G -> X [label='&beta;@_{GX}']
       Ex -> X [label=1]
       Ey -> Y [label=1]
-      X -> Y
+      X -> Y [label='&beta;@_{XY}']
       Ex -> Ey [dir='both', label='&rho;']
       G -> G [dir='both', headport='w', tailport='w']
       }
