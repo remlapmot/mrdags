@@ -12,6 +12,11 @@ output:
     code_download: true
 ---
 
+```{r include=FALSE}
+require("Hmisc")
+```
+`r Hmisc::hidingTOC(levels = 2)`
+
 # Introduction
 
 This webpage shows some R code for generating figures for Mendelian randomization analyses.
