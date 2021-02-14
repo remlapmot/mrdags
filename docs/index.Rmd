@@ -212,7 +212,7 @@ mrdag <- dagitty('dag {
 }')
 
 ggmrdag <- tidy_dagitty(mrdag)
-ggdag(ggmrdag)
+ggdag(ggmrdag) + theme_dag()
 ```
 
 This can be labelled as follows.
@@ -225,13 +225,13 @@ mrdag <- mrdag %>%
       "Y" = "Outcome", 
       "G" = "Genotype",
       "U" = "Confounders"))
-ggdag(mrdag,  use_labels = "label")
+ggdag(mrdag,  use_labels = "label") + theme_dag()
 ```
 
 Dagitty can identify the instrumental variable on the DAG.
 
 ```{r}
-mrdag %>% ggdag_instrumental()
+mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
 It correctly identifies the genotype, G, as the instrumental variable.
@@ -266,7 +266,7 @@ mrdag <- dagify(
   coords = coords
 )
 
-ggdag(mrdag, use_labels = "label")
+ggdag(mrdag, use_labels = "label") + theme_dag()
 ```
 
 Plotting directly with ggplot2 functions.
@@ -292,7 +292,7 @@ dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
        outcome = "Y") %>%
-ggdag_paths()
+ggdag_paths() + theme_dag()
 ```
 
 Adjustment set for the effect of $X$ on $Y$.  
@@ -303,7 +303,7 @@ dagify(Y ~ X + U,
        exposure = "X",
        outcome = "Y", 
        coords = coords) %>%
-  ggdag_adjustment_set()
+  ggdag_adjustment_set() + theme_dag()
 ```  
 
 This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
@@ -341,7 +341,7 @@ mrdag <- dagify(
   coords = coords2
 )
 
-ggdag(mrdag)
+ggdag(mrdag) + theme_dag()
 ```
 
 This could be extended for more genotypes.
