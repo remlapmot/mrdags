@@ -452,3 +452,12 @@ edges <- c("G -> X",
 dag  <- qd_dag(edges)
 dag %>% render_graph()
 ```
+
+We can also draw the single world intervention graph for the IV model as follow.
+```{r}
+# SWiG
+swig <- dag %>%
+  qd_swig(fixed.nodes = c("G","X"),
+          custom.labels = c("G" = "g", "X" = "x"))
+swig %>% render_graph()
+```
