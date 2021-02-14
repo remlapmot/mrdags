@@ -341,13 +341,13 @@ ggdag(mrdag)
 
 This could be extended for more genotypes.
 
-# TikZ diagrams using the tikz code chunk engine
+# Eleanor Murray's TikZ diagrams using the tikz code chunk engine
 
 I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`. 
 
 Tikz is a package for LaTeX and so pdf is its natural output. So far I have not been able to include these figures in either `html_notebook` or `word_document` output formats. I suspect that the images need conversion to png files for these to work under rmarkdown.
 
-We will use some of the LaTeX code for drawing DAGs using tikz provided here: https://github.com/eleanormurray/causalgraphs_latex 
+We will use some of the LaTeX code for drawing DAGs using tikz provided by Eleanor Murray [here](https://github.com/eleanormurray/causalgraphs_latex).
 
 In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
 
@@ -437,7 +437,7 @@ Again this could be extended for more genotypes.
 
 # quickdag package
 
-We can produce some nice plots with the quickdag package from [here](https://github.com/jrgant/quickdag)
+We can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
 
 ```{r}
 # remotes::install_github("jrgant/quickdag")
