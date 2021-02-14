@@ -453,7 +453,7 @@ dag  <- qd_dag(edges)
 dag %>% render_graph()
 ```
 
-We can also draw the single world intervention graph for the IV model as follow.
+We can also draw the single world intervention graph (SWIG) for the IV model as follow.
 ```{r}
 # SWiG
 swig <- dag %>%
