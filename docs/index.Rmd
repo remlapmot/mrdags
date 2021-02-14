@@ -34,7 +34,6 @@ The website for DiagrammeR is here: http://rich-iannone.github.io/DiagrammeR/
 
 ## Single genotype DAG
 
-
 ```{r}
 DiagrammeR::grViz("
       digraph mrdag {
@@ -59,9 +58,7 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-
 ## Multiple genotype DAG
-
 
 ```{r}
 DiagrammeR::grViz("
