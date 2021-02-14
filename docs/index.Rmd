@@ -461,3 +461,44 @@ swig <- dag %>%
           custom.labels = c("G" = "g", "X" = "x"))
 swig %>% render_graph()
 ```
+
+# Thomas Richardson's TikZ code for SWIGs
+
+Thomas Richardson provides a TikZ/PGF shape library for SWIGs.
+
+* The `pgflibraryshapes.swigs.code.tex` file is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/pgflibraryshapes.swigs.code.tex). Save it in your working directory.
+
+* An article describing its use is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/swig-examples.pdf).
+
+To use the tikz chunk engine we again write a template `.tex` file based on the preamble in the article by Richardson.
+
+We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
+
+```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+\begin{tikzpicture}
+\tikzset{line width=1.5pt, outer sep=0pt,
+  ell/.style={draw,fill=white, inner sep=2pt,
+  line width=1.5pt},
+  swig vsplit={gap=5pt, inner line width right=0.5pt},
+  swig hsplit={gap=5pt, inner line width lower=0.5pt}};
+
+\node[name=G,shape=swig vsplit]{
+\nodepart{left}{$G$}
+\nodepart{right}{$g$}};
+
+\node[name=X, right=10mm of G,
+shape=swig hsplit]{
+\nodepart{upper}{$X^g$}
+\nodepart{lower}{$x$}};
+
+\node[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{$U$};
+
+\node[name=Y, ell, shape=ellipse, right=10mm of X]{$Y^x$};
+
+\draw[->, line width=1.5pt,>=stealth]
+  (G) edge[out=360, in=170] (X)
+  (U) edge (X)
+  (U) edge (Y)
+  (X) to[out=330, in=180] (Y);
+\end{tikzpicture}
+```
