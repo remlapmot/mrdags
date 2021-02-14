@@ -364,31 +364,8 @@ In its LaTeX preamble, this code loads in several tikz libraries. As such for ou
 
 Note that I only include the `fig.ext='svg'` chunk option for html output. The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
 
-```tex
-\documentclass{article}
-\usepackage[active,tightpage]{preview}
-\usepackage{amsmath}
-\usepackage{tikz}
-\usetikzlibrary{positioning, calc, shapes.geometric, shapes.multipart,
-	shapes, arrows.meta, arrows,decorations.markings, external, trees}
-
-% Create custom arrow style:
-\tikzstyle{Arrow} = [
-thick,
-decoration={
-markings,
-mark=at position 1 with {
-\arrow[thick]{latex}
-}
-},
-shorten >= 3pt, preaction = {decorate}
-]
-
-\begin{document}
-\begin{preview}
-%% TIKZ_CODE %%
-\end{preview}
-\end{document}
+```{bash echo=FALSE, comment=''}
+cat tikz-template.tex
 ```
 
 We can now plot our DAGs.
