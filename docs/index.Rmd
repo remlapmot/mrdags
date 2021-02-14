@@ -1,5 +1,5 @@
 ---
-title: "R code to plot DAGs for Mendelian randomization analyses"
+title: "R and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: "`r Sys.Date()`"
 output:
