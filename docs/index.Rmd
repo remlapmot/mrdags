@@ -434,3 +434,21 @@ knitr::include_graphics("tikz-multiple.svg")
 ```
 
 Again this could be extended for more genotypes.
+
+# quickdag package
+
+We can produce some nice plots with the quickdag package from [here](https://github.com/jrgant/quickdag)
+
+```{r}
+# remotes::install_github("jrgant/quickdag")
+
+library(quickdag)
+
+edges <- c("G -> X",
+           "X -> Y",
+           "U -> {X Y}")
+
+# DAG
+dag  <- qd_dag(edges)
+dag %>% render_graph()
+```
