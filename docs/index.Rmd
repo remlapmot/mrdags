@@ -451,7 +451,10 @@ Thomas Richardson provides a TikZ/PGF shape library for SWIGs.
 
 * An article describing its use is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/swig-examples.pdf).
 
-To use the tikz chunk engine we again write a template `.tex` file based on the preamble in the article by Richardson.
+To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is as follows.
+```{bash echo=FALSE, comment=''}
+cat tikz-template-swig-tr.tex
+```
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
