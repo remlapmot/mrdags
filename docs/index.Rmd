@@ -172,7 +172,7 @@ mrdag <- dagitty('dag {
   X <- U -> Y
   G [pos="0,0"]
   X [e, pos="1,0"]
-  U [pos="1.5,-1"]
+  U [pos="1.5,-0.4"]
   Y [o, pos="2,0"]
 }')
 
@@ -191,12 +191,12 @@ mrdag <- dagitty('dag {
   X <- U -> Y
   G [pos="0,0"]
   X [e, pos="1,0"]
-  U [pos="1.5,1"]
+  U [pos="1.5,0.4"]
   Y [o, pos="2,0"]
 }')
 
 ggmrdag <- tidy_dagitty(mrdag)
-ggdag(ggmrdag)
+ggdag(ggmrdag) + theme_dag()
 ```
 
 We can position U above X.
@@ -207,7 +207,7 @@ mrdag <- dagitty('dag {
   X <- U -> Y
   G [pos="0,0"]
   X [e, pos="1,0"]
-  U [pos="1,1"]
+  U [pos="1.5,0.4"]
   Y [o, pos="2,0"]
 }')
 
