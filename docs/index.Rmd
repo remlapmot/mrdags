@@ -390,10 +390,6 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 \end{tikzpicture}
 ```
 
-```{r, echo=FALSE, out.width=288, include=FALSE}
-knitr::include_graphics("tikz-single.svg")
-```
-
 ## Multiple genotype DAG using tikz
 
 ```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
