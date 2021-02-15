@@ -395,9 +395,9 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 ```{tikz, fig.ext='png', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
-\node (2) at (1.5,0) {X};
-\node (3) at (3,0) {Y};
-\node (4) at (2.25,1) {U};
+\node (2) at (1.5,0) {$X$};
+\node (3) at (3,0) {$Y$};
+\node (4) at (2.25,1) {$U$};
 \node (5) at (0,0.5) {$G_1$};
 \node (6) at (0,-0.5) {$G_3$};
 \draw[Arrow] (1.east) -- (2.west);
