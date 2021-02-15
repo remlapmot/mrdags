@@ -288,7 +288,7 @@ mrdag %>%
 
 Showing the paths.
 
-```{r, fig.ext = 'svg'}
+```{r, fig.ext = 'png'}
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
