@@ -379,10 +379,10 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 
 ```{tikz, fig.ext='png', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
-\node (1) at (0,0) {G};
-\node (2) at (1.5,0) {X};
-\node (3) at (3,0) {Y};
-\node (4) at (2.25,1) {U};
+\node (1) at (0,0) {$G$};
+\node (2) at (1.5,0) {$X$};
+\node (3) at (3,0) {$Y$};
+\node (4) at (2.25,1) {$U$};
 \draw[Arrow] (1.east) -- (2.west);
 \draw[Arrow] (2.east) -- (3.west);
 \draw[Arrow] (4) -- (2);
