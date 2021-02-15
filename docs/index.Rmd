@@ -454,7 +454,7 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
-```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+```{tikz, fig.ext='png', fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw,fill=white, inner sep=2pt,
