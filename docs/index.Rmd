@@ -14,6 +14,7 @@ output:
 
 ```{r include=FALSE}
 require("Hmisc")
+library(details)
 ```
 `r Hmisc::hidingTOC(levels = 2)`
 
@@ -356,16 +357,18 @@ We will use some of the LaTeX code for drawing DAGs using tikz provided by Elean
 
 In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
 
-    `r ''````{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
-    \begin{tikzpicture}
-    ...
-    \end{tikzpicture}
-    ```
+```` md
+`r ''````{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+\begin{tikzpicture}
+...
+\end{tikzpicture}
+```
+````
 
 Note that I only include the `fig.ext='svg'` chunk option for html output. The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
 
-```{bash echo=FALSE, comment=''}
-cat tikz-template.tex
+```{details, echo=FALSE, details.lang='tex', details.open=TRUE, details.summary = 'Template tex file'}
+"./tikz-template.tex"
 ```
 
 We can now plot our DAGs.
@@ -452,8 +455,8 @@ Thomas Richardson provides a TikZ/PGF shape library for SWIGs.
 * An article describing its use is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/swig-examples.pdf).
 
 To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is as follows.
-```{bash echo=FALSE, comment=''}
-cat tikz-template-swig-tr.tex
+```{details, echo=FALSE, details.lang='tex', details.open=TRUE, details.summary = 'Template tex file'}
+"./tikz-template-swig-tr.tex"
 ```
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
