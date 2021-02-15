@@ -438,7 +438,8 @@ We can also draw the single world intervention graph (SWIG) for the IV model as 
 # SWiG
 swig <- dag %>%
   qd_swig(fixed.nodes = c("G","X"),
-          custom.labels = c("G" = "g", "X" = "x"))
+          custom.labels = c("G" = "g", 
+                            "X" = "x"))
 swig %>% render_graph()
 ```
 
