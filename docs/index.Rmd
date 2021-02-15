@@ -392,7 +392,7 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 
 ## Multiple genotype DAG using tikz
 
-```{tikz, fig.ext='svg', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+```{tikz, fig.ext='png', fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {X};
