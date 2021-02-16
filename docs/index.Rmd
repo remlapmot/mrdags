@@ -8,7 +8,7 @@ output:
     toc_depth: 2
     toc_float:
       collapsed: false
-    dev: png
+    dev: ragg_png
     code_download: true
 ---
 
