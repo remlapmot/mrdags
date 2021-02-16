@@ -106,18 +106,18 @@ DiagrammeR::grViz("
       graph [rankdir=TB, layout=neato]
 
       node [shape=ellipse, height=0.3, width=0.3]
-      U [pos='3,1!']
+      U [label=<<I>U</I>>, pos='3,1!']
 
       node [shape=box, height=0.3, width=0.3]
-      G [pos='0,0!']
-      X [pos='2,0!']
-      Y [pos='4,0!']
+      G [label=<<I>G</I>>, pos='0,0!']
+      X [label=<<I>X</I>>, pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
 
       node [shape=circle, height=0.35, fixedsize=true]
-      Ex [label='&epsilon;@_{X}', pos='2,1!']
-      Ey [label='&epsilon;@_{Y}', pos='4,1!']
+      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
 
-      G -> X [label='&beta;@_{GX}']
+      G -> X [label='<I>&beta;@_{GX}</I>']
       Ex -> X [label=1]
       Ey -> Y [label=1]
       U -> X [label='&beta;@_{UX}']
