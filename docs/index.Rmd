@@ -76,9 +76,9 @@ DiagrammeR::grViz("
       U [label='Confounders', pos='3,1!']
 
       node [shape=box, height=0.3, width=0.3]
-      G1 [label='G@_{1}', pos='0,0.75!']
-      G2 [label='G@_{2}', pos='0,0!']
-      G3 [label='G@_{3}', pos='0,-0.75!']
+      G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
+      G2 [label='<I>G@_{2}</I>', pos='0,0!']
+      G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
       X [label='Phenotype', pos='2,0!']
       Y [label='Outcome', pos='4,0!']
 
