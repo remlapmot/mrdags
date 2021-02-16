@@ -365,7 +365,7 @@ In its LaTeX preamble, this code loads in several tikz libraries. As such for ou
 ```
 ````
 
-The `fig.ext='svg'` chunk option is useful html output but cannot produce italicised characters. The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
+The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
 
 ```{details, echo=FALSE, details.lang='tex', details.open=TRUE, details.summary = 'Template tex file'}
 "./tikz-template.tex"
