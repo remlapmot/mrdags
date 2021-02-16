@@ -120,9 +120,9 @@ DiagrammeR::grViz("
       G -> X [label='<I>&beta;@_{GX}</I>']
       Ex -> X [label=1]
       Ey -> Y [label=1]
-      U -> X [label='&beta;@_{UX}']
-      U -> Y [label='&beta;@_{UY}']
-      X -> Y [label='&beta;@_{XY}']
+      U -> X [label='<I>&beta;@_{UX}</I>']
+      U -> Y [label='<I>&beta;@_{UY}</I>']
+      X -> Y [label='<I>&beta;@_{XY}</I>']
       U -> U [dir='both', headport='n', tailport='n']
       G -> G [dir='both', headport='w', tailport='w']
       }
@@ -138,19 +138,19 @@ DiagrammeR::grViz("
       graph [rankdir=TB, layout=neato]
 
       node [shape=box, height=0.3, width=0.3]
-      G [pos='0,0!']
-      X [pos='2,0!']
-      Y [pos='4,0!']
+      G [label=<<I>G</I>>, pos='0,0!']
+      X [label=<<I>X</I>>, pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
 
       node [shape=circle, height=0.35, fixedsize=true]
-      Ex [label='&epsilon;@_{X}', pos='2,1!']
-      Ey [label='&epsilon;@_{Y}', pos='4,1!']
+      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
 
-      G -> X [label='&beta;@_{GX}']
+      G -> X [label='<I>&beta;@_{GX}</I>']
       Ex -> X [label=1]
       Ey -> Y [label=1]
-      X -> Y [label='&beta;@_{XY}']
-      Ex -> Ey [dir='both', label='&rho;']
+      X -> Y [label='<I>&beta;@_{XY}</I>']
+      Ex -> Ey [dir='both', label=<<I>&rho;</I>>]
       G -> G [dir='both', headport='w', tailport='w']
       }
       ", height = 200)
