@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Linguist language statistics
+/docs/index.Rmd linguist-vendored=false
+*.[Rr]md linguist-detectable
+/docs/pgflibraryshapes.swigs.code.tex linguist-vendored=false
+/docs/tikz-template-swig-tr.tex linguist-vendored=false
+/docs/tikz-template.tex linguist-vendored=false
