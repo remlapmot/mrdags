@@ -1,0 +1,484 @@
+---
+title: "R and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
+author: "Tom Palmer"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+    dev: ragg_png
+    code_download: true
+---
+
+```{r include=FALSE}
+require("Hmisc")
+library(details)
+```
+`r Hmisc::hidingTOC(levels = 2)`
+
+# Introduction
+
+This webpage shows some R code for generating figures for Mendelian randomization analyses.
+
+First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+If you do not already one you will need a LaTeX installation. In R it is easiest to run install TinyTeX as follows.
+```{r, eval=FALSE}
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
+
+# DiagrammeR package
+
+The website for DiagrammeR is here: http://rich-iannone.github.io/DiagrammeR/
+
+
+## Single genotype DAG
+
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB]
+
+      node [shape=ellipse]
+      U [label='Confounders']
+
+      node [shape=box, height=0.3, width=0.3]
+      G [label='Genotype']
+      X [label='Phenotype']
+      Y [label='Outcome']
+
+      { rank = same; G X Y }
+
+      G -> X [minlen=3]
+      U -> X
+      U -> Y
+      X -> Y [minlen=3]
+      }
+      ", height = 200)
+```
+
+## Multiple genotype DAG
+
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=box, height=0.3, width=0.3]
+      G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
+      G2 [label='<I>G@_{2}</I>', pos='0,0!']
+      G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+
+      { rank = same; G2 X Y }
+
+      G1 -> X 
+      G2 -> X 
+      G3 -> X 
+      U -> X
+      U -> Y
+      X -> Y 
+      }
+      ", height = 200)
+```
+
+This could be extended for more genotypes.
+
+## Single genotype path diagram
+
+Explicitly including the confounder, $U$.
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse, height=0.3, width=0.3]
+      U [label=<<I>U</I>>, pos='3,1!']
+
+      node [shape=box, height=0.3, width=0.3]
+      G [label=<<I>G</I>>, pos='0,0!']
+      X [label=<<I>X</I>>, pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
+
+      node [shape=circle, height=0.35, fixedsize=true]
+      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+
+      G -> X [label='<I>&beta;@_{GX}</I>']
+      Ex -> X [label=1]
+      Ey -> Y [label=1]
+      U -> X [label='<I>&beta;@_{UX}</I>']
+      U -> Y [label='<I>&beta;@_{UY}</I>']
+      X -> Y [label='<I>&beta;@_{XY}</I>']
+      U -> U [dir='both', headport='n', tailport='n']
+      G -> G [dir='both', headport='w', tailport='w']
+      }
+      ", height = 200)
+```
+
+Instead drawing correlated error terms between $X$ and $Y$.
+
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=box, height=0.3, width=0.3]
+      G [label=<<I>G</I>>, pos='0,0!']
+      X [label=<<I>X</I>>, pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
+
+      node [shape=circle, height=0.35, fixedsize=true]
+      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+
+      G -> X [label='<I>&beta;@_{GX}</I>']
+      Ex -> X [label=1]
+      Ey -> Y [label=1]
+      X -> Y [label='<I>&beta;@_{XY}</I>']
+      Ex -> Ey [dir='both', label=<<I>&rho;</I>>]
+      G -> G [dir='both', headport='w', tailport='w']
+      }
+      ", height = 200)
+```
+
+# dagitty package
+
+The website for DAGitty is here http://www.dagitty.net/
+
+```{r, warning=FALSE, message=FALSE}
+library(dagitty)
+```
+
+## Using dot syntax
+
+The DAG for a single genotype.
+```{r}
+mrdag <- dagitty('dag {
+  G -> X -> Y
+  X <- U -> Y
+  G [pos="0,0"]
+  X [e, pos="1,0"]
+  U [pos="1.5,-0.4"]
+  Y [o, pos="2,0"]
+}')
+
+plot(mrdag)
+```
+
+## Using ggdag
+
+```{r, warning=FALSE, message=FALSE}
+library(ggdag)
+```
+
+```{r}
+mrdag <- dagitty('dag {
+  G -> X -> Y
+  X <- U -> Y
+  G [pos="0,0"]
+  X [e, pos="1,0"]
+  U [pos="1.5,0.4"]
+  Y [o, pos="2,0"]
+}')
+
+ggmrdag <- tidy_dagitty(mrdag)
+ggdag(ggmrdag) + theme_dag()
+```
+
+We can position U above X.
+
+```{r}
+mrdag <- dagitty('dag {
+  G -> X -> Y
+  X <- U -> Y
+  G [pos="0,0"]
+  X [e, pos="1,0"]
+  U [pos="1.5,0.4"]
+  Y [o, pos="2,0"]
+}')
+
+ggmrdag <- tidy_dagitty(mrdag)
+ggdag(ggmrdag) + theme_dag()
+```
+
+This can be labelled as follows.
+
+```{r}
+mrdag <- mrdag %>% 
+  dag_label(
+    labels = c(
+      "X" = "Exposure", 
+      "Y" = "Outcome", 
+      "G" = "Genotype",
+      "U" = "Confounders"))
+ggdag(mrdag,  use_labels = "label") + theme_dag()
+```
+
+Dagitty can identify the instrumental variable on the DAG.
+
+```{r}
+mrdag %>% ggdag_instrumental() + theme_dag()
+```
+
+It correctly identifies the genotype, G, as the instrumental variable.
+
+## Using R model type syntax in ggdag
+
+```{r}
+coords <- list(x = c(
+  G = 0,
+  X = 1,
+  Y = 2,
+  U = 1.5
+),
+y = c(
+  G = 0,
+  X = 0,
+  Y = 0,
+  U = 1
+))
+
+mrdag <- dagify(
+  X ~ G + U,
+  Y ~ X + U,
+  labels = c(
+    "G" = "Genotype",
+    "X" = "Exposure",
+    "Y" = "Outcome",
+    "U" = "Confounders"
+  ),
+  exposure = "X",
+  outcome = "Y",
+  coords = coords
+)
+
+ggdag(mrdag, use_labels = "label") + theme_dag()
+```
+
+Plotting directly with ggplot2 functions.
+
+```{r}
+mrdag %>%
+  ggplot(aes(
+    x = x,
+    y = y,
+    xend = xend,
+    yend = yend
+  )) +
+  geom_dag_point() +
+  geom_dag_edges() +
+  geom_dag_text() +
+  theme_dag()
+```
+
+Showing the paths.
+
+```{r}
+dagify(Y ~ X + U,
+       X ~ U + G,
+       exposure = "X",
+       outcome = "Y") %>%
+ggdag_paths() + theme_dag()
+```
+
+Adjustment set for the effect of $X$ on $Y$.  
+
+```{r}  
+dagify(Y ~ X + U,
+       X ~ U + G,
+       exposure = "X",
+       outcome = "Y", 
+       coords = coords) %>%
+  ggdag_adjustment_set() + theme_dag()
+```  
+
+This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
+
+## Multiple genotype DAG
+
+```{r}
+coords2 <- list(x = c(
+  G1 = 0,
+  G2 = 0,
+  G3 = 0,
+  X = 1,
+  Y = 2,
+  U = 1.5
+),
+y = c(
+  G1 = 0.5,
+  G2 = 0,
+  G3 = -0.5,
+  X = 0,
+  Y = 0,
+  U = 1
+))
+
+
+mrdag <- dagify(
+  X ~ G1,
+  X ~ G2,
+  X ~ G3,
+  Y ~ X,
+  X ~ U,
+  Y ~ U,
+  exposure = "X",
+  outcome = "Y",
+  coords = coords2
+)
+
+ggdag(mrdag) + theme_dag()
+```
+
+This could be extended for more genotypes.
+
+# Eleanor Murray's TikZ diagrams using the tikz code chunk engine
+
+I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`. 
+
+Tikz is a package for LaTeX and so pdf is its natural output. So far I have not been able to include these figures in either `html_notebook` or `word_document` output formats. I suspect that the images need conversion to png files for these to work under rmarkdown.
+
+We will use some of the LaTeX code for drawing DAGs using tikz provided by Eleanor Murray [here](https://github.com/eleanormurray/causalgraphs_latex).
+
+In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
+
+```` md
+`r ''````{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+\begin{tikzpicture}
+...
+\end{tikzpicture}
+```
+````
+
+The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
+
+```{details, echo=FALSE, details.lang='tex', details.open=TRUE, details.summary = 'Template tex file'}
+"./tikz-template.tex"
+```
+
+We can now plot our DAGs.
+
+Aside: I should note that I could not get this code to run on my MacBook. This is because by default the `dvisvg` executable on MacOS appears to be missing `libgs` support. It is possible to compile `dvisvg` from source including `libgs` support but I did not try this.
+
+## Single genotype DAG using tikz
+
+```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+\begin{tikzpicture}
+\node (1) at (0,0) {$G$};
+\node (2) at (1.5,0) {$X$};
+\node (3) at (3,0) {$Y$};
+\node (4) at (2.25,1) {$U$};
+\draw[Arrow] (1.east) -- (2.west);
+\draw[Arrow] (2.east) -- (3.west);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\end{tikzpicture}
+```
+
+## Multiple genotype DAG using tikz
+
+```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_2$};
+\node (2) at (1.5,0) {$X$};
+\node (3) at (3,0) {$Y$};
+\node (4) at (2.25,1) {$U$};
+\node (5) at (0,0.5) {$G_1$};
+\node (6) at (0,-0.5) {$G_3$};
+\draw[Arrow] (1.east) -- (2.west);
+\draw[Arrow] (2.east) -- (3.west);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (2);
+\draw[Arrow] (6) -- (2);
+\end{tikzpicture}
+```
+
+Again this could be extended for more genotypes.
+
+# quickdag package
+
+We can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
+
+```{r}
+# remotes::install_github("jrgant/quickdag")
+
+library(quickdag)
+
+edges <- c("G -> X",
+           "X -> Y",
+           "U -> {X Y}")
+
+# DAG
+dag  <- qd_dag(edges)
+dag %>% render_graph()
+```
+
+We can also draw the single world intervention graph (SWIG) for the IV model as follow.
+```{r}
+# SWiG
+swig <- dag %>%
+  qd_swig(fixed.nodes = c("G","X"),
+          custom.labels = c("G" = "g", 
+                            "X" = "x"))
+swig %>% render_graph()
+```
+
+# Thomas Richardson's TikZ code for SWIGs
+
+Thomas Richardson provides a TikZ/PGF shape library for SWIGs.
+
+* The `pgflibraryshapes.swigs.code.tex` file is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/pgflibraryshapes.swigs.code.tex). Save it in your working directory.
+
+* An article describing its use is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/swig-examples.pdf).
+
+To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is as follows.
+```{details, echo=FALSE, details.lang='tex', details.open=TRUE, details.summary = 'Template tex file'}
+"./tikz-template-swig-tr.tex"
+```
+
+We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
+
+```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+\begin{tikzpicture}
+\tikzset{line width=1.5pt, outer sep=0pt,
+  ell/.style={draw,fill=white, inner sep=2pt,
+  line width=1.5pt},
+  swig vsplit={gap=5pt, inner line width right=0.5pt},
+  swig hsplit={gap=5pt, inner line width lower=0.5pt}};
+
+\node[name=G,shape=swig vsplit]{
+\nodepart{left}{$G$}
+\nodepart{right}{$g$}};
+
+\node[name=X, right=10mm of G,
+shape=swig hsplit]{
+\nodepart{upper}{$X^g$}
+\nodepart{lower}{$x$}};
+
+\node[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{$U$};
+
+\node[name=Y, ell, shape=ellipse, right=10mm of X]{$Y^x$};
+
+\draw[->, line width=1.5pt,>=stealth]
+  (G) edge[out=360, in=170] (X)
+  (U) edge (X)
+  (U) edge (Y)
+  (X) to[out=330, in=180] (Y);
+\end{tikzpicture}
+```

@@ -1,0 +1,855 @@
+%%%%
+%%% swig  shapes
+%%% code for creating multi-part nodes corresponding to split ellipses with a gap
+%%%
+%%% swig hsplit  : ellipse split horizontally
+%%% swig vsplit  : ellipse split vertically
+%%%
+%%%
+%%% Modified from the file: 
+%%% pgflibraryshapes.multipart.code.tex (Copyright 2007 by Till Tantau and Mark Wibrow)
+%%% 
+%%% Copyright 2018 Thomas S. Richardson
+
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/generic/pgf/licenses/LICENSE for more details
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% swig horizontal split
+%%% This is a multi-part node consisting of an ellipse split horizontally into 
+%%% upper and lower parts
+
+%%Very useful code allows groups of options to be set as: [...  shape=swig hsplit, swig hsplit={ .... }]
+\pgfkeys{/tikz/swig hsplit/.code={%
+              \pgfkeys{/tikz/swig hsplit/.cd,#1}%  
+               }}%
+%\pgfkeys{/tikz/swig hsplit/color/.initial = black}%
+\pgfkeys{/tikz/swig hsplit/line color upper/.initial = \pgfutil@empty}%
+\pgfkeys{/tikz/swig hsplit/line color lower/.initial = \pgfutil@empty}%
+\pgfkeys{/tikz/swig hsplit/fill color upper/.initial = \pgfutil@empty}%
+\pgfkeys{/tikz/swig hsplit/fill color lower/.initial = \pgfutil@empty}%
+%\pgfkeys{/tikz/swig hsplit/gap/.initial = \pgfutil@empty}%
+\pgfkeys{/tikz/swig hsplit/gap/.initial = 1.0em}
+\pgfkeys{/tikz/swig hsplit/line width upper/.initial = \the\pgflinewidth}%
+\pgfkeys{/tikz/swig hsplit/line width lower/.initial = \the\pgflinewidth}%
+\pgfkeys{/tikz/swig hsplit/inner line width upper/.initial = 0pt}%
+\pgfkeys{/tikz/swig hsplit/inner line width lower/.initial = 0pt}%
+%\pgfkeys{/pgf/ellipse splitb/dash/.initial = {{{0.5cm}{0.5cm}{0.1cm}{0.2cm}}{0cm}}
+
+\newbox\pgfnodepartlowerbox  %%Associated with anchor "upper"; see pgfmanual3.1, page 1035
+\newbox\pgfnodepartupperbox  %%Associated with anchor "lower"; see pgfmanual3.1, page 1035
+%%% Every node must have a center anchor
+%%% See pgf manual 3.1; p.1036
+
+\pgfdeclareshape{swig hsplit}{%
+	\nodeparts{upper,lower}%
+	\savedanchor\upper{%
+	\pgf@x0pt\pgf@y0pt\relax%
+	}%
+%https://tex.stackexchange.com/questions/21555/using-patterns-inside-pgf-shapes
+	\savedmacro\uppercolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig hsplit/line color upper}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@strokecolor\pgfutil@empty%if not defined even with draw=
+	                  \def\uppercolor{.}%
+	                \else%
+	                    \def\uppercolor{\tikz@strokecolor}% if defined with draw=
+	                \fi%
+	              \else%
+	               \def\uppercolor{\expandafter\pgfkeysvalueof{/tikz/swig hsplit/line color upper}}%if defined
+	              \fi} %%%Important: adding { } around the last def statement would break this
+	  \savedmacro\lowercolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig hsplit/line color lower}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@strokecolor\pgfutil@empty%if not defined even with draw=
+	                  \def\lowercolor{.}%
+	                \else%
+	                    \def\lowercolor{\tikz@strokecolor}% if defined with draw=
+	                \fi%
+	              \else%
+	               \def\lowercolor{\expandafter\pgfkeysvalueof{/tikz/swig hsplit/line color lower}}%if defined
+	              \fi} %%%Important: adding { } around the last def statement would break this
+%	
+\savedmacro\upperfillcolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig hsplit/fill color upper}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@fillcolor\pgfutil@empty%if not defined even with fill=
+	                  \def\upperfillcolor{white}%
+	                \else%
+	                    \def\upperfillcolor{\tikz@fillcolor}% if defined with fill=
+	                \fi%
+	              \else%
+	               \def\upperfillcolor{\expandafter\pgfkeysvalueof{/tikz/swig hsplit/fill color upper}}%if defined
+	              \fi}%
+\savedmacro\lowerfillcolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig hsplit/fill color lower}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@fillcolor\pgfutil@empty%if not defined even with fill=
+	                  \def\lowerfillcolor{white}%
+	                \else%
+	                    \def\lowerfillcolor{\tikz@fillcolor}% if defined with fill=
+	                \fi%
+	              \else%
+	               \def\lowerfillcolor{\expandafter\pgfkeysvalueof{/tikz/swig hsplit/fill color lower}}%if defined
+	              \fi}%
+	%
+        \savedanchor\linewidthupper{%
+       \pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%
+       \pgfmathsetlength\pgf@x{0pt}%
+        }%
+         \savedanchor\linewidthlower{%
+       \pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%
+       \pgfmathsetlength\pgf@x{0pt}%
+        }%
+	\savedanchor\gap{% This is a coordinate, but \pgf@x is redundant
+	                   \pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig hsplit/gap}}%
+%%%%%%%% 
+	\pgfmathsetlength\pgf@x{0pt}%
+	}
+	\savedanchor\radii{%
+		\pgfmathsetlength\pgf@x{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/pgf/inner ysep}}%
+		\pgf@y2.0\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%Added to allow for different widths
+		\pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%% of lines upper and lower
+		\ifdim\pgf@yb>\pgf@ya%
+			\pgf@ya\pgf@yb%
+		\fi%
+		\advance\pgf@y.5\pgf@ya% 
+		\pgf@xa.5\wd\pgfnodepartupperbox%
+		\pgf@xb.5\wd\pgfnodepartlowerbox%
+		\advance\pgf@xa\pgf@x%
+		\advance\pgf@xb\pgf@x%
+		\pgf@ya\ht\pgfnodepartupperbox%
+		\advance\pgf@ya\dp\pgfnodepartupperbox%
+		\pgf@yb\ht\pgfnodepartlowerbox%
+		\advance\pgf@yb\dp\pgfnodepartlowerbox%
+		\advance\pgf@ya\pgf@y%
+		\advance\pgf@yb\pgf@y%
+		\ifdim\pgf@xa>\pgf@xb%
+			\pgf@x1.414213\pgf@xa%
+		\else%
+			\pgf@x1.414213\pgf@xb%
+		\fi%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y1.414213\pgf@ya%
+		\else%
+			\pgf@y1.414213\pgf@yb%
+		\fi%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/minimum width}}%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/pgf/minimum height}}%
+		\ifdim\pgf@x<.5\pgf@xa%
+			\pgf@x.5\pgf@xa%
+		\fi%
+		\ifdim\pgf@y<.5\pgf@ya%
+			\pgf@y.5\pgf@ya%
+		\fi%
+		\pgfmathaddtolength\pgf@x{\pgfkeysvalueof{/pgf/outer xsep}}%
+		\pgfmathaddtolength\pgf@y{\pgfkeysvalueof{/pgf/outer ysep}}%
+	}
+	\savedanchor\lower{%
+		\pgf@x-.5\wd\pgfnodepartlowerbox%
+		\advance\pgf@x.5\wd\pgfnodepartupperbox%
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/pgf/inner ysep}}%
+		\pgf@y-2.0\pgf@y%
+		%\advance\pgf@y-\pgflinewidth%
+		\advance\pgf@y-\dp\pgfnodepartupperbox%
+		\advance\pgf@y-\ht\pgfnodepartlowerbox%
+		%%%%%%
+	                   \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/gap}}%
+		 %%%%%%%
+		\advance\pgf@y-\pgf@ya%	%% Added by TSR for gap
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%%% 
+		\advance\pgf@y-0.5\pgf@ya%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%%% 
+		\advance\pgf@y-0.5\pgf@ya%
+	}
+	\savedanchor\uppercenterpoint{% NOTE: *Not* the same as anchor "upper center" (this saved anchor is in the middle of the line)
+		\pgf@x.5\wd\pgfnodepartupperbox%
+		\pgfmathsetlength\pgf@y{-\pgfkeysvalueof{/pgf/inner ysep}}%
+		\advance\pgf@y-\dp\pgfnodepartupperbox%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%%%
+		\advance\pgf@y-.5\pgf@ya%
+	}%
+\savedanchor{\greaterlinewidth}{%since seemingly hard to include conditional calculations in anchors (!)
+	\pgfmathsetlength{\pgf@xa}{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%
+	\pgfmathsetlength{\pgf@x}{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%% 
+	\ifdim\pgf@xa>\pgf@x%
+         \pgf@x\pgf@xa%
+         \fi%
+         \pgf@y0pt%
+}%
+	\savedanchor\basepoint{%
+		\pgf@x.5\wd\pgfnodepartupperbox%
+		\pgf@y0pt\relax%
+	}%
+	\savedanchor\gapcenter{%
+	\pgf@x.5\wd\pgfnodepartupperbox%
+	\pgfmathsetlength\pgf@y{-\pgfkeysvalueof{/pgf/inner ysep}}%
+	\advance\pgf@y-\dp\pgfnodepartupperbox%
+	\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%%%
+	\advance\pgf@y-.75\pgf@ya%
+	\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%%%
+	\advance\pgf@y.25\pgf@ya%
+	%%%%%%%
+	                   \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/gap}}%
+	%%%%%%%
+	\advance\pgf@y-.5\pgf@ya%
+	\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%Added to allow for different widths
+		\pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%% of lines upper and lower
+	}%
+	\savedanchor\basepointlower{%
+		\pgf@x.5\wd\pgfnodepartupperbox%
+		%
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/pgf/inner ysep}}%
+		\pgf@y-2.0\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%%% 
+		\advance\pgf@y-0.5\pgf@ya%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%%% 
+		\advance\pgf@y-0.5\pgf@ya%
+		\advance\pgf@y-\dp\pgfnodepartupperbox%
+		\advance\pgf@y-\ht\pgfnodepartlowerbox%
+		%%%%%%%%%
+	                   \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/gap}}%
+		%%%%%%%%%%
+		\advance\pgf@y-\pgf@ya%	%% Added by TSR for gap
+	}%
+	\savedanchor\midpoint{%
+		\pgf@x.5\wd\pgfnodepartupperbox%
+		\pgfmathsetlength\pgf@y{.5ex}%
+	}%
+	\savedanchor\midpointlower{%
+		\pgf@x.5\wd\pgfnodepartupperbox% Note: Origin is SW corner of upper text box
+		%
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/pgf/inner ysep}}%
+		\pgf@y-2.0\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%%% 
+		\advance\pgf@y-0.5\pgf@ya%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}%%% 
+		\advance\pgf@y-0.5\pgf@ya%
+		\advance\pgf@y-\dp\pgfnodepartupperbox%
+		\advance\pgf@y-\ht\pgfnodepartlowerbox%
+		%%%%%%%%%
+	                   \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig hsplit/gap}}%
+		%%%%%%%%%%
+		\advance\pgf@y-\pgf@ya%	
+		\pgfmathsetlength\pgf@ya{.5ex}%
+		\advance\pgf@y\pgf@ya%
+	}%
+	\anchor{upper center}{\linewidthupper\pgf@ya-.5\pgf@y\uppercenterpoint\advance\pgf@y\pgf@ya}
+	%%% Required see PGF Manual p.1036
+	\anchor{center}{\gapcenter}
+	\anchor{lower center}{\linewidthlower\pgf@ya.5\pgf@y\gap\advance\pgf@ya-\pgf@y\uppercenterpoint\advance\pgf@y\pgf@ya}%
+	%\pgfpointadd{\uppercenterpoint}{\gap\pgf@y-\pgf@y}}
+	\anchor{lower}{\lower}
+	\anchor{upper}{\upper}
+	\anchor{text}{\upper}
+	\anchor{lower base}{\basepointlower}
+	\anchor{lower mid}{\midpointlower}
+	\anchor{mid}{\midpoint}
+	\anchor{mid east}{\greaterlinewidth\pgf@xa.5\pgf@x\radii\advance\pgf@xa\pgf@x\midpoint\advance\pgf@x\pgf@xa}
+	\anchor{mid west}{\greaterlinewidth\pgf@xa.5\pgf@x\radii\advance\pgf@xa\pgf@x\midpoint\advance\pgf@x-\pgf@xa}
+	\anchor{upper base}{\basepoint}
+	\anchor{base}{\basepoint}
+	\anchor{base east}{\greaterlinewidth\pgf@xa.5\pgf@x\radii%call \radii;  this sets pgf@x and pgf@y
+				\advance\pgf@xa\pgf@x%store pgf@x into pgf@xa
+				\basepoint %call \basepoint; this sets pgf@x and pgf@y
+	\advance\pgf@x\pgf@xa}  %  Add \pgf@xa to contents of \pgf@x (!!)
+%%															
+	\anchor{base west}{\greaterlinewidth\pgf@xa.5\pgf@x\radii\advance\pgf@xa\pgf@x\basepoint\advance\pgf@x-\pgf@xa}
+	\anchor{north}{\linewidthupper\pgf@ya.5\pgf@y\radii\advance\pgf@ya\pgf@y\uppercenterpoint\advance\pgf@y\pgf@ya}%
+	%\pgfpointadd{\uppercenterpoint}{\radii\pgf@x0pt}}%
+	\anchor{south}{\linewidthlower\pgf@ya-.5\pgf@y\gap\advance\pgf@ya-\pgf@y\radii\advance\pgf@ya-\pgf@y\uppercenterpoint\advance\pgf@y\pgf@ya}%
+	%\pgfpointadd{\uppercenterpoint}{\radii\pgf@ya-\pgf@y\gap\pgf@y-\pgf@y\advance\pgf@y\pgf@ya\pgf@x0pt}}%
+	\anchor{west}{\pgfpointadd{\gapcenter}{\greaterlinewidth%
+									\pgf@xa-.5\pgf@x%
+									\radii%
+									\pgf@x-\pgf@x%
+									\advance\pgf@x\pgf@xa%
+									\pgf@y0pt}}%
+	\anchor{east}{\pgfpointadd{\gapcenter}{\greaterlinewidth%
+									\pgf@xa.5\pgf@x%
+									\radii%
+									\advance\pgf@x\pgf@xa%
+									\pgf@y0pt}}%
+	\anchor{upper east}{\pgfpointadd{\uppercenterpoint}{\linewidthupper\pgf@xa\pgf@y\radii\pgf@y0pt\advance\pgf@x.5\pgf@xa}}%%% %
+	\anchor{upper west}{\pgfpointadd{\uppercenterpoint}{\linewidthupper\pgf@xa\pgf@y\radii\pgf@x-\pgf@x\pgf@y0pt\advance\pgf@x-0.5\pgf@xa}}%	
+	\anchor{lower west}{\pgfpointadd{\uppercenterpoint}{\linewidthlower\pgf@xa\pgf@y\radii\pgf@xb-\pgf@x\advance\pgf@xb-0.5\pgf@xa\gap\pgf@y-\pgf@y\pgf@x\pgf@xb}}%
+	\anchor{lower east}{\pgfpointadd{\uppercenterpoint}{\linewidthlower\pgf@xa\pgf@y\radii\pgf@xb\pgf@x\advance\pgf@xb0.5\pgf@xa\gap\pgf@y-\pgf@y\pgf@x\pgf@xb}}%
+	\anchor{north west}{\pgfpointadd{\uppercenterpoint}{\linewidthupper\pgf@ya\pgf@y%
+	                                 \radii\advance\pgf@x.5\pgf@ya\advance\pgf@y.5\pgf@ya%
+	                                 \pgf@x-0.707106\pgf@x\pgf@y0.707106\pgf@y}}%
+	\anchor{south west}{\pgfpointadd{\uppercenterpoint}{\linewidthlower\pgf@ya\pgf@y%
+					\radii\advance\pgf@x.5\pgf@ya\advance\pgf@y.5\pgf@ya%
+					\pgf@xa-0.707106\pgf@x\pgf@ya-0.707106\pgf@y%
+					\gap\pgf@y-\pgf@y\advance\pgf@y\pgf@ya\pgf@x\pgf@xa}}%
+	\anchor{north east}{\pgfpointadd{\uppercenterpoint}{\linewidthupper\pgf@ya\pgf@y%
+					\radii\advance\pgf@x.5\pgf@ya\advance\pgf@y.5\pgf@ya%
+                                   	\pgf@x0.707106\pgf@x\pgf@y0.707106\pgf@y}}%
+	\anchor{south east}{\pgfpointadd{\uppercenterpoint}{\linewidthlower\pgf@ya\pgf@y%
+					\radii\advance\pgf@x.5\pgf@ya\advance\pgf@y.5\pgf@ya%
+					\pgf@xa0.707106\pgf@x\pgf@ya-0.707106\pgf@y%
+					\gap\pgf@y-\pgf@y\advance\pgf@y\pgf@ya\pgf@x\pgf@xa}}%
+%%%%%%%%% START OF DRAWING HSPLIT
+%%%% Upper
+\beforebackgroundpath{%
+        \edef\defaultpgflinewidth{\the\pgflinewidth}% store default line width
+	 \pgfsetstrokecolor{\uppercolor}%
+	  \pgfsetfillcolor{\upperfillcolor}%
+	         \expandafter\pgfsetlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig hsplit/line width upper}}%
+	          \expandafter\pgfsetinnerlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig hsplit/inner line width upper}}%
+		\radii%
+		\pgfmathaddtolength\pgf@x{-\pgfkeysvalueof{/pgf/outer xsep}}%
+		\pgfmathaddtolength\pgf@y{-\pgfkeysvalueof{/pgf/outer ysep}}%
+		\pgfutil@tempdima\pgf@x%
+		\pgfutil@tempdimb\pgf@y%
+		\pgfpathmoveto{\uppercenterpoint\advance\pgf@x-\pgfutil@tempdima}%
+		\pgfpatharcaxes{180}{0}{\pgfpoint{\the\pgfutil@tempdima}{0pt}}{\pgfpoint{0pt}{\the\pgfutil@tempdimb}}%
+		\pgfpathclose
+		\pgfusepath{stroke,fill}
+%%%%%% Lower
+  \pgfsetlinewidth\defaultpgflinewidth% Reset \the\pgflinewidth to default value (in case changed while drawing upper)
+   % \expandafter\pgfsetstrokecolor\expandafter{\pgfkeysvalueof{/tikz/swig hsplit/line color lower}}% old approach
+  \pgfsetstrokecolor{\lowercolor}%
+    \pgfsetfillcolor{\lowerfillcolor}%
+                  \expandafter\pgfsetlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig hsplit/line width lower}}% original
+                    \expandafter\pgfsetinnerlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig hsplit/inner line width lower}}%
+               	\radii%
+		\pgfmathaddtolength\pgf@x{-\pgfkeysvalueof{/pgf/outer xsep}}%
+		\pgfmathaddtolength\pgf@y{-\pgfkeysvalueof{/pgf/outer ysep}}%
+		\pgfutil@tempdima\pgf@x%
+		\pgfutil@tempdimb\pgf@y%
+		\pgfpathmoveto{\uppercenterpoint\pgf@xa\pgf@x\pgf@ya\pgf@y\advance\pgf@xa\pgfutil@tempdima%
+		\gap\advance\pgf@ya-\pgf@y%
+		\pgf@x\pgf@xa\pgf@y\pgf@ya%
+		}%
+		\pgfpatharcaxes{180}{360}{\pgfpoint{-\the\pgfutil@tempdima}{0pt}}{\pgfpoint{0pt}{\the\pgfutil@tempdimb}}%
+		\pgfpathclose%
+		\pgfusepath{stroke,fill}%
+	}
+	\anchorborder{%
+  	\pgfextract@process\externalpoint{}%  %https://tex.stackexchange.com/questions/255492/storing-a-pgfpoint-for-repeated-use
+	%%%%%   This stores the current \pgf@x and \pgf@y in the macro \externalpoint
+	\linewidthupper%
+	\pgf@ya\pgf@y%
+  		\radii%
+	\advance\pgf@x.5\pgf@ya% add half-line width to x radius
+	\advance\pgf@y.5\pgf@ya% add line width to y radius
+  	\edef\pgf@marshal{%
+   		\noexpand\pgfpointadd{\noexpand\pgfpointborderellipse{\noexpand\externalpoint}%
+   			{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}}{\noexpand\uppercenterpoint}%
+   	}%  
+   	\pgf@marshal%
+	\pgf@xa\pgf@x% store the border point
+	\pgf@ya\pgf@y% store the border point
+	\uppercenterpoint%
+	\pgf@yb\pgf@y% store center for upper ellipse
+	\pgf@xb\pgf@x% store center for upper ellipse
+	\ifdim\pgf@ya<\pgf@yb% if the borderpoint is below center of upper ellipse
+% if the border point is below bottom of upper ellipse start over 
+%	                                         %the lower ellipse start over (since lower ellipse may have different thickness)
+		\linewidthlower%
+			\pgf@ya\pgf@y%
+  			\radii%
+			\advance\pgf@x.5\pgf@ya% add half-line width to x radius
+			\advance\pgf@y.5\pgf@ya% add half line width to y radius
+  			\edef\pgf@marshal{%
+   			\noexpand\pgfpointadd{\noexpand\pgfpointborderellipse{\noexpand\externalpoint}%
+   			{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}}{\noexpand\uppercenterpoint}%
+   			}%  
+   			\pgf@marshal%
+			\pgf@xa\pgf@x% store the border point
+			\pgf@ya\pgf@y% store the border point
+			\gap%
+			\advance\pgf@ya-\pgf@y%  move y coord of border point down
+	\fi%
+	\pgf@x\pgf@xa% 
+	\pgf@y\pgf@ya% 
+  }%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% swig vertical split
+%%% This is a multi-part node consisting of an ellipse split vertically into 
+%%% left and right parts
+%%% The text boxes adjust to the size of the text contained in them
+%%% (The split may be off-center in order to keep the ellipse smaller.)
+
+
+%%%%% START OF V-SPLIT SWIG
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Very useful code allows groups of options to be set as: [...  shape=swig vsplit, swig vsplit={ .... }]
+\pgfkeys{/tikz/swig vsplit/.code={%
+              \pgfkeys{/tikz/swig vsplit/.cd,#1}%  
+               }}%
+\pgfkeys{/tikz/swig vsplit/line color left/.initial = \pgfutil@empty}%    
+\pgfkeys{/tikz/swig vsplit/line color right/.initial = \pgfutil@empty}%
+\pgfkeys{/tikz/swig vsplit/fill color left/.initial = \pgfutil@empty}%    
+\pgfkeys{/tikz/swig vsplit/fill color right/.initial = \pgfutil@empty}%
+\pgfkeys{/tikz/swig vsplit/gap/.initial = 0.8em}%
+\pgfkeys{/tikz/swig vsplit/line width left/.initial = \the\pgflinewidth}%
+\pgfkeys{/tikz/swig vsplit/line width right/.initial = \the\pgflinewidth}%
+\pgfkeys{/tikz/swig vsplit/inner line width left/.initial = 0pt}%
+\pgfkeys{/tikz/swig vsplit/inner line width right/.initial = 0pt}%
+%\pgfkeys{/tikz/swig vsplit/prop/.initial = 0.5}%  
+
+\newbox\pgfnodepartleftbox  %%Associated with anchor "left"; see pgfmanual3.1, page 1035
+\newbox\pgfnodepartrightbox %%Associated with anchor "right"; see pgfmanual3.1, page 1035
+
+
+%%%
+%%%
+%% Rectangle "box" contents (with gap=0)
+%% 0.5 inner xsep + lefttextbox + inner xsep + 0.5 linewidthleft + gap + 0.5 linewidthright + righttextbox + 0.5 innerxsep
+%% origin is at left side of lefttextbox
+%%%
+\pgfdeclareshape{swig vsplit}{%
+	\nodeparts{left,right}
+	\savedmacro\leftcolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig vsplit/line color left}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@strokecolor\pgfutil@empty%if not defined even with draw=
+	                  \def\leftcolor{.}%
+	                \else%
+	                    \def\leftcolor{\tikz@strokecolor}% if defined with draw=
+	                \fi%
+	              \else%
+	               \def\leftcolor{\expandafter\pgfkeysvalueof{/tikz/swig vsplit/line color left}}%if defined
+	              \fi} %%%Important: adding { } around the last def statement would break this
+	  \savedmacro\rightcolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig vsplit/line color right}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@strokecolor\pgfutil@empty%if not defined even with draw=
+	                  \def\rightcolor{.}%
+	                \else%
+	                    \def\rightcolor{\tikz@strokecolor}% if defined with draw=
+	                \fi%
+	              \else%
+	               \def\rightcolor{\expandafter\pgfkeysvalueof{/tikz/swig vsplit/line color right}}%if defined
+	              \fi} %%%Important: adding { } around the last def statement would break this
+%	
+\savedmacro\leftfillcolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig vsplit/fill color left}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@fillcolor\pgfutil@empty%if not defined even with draw=
+	                  \def\leftfillcolor{white}%
+	                \else%
+	                    \def\leftfillcolor{\tikz@fillcolor}% if defined with draw=
+	                \fi%
+	              \else%
+	               \def\leftfillcolor{\expandafter\pgfkeysvalueof{/tikz/swig vsplit/fill color left}}%if defined
+	              \fi} %%%Important: adding { } around the last def statement would break this
+	  \savedmacro\rightfillcolor{%
+	       \edef\tikz@temp{\pgfkeysvalueof{/tikz/swig vsplit/fill color right}}%
+	          \ifx\tikz@temp\pgfutil@empty\relax% 
+	                  \ifx\tikz@fillcolor\pgfutil@empty%if not defined even with draw=
+	                  \def\rightfillcolor{white}%
+	                \else%
+	                    \def\rightfillcolor{\tikz@fillcolor}% if defined with draw=
+	                \fi%
+	              \else%
+	               \def\rightfillcolor{\expandafter\pgfkeysvalueof{/tikz/swig vsplit/fill color right}}%if defined
+	              \fi} %%%Important: adding { } around the last def statement would break this
+%	
+\savedanchor\gap{% This is a coordinate, but \pgf@y is redundant
+	\pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/swig vsplit/gap}}%
+	\pgfmathsetlength\pgf@y{0pt}%
+	}%
+\savedanchor\linewidthleft{% This is a coordinate, but \pgf@x is redundant
+       \pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%
+       \pgfmathsetlength\pgf@x{0pt}%
+        }%
+\savedanchor\linewidthright{% This is a coordinate, but \pgf@x is redundant
+       \pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%
+       \pgfmathsetlength\pgf@x{0pt}%
+        }%
+\savedmacro\vsplitangle{%
+		\pgf@xa\wd\pgfnodepartleftbox%
+		\pgf@xb\wd\pgfnodepartrightbox%
+		\pgfmathsetlength\pgf@x{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@xa1.5\pgf@x% inner xsep only added left of gap
+		\advance\pgf@xb1.5\pgf@x% inner xsep only added right of gap
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%Added to allow for different widths
+		\pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%% of lines upper and lower
+		\advance\pgf@xa.5\pgf@ya% Add width of line for left part (strictly, 2x half for each side of left half)
+		\advance\pgf@xb.5\pgf@yb% Add width of line for left part (strictly 2x half for each side of right half)
+	\pgfmathsetmacro{\vsplitangle}{acos((\pgf@xa-\pgf@xb)/(1.414213*(\pgf@xa+\pgf@xb)))}%
+	%\pgfmathsetlength\pgf@x{0pt}%
+	%\pgfmathsetlength\pgf@y{0pt}%
+	}%
+\savedanchor\radii{%
+		\pgfmathsetlength\pgf@x{\pgfkeysvalueof{/pgf/inner xsep}}%
+		%\pgf@x2.0\pgf@x% outer x sep added to both halves
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%Added to allow for different widths
+		\pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%% of lines left and right
+		\pgf@xa\wd\pgfnodepartleftbox%
+		\pgf@xb\wd\pgfnodepartrightbox%
+		\advance\pgf@xa1.5\pgf@x% add inner x sep to left half;
+		\advance\pgf@xa.5\pgf@ya% Add half width of line for left part 
+		\advance\pgf@xb1.5\pgf@x% add inner x sep to right half
+		\advance\pgf@xb.5\pgf@yb% Add half width of line for right part 
+		\advance\pgf@xb\pgf@xa% add left and right box lengths together
+		\pgf@xa.5\pgf@xb% divide by 2
+		\pgf@x1.414213\pgf@xa% compute radius (based on intersect of rectangle box and ellipse at 45 degrees
+		%%%%%%%
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/pgf/inner ysep}}%
+%%%%
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb\dp\pgfnodepartrightbox%
+		\advance\pgf@ya\pgf@y%
+		\advance\pgf@yb\pgf@y%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y1.414213\pgf@ya% compute 2x radius
+		\else%
+			\pgf@y1.414213\pgf@yb% compute 2x radius
+		\fi%
+		\pgf@y.5\pgf@y % divide by 2
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/minimum width}}%
+		\pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/pgf/minimum height}}%
+		\ifdim\pgf@x<.5\pgf@xa%
+			\pgf@x.5\pgf@xa%
+		\fi%
+		\ifdim\pgf@y<.5\pgf@ya%
+			\pgf@y.5\pgf@ya%
+		\fi%
+		\pgfmathaddtolength\pgf@x{\pgfkeysvalueof{/pgf/outer xsep}}%
+		\pgfmathaddtolength\pgf@y{\pgfkeysvalueof{/pgf/outer ysep}}%
+	}%
+\savedanchor\left{%
+	\pgf@x0pt\pgf@y0pt\relax%
+	}%
+\savedanchor\right{%
+%		%%%%\pgf@x.5\wd\pgfnodepartrightbox%
+		\pgf@x\wd\pgfnodepartleftbox%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x2.0\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/gap}}%%% Added by TSR store gap distance in ya register
+		\advance\pgf@x\pgf@xa%	%% Added by TSR for gap
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x.5\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%%% 
+		\advance\pgf@x.5\pgf@xa%
+		\pgf@y0pt\relax%
+	}%
+\savedanchor\centerleftgapside{%
+		\pgf@x\wd\pgfnodepartleftbox%
+		%\advance\pgf@x\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x.5\pgf@xa%
+		%%%%% Repeated code fragment to compute max box height
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya-\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb-\dp\pgfnodepartrightbox%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y.5\pgf@ya% 
+		\else%
+			\pgf@y.5\pgf@yb% 
+		\fi%
+		%%%%% End repeated code fragment to compute box height
+	}%
+\savedanchor\globalcenterpoint{%
+		\pgf@x\wd\pgfnodepartleftbox%
+		\pgf@x.5\pgf@x%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x1\pgf@xa% (0.5 x 3)-1 inner xsep since on each side of gap) 
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/gap}}%
+		\advance\pgf@x.5\pgf@xa%
+		%\advance\pgf@x\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x.25\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%% 
+		\advance\pgf@x.25\pgf@xa%
+		\pgf@xa\wd\pgfnodepartrightbox%
+		\advance\pgf@x.5\pgf@xa%
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya-\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb-\dp\pgfnodepartrightbox%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y.5\pgf@ya% 
+		\else%
+			\pgf@y.5\pgf@yb% 
+		\fi%
+	}%
+\savedanchor\linewidthatwidestcenter{% coordinate, but x is redundant
+% Slightly obsessive check to find either left or right line width
+%   Depending on whether left or right contains the vertical radius.                                  
+		\pgf@x\wd\pgfnodepartleftbox%
+		\pgf@x.5\pgf@x%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x\pgf@xa% (0.5 x 3) -1 inner xsep since on each side of gap) 
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x.25\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%% of lines left and right
+		\advance\pgf@x.25\pgf@xa%
+		\pgf@xa\wd\pgfnodepartrightbox%
+		\advance\pgf@x.5\pgf@xa% This contains x-coord of left center but this may not be the widest point 
+		                                          % if the global center is right of the gap
+		\pgf@xa\wd\pgfnodepartleftbox%
+		\pgfmathsetlength\pgf@xb{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@xa\pgf@xb%
+		\pgfmathsetlength\pgf@xb{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@xa.5\pgf@xb%
+		\ifdim\pgf@x>\pgf@xa%
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%
+		\else
+		\pgfmathsetlength\pgf@y{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%
+		\fi%
+		%
+		\pgf@x0pt% 
+	}%
+\savedanchor\leftcenter{%
+		\pgf@x\wd\pgfnodepartleftbox%
+		\pgf@x.5\pgf@x%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x\pgf@xa% (0.5 x 3)-0.5 inner xsep since on each side of gap) 
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x.25\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%% of lines left and right
+		\advance\pgf@x.25\pgf@xa%
+		\pgf@xa\wd\pgfnodepartrightbox%
+		\advance\pgf@x.5\pgf@xa% 
+		%% 
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya-\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb-\dp\pgfnodepartrightbox%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y.5\pgf@ya% 
+		\else%
+			\pgf@y.5\pgf@yb% 
+		\fi%
+	}%
+\savedanchor\rightcenter{%
+		\pgf@x\wd\pgfnodepartleftbox%
+		\pgf@x.5\pgf@x%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x\pgf@xa% (0.5 x twice inner xsep since on each side of gap) 
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/gap}}% for right center
+		\advance\pgf@x\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x.25\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%% of lines left and right
+		\advance\pgf@x.25\pgf@xa%
+		\pgf@xa\wd\pgfnodepartrightbox%
+		\advance\pgf@x.5\pgf@xa% 
+		%% 
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya-\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb-\dp\pgfnodepartrightbox%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y.5\pgf@ya% 
+		\else%
+			\pgf@y.5\pgf@yb% 
+		\fi%
+	}%	
+\savedanchor\basepoint{%
+		\pgf@x.5\wd\pgfnodepartleftbox%
+		\pgf@y0pt\relax%
+	}%
+\savedanchor\basepointright{%
+		\pgf@x\wd\pgfnodepartleftbox%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x2.0\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/gap}}%%% Added by TSR store gap distance in ya register
+		\advance\pgf@x\pgf@xa%	%% Added by TSR for gap
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x0.5\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%%% 
+		\advance\pgf@x0.5\pgf@xa%	
+		\advance\pgf@x.5\wd\pgfnodepartrightbox%
+		\pgf@y0pt\relax%	
+	}%
+\savedanchor\midpointleft{%
+		\pgf@x.5\wd\pgfnodepartleftbox%
+		%%%% Repeated code fragment for max box height
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya-\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb-\dp\pgfnodepartrightbox%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y.5\pgf@ya% 
+		\else%
+			\pgf@y.5\pgf@yb% 
+		\fi%
+	}%
+\savedanchor\midpointright{%
+			\pgf@x\wd\pgfnodepartleftbox%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/inner xsep}}%
+		\advance\pgf@x2.0\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/gap}}%%% Added by TSR store gap distance in ya register
+		\advance\pgf@x\pgf@xa%	%% Added by TSR for gap
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%%% 
+		\advance\pgf@x0.5\pgf@xa%
+		\pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%%% 
+		\advance\pgf@x0.5\pgf@xa%	
+		\advance\pgf@x.5\wd\pgfnodepartrightbox%
+		%%%% Repeated code fragment for max box height
+		\pgf@ya\ht\pgfnodepartleftbox%
+		\advance\pgf@ya-\dp\pgfnodepartleftbox%
+		\pgf@yb\ht\pgfnodepartrightbox%
+		\advance\pgf@yb-\dp\pgfnodepartrightbox%
+		\ifdim\pgf@ya>\pgf@yb%
+			\pgf@y.5\pgf@ya% 
+		\else%
+			\pgf@y.5\pgf@yb% 
+		\fi%	
+	}%
+%%%%%%%%%%%  ANCHORS	
+	%% Note: anchors left center and right center are the center of the left and right sides of the gap
+	%% These are not the same as saved anchors leftcenter and right center which are the centers of the left and right ellipse
+	\anchor{left center}{\linewidthleft\pgf@xa.5\pgf@y\centerleftgapside\advance\pgf@x\pgf@xa}
+	\anchor{right center}{\linewidthright\pgf@xa-.5\pgf@y\gap\advance\pgf@xa\pgf@x\centerleftgapside\advance\pgf@x\pgf@xa}
+	\anchor{left ellipse center}{\leftcenter}
+	\anchor{right ellipse center}{\rightcenter}
+	\anchor{left north}{\radii%
+		\pgf@ya\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgf@ya*(sin(\vsplitangle))}%
+		\linewidthleft\advance\pgf@ya.5\pgf@y%
+		\centerleftgapside\advance\pgf@y\pgf@ya%
+		}%
+	\anchor{left south}{\radii%
+		\pgf@ya\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgf@ya*(sin(\vsplitangle))}%
+		\linewidthleft\advance\pgf@ya.5\pgf@y%
+		\centerleftgapside\advance\pgf@y-\pgf@ya%
+		}%
+	\anchor{right north}{\pgfpointadd{\centerleftgapside}{%
+	        \radii%
+		\pgf@ya\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgf@ya*(sin(\vsplitangle))}%
+		\linewidthright\advance\pgf@ya.5\pgf@y%
+		\gap\pgf@y\pgf@ya%
+		}}%
+	\anchor{right south}{\pgfpointadd{\centerleftgapside}{%
+	        \radii%
+		\pgf@ya\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgf@ya*(sin(\vsplitangle))}%
+		\linewidthright\advance\pgf@ya.5\pgf@y%
+		\gap\pgf@y-\pgf@ya%
+		}}%
+	\anchor{left}{\left}
+	\anchor{text}{\left} %Added for compatibility (?)
+	\anchor{right}{\right}
+	\anchor{center}{\globalcenterpoint}
+	\anchor{right base}{\basepointright}
+	\anchor{left base}{\basepoint}
+	\anchor{base}{\basepoint} %% Added for compatibility
+	\anchor{right mid}{\midpointright}
+	\anchor{left mid}{\midpointleft}
+	\anchor{mid}{\midpointleft}
+	\anchor{mid east}{\pgfpointadd{\rightcenter}{\radii\pgf@xa\pgf@x\linewidthright\pgf@x.5\pgf@y\advance\pgf@xa\pgf@x\midpointright\pgf@x\pgf@xa}}%
+	\anchor{mid west}{\pgfpointadd{\leftcenter}{\radii\pgf@xa\pgf@x\linewidthleft\pgf@x.5\pgf@y\advance\pgf@xa\pgf@x\midpointleft\pgf@x-\pgf@xa}}%
+	\anchor{base east}{\pgfpointadd{\rightcenter\pgf@y0pt}{\radii\pgf@xa\pgf@x\linewidthright\pgf@x.5\pgf@y\advance\pgf@x\pgf@xa\pgf@y0pt}}%
+	\anchor{base west}{\pgfpointadd{\leftcenter\pgf@y0pt}{\radii\pgf@xa\pgf@x\linewidthleft\pgf@x.5\pgf@y\advance\pgf@xa\pgf@x\pgf@x-\pgf@xa\pgf@y0pt}}%
+		%\anchor{mid west}{\radii\pgf@xa\pgf@x\centerleftgapside\advance\pgf@x-\pgf@xa}
+	\anchor{base}{\basepoint}
+	\anchor{north}{\pgfpointadd{\globalcenterpoint}{\linewidthatwidestcenter\pgf@ya\pgf@y\radii\advance\pgf@y.5\pgf@ya\pgf@x0.0pt}}%
+	\anchor{south}{\pgfpointadd{\globalcenterpoint}{\linewidthatwidestcenter\pgf@ya\pgf@y\radii\pgf@y-\pgf@y\advance\pgf@y-.5\pgf@ya\pgf@x0pt}}% 
+	\anchor{east}{\pgfpointadd{\rightcenter}{\radii\pgf@xa\pgf@x\linewidthright\pgf@x.5\pgf@y\advance\pgf@x\pgf@xa\pgf@y0pt}}%
+	\anchor{west}{\pgfpointadd{\leftcenter}{\radii\pgf@xa-\pgf@x\linewidthleft\pgf@x-.5\pgf@y\advance\pgf@x\pgf@xa\pgf@y0pt}}%	
+	\anchor{north west}{\pgfpointadd{\leftcenter}{\linewidthleft\pgf@xa.5\pgf@y%
+	          \radii\advance\pgf@x\pgf@xa\advance\pgf@y\pgf@xa%
+	          \pgf@x-0.707106\pgf@x\pgf@y0.707106\pgf@y}}%
+	\anchor{south west}{\pgfpointadd{\leftcenter}{\linewidthleft\pgf@xa.5\pgf@y%
+	          \radii\advance\pgf@x\pgf@xa\advance\pgf@y\pgf@xa%
+	          \pgf@x-0.707106\pgf@x\pgf@y-0.707106\pgf@y}}%
+	\anchor{north east}{\pgfpointadd{\rightcenter}{\linewidthright\pgf@xa.5\pgf@y%
+	          \radii\advance\pgf@x\pgf@xa\advance\pgf@y\pgf@xa%
+	          \pgf@x0.707106\pgf@x\pgf@y0.707106\pgf@y}}%
+	\anchor{south east}{\pgfpointadd{\rightcenter}{\linewidthright\pgf@xa.5\pgf@y%
+	          \radii\advance\pgf@x\pgf@xa\advance\pgf@y\pgf@xa%
+	          \pgf@x0.707106\pgf@x\pgf@y-0.707106\pgf@y}}%
+%%%%%%%%% START OF DRAWING VSPLIT
+%%%%% Left
+\beforebackgroundpath{%
+         \edef\defaultpgflinewidth{\the\pgflinewidth}% store default line width
+          \pgfsetstrokecolor{\leftcolor}%
+           \pgfsetfillcolor{\leftfillcolor}%
+	 % \expandafter\pgfsetstrokecolor\expandafter{\pgfkeysvalueof{/tikz/swig vsplit/linecolorleft}}%
+	         \expandafter\pgfsetlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig vsplit/line width left}}%
+	               \expandafter\pgfsetinnerlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig vsplit/inner line width left}}%
+		\radii%
+		\pgfmathaddtolength\pgf@x{-\pgfkeysvalueof{/pgf/outer xsep}}%
+		\pgfmathaddtolength\pgf@y{-\pgfkeysvalueof{/pgf/outer ysep}}%
+		\pgfutil@tempdima\pgf@x%
+		\pgfutil@tempdimb\pgf@y%
+		\pgf@ya\pgf@y%
+		\pgfmathsetlength\pgf@ya{\pgf@ya*(sin(\vsplitangle))}%% compute y distance for off-center split
+		\pgfpathmoveto{\centerleftgapside\advance\pgf@y\pgf@ya}% set path to centerpoint + \pgf@ya
+		\pgfpatharcaxes{\vsplitangle}{360-\vsplitangle}{\pgfpoint{\the\pgfutil@tempdima}{0pt}}{\pgfpoint{0pt}{\the\pgfutil@tempdimb}}%
+		\pgfpathclose
+		\pgfusepath{stroke,fill}
+%%%%%% right
+     \pgfsetlinewidth\defaultpgflinewidth % Reset \the\pgflinewidth to default value (in case changed while drawing left)
+                 \pgfsetstrokecolor{\rightcolor}%
+                 \pgfsetfillcolor{\rightfillcolor}%
+                    \expandafter\pgfsetlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig vsplit/line width right}}%
+                    \expandafter\pgfsetinnerlinewidth\expandafter{\pgfkeysvalueof{/tikz/swig vsplit/inner line width right}}%
+		\radii%
+		\pgfmathaddtolength\pgf@x{-\pgfkeysvalueof{/pgf/outer xsep}}%
+		\pgfmathaddtolength\pgf@y{-\pgfkeysvalueof{/pgf/outer ysep}}%
+		\pgfutil@tempdima\pgf@x%
+		\pgfutil@tempdimb\pgf@y%
+		\pgf@ya\pgf@y%
+		\pgfmathsetlength\pgf@yb{\pgf@ya*(sin(\vsplitangle))}%% compute y distance for off-center split
+		\pgfpathmoveto{\centerleftgapside\pgf@xa\pgf@x\pgf@ya\pgf@y\advance\pgf@ya\pgf@yb%
+		\gap\advance\pgf@xa\pgf@x%
+		\pgf@x\pgf@xa\pgf@y\pgf@ya%
+		}%
+		\pgfpatharcaxes{\vsplitangle}{-\vsplitangle}{\pgfpoint{\the\pgfutil@tempdima}{0pt}}{\pgfpoint{0pt}{\the\pgfutil@tempdimb}}%
+		\pgfpathclose%
+		\pgfusepath{stroke,fill}%
+	}
+	\anchorborder{%
+  	\pgfextract@process\externalpoint{}%  %https://tex.stackexchange.com/questions/255492/storing-a-pgfpoint-for-repeated-use
+	%%%%%   This stores the current \pgf@x and \pgf@y in the macro \externalpoint
+	\linewidthleft%
+	\pgf@ya\pgf@y%
+  		\radii%
+	\advance\pgf@x.5\pgf@ya% add half-line width to x radius
+	\advance\pgf@y.5\pgf@ya% add half line width to y radius
+  	\edef\pgf@marshal{%
+   		\noexpand\pgfpointadd{\noexpand\pgfpointborderellipse{\noexpand\externalpoint}%
+   			{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}}{\noexpand\leftcenter}%
+   	}%  
+   	\pgf@marshal%
+	\pgf@xa\pgf@x% store the border point
+	\pgf@ya\pgf@y% store the border point
+	\centerleftgapside%
+	\pgf@xb\pgf@x% point on gap
+	\ifdim\pgf@xa>\pgf@xb%
+		\linewidthright%
+		\pgf@ya\pgf@y%
+  		\radii%
+		\advance\pgf@x.5\pgf@ya% add half-line width to x radius
+		\advance\pgf@y.5\pgf@ya% add half line width to y radius
+  		\edef\pgf@marshal{%
+   			\noexpand\pgfpointadd{\noexpand\pgfpointborderellipse{\noexpand\externalpoint}%
+   				{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}}{\noexpand\rightcenter}%
+   	}%  
+	\pgf@marshal%
+	\else
+	\pgf@x\pgf@xa% 
+	\pgf@y\pgf@ya% 
+	\fi%
+  }%
+}
+
+
+\endinput
