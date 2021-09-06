@@ -1,5 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
 # Linguist language statistics
 *.[Rr]md linguist-detectable
 *.html linguist-vendored
+*.tex linguist-vendored
