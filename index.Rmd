@@ -442,9 +442,11 @@ swig %>% render_graph()
 
 Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs, which is available on CTAN [here](https://ctan.org/pkg/tikz-swigs).
 
-* The `pgflibraryshapes.swigs.code.tex` file is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/pgflibraryshapes.swigs.code.tex). Save it in your working directory.
-
-* An article describing its use is [here](https://sites.stat.washington.edu/tsr/website/documents/2018/tikz-for-swigs/swig-examples.pdf).
+* Install the package into your TinyTeX installation with  
+    ```{r, eval=FALSE}
+    tinytex::install_tlmgr("tikz-swigs")
+    ```  
+* Its user manual is available [here](http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf)
 
 To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is as follows.
 ```{details, echo=FALSE, details.lang='tex', details.open=TRUE, details.summary = 'Template tex file'}
