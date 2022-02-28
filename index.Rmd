@@ -482,3 +482,9 @@ shape=swig hsplit]{
   (X) to[out=330, in=180] (Y);
 \end{tikzpicture}
 ```
+
+# Session information for reproducibility
+
+```{r}
+sessionInfo()
+```
