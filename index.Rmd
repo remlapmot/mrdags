@@ -406,7 +406,7 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 \draw[Arrow] (5) -- (2);
 \draw[Arrow] (6) -- (2);
 \end{tikzpicture}
-```
+```  
 
 Again this could be extended for more genotypes.
 
