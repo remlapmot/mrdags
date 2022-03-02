@@ -38,6 +38,3 @@ rsconnect/
 **.DS_Store
 
 README.html
-
-# cache directory
-index_files/
