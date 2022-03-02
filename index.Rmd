@@ -518,7 +518,7 @@ Let's add colour in the same way as in the original figure.
 \end{tikzpicture}
 ```
 
-## SWIG for MVMR model
+## SWIGs for MVMR models
 
 Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) model.
 
