@@ -524,6 +524,8 @@ Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) mode
 
 ### SWIG for MVMR model with 2 independent exposures
 
+Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case.
+
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
