@@ -15,6 +15,7 @@ output:
 ```{r include=FALSE}
 require("Hmisc")
 library(details)
+knitr::opts_chunk$set(cache = TRUE)
 ```
 `r Hmisc::hidingTOC(levels = 2)`
 
