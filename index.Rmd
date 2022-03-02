@@ -633,11 +633,13 @@ Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) mode
 \node[name=Y, 
   ell, 
   shape=ellipse, 
-  below right=2mm and 20mm of X1]{$Y^{\textcolor{red}{x_1,\,x_2}}$};
+  below right=2mm and 30mm of X1]{$Y^{\textcolor{red}{x_1,\,x_2}}$};
 
 \draw[->, line width=1.5pt,>=stealth, color=blue]
-  (G1) edge[out=360, in=170] (X1)
+  (G1) edge[out=360, in=150] (X1)
+  (G1) edge[out=360, in=150] (X2)
   (G2) edge[out=360, in=170] (X2)
+  (G2) edge[out=360, in=170] (X1)
   (U) edge (X1)
   (U) edge[out=270, in=45] (X2)
   (U) edge (Y)
