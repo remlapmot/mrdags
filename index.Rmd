@@ -651,6 +651,12 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 \end{tikzpicture}
 ```
 
+<!-- ### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$ -->
+
+
+<!-- ### SWIG for MVMR model with $X_2$ mediator of $X_1$--$Y$ -->
+
+
 # Session information for reproducibility
 
 ```{r}
