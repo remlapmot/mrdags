@@ -455,7 +455,7 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+```{tikz, iv-bw, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -486,7 +486,7 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 
 Let's add colour in the same way as in the original figure.
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+```{tikz, iv-color, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -526,7 +526,7 @@ Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) mode
 
 Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case.
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+```{tikz, mvmr-pleiotropy, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -589,7 +589,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 
 ### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+```{tikz, mvmr-confounder, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -653,7 +653,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 
 ### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
+```{tikz, mvmr-collider, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
