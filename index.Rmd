@@ -457,17 +457,17 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
-  ell/.style={draw,fill=white, inner sep=2pt,
+  ell/.style={draw, fill=white, inner sep=2pt,
   line width=1.5pt},
   swig vsplit={gap=5pt, inner line width right=0.5pt},
   swig hsplit={gap=5pt, inner line width lower=0.5pt}};
 
-\node[name=G,shape=swig vsplit]{
+\node[name=G, shape=swig vsplit]{
 \nodepart{left}{$G$}
 \nodepart{right}{$g$}};
 
 \node[name=X, right=10mm of G,
-shape=swig hsplit]{
+  shape=swig hsplit]{
 \nodepart{upper}{$X^g$}
 \nodepart{lower}{$x$}};
 
@@ -488,18 +488,18 @@ Let's add colour in the same way as in the original figure.
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex")}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
-  ell/.style={draw,fill=white, inner sep=2pt,
+  ell/.style={draw, fill=white, inner sep=2pt,
   line width=1.5pt},
   swig vsplit={gap=5pt},
   swig hsplit={gap=5pt, inner line width lower=0.5pt}};
 
-\node[name=G,shape=swig vsplit,
+\node[name=G, shape=swig vsplit,
   swig vsplit={line color right=red}]{
 \nodepart{left}{$G$}
 \nodepart{right}{\textcolor{red}{$g$}}};
 
 \node[name=X, right=10mm of G,
-shape=swig hsplit,
+  shape=swig hsplit,
   swig hsplit = {line color lower=red,
                  line width lower=2.5pt}]{
 \nodepart{upper}{$X^{\textcolor{red}{g}}$}
