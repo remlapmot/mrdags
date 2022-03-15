@@ -1,5 +1,5 @@
 ---
-title: "R and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
+title: "R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: "`r Sys.Date()`"
 output:
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(cache = TRUE)
 
 # Introduction
 
-This webpage shows some R code for generating figures for Mendelian randomization analyses.
+This webpage shows some R code for generating figures, directed acyclic graphs (DAGs), and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
 
 First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
 ```{r, message=FALSE, warning=FALSE}
@@ -36,8 +36,9 @@ tinytex::install_tinytex()
 
 # DiagrammeR package
 
-The website for DiagrammeR is here: http://rich-iannone.github.io/DiagrammeR/
+The website for DiagrammeR is here: http://rich-iannone.github.io/DiagrammeR/ .
 
+We will draw the DAGs using Graphviz which uses the DOT language to describe graphs.
 
 ## Single genotype DAG
 
@@ -221,7 +222,7 @@ The website for DAGitty is here http://www.dagitty.net/
 library(dagitty)
 ```
 
-## Using dot syntax
+## Using DOT syntax
 
 The DAG for a single genotype.
 ```{r}
