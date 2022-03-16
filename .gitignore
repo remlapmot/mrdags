@@ -39,4 +39,5 @@ rsconnect/
 
 README.html
 
-.Rbuildignore
+.Rproj.user
+inst/doc
