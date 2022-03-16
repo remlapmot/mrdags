@@ -406,14 +406,9 @@ y = c(
   U = 1
 ))
 
-
 mrdag <- dagify(
-  X ~ G1,
-  X ~ G2,
-  X ~ G3,
-  Y ~ X,
-  X ~ U,
-  Y ~ U,
+  X ~ G1 + G2 + G3 + U,
+  Y ~ X + U,
   exposure = "X",
   outcome = "Y",
   coords = coords2
