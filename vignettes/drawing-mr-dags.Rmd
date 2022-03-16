@@ -405,6 +405,10 @@ mrdag <- dagify(
 ggdag(mrdag) + theme_dag()
 ```
 
+```{r}
+mrdags::ggdag_multiple_genotype_dag()
+```
+
 This could be extended for more genotypes.
 
 # Eleanor Murray's TikZ diagrams using the tikz code chunk engine
