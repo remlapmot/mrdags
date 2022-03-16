@@ -169,6 +169,10 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
+```{r}
+mrdags::multiple_iv_dag()
+```
+
 ## Single genotype path diagram
 
 Explicitly including the confounder, $U$.
