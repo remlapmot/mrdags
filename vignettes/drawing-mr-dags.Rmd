@@ -103,6 +103,10 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
+```{r}
+mrdags::single_iv_dag()
+```
+
 ## Multiple genotype DAG
 
 ```{r}
