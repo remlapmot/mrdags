@@ -9,6 +9,8 @@ Description: Functions to plot directed acyclic graphs (DAGs) and single
     world intervention graphs (SWIGs) for Mendelian randomization (MR)
     analyses.
 License: GPL (>= 3)
+Imports:
+    DiagrammeR
 Suggests: 
     knitr,
     rmarkdown
