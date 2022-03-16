@@ -1,13 +1,6 @@
 # mrdags
 
-Code to draw directed acyclic graphs (DAGs) and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
-
-To render index.html open index.Rmd in RStudio and click the *Knit* button or run in R  
-```r
-rmarkdown::render('index.Rmd')
-```
-
-Rendered at https://remlapmot.github.io/mrdags/
+R package to plot directed acyclic graphs (DAGs) and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
 
 ## System requirements on Linux
 
@@ -23,7 +16,9 @@ sudo apt-get update
 sudo apt-get install -y libpoppler-cpp-dev
 ```
 
-Then run (because I have made a `DESCRIPTION` file)
+## Installation
+
 ```r
-devtools::install_dev_deps()
+# install.packages("remotes")
+remotes::install_github("remlapmot/mrdags@convert-to-r-package")
 ```
