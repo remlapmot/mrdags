@@ -1,3 +1,4 @@
+#' @importFrom DiagrammeR grViz
 #' @export
 single_iv_dag <- function() {
   DiagrammeR::grViz("
@@ -23,6 +24,7 @@ single_iv_dag <- function() {
       ", height = 200)
 }
 
+#' @importFrom DiagrammeR grViz
 #' @export
 multiple_iv_dag <- function() {
   DiagrammeR::grViz("
