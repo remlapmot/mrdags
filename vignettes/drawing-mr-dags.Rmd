@@ -12,7 +12,6 @@ vignette: >
 ```{r, include=FALSE}
 knitr::opts_chunk$set(out.width = "65%")
 ```
-<!-- `r Hmisc::hidingTOC(levels = 3)` -->
 
 # Introduction
 
