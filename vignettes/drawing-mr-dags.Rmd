@@ -267,11 +267,11 @@ mrdags::ggdag_single_iv_dag()
 This can be labelled as follows.
 
 ```{r}
-mrdag <- mrdag %>% 
+mrdag <- mrdag %>%
   dag_label(
     labels = c(
-      "X" = "Exposure", 
-      "Y" = "Outcome", 
+      "X" = "Exposure",
+      "Y" = "Outcome",
       "G" = "Genotype",
       "U" = "Confounders"))
 ggdag(mrdag,  use_labels = "label") + theme_dag()
@@ -344,16 +344,16 @@ dagify(Y ~ X + U,
 ggdag_paths() + theme_dag()
 ```
 
-Adjustment set for the effect of $X$ on $Y$.  
+Adjustment set for the effect of $X$ on $Y$.
 
-```{r}  
+```{r}
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
-       outcome = "Y", 
+       outcome = "Y",
        coords = coords) %>%
   ggdag_adjustment_set() + theme_dag()
-```  
+```
 
 This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
 
