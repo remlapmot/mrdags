@@ -396,7 +396,7 @@ This could be extended for more genotypes.
 
 # Eleanor Murray's TikZ diagrams using the tikz code chunk engine
 
-I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`. 
+I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`.
 
 Tikz is a package for LaTeX and so pdf is its natural output. So far I have not been able to include these figures in either `html_notebook` or `word_document` output formats. I suspect that the images need conversion to png files for these to work under rmarkdown.
 
@@ -448,7 +448,7 @@ We can now plot our DAGs.
 \draw[Arrow] (5) -- (2);
 \draw[Arrow] (6) -- (2);
 \end{tikzpicture}
-```  
+```
 
 Again this could be extended for more genotypes.
 
