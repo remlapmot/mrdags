@@ -418,7 +418,7 @@ We can now plot our DAGs.
 
 ## Single genotype DAG using tikz
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+```{tikz, opts.label='mytikz'}
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
@@ -433,7 +433,7 @@ We can now plot our DAGs.
 
 ## Multiple genotype DAG using tikz
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+```{tikz, opts.label='mytikz'}
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
