@@ -636,7 +636,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 
 ### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
 
-```{tikz, mvmr-confounder, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
+```{tikz, mvmr-confounder, opts.label='mytikzswig'}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
