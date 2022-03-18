@@ -9,26 +9,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-<!-- ```{r, include = FALSE} -->
-<!-- knitr::opts_chunk$set( -->
-<!--   collapse = TRUE, -->
-<!--   comment = "#>" -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r setup} -->
-<!-- library(mrdags) -->
-<!-- ``` -->
-
-
-<!-- title: "R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses" -->
-<!--     dev: ragg_png -->
-
-
-```{r include=FALSE}
-# require("Hmisc")
-library(details)
-# knitr::opts_chunk$set(cache = TRUE)
+```{r, include=FALSE}
+knitr::opts_chunk$set(out.width = "65%")
 ```
 <!-- `r Hmisc::hidingTOC(levels = 3)` -->
 
