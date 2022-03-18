@@ -142,12 +142,12 @@ DiagrammeR::grViz("
 
       { rank = same; G2 X Y }
 
-      G1 -> X 
-      G2 -> X 
-      G3 -> X 
+      G1 -> X
+      G2 -> X
+      G3 -> X
       U -> X
       U -> Y
-      X -> Y 
+      X -> Y
       }
       ", height = 200)
 ```
