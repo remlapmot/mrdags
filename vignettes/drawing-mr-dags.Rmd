@@ -475,7 +475,7 @@ We can also draw the single world intervention graph (SWIG) for the IV model as 
 # SWIG
 swig <- dag %>%
   qd_swig(fixed.nodes = c("G","X"),
-          custom.labels = c("G" = "g", 
+          custom.labels = c("G" = "g",
                             "X" = "x"))
 swig %>% render_graph()
 ```
@@ -484,10 +484,10 @@ swig %>% render_graph()
 
 Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs, which is available on CTAN [here](https://ctan.org/pkg/tikz-swigs).
 
-* Install the package into your TinyTeX installation with  
+* Install the package into your TinyTeX installation with
     ```{r, eval=FALSE}
     tinytex::install_tlmgr("tikz-swigs")
-    ```  
+    ```
 * Its user manual is available [here](http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf)
 
 To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is as follows.
