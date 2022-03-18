@@ -1,6 +1,8 @@
 ---
 title: "Drawing DAGs and SWIGs for Mendelian randomization analyses"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: true
 vignette: >
   %\VignetteIndexEntry{Drawing DAGs and SWIGs for Mendelian randomization analyses}
   %\VignetteEngine{knitr::rmarkdown}
