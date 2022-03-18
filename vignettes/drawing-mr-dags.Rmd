@@ -502,6 +502,7 @@ knitr::opts_template$set(mytikzswig = list(
 ))
 ```
 
+```{tikz, iv-bw, opts.label='mytikzswig'}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -532,7 +533,7 @@ knitr::opts_template$set(mytikzswig = list(
 
 Let's add colour in the same way as in the original figure.
 
-```{tikz, iv-color, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
+```{tikz, iv-color, opts.label='mytikzswig'}
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
