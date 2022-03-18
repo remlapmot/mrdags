@@ -410,14 +410,11 @@ knitr::opts_template$set(mytikz = list(
 ))
 ```
 
-The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
-
-```{verbatim, lang='tex', file='tikz-template.tex'}
-```
+In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
 
 We can now plot our DAGs.
 
-Aside: I should note that I could not get this code to run on my MacBook. This is because by default the `dvisvg` executable on MacOS appears to be missing `libgs` support. It is possible to compile `dvisvg` from source including `libgs` support but I did not try this.
+<!-- Aside: I should note that I could not get this code to run on my MacBook. This is because by default the `dvisvg` executable on MacOS appears to be missing `libgs` support. It is possible to compile `dvisvg` from source including `libgs` support but I did not try this. -->
 
 ## Single genotype DAG using tikz
 
