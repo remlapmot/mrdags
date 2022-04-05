@@ -16,6 +16,7 @@ Imports:
 Suggests: 
     knitr (>= 1.37),
     magick,
+    pdftools,
     rmarkdown
 VignetteBuilder: 
     knitr
