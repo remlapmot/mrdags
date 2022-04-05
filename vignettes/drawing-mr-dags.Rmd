@@ -329,17 +329,16 @@ We can now plot our DAGs.
 
 ## Single genotype DAG using tikz
 
-```{tikz, opts.label='mytikz'}
-\begin{tikzpicture}
-\node (1) at (0,0) {$G$};
-\node (2) at (1.5,0) {$X$};
-\node (3) at (3,0) {$Y$};
-\node (4) at (2.25,1) {$U$};
-\draw[Arrow] (1.east) -- (2.west);
-\draw[Arrow] (2.east) -- (3.west);
-\draw[Arrow] (4) -- (2);
-\draw[Arrow] (4) -- (3);
-\end{tikzpicture}
+We call this in the following way in our R Markdown code
+
+````{verbatim}
+```{r, child=mrdags::tikz_single_iv_dag()}
+```
+````
+
+which produces the following.
+
+```{r, child=mrdags::tikz_single_iv_dag()}
 ```
 
 ## Multiple genotype DAG using tikz
