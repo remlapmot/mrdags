@@ -195,20 +195,6 @@ library(ggdag)
 ```
 
 ```{r}
-mrdag <- dagitty('dag {
-  G -> X -> Y
-  X <- U -> Y
-  G [pos="0,0"]
-  X [e, pos="1,0"]
-  U [pos="1.5,0.4"]
-  Y [o, pos="2,0"]
-}')
-
-ggmrdag <- tidy_dagitty(mrdag)
-ggdag(ggmrdag) + theme_dag()
-```
-
-```{r}
 mrdags::ggdag_single_iv_dag()
 ```
 
