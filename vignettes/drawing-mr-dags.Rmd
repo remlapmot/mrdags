@@ -404,36 +404,7 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 
 Let's add colour in the same way as in the original figure.
 
-```{tikz, iv-color, opts.label='mytikzswig'}
-\begin{tikzpicture}
-\tikzset{line width=1.5pt, outer sep=0pt,
-  ell/.style={draw, fill=white, inner sep=2pt,
-  line width=1.5pt},
-  swig vsplit={gap=5pt},
-  swig hsplit={gap=5pt, inner line width lower=0.5pt}};
-
-\node[name=G, shape=swig vsplit,
-  swig vsplit={line color right=red}]{
-\nodepart{left}{$G$}
-\nodepart{right}{\textcolor{red}{$g$}}};
-
-\node[name=X, right=10mm of G,
-  shape=swig hsplit,
-  swig hsplit = {line color lower=red,
-                 line width lower=2.5pt}]{
-\nodepart{upper}{$X^{\textcolor{red}{g}}$}
-\nodepart{lower}{\textcolor{red}{$x$}}};
-
-\node[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{$U$};
-
-\node[name=Y, ell, shape=ellipse, right=10mm of X]{$Y^{\textcolor{red}{x}}$};
-
-\draw[->, line width=1.5pt,>=stealth, color=blue]
-  (G) edge[out=360, in=170] (X)
-  (U) edge (X)
-  (U) edge (Y)
-  (X) to[out=330, in=180] (Y);
-\end{tikzpicture}
+```{r, child=mrdags::tikz_swig_iv_color()}
 ```
 
 ## SWIGs for MVMR models
