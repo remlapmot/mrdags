@@ -20,7 +20,6 @@ This webpage shows some R code for generating figures, directed acyclic graphs (
 First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(ggdag)
 ```
 
 If you do not already one you will need a LaTeX installation. In R it is easiest to install [TinyTeX](https://yihui.org/tinytex/) as follows.
@@ -191,7 +190,7 @@ plot(mrdag)
 
 ## Using ggdag
 
-```{r, warning=FALSE, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(ggdag)
 ```
 
