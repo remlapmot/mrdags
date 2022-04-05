@@ -1,0 +1,64 @@
+```{tikz}
+#| fig.width = 3,
+#| engine.opts = list(template = mrdags::tikz_swig_template()),
+#| out.width="65%"
+\begin{tikzpicture}
+\tikzset{line width=1.5pt, outer sep=0pt,
+  ell/.style={draw, fill=white, inner sep=2pt,
+  line width=1.5pt},
+  swig vsplit={gap=5pt},
+  swig hsplit={gap=5pt, inner line width lower=0.5pt}};
+
+\node[name=G1,
+  shape=swig vsplit,
+  swig vsplit={line color right=red}]{
+\nodepart{left}{$G_1$}
+\nodepart{right}{\textcolor{red}{$g_1$}}};
+
+\node[name=X1,
+  right=10mm of G1,
+  shape=swig hsplit,
+  swig hsplit = {line color lower=red,
+                 line width lower=2.5pt}]{
+\nodepart{upper}{$X_1^{\phantom{1}\textcolor{red}{g_1,\,g_2\phantom{,\,x_2}}}$}
+\nodepart{lower}{\textcolor{red}{$x_1$}}};
+
+\node[name=X2,
+  below = 3mm of X1,
+  shape=swig hsplit,
+  swig hsplit = {line color lower=red,
+                 line width lower=2.5pt}]{
+\nodepart{upper}{$X_2^{\phantom{2}\textcolor{red}{g_1,\,g_2,\,x_2}}$}
+\nodepart{lower}{\textcolor{red}{$x_2$}}};
+
+\node[name=G2,
+  left = 10mm of X2,
+  shape=swig vsplit,
+  swig vsplit={line color right=red}]{
+\nodepart{left}{$G_2$}
+\nodepart{right}{\textcolor{red}{$g_2$}}};
+
+\node[name=U,
+  ell,
+  shape=ellipse,
+  above right=7.5mm and 5mm of X1,
+  fill=gray]{$U$};
+
+\node[name=Y,
+  ell,
+  shape=ellipse,
+  below right=2mm and 30mm of X1]{$Y^{\textcolor{red}{x_1,\,x_2}}$};
+
+\draw[->, line width=1.5pt,>=stealth, color=blue]
+  (G1) edge[out=360, in=150] (X1)
+  (G1) edge[out=360, in=150] (X2)
+  (G2) edge[out=360, in=170] (X2)
+  (G2) edge[out=360, in=170] (X1)
+  (U) edge (X1)
+  (U) edge[out=270, in=45] (X2)
+  (U) edge (Y)
+  (X1) edge[out=10, in=35] (X2)
+  (X1) edge[out=330, in=170] (Y)
+  (X2) to[out=330, in=190] (Y);
+\end{tikzpicture}
+```
