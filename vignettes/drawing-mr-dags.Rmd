@@ -371,7 +371,7 @@ edges <- c("G -> X",
            "U -> {X Y}")
 
 # DAG
-dag  <- qd_dag(edges)
+dag  <- qd_dag(edges, verbose = FALSE)
 dag %>% render_graph()
 ```
 
