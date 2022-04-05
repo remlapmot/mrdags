@@ -317,8 +317,6 @@ tinytex::tlmgr_install(c("preview", "pgf"))
 
 We can now plot our DAGs.
 
-<!-- Aside: I should note that I could not get this code to run on my MacBook. This is because by default the `dvisvg` executable on MacOS appears to be missing `libgs` support. It is possible to compile `dvisvg` from source including `libgs` support but I did not try this. -->
-
 ## Single genotype DAG using tikz
 
 We call this in the following way in our R Markdown code
