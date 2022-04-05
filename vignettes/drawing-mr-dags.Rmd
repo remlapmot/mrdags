@@ -399,41 +399,7 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
-```{r}
-knitr::opts_template$set(mytikzswig = list(
-  fig.width = 3,
-  engine.opts = list(template = mrdags::tikz_swig_template()),
-  out.width="65%"
-))
-```
-
-```{tikz, iv-bw, opts.label='mytikzswig'}
-\begin{tikzpicture}
-\tikzset{line width=1.5pt, outer sep=0pt,
-  ell/.style={draw, fill=white, inner sep=2pt,
-  line width=1.5pt},
-  swig vsplit={gap=5pt, inner line width right=0.5pt},
-  swig hsplit={gap=5pt, inner line width lower=0.5pt}};
-
-\node[name=G, shape=swig vsplit]{
-\nodepart{left}{$G$}
-\nodepart{right}{$g$}};
-
-\node[name=X, right=10mm of G,
-  shape=swig hsplit]{
-\nodepart{upper}{$X^g$}
-\nodepart{lower}{$x$}};
-
-\node[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{$U$};
-
-\node[name=Y, ell, shape=ellipse, right=10mm of X]{$Y^x$};
-
-\draw[->, line width=1.5pt,>=stealth]
-  (G) edge[out=360, in=170] (X)
-  (U) edge (X)
-  (U) edge (Y)
-  (X) to[out=330, in=180] (Y);
-\end{tikzpicture}
+```{r, child=mrdags::tikz_swig_iv_bw()}
 ```
 
 Let's add colour in the same way as in the original figure.
