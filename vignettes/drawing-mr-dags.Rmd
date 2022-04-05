@@ -294,35 +294,6 @@ This shows that the path from G to X is unconfounded. And that when U is adjuste
 ## Multiple genotype DAG
 
 ```{r}
-coords2 <- list(x = c(
-  G1 = 0,
-  G2 = 0,
-  G3 = 0,
-  X = 1,
-  Y = 2,
-  U = 1.5
-),
-y = c(
-  G1 = 0.5,
-  G2 = 0,
-  G3 = -0.5,
-  X = 0,
-  Y = 0,
-  U = 1
-))
-
-mrdag <- dagify(
-  X ~ G1 + G2 + G3 + U,
-  Y ~ X + U,
-  exposure = "X",
-  outcome = "Y",
-  coords = coords2
-)
-
-ggdag(mrdag) + theme_dag()
-```
-
-```{r}
 mrdags::ggdag_multiple_genotype_dag()
 ```
 
