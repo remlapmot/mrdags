@@ -315,7 +315,13 @@ knitr::opts_template$set(mytikz = list(
 ))
 ```
 
-In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
+In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, which is provided in the **mrdags** package.
+
+If you have a new TinyTeX install check you have the following LaTeX packages installed.
+
+```{r, eval=FALSE}
+tinytex::tlmgr_install(c("preview", "pgf"))
+```
 
 We can now plot our DAGs.
 
