@@ -15,6 +15,7 @@ Imports:
     ggdag    
 Suggests: 
     knitr (>= 1.37),
+    magick,
     rmarkdown
 VignetteBuilder: 
     knitr
