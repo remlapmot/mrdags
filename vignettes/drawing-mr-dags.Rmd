@@ -361,7 +361,7 @@ Again this could be extended for more genotypes.
 
 We can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
 
-```{r}
+```{r, warning=FALSE}
 if (!requireNamespace("quickdag", quietly = TRUE)) remotes::install_github("jrgant/quickdag")
 
 library(quickdag)
