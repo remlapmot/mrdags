@@ -14,7 +14,7 @@ Imports:
     DiagrammeR,
     ggdag    
 Suggests: 
-    knitr,
+    knitr (>= 1.37),
     rmarkdown
 VignetteBuilder: 
     knitr
