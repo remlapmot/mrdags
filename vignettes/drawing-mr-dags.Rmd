@@ -391,7 +391,7 @@ Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs,
 
 * Install the package into your TinyTeX installation with
     ```{r, eval=FALSE}
-    tinytex::install_tlmgr("tikz-swigs")
+    tinytex::tlmgr_install(c("preview", "pgf", "tikz-swigs"))
     ```
 * Its user manual is available [here](http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf)
 
