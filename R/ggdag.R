@@ -17,7 +17,7 @@ ggdag_single_iv_dag <- function() {
 
 #' @importFrom ggdag dagify ggdag theme_dag
 #' @export
-ggdag_multiple_genotype_dag <- function() {
+ggdag_multiple_iv_dag <- function() {
   coords <- list(x = c(
     G1 = 0,
     G2 = 0,
