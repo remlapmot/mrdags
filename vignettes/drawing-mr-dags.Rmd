@@ -130,7 +130,7 @@ Dagitty can identify the instrumental variable on the DAG.
 mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
-It correctly identifies the genotype, G, as the instrumental variable.
+It correctly identifies the genotype, $G$, as the instrumental variable.
 
 ## Using R model type syntax in ggdag
 
@@ -165,7 +165,7 @@ mrdag <- dagify(
 ggdag(mrdag, use_labels = "label") + theme_dag()
 ```
 
-Plotting directly with ggplot2 functions.
+Plotting directly with **ggplot2** functions.
 
 ```{r, fig.height=5, fig.width=7}
 mrdag %>%
@@ -202,7 +202,7 @@ dagify(Y ~ X + U,
   ggdag_adjustment_set() + theme_dag()
 ```
 
-This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
+This shows that the path from $G$ to $X$ is unconfounded. And that when $U$ is adjusted for the path from $X$ to $Y$ is unconfounded.
 
 ## Multiple genotype DAG
 
