@@ -826,6 +826,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 
 # Session information for reproducibility
 
+<details><summary>Click here for session info</summary>
 ```{r}
 sessionInfo()
 ```
+</details>
