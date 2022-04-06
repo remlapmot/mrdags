@@ -818,7 +818,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
   (U) edge (X1)
   (U) edge[out=270, in=45] (X2)
   (U) edge (Y)
-  (X1) edge[out=10, in=35] (X2)
+  (X1) edge[out=330, in=35] (X2)
   (X1) edge[out=330, in=170] (Y)
   (X2) to[out=330, in=190] (Y);
 \end{tikzpicture}
