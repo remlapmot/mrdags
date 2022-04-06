@@ -103,15 +103,15 @@ plot(mrdag)
 
 ## Using ggdag
 
-```{r, message=FALSE, warning=FALSE}
-library(ggdag)
-```
-
 ```{r, fig.height=5, fig.width=7}
 mrdags::ggdag_single_iv_dag()
 ```
 
 This can be labelled as follows.
+
+```{r, message=FALSE, warning=FALSE}
+library(ggdag)
+```
 
 ```{r, fig.height=5, fig.width=7}
 mrdag <- mrdag %>%
