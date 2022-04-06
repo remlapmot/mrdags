@@ -1,6 +1,7 @@
 #' @importFrom DiagrammeR grViz
 #' @export
-single_iv_dag <- function() {
+single_iv_dag <- function(noborders = TRUE) {
+  if (noborders) {
   DiagrammeR::grViz("
       digraph mrdag {
 
@@ -22,6 +23,29 @@ single_iv_dag <- function() {
       X -> Y [minlen=3]
       }
       ", height = 200)
+  } else {
+  DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB]
+
+      node [shape=ellipse]
+      U [label='Confounders']
+
+      node [shape=box, height=0.3, width=0.3]
+      G [label='Genotype']
+      X [label='Phenotype']
+      Y [label='Outcome']
+
+      { rank = same; G X Y }
+
+      G -> X [minlen=3]
+      U -> X
+      U -> Y
+      X -> Y [minlen=3]
+      }
+      ", height = 200)
+  }
 }
 
 #' @importFrom DiagrammeR grViz
