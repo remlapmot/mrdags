@@ -36,73 +36,33 @@ We will draw the DAGs using Graphviz which uses the DOT language to describe gra
 
 ## Single genotype DAG
 
-```{r}
-DiagrammeR::grViz("
-      digraph mrdag {
-
-      graph [rankdir=TB]
-
-      node [shape=ellipse]
-      U [label='Confounders']
-
-      node [shape=box, height=0.3, width=0.3]
-      G [label='Genotype']
-      X [label='Phenotype']
-      Y [label='Outcome']
-
-      { rank = same; G X Y }
-
-      G -> X [minlen=3]
-      U -> X
-      U -> Y
-      X -> Y [minlen=3]
-      }
-      ", height = 200)
-```
-
-### Version without borders around observed variables
+* Version without borders around observed variables
 
 ```{r}
 mrdags::single_iv_dag()
 ```
 
-## Multiple genotype DAG
+* Version with borders around observed variables
 
 ```{r}
-DiagrammeR::grViz("
-      digraph mrdag {
-
-      graph [rankdir=TB, layout=neato]
-
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
-
-      node [shape=box, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
-      G2 [label='<I>G@_{2}</I>', pos='0,0!']
-      G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-
-      { rank = same; G2 X Y }
-
-      G1 -> X
-      G2 -> X
-      G3 -> X
-      U -> X
-      U -> Y
-      X -> Y
-      }
-      ", height = 200)
+mrdags::single_iv_dag(noborders = FALSE)
 ```
 
-This could be extended for more genotypes.
+## Multiple genotype DAG
 
-### Version without borders around observed variables
+* Version without borders around observed variables
 
 ```{r}
 mrdags::multiple_iv_dag()
 ```
+
+* Version with borders around observed variables
+
+```{r}
+mrdags::multiple_iv_dag(noborders = FALSE)
+```
+
+This could be extended for more genotypes.
 
 ## Single genotype path diagram
 
