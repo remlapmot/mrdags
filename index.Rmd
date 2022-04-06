@@ -494,6 +494,8 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 ```{verbatim, file='tikz-template-swig-tr.tex', lang='tex'}
 ```
 
+## SWIGs for single exposure models
+
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
 ```{tikz, iv-bw, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
