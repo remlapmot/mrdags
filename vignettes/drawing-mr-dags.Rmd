@@ -304,10 +304,19 @@ To use the `tikz` chunk engine we again write a LaTeX template based on the prea
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
+As per the Eleanor code we call the function in the **mrdags** package in the following way
+
+````{verbatim}
+```{r, child=mrdags::tikz_swig_iv_bw()}
+```
+````
+
+to produce the following SWIG.
+
 ```{r, child=mrdags::tikz_swig_iv_bw()}
 ```
 
-Let's add colour in the same way as in the original figure.
+Let's add colour in the same way as in the original figure, this time use the `tikz_swig_iv_color()` function.
 
 ```{r, child=mrdags::tikz_swig_iv_color()}
 ```
@@ -318,22 +327,28 @@ Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) mode
 
 ### SWIG for MVMR model with 2 independent exposures
 
-Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case.
+Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case. For this SWIG use the `tikz_swig_mvmr_pleiotropy()` function.
 
 ```{r, child=mrdags::tikz_swig_mvmr_pleiotropy()}
 ```
 
 ### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
 
+For this SWIG use the `tikz_swig_mvmr_confounder()` function.
+
 ```{r, child=mrdags::tikz_swig_mvmr_confounder()}
 ```
 
 ### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$
 
+For this SWIG use the `tikz_swig_mvmr_collider()` function.
+
 ```{r, child=mrdags::tikz_swig_mvmr_collider()}
 ```
 
 ### SWIG for MVMR model with $X_2$ mediator of $X_1$--$Y$
+
+For this SWIG use the `tikz_swig_mvmr_mediator()` function.
 
 ```{r, child=mrdags::tikz_swig_mvmr_mediator()}
 ```
