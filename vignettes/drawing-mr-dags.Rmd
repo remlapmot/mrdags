@@ -175,7 +175,7 @@ library(dagitty)
 ## Using DOT syntax
 
 The DAG for a single genotype.
-```{r}
+```{r, fig.height=5, fig.width=7}
 mrdag <- dagitty('dag {
   G -> X -> Y
   X <- U -> Y
@@ -194,13 +194,13 @@ plot(mrdag)
 library(ggdag)
 ```
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 mrdags::ggdag_single_iv_dag()
 ```
 
 This can be labelled as follows.
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 mrdag <- mrdag %>%
   dag_label(
     labels = c(
@@ -213,7 +213,7 @@ ggdag(mrdag,  use_labels = "label") + theme_dag()
 
 Dagitty can identify the instrumental variable on the DAG.
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
@@ -221,7 +221,7 @@ It correctly identifies the genotype, G, as the instrumental variable.
 
 ## Using R model type syntax in ggdag
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 coords <- list(x = c(
   G = 0,
   X = 1,
@@ -254,7 +254,7 @@ ggdag(mrdag, use_labels = "label") + theme_dag()
 
 Plotting directly with ggplot2 functions.
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 mrdag %>%
   ggplot(aes(
     x = x,
@@ -270,7 +270,7 @@ mrdag %>%
 
 Showing the paths.
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
@@ -280,7 +280,7 @@ ggdag_paths() + theme_dag()
 
 Adjustment set for the effect of $X$ on $Y$.
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
@@ -293,7 +293,7 @@ This shows that the path from G to X is unconfounded. And that when U is adjuste
 
 ## Multiple genotype DAG
 
-```{r}
+```{r, fig.height=5, fig.width=7}
 mrdags::ggdag_multiple_iv_dag()
 ```
 
