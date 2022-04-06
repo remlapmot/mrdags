@@ -214,15 +214,15 @@ This could be extended for more genotypes.
 
 # Eleanor Murray's TikZ diagrams using the tikz code chunk engine
 
-I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`.
+I think that tikz diagrams can be included in R Markdown documents using the `tikz` code chunk engine for output types `pdf_document` and `html_document`.
 
-Tikz is a package for LaTeX and so pdf is its natural output. So far I have not been able to include these figures in either `html_notebook` or `word_document` output formats. I suspect that the images need conversion to png files for these to work under rmarkdown.
+TikZ is a package for LaTeX and so pdf is its natural output. So far I have not been able to include these figures in either `html_notebook` or `word_document` output formats. I suspect that the images need conversion to png files for the following code to work with those output formats.
 
-We will use some of the LaTeX code for drawing DAGs using tikz provided by Eleanor Murray [here](https://github.com/eleanormurray/causalgraphs_latex).
+We will use some of the LaTeX code for drawing DAGs using TikZ provided by Eleanor Murray [here](https://github.com/eleanormurray/causalgraphs_latex).
 
-In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, which is provided in the **mrdags** package.
+In its LaTeX preamble, this code loads in several Tikz libraries. As such for our `tikz` code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, which is provided in the **mrdags** package.
 
-If you have a new TinyTeX install check you have the following LaTeX packages installed.
+If you have a new TinyTeX installation check you have the following LaTeX packages installed.
 
 ```{r, eval=FALSE}
 tinytex::tlmgr_install(c("preview", "pgf"))
