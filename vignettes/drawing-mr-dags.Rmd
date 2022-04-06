@@ -298,7 +298,7 @@ Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs,
     ```
 * Its user manual is available [here](http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf)
 
-To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is included in the package.
+To use the `tikz` chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is included in the package.
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
