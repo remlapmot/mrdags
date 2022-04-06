@@ -10,7 +10,7 @@ Imports:
   details,
   DiagrammeR,
   ggdag,
-  knitr,
+  knitr (>= 1.37),
   pdftools,
   quickdag,
   rmarkdown,
