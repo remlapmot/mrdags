@@ -14,6 +14,7 @@ Imports:
   knitr (>= 1.37),
   pdftools,
   quickdag,
+  ragg,
   rmarkdown,
   tidyverse,
   tinytex
