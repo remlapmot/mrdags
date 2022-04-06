@@ -22,7 +22,7 @@ First, we load in the tidyverse collection of packages to have access to the pip
 library(tidyverse)
 ```
 
-If you do not already one you will need a LaTeX installation. In R it is easiest to install [TinyTeX](https://yihui.org/tinytex/) as follows.
+If you do not already have one you will need a LaTeX installation. In R it is easiest to install [TinyTeX](https://yihui.org/tinytex/) as follows.
 ```{r, eval=FALSE}
 install.packages("tinytex")
 tinytex::install_tinytex()
