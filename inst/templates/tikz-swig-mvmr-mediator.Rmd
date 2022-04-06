@@ -28,7 +28,7 @@
   shape=swig hsplit,
   swig hsplit = {line color lower=red,
                  line width lower=2.5pt}]{
-\nodepart{upper}{$X_2^{\phantom{2}\textcolor{red}{g_1,\,g_2,\,x_2}}$}
+\nodepart{upper}{$X_2^{\phantom{2}\textcolor{red}{g_1,\,g_2,\,x_1}}$}
 \nodepart{lower}{\textcolor{red}{$x_2$}}};
 
 \node[name=G2,
