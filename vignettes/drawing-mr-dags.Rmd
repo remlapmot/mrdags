@@ -300,6 +300,8 @@ Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs,
 
 To use the `tikz` chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is included in the package.
 
+## SWIGs for single exposure models
+
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
 ```{r, child=mrdags::tikz_swig_iv_bw()}
