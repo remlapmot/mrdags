@@ -294,7 +294,7 @@ This shows that the path from G to X is unconfounded. And that when U is adjuste
 ## Multiple genotype DAG
 
 ```{r}
-mrdags::ggdag_multiple_genotype_dag()
+mrdags::ggdag_multiple_iv_dag()
 ```
 
 This could be extended for more genotypes.
