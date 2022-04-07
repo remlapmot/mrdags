@@ -437,6 +437,97 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 
 Again this could be extended for more genotypes.
 
+## MVMR DAGs using TikZ
+
+We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, [doi:10.1093/ije/dyy262](https://doi.org/10.1093/ije/dyy262) [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
+
+* Scenario 1: $X_2$ confounder of $X_1$ and $Y$
+
+```{tikz}
+#| engine.opts=list(template = "tikz-template.tex")
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_2$};
+\node (2) at (1.5,0) {$X_2$};
+\node (3) at (4.5,1) {$Y$};
+\node (4) at (3,2) {$U$};
+\node (5) at (0,1) {$G_1$};
+\node (6) at (1.5,1) {$X_1$};
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (2) -- (3);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (6);
+\draw[Arrow] (6) -- (3);
+\draw[Arrow] (4) -- (6);
+\draw[Arrow] (2) -- (6);
+\end{tikzpicture}
+```
+
+* Scenario 2: $X_2$ collider of $X_1$ and $Y$
+
+```{tikz}
+#| engine.opts=list(template = "tikz-template.tex")
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_2$};
+\node (2) at (1.5,0) {$X_2$};
+\node (3) at (4.5,1) {$Y$};
+\node (4) at (3,2) {$U$};
+\node (5) at (0,1) {$G_1$};
+\node (6) at (1.5,1) {$X_1$};
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (3) -- (2);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (6);
+\draw[Arrow] (6) -- (3);
+\draw[Arrow] (4) -- (6);
+\draw[Arrow] (6) -- (2);
+\end{tikzpicture}
+```
+
+* Scenario 3: $X_2$ on a pleiotropic pathway
+
+```{tikz}
+#| engine.opts=list(template = "tikz-template.tex")
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_2$};
+\node (2) at (1.5,0) {$X_2$};
+\node (3) at (4.5,1) {$Y$};
+\node (4) at (3,2) {$U$};
+\node (5) at (0,1) {$G_1$};
+\node (6) at (1.5,1) {$X_1$};
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (2) -- (3);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (6);
+\draw[Arrow] (6) -- (3);
+\draw[Arrow] (4) -- (6);
+\end{tikzpicture}
+```
+
+* Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
+
+```{tikz}
+#| engine.opts=list(template = "tikz-template.tex")
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_2$};
+\node (2) at (1.5,0) {$X_2$};
+\node (3) at (4.5,1) {$Y$};
+\node (4) at (3,2) {$U$};
+\node (5) at (0,1) {$G_1$};
+\node (6) at (1.5,1) {$X_1$};
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (2) -- (3);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (6);
+\draw[Arrow] (6) -- (3);
+\draw[Arrow] (4) -- (6);
+\draw[Arrow] (6) -- (2);
+\end{tikzpicture}
+```
+
 # quickdag package
 
 We can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
