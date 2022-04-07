@@ -37,3 +37,23 @@ tikz_swig_mvmr_collider <- function() {
 tikz_swig_mvmr_mediator <- function() {
   system.file("templates", "tikz-swig-mvmr-mediator.Rmd", package = "mrdags")
 }
+
+#' @export
+tikz_dag_mvmr_pleiotropy <- function() {
+  system.file("templates", "tikz-dag-mvmr-pleiotropy.Rmd", package = "mrdags")
+}
+
+#' @export
+tikz_dag_mvmr_confounder <- function() {
+  system.file("templates", "tikz-dag-mvmr-confounder.Rmd", package = "mrdags")
+}
+
+#' @export
+tikz_dag_mvmr_collider <- function() {
+  system.file("templates", "tikz-dag-mvmr-collider.Rmd", package = "mrdags")
+}
+
+#' @export
+tikz_dag_mvmr_mediator <- function() {
+  system.file("templates", "tikz-dag-mvmr-mediator.Rmd", package = "mrdags")
+}
