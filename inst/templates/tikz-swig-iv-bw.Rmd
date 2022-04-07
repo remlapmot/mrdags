@@ -1,7 +1,5 @@
 ```{tikz}
-#| fig.width = 3,
-#| engine.opts = list(template = mrdags::tikz_swig_template()),
-#| out.width="65%"
+#| engine.opts = list(template = mrdags::tikz_swig_template())
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
