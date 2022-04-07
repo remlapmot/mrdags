@@ -1,0 +1,19 @@
+```{tikz}
+#| engine.opts = list(template = mrdags::tikz_template())
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_2$};
+\node (2) at (1.5,0) {$X_2$};
+\node (3) at (4.5,1) {$Y$};
+\node (4) at (3,2) {$U$};
+\node (5) at (0,1) {$G_1$};
+\node (6) at (1.5,1) {$X_1$};
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (2) -- (3);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (6);
+\draw[Arrow] (6) -- (3);
+\draw[Arrow] (4) -- (6);
+\draw[Arrow] (2) -- (6);
+\end{tikzpicture}
+```
