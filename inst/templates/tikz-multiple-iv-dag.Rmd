@@ -1,7 +1,5 @@
 ```{tikz} 
-#| fig.width = 3,
-#| engine.opts = list(template = mrdags::tikz_template()),
-#| out.width="65%"
+#| engine.opts = list(template = mrdags::tikz_template())
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
@@ -9,8 +7,8 @@
 \node (4) at (2.25,1) {$U$};
 \node (5) at (0,0.5) {$G_1$};
 \node (6) at (0,-0.5) {$G_3$};
-\draw[Arrow] (1.east) -- (2.west);
-\draw[Arrow] (2.east) -- (3.west);
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (2) -- (3);
 \draw[Arrow] (4) -- (2);
 \draw[Arrow] (4) -- (3);
 \draw[Arrow] (5) -- (2);
