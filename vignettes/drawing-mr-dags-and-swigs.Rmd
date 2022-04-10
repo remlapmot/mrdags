@@ -239,7 +239,13 @@ We call this in the following way in our R Markdown code
 ```
 ````
 
-which produces the following.
+or with the R code `knitr::knit_child(mrdags::tikz_single_iv_dag())` which we can call using inline R code in R Markdown
+
+````{verbatim}
+`r knitr::knit_child(mrdags::tikz_single_iv_dag())`
+````
+
+which both produce the following.
 
 ```{r, child=mrdags::tikz_single_iv_dag()}
 ```
