@@ -1,4 +1,7 @@
 # mrdags
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/remlapmot/mrdags/workflows/R-CMD-check/badge.svg)](https://github.com/remlapmot/mrdags/actions)
+  <!-- badges: end -->
 
 R package to plot directed acyclic graphs (DAGs) and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
 
