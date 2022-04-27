@@ -20,5 +20,5 @@ sudo apt-get install -y libpoppler-cpp-dev
 
 ```r
 # install.packages("remotes")
-remotes::install_github("remlapmot/mrdags@convert-to-r-package")
+remotes::install_github("remlapmot/mrdags")
 ```
