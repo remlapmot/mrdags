@@ -3,11 +3,11 @@ project:
   output-dir: docs
 
 website:
-  title: Coding styles for using R packages
+  title: R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses
   link-external-icon: true
   repo-url: https://github.com/remlapmot/mrdags
   repo-actions: source
-  repo-branch: master
+  repo-branch: master'
   site-url: https://remlapmot.github.io/mrdags/
 
 format:
