@@ -2,24 +2,14 @@
 title: "R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: "`r Sys.Date()`"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 3
-    toc_float:
-      collapsed: no
-    dev: ragg_png
-    code_download: yes
 ---
 
 ```{r include=FALSE}
-require("Hmisc")
 library(details)
 knitr::opts_chunk$set(cache = TRUE)
 ```
-`r Hmisc::hidingTOC(levels = 3)`
 
-# Introduction
+## Introduction
 
 This webpage shows some R code for generating figures, directed acyclic graphs (DAGs), and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
 
@@ -34,13 +24,13 @@ install.packages("tinytex")
 tinytex::install_tinytex()
 ```
 
-# DiagrammeR package
+## DiagrammeR package
 
 The website for DiagrammeR is here: http://rich-iannone.github.io/DiagrammeR/ .
 
 We will draw the DAGs using Graphviz which uses the DOT language to describe graphs.
 
-## Single genotype DAG
+### Single genotype DAG
 
 ```{r}
 DiagrammeR::grViz("
@@ -66,7 +56,7 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-### Version without borders around observed variables
+#### Version without borders around observed variables
 
 ```{r}
 DiagrammeR::grViz("
@@ -92,7 +82,7 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-## Multiple genotype DAG
+### Multiple genotype DAG
 
 ```{r}
 DiagrammeR::grViz("
@@ -124,7 +114,7 @@ DiagrammeR::grViz("
 
 This could be extended for more genotypes.
 
-### Version without borders around observed variables
+#### Version without borders around observed variables
 
 ```{r}
 DiagrammeR::grViz("
@@ -154,7 +144,7 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-## Single genotype path diagram
+### Single genotype path diagram
 
 Explicitly including the confounder, $U$.
 ```{r}
@@ -214,15 +204,15 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-# dagitty package
+## dagitty package
 
-The website for DAGitty is here http://www.dagitty.net/
+The website for DAGitty is <http://www.dagitty.net/>
 
 ```{r, warning=FALSE, message=FALSE}
 library(dagitty)
 ```
 
-## Using DOT syntax
+### Using DOT syntax
 
 The DAG for a single genotype.
 ```{r}
@@ -238,7 +228,7 @@ mrdag <- dagitty('dag {
 plot(mrdag)
 ```
 
-## Using ggdag
+### Using ggdag
 
 ```{r, warning=FALSE, message=FALSE}
 library(ggdag)
@@ -279,7 +269,7 @@ mrdag %>% ggdag_instrumental() + theme_dag()
 
 It correctly identifies the genotype, G, as the instrumental variable.
 
-## Using R model type syntax in ggdag
+### Using R model type syntax in ggdag
 
 ```{r}
 coords <- list(x = c(
@@ -351,7 +341,7 @@ dagify(Y ~ X + U,
 
 This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
 
-## Multiple genotype DAG
+### Multiple genotype DAG
 
 ```{r}
 coords2 <- list(x = c(G1 = 0, G2 = 0, G3 = 0, X = 1, Y = 2, U = 1.5),
@@ -374,7 +364,7 @@ ggdag(mrdag) + theme_dag()
 
 This could be extended for more genotypes.
 
-# Eleanor Murray's TikZ diagrams using the tikz code chunk engine
+## Eleanor Murray's TikZ diagrams using the tikz code chunk engine
 
 I believe that tikz diagrams can be included in Rmarkdown documents using the tikz code chunk engine for output types `pdf_document` and `html_document`. 
 
@@ -401,7 +391,7 @@ We can now plot our DAGs.
 
 Aside: I should note that I could not get this code to run on my MacBook. This is because by default the `dvisvg` executable on MacOS appears to be missing `libgs` support. It is possible to compile `dvisvg` from source including `libgs` support but I did not try this.
 
-## Single genotype DAG using tikz
+### Single genotype DAG using tikz
 
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
@@ -416,7 +406,7 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 \end{tikzpicture}
 ```
 
-## Multiple genotype DAG using tikz
+### Multiple genotype DAG using tikz
 
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
@@ -437,7 +427,7 @@ Aside: I should note that I could not get this code to run on my MacBook. This i
 
 Again this could be extended for more genotypes.
 
-## MVMR DAGs using TikZ
+### MVMR DAGs using TikZ
 
 We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, [doi:10.1093/ije/dyy262](https://doi.org/10.1093/ije/dyy262) [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
 
@@ -528,12 +518,14 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 \end{tikzpicture}
 ```
 
-# quickdag package
+## quickdag package
 
 We can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
 
 ```{r}
-if (!requireNamespace("quickdag", quietly = TRUE)) remotes::install_github("jrgant/quickdag")
+if (!requireNamespace("quickdag", quietly = TRUE)) {
+  remotes::install_github("jrgant/quickdag")
+}
 
 library(quickdag)
 
@@ -546,9 +538,9 @@ dag  <- qd_dag(edges)
 dag %>% render_graph()
 ```
 
-We can also draw the single world intervention graph (SWIG) for the IV model as follow.
+We can also draw the single world intervention graph (SWIG) for the IV model as follows.
+
 ```{r}
-# SWIG
 swig <- dag %>%
   qd_swig(fixed.nodes = c("G","X"),
           custom.labels = c("G" = "g", 
@@ -556,12 +548,13 @@ swig <- dag %>%
 swig %>% render_graph()
 ```
 
-# Thomas Richardson's TikZ code for SWIGs
+## Thomas Richardson's TikZ code for SWIGs
 
 Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs, which is available on CTAN [here](https://ctan.org/pkg/tikz-swigs).
 
 * Install the package into your TinyTeX installation with  
-    ```{r, eval=FALSE}
+
+    ```r
     tinytex::install_tlmgr("tikz-swigs")
     ```  
 * Its user manual is available [here](http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf)
@@ -570,7 +563,7 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 ```{verbatim, file='tikz-template-swig-tr.tex', lang='tex'}
 ```
 
-## SWIGs for single exposure models
+### SWIGs for single exposure models
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
@@ -637,11 +630,11 @@ Let's add colour in the same way as in the original figure.
 \end{tikzpicture}
 ```
 
-## SWIGs for MVMR models
+### SWIGs for MVMR models
 
 Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) model.
 
-### SWIG for MVMR model with 2 independent exposures
+#### SWIG for MVMR model with 2 independent exposures
 
 Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case.
 
@@ -706,7 +699,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 \end{tikzpicture}
 ```
 
-### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
+#### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
 
 ```{tikz, mvmr-confounder, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
 \begin{tikzpicture}
@@ -770,7 +763,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 \end{tikzpicture}
 ```
 
-### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$
+#### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$
 
 ```{tikz, mvmr-collider, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
 \begin{tikzpicture}
@@ -836,7 +829,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 \end{tikzpicture}
 ```
 
-### SWIG for MVMR model with $X_2$ mediator of $X_1$--$Y$
+#### SWIG for MVMR model with $X_2$ mediator of $X_1$--$Y$
 
 ```{tikz, mvmr-mediator, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
 \begin{tikzpicture}
@@ -900,7 +893,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 \end{tikzpicture}
 ```
 
-# Session information for reproducibility
+## Session information for reproducibility
 
 <details><summary>Click here for session info</summary>
 ```{r}
