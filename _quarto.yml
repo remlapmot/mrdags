@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: Coding styles for using R packages
+  link-external-icon: true
+  repo-url: https://github.com/remlapmot/mrdags
+  repo-actions: source
+  site-url: https://remlapmot.github.io/mrdags/
+
+format:
+  html:
+    toc: true
+    link-external-icon: true
+    format:
+    toc-depth: 4
+    dev: ragg_png
