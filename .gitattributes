@@ -2,6 +2,7 @@
 * text=auto
 
 # Linguist language statistics
+*.[Qq]md linguist-detectable
 *.[Rr]md linguist-detectable
 *.html linguist-vendored
 *.tex linguist-vendored
