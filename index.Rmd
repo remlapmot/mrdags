@@ -247,6 +247,7 @@ library(dagitty)
 
 The DAG for a single genotype.
 ```{r dgtty-single-dag}
+#| fig.height=2
 mrdag <- dagitty('dag {
   G -> X -> Y
   X <- U -> Y
@@ -262,6 +263,7 @@ plot(mrdag)
 ### Using ggdag
 
 ```{r ggdg-single-dag, warning=FALSE, message=FALSE}
+#| fig.height=3.5
 library(ggdag)
 mrdag <- dagitty('dag {
   G -> X -> Y
@@ -279,6 +281,7 @@ ggdag(ggmrdag) + theme_dag()
 This can be labelled as follows.
 
 ```{r ggdg-single-dag-2}
+#| fig.height=3.5
 mrdag <- mrdag %>% 
   dag_label(
     labels = c(
@@ -292,6 +295,7 @@ ggdag(mrdag,  use_labels = "label") + theme_dag()
 Dagitty can identify the instrumental variable on the DAG.
 
 ```{r ggdg-single-dag-3}
+#| fig.height=3.5
 mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
