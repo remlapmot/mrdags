@@ -365,7 +365,7 @@ dagify(Y ~ X + U,
   ggdag_adjustment_set() + theme_dag()
 ```  
 
-This shows that the path from G to X is unconfounded. And that when U is adjusted for the path from X to Y is unconfounded.
+This shows that the path from $G$ to $X$ is unconfounded. And that when $U$ is adjusted for the path from $X$ to $Y$ is unconfounded.
 
 ### Multiple genotype DAG
 
