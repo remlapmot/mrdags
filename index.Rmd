@@ -304,6 +304,7 @@ It correctly identifies the genotype, $G$, as the instrumental variable.
 ### Using R model type syntax in ggdag
 
 ```{r ggdg-single-dag-4}
+#| fig.height=3.5
 coords <- list(x = c(G = 0, X = 1, Y = 2, U = 1.5),
                y = c(G = 0, X = 0, Y = 0, U = 1))
 
