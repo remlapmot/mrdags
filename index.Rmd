@@ -660,7 +660,9 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 
 Let's add colour in the same way as in the original figure.
 
-```{tikz, iv-color, fig.width=3, engine.opts=list(template = "tikz-template-swig-tr.tex"), out.width='50%'}
+```{tikz iv-color}
+#| engine.opts=list(template = "tikz-template-swig-tr.tex"),
+#| out.width='65%'
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
