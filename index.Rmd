@@ -401,7 +401,9 @@ We will use some of the LaTeX code for drawing DAGs using tikz provided by Elean
 In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
 
 ````{verbatim}
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+```{tikz}
+#| out.width="65%", 
+#| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 % Your tikz code goes here ...
 \end{tikzpicture}
