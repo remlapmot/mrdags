@@ -581,7 +581,7 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 ## quickdag package
 
-We can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
+We can produce some nice plots with the **quickdag** package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
 
 ```{r}
 if (!requireNamespace("quickdag", quietly = TRUE)) {
