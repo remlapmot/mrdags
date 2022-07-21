@@ -470,10 +470,10 @@ For a bidirectional MR analysis we can combine the 2 separate DAGs into a single
 \node (4) at (2.25,1) {$U$};
 \node (5) at (4.5,0) {$G_Y$};
 % Create dummy X and Y nodes with no content
-\node (6) at (1.65,-0.05) {};
-\node (7) at (2.85,-0.05) {};
-\node (8) at (1.65,0.05) {};
-\node (9) at (2.85,0.05) {};
+\node (6) at (1.5,-0.05) {\phantom{$X$}};
+\node (7) at (3,-0.05) {\phantom{$Y$}};
+\node (8) at (1.5,0.05) {\phantom{$X$}};
+\node (9) at (3,0.05) {\phantom{$Y$}};
 \draw[Arrow] (1) -- (2);
 \draw[Arrow] (8) -- (9);
 \draw[Arrow, color=blue] (7) -- (6);
