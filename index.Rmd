@@ -109,7 +109,7 @@ DiagrammeR::grViz("
       U -> Y
       X -> Y 
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 This could be extended for more genotypes.
@@ -141,7 +141,7 @@ DiagrammeR::grViz("
       U -> Y
       X -> Y 
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 ### Bidirectional MR figure of combined DAGs
@@ -172,7 +172,7 @@ DiagrammeR::grViz("
       Y -> X [color=blue, penwidth=2]
       GY -> Y [color=blue, penwidth=2]
       }
-      ", height = 200)
+      ", height = 250)
 ```
 
 ### Single genotype path diagram
@@ -205,7 +205,7 @@ DiagrammeR::grViz("
       U -> U [dir='both', headport='n', tailport='n']
       G -> G [dir='both', headport='w', tailport='w']
       }
-      ", height = 200)
+      ", height = 250)
 ```
 
 Instead drawing correlated error terms between $X$ and $Y$.
@@ -232,7 +232,7 @@ DiagrammeR::grViz("
       Ex -> Ey [dir='both', label=<<I>&rho;</I>>]
       G -> G [dir='both', headport='w', tailport='w']
       }
-      ", height = 200)
+      ", height = 250)
 ```
 
 ## dagitty package
