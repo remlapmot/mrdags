@@ -488,7 +488,7 @@ For a bidirectional MR analysis we can combine the 2 separate DAGs into a single
 
 We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, [doi:10.1093/ije/dyy262](https://doi.org/10.1093/ije/dyy262) [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
 
-* Scenario 1: $X_2$ confounder of $X_1$ and $Y$
+#### Scenario 1: $X_2$ confounder of $X_1$ and $Y$
 
 ```{tikz tkz-mvmr-dag-1}
 #| out.width='65%',
@@ -511,7 +511,7 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 \end{tikzpicture}
 ```
 
-* Scenario 2: $X_2$ collider of $X_1$ and $Y$
+#### Scenario 2: $X_2$ collider of $X_1$ and $Y$
 
 ```{tikz tkz-mvmr-dag-2}
 #| out.width='65%',
@@ -534,7 +534,7 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 \end{tikzpicture}
 ```
 
-* Scenario 3: $X_2$ on a pleiotropic pathway
+#### Scenario 3: $X_2$ on a pleiotropic pathway
 
 ```{tikz tkz-mvmr-dag-3}
 #| out.width='65%',
@@ -556,7 +556,7 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 \end{tikzpicture}
 ```
 
-* Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
+#### Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
 
 ```{tikz tkz-mvmr-dag-4}
 #| out.width='65%',
