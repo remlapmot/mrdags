@@ -328,6 +328,7 @@ ggdag(mrdag, use_labels = "label") + theme_dag()
 Plotting directly with **ggplot2** functions.
 
 ```{r ggdg-single-dag-5}
+#| fig.height=3.5
 mrdag %>%
   ggplot(aes(
     x = x,
@@ -344,6 +345,7 @@ mrdag %>%
 Showing the paths.
 
 ```{r ggdg-single-dag-6}
+#| fig.height=3.5
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
@@ -354,6 +356,7 @@ ggdag_paths() + theme_dag()
 Adjustment set for the effect of $X$ on $Y$.  
 
 ```{r ggdg-single-dag-7}
+#| fig.height=3.5
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
