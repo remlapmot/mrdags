@@ -26,7 +26,7 @@ tinytex::install_tinytex()
 
 ## DiagrammeR package
 
-The website for DiagrammeR is here: http://rich-iannone.github.io/DiagrammeR/ .
+The website for DiagrammeR is here: <http://rich-iannone.github.io/DiagrammeR/> .
 
 We will draw the DAGs using Graphviz which uses the DOT language to describe graphs.
 
