@@ -419,8 +419,9 @@ We can now plot our DAGs.
 
 ### Single genotype DAG using TikZ
 
-
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+```{tikz tkz-single-dag}
+#| out.width='65%',
+#| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
