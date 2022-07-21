@@ -588,15 +588,13 @@ We can produce some nice plots with the **quickdag** package, which appears to b
 if (!requireNamespace("quickdag", quietly = TRUE)) {
   remotes::install_github("jrgant/quickdag")
 }
-
 library(quickdag)
-
 edges <- c("G -> X",
            "X -> Y",
            "U -> {X Y}")
-
 # DAG
 dag  <- qd_dag(edges)
+dag  <- qd_dag(edges, verbose = FALSE)
 dag %>% render_graph()
 ```
 
