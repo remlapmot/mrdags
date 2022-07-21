@@ -4,7 +4,7 @@ author: "Tom Palmer"
 date: "`r Sys.Date()`"
 ---
 
-```{r include=FALSE}
+```{r setup, include=FALSE}
 library(details)
 knitr::opts_chunk$set(cache = TRUE)
 ```
@@ -14,12 +14,12 @@ knitr::opts_chunk$set(cache = TRUE)
 This webpage shows some R code for generating figures, directed acyclic graphs (DAGs), and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
 
 First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
-```{r, message=FALSE, warning=FALSE}
+```{r tdyvrs, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
 
 If you do not already one you will need a LaTeX installation. In R it is easiest to install [TinyTeX](https://yihui.org/tinytex/) as follows.
-```{r, eval=FALSE}
+```{r tnytx, eval=FALSE}
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
@@ -32,7 +32,7 @@ We will draw the DAGs using Graphviz which uses the DOT language to describe gra
 
 ### Single genotype DAG
 
-```{r}
+```{r dg-single-dag}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -58,7 +58,7 @@ DiagrammeR::grViz("
 
 #### Version without borders around observed variables
 
-```{r}
+```{r dg-single-dag-2}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -84,7 +84,7 @@ DiagrammeR::grViz("
 
 ### Multiple genotype DAG
 
-```{r}
+```{r dg-multiple-dag}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -116,7 +116,7 @@ This could be extended for more genotypes.
 
 #### Version without borders around observed variables
 
-```{r}
+```{r dg-multiple-dag-2}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -148,7 +148,7 @@ DiagrammeR::grViz("
 
 For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
 
-```{r}
+```{r dg-bidir-fig}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -178,7 +178,7 @@ DiagrammeR::grViz("
 ### Single genotype path diagram
 
 Explicitly including the confounder, $U$.
-```{r}
+```{r dg-single-path}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -210,7 +210,7 @@ DiagrammeR::grViz("
 
 Instead drawing correlated error terms between $X$ and $Y$.
 
-```{r}
+```{r dg-single-path-2}
 DiagrammeR::grViz("
       digraph mrdag {
 
@@ -239,14 +239,14 @@ DiagrammeR::grViz("
 
 The website for DAGitty is <http://www.dagitty.net/>
 
-```{r, warning=FALSE, message=FALSE}
+```{r dgtty, warning=FALSE, message=FALSE}
 library(dagitty)
 ```
 
 ### Using DOT syntax
 
 The DAG for a single genotype.
-```{r}
+```{r dgtty-single-dag}
 mrdag <- dagitty('dag {
   G -> X -> Y
   X <- U -> Y
@@ -261,11 +261,8 @@ plot(mrdag)
 
 ### Using ggdag
 
-```{r, warning=FALSE, message=FALSE}
+```{r ggdg-single-dag, warning=FALSE, message=FALSE}
 library(ggdag)
-```
-
-```{r}
 mrdag <- dagitty('dag {
   G -> X -> Y
   X <- U -> Y
@@ -281,7 +278,7 @@ ggdag(ggmrdag) + theme_dag()
 
 This can be labelled as follows.
 
-```{r}
+```{r ggdg-single-dag-2}
 mrdag <- mrdag %>% 
   dag_label(
     labels = c(
@@ -294,7 +291,7 @@ ggdag(mrdag,  use_labels = "label") + theme_dag()
 
 Dagitty can identify the instrumental variable on the DAG.
 
-```{r}
+```{r ggdg-single-dag-3}
 mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
@@ -302,7 +299,6 @@ It correctly identifies the genotype, G, as the instrumental variable.
 
 ### Using R model type syntax in ggdag
 
-```{r}
 coords <- list(x = c(
   G = 0,
   X = 1,
@@ -315,6 +311,7 @@ y = c(
   Y = 0,
   U = 1
 ))
+```{r ggdg-single-dag-4}
 
 mrdag <- dagify(
   X ~ G + U,
@@ -335,7 +332,7 @@ ggdag(mrdag, use_labels = "label") + theme_dag()
 
 Plotting directly with ggplot2 functions.
 
-```{r}
+```{r ggdg-single-dag-5}
 mrdag %>%
   ggplot(aes(
     x = x,
@@ -351,7 +348,7 @@ mrdag %>%
 
 Showing the paths.
 
-```{r}
+```{r ggdg-single-dag-6}
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
@@ -361,7 +358,7 @@ ggdag_paths() + theme_dag()
 
 Adjustment set for the effect of $X$ on $Y$.  
 
-```{r}  
+```{r ggdg-single-dag-7}
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
@@ -374,7 +371,7 @@ This shows that the path from G to X is unconfounded. And that when U is adjuste
 
 ### Multiple genotype DAG
 
-```{r}
+```{r ggdg-multiple-dag}
 coords2 <- list(x = c(G1 = 0, G2 = 0, G3 = 0, X = 1, Y = 2, U = 1.5),
                 y = c(G1 = 0.5, G2 = 0, G3 = -0.5, X = 0, Y = 0, U = 1))
 
