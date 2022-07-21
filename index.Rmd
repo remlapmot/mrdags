@@ -490,7 +490,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 * Scenario 1: $X_2$ confounder of $X_1$ and $Y$
 
-```{tikz}
+```{tikz tkz-mvmr-dag-1}
+#| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
@@ -512,7 +513,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 * Scenario 2: $X_2$ collider of $X_1$ and $Y$
 
-```{tikz}
+```{tikz tkz-mvmr-dag-2}
+#| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
@@ -534,7 +536,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 * Scenario 3: $X_2$ on a pleiotropic pathway
 
-```{tikz}
+```{tikz tkz-mvmr-dag-3}
+#| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
@@ -555,7 +558,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 * Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
 
-```{tikz}
+```{tikz tkz-mvmr-dag-4}
+#| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
