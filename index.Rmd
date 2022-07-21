@@ -144,6 +144,37 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
+### Bidirectional MR DAG
+
+For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
+
+```{r}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      GX [label='Genotypes for phenotype', pos='0,0!']
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+      GY [label='Genotypes for outcome', pos='6,0!']
+
+      { rank = same; GX X Y GY }
+
+      GX -> X [penwidth=2]
+      U -> X [penwidth=2]
+      U -> Y [penwidth=2]
+      X -> Y [penwidth=2]
+      Y -> X [color=blue, penwidth=2]
+      GY -> Y [color=blue, penwidth=2]
+      }
+      ", height = 200)
+```
+
 ### Single genotype path diagram
 
 Explicitly including the confounder, $U$.
