@@ -144,7 +144,7 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
-### Bidirectional MR DAG
+### Bidirectional MR figure of combined DAGs
 
 For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
 
