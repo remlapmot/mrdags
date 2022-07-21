@@ -417,8 +417,8 @@ The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray
 
 We can now plot our DAGs.
 
+### Single genotype DAG using TikZ
 
-### Single genotype DAG using tikz
 
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
@@ -433,7 +433,7 @@ We can now plot our DAGs.
 \end{tikzpicture}
 ```
 
-### Multiple genotype DAG using tikz
+### Multiple genotype DAG using TikZ
 
 ```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
 \begin{tikzpicture}
@@ -454,7 +454,7 @@ We can now plot our DAGs.
 
 Again this could be extended for more genotypes.
 
-### Bidirectional MR figure of combined DAGs
+### Bidirectional MR figure of combined DAGs using TikZ
 
 For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
 
