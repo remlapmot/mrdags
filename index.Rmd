@@ -461,7 +461,9 @@ Again this could be extended for more genotypes.
 
 For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
 
-```{tikz, fig.width=3, engine.opts=list(template = "tikz-template.tex")}
+```{tikz tkz-bidir-fig}
+#| out.width='65%', 
+#| engine.opts=list(template = "tikz-template.tex")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_X$};
 \node (2) at (1.5,0) {$X$};
