@@ -299,7 +299,7 @@ Dagitty can identify the instrumental variable on the DAG.
 mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
-It correctly identifies the genotype, G, as the instrumental variable.
+It correctly identifies the genotype, $G$, as the instrumental variable.
 
 ### Using R model type syntax in ggdag
 
