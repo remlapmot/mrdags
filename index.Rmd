@@ -583,7 +583,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 We can produce some nice plots with the **quickdag** package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
 
-```{r}
+```{r quckdg-single-dag, message=FALSE, warning=FALSE}
+#| out.width='65%'
 if (!requireNamespace("quickdag", quietly = TRUE)) {
   remotes::install_github("jrgant/quickdag")
 }
