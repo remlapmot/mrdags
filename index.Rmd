@@ -585,9 +585,7 @@ We can produce some nice plots with the **quickdag** package, which appears to b
 
 ```{r quckdg-single-dag, message=FALSE, warning=FALSE}
 #| out.width='65%'
-if (!requireNamespace("quickdag", quietly = TRUE)) {
-  remotes::install_github("jrgant/quickdag")
-}
+if (!require("quickdag")) remotes::install_github("jrgant/quickdag")
 library(quickdag)
 edges <- c("G -> X",
            "X -> Y",
