@@ -16,6 +16,7 @@ Imports:
   quarto,
   quickdag,
   ragg,
+  remotes,
   rmarkdown,
   tidyverse,
   tinytex
