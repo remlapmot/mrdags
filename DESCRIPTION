@@ -7,7 +7,6 @@ Depends: R (>= 3.6.0)
 URL: https://github.com/remlapmot/mrdags
 Imports:
   dagitty,
-  details,
   DiagrammeR,
   ggdag,
   Hmisc,

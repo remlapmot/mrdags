@@ -5,7 +5,6 @@ date: "`r Sys.Date()`"
 ---
 
 ```{r setup, include=FALSE}
-library(details)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
