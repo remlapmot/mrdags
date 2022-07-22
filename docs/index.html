@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#single-genotype-dag-using-tikz" id="toc-single-genotype-dag-using-tikz" class="nav-link" data-scroll-target="#single-genotype-dag-using-tikz">Single genotype DAG using TikZ</a></li>
   <li><a href="#single-genotype-dag-using-tikz-cd" id="toc-single-genotype-dag-using-tikz-cd" class="nav-link" data-scroll-target="#single-genotype-dag-using-tikz-cd">Single genotype DAG using tikz-cd</a></li>
+  <li><a href="#single-genotype-dag-using-simpler-tikz-code" id="toc-single-genotype-dag-using-simpler-tikz-code" class="nav-link" data-scroll-target="#single-genotype-dag-using-simpler-tikz-code">Single genotype DAG using simpler TikZ code</a></li>
   <li><a href="#multiple-genotype-dag-using-tikz" id="toc-multiple-genotype-dag-using-tikz" class="nav-link" data-scroll-target="#multiple-genotype-dag-using-tikz">Multiple genotype DAG using TikZ</a></li>
   <li><a href="#bidirectional-mr-figure-of-combined-dags-using-tikz" id="toc-bidirectional-mr-figure-of-combined-dags-using-tikz" class="nav-link" data-scroll-target="#bidirectional-mr-figure-of-combined-dags-using-tikz">Bidirectional MR figure of combined DAGs using TikZ</a></li>
   <li><a href="#mvmr-dags-using-tikz" id="toc-mvmr-dags-using-tikz" class="nav-link" data-scroll-target="#mvmr-dags-using-tikz">MVMR DAGs using TikZ</a>
@@ -709,23 +710,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
+<section id="single-genotype-dag-using-simpler-tikz-code" class="level3">
+<h3 class="anchored" data-anchor-id="single-genotype-dag-using-simpler-tikz-code">Single genotype DAG using simpler TikZ code</h3>
+<div class="cell" data-hash="index_cache/html/tikz-single-dag-3_8c527c98ba8a10a992514f9afc8d3c89">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetikzlibrary</span>{positioning}</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    &gt; = stealth,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    every path/.append style = {</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        arrows = -&gt;,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        thick</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikz</span>{</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\node</span> (g) {<span class="ss">$G$</span>};</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\node</span> (x) [right = of g] {<span class="ss">$X$</span>};</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\node</span> (y) [right = of x] {<span class="ss">$Y$</span>};</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\node</span> (u) [above right = 0.5cm and 0.25cm of x] {<span class="ss">$U$</span>};</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\path</span> (g) edge (x);</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\path</span> (x) edge (y);</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\path</span> (u) edge (x);</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\path</span> (u) edge (y);</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/tikz-single-dag-3-1.png" class="img-fluid" style="width:65.0%"></p>
+</div>
+</div>
+</section>
 <section id="multiple-genotype-dag-using-tikz" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-genotype-dag-using-tikz">Multiple genotype DAG using TikZ</h3>
 <div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-multiple-dag_fc7b2fc248e04cbd798bcdda1c46f36b">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (3,0) {<span class="ss">$Y$</span>};</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (4) at (2.25,1) {<span class="ss">$U$</span>};</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (0,0.5) {<span class="ss">$G_1$</span>};</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (0,-0.5) {<span class="ss">$G_3$</span>};</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (3);</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (2);</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (2);</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (3,0) {<span class="ss">$Y$</span>};</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (4) at (2.25,1) {<span class="ss">$U$</span>};</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (0,0.5) {<span class="ss">$G_1$</span>};</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (0,-0.5) {<span class="ss">$G_3$</span>};</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (3);</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (2);</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (2);</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/tkz-multiple-dag-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
@@ -736,24 +763,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="bidirectional-mr-figure-of-combined-dags-using-tikz">Bidirectional MR figure of combined DAGs using TikZ</h3>
 <p>For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.</p>
 <div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-bidir-fig_a0f9cb48e725c85b7cb88f05e5111309">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_X$</span>};</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (3,0) {<span class="ss">$Y$</span>};</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (4) at (2.25,1) {<span class="ss">$U$</span>};</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (4.5,0) {<span class="ss">$G_Y$</span>};</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">% Create dummy X and Y nodes with no content</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (1.5,-0.05) {<span class="fu">\phantom</span>{<span class="ss">$X$</span>}};</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (7) at (3,-0.05) {<span class="fu">\phantom</span>{<span class="ss">$Y$</span>}};</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (8) at (1.5,0.05) {<span class="fu">\phantom</span>{<span class="ss">$X$</span>}};</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (9) at (3,0.05) {<span class="fu">\phantom</span>{<span class="ss">$Y$</span>}};</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (8) -- (9);</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow] (7) -- (6);</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow] (5) -- (3);</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_X$</span>};</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (3,0) {<span class="ss">$Y$</span>};</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (4) at (2.25,1) {<span class="ss">$U$</span>};</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (4.5,0) {<span class="ss">$G_Y$</span>};</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">% Create dummy X and Y nodes with no content</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (1.5,-0.05) {<span class="fu">\phantom</span>{<span class="ss">$X$</span>}};</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (7) at (3,-0.05) {<span class="fu">\phantom</span>{<span class="ss">$Y$</span>}};</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (8) at (1.5,0.05) {<span class="fu">\phantom</span>{<span class="ss">$X$</span>}};</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (9) at (3,0.05) {<span class="fu">\phantom</span>{<span class="ss">$Y$</span>}};</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (8) -- (9);</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow] (7) -- (6);</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow] (5) -- (3);</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/tkz-bidir-fig-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
@@ -765,30 +792,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="scenario-1-x_2-confounder-of-x_1-and-y" class="level4">
 <h4 class="anchored" data-anchor-id="scenario-1-x_2-confounder-of-x_1-and-y">Scenario 1: <span class="math inline">\(X_2\)</span> confounder of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span></h4>
 <div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-1_3fcd300554602cf8e3fca7980982dfd0">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (4.5,1) {<span class="ss">$Y$</span>};</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (4) at (3,2) {<span class="ss">$U$</span>};</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (0,1) {<span class="ss">$G_1$</span>};</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (1.5,1) {<span class="ss">$X_1$</span>};</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (3);</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (6);</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (3);</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (6);</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (6);</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/tkz-mvmr-dag-1-1.png" class="img-fluid" style="width:65.0%"></p>
-</div>
-</div>
-</section>
-<section id="scenario-2-x_2-collider-of-x_1-and-y" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-2-x_2-collider-of-x_1-and-y">Scenario 2: <span class="math inline">\(X_2\)</span> collider of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-2_cae4d538260a1ac731778887ec63adad">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -797,22 +800,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (0,1) {<span class="ss">$G_1$</span>};</span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (1.5,1) {<span class="ss">$X_1$</span>};</span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (3) -- (2);</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (3);</span>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
 <span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
 <span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (6);</span>
 <span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (3);</span>
 <span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (6);</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (2);</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (6);</span>
 <span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/tkz-mvmr-dag-2-1.png" class="img-fluid" style="width:65.0%"></p>
+<p><img src="index_files/figure-html/tkz-mvmr-dag-1-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
 </div>
 </section>
-<section id="scenario-3-x_2-on-a-pleiotropic-pathway" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-3-x_2-on-a-pleiotropic-pathway">Scenario 3: <span class="math inline">\(X_2\)</span> on a pleiotropic pathway</h4>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-3_ee784c88f354818228197e2ad03a49e3">
+<section id="scenario-2-x_2-collider-of-x_1-and-y" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-2-x_2-collider-of-x_1-and-y">Scenario 2: <span class="math inline">\(X_2\)</span> collider of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span></h4>
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-2_cae4d538260a1ac731778887ec63adad">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -821,21 +824,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (0,1) {<span class="ss">$G_1$</span>};</span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (1.5,1) {<span class="ss">$X_1$</span>};</span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (3);</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (3) -- (2);</span>
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (6);</span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (3);</span>
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (6);</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (2);</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/tkz-mvmr-dag-3-1.png" class="img-fluid" style="width:65.0%"></p>
+<p><img src="index_files/figure-html/tkz-mvmr-dag-2-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
 </div>
 </section>
-<section id="scenario-4-x_2-mediator-of-the-effect-of-x_1-on-y" class="level4">
-<h4 class="anchored" data-anchor-id="scenario-4-x_2-mediator-of-the-effect-of-x_1-on-y">Scenario 4: <span class="math inline">\(X_2\)</span> mediator of the effect of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-4_84048b85ab292d7cfd740e8c94f2c8d3">
+<section id="scenario-3-x_2-on-a-pleiotropic-pathway" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-3-x_2-on-a-pleiotropic-pathway">Scenario 3: <span class="math inline">\(X_2\)</span> on a pleiotropic pathway</h4>
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-3_ee784c88f354818228197e2ad03a49e3">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -850,8 +854,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (6);</span>
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (3);</span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (6);</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (2);</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/tkz-mvmr-dag-3-1.png" class="img-fluid" style="width:65.0%"></p>
+</div>
+</div>
+</section>
+<section id="scenario-4-x_2-mediator-of-the-effect-of-x_1-on-y" class="level4">
+<h4 class="anchored" data-anchor-id="scenario-4-x_2-mediator-of-the-effect-of-x_1-on-y">Scenario 4: <span class="math inline">\(X_2\)</span> mediator of the effect of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span></h4>
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-4_84048b85ab292d7cfd740e8c94f2c8d3">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (4.5,1) {<span class="ss">$Y$</span>};</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (4) at (3,2) {<span class="ss">$U$</span>};</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (5) at (0,1) {<span class="ss">$G_1$</span>};</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (6) at (1.5,1) {<span class="ss">$X_1$</span>};</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (2) -- (3);</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (5) -- (6);</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (3);</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (6);</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (6) -- (2);</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/tkz-mvmr-dag-4-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
@@ -863,14 +890,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="quickdag-package">quickdag package</h2>
 <p>We can produce some nice plots with the <strong>quickdag</strong> package, which appears to be based on Eleanor Murray’s TikZ code, from <a href="https://github.com/jrgant/quickdag">here</a></p>
 <div class="cell" data-hash="index_cache/html/quckdg-single-dag_92bafdf337e698915fc1fe2f90e2f15f">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"quickdag"</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jrgant/quickdag"</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quickdag)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"G -&gt; X"</span>,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"X -&gt; Y"</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"U -&gt; {X Y}"</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># DAG</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>dag  <span class="ot">&lt;-</span> <span class="fu">qd_dag</span>(edges, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>dag <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"quickdag"</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jrgant/quickdag"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quickdag)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"G -&gt; X"</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"X -&gt; Y"</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"U -&gt; {X Y}"</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># DAG</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>dag  <span class="ot">&lt;-</span> <span class="fu">qd_dag</span>(edges, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>dag <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="htmlwidget-3331d0709f2d38b69415" style="width:65%;height:480px;" class="grViz html-widget"></div>
 <script type="application/json" data-for="htmlwidget-3331d0709f2d38b69415">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = \"G\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = \"X\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = \"Y\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
@@ -878,11 +905,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can also draw the single world intervention graph (SWIG) for the IV model as follows.</p>
 <div class="cell" data-hash="index_cache/html/quckdg-single-swig_1f1e06b9ed2c5d1302bcee78ec19e663">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>swig <span class="ot">&lt;-</span> dag <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qd_swig</span>(<span class="at">fixed.nodes =</span> <span class="fu">c</span>(<span class="st">"G"</span>,<span class="st">"X"</span>),</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">custom.labels =</span> <span class="fu">c</span>(<span class="st">"G"</span> <span class="ot">=</span> <span class="st">"g"</span>, </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"X"</span> <span class="ot">=</span> <span class="st">"x"</span>))</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>swig <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>swig <span class="ot">&lt;-</span> dag <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qd_swig</span>(<span class="at">fixed.nodes =</span> <span class="fu">c</span>(<span class="st">"G"</span>,<span class="st">"X"</span>),</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">custom.labels =</span> <span class="fu">c</span>(<span class="st">"G"</span> <span class="ot">=</span> <span class="st">"g"</span>, </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"X"</span> <span class="ot">=</span> <span class="st">"x"</span>))</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>swig <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="htmlwidget-49b88d7382262724ef10" style="width:65%;height:480px;" class="grViz html-widget"></div>
 <script type="application/json" data-for="htmlwidget-49b88d7382262724ef10">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = <G <font point-size=\"15\">&#124;<\/font> <i>g=g<\/i><FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = <X<FONT POINT-SIZE=\"8\"><SUP><i>g=g<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = <Y<FONT POINT-SIZE=\"8\"><SUP><i>x=x<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
@@ -894,87 +921,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs, which is available on CTAN <a href="https://ctan.org/pkg/tikz-swigs">here</a>.</p>
 <ul>
 <li><p>Install the package into your TinyTeX installation with</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_install</span>(<span class="st">"tikz-swigs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_install</span>(<span class="st">"tikz-swigs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Its user manual is available <a href="http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf">here</a></p></li>
 </ul>
 <p>To use the tikz chunk engine we again write a LaTeX template based on the preamble in the article by Richardson. The LaTeX template is as follows.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[active, tightpage]{<span class="ex">preview</span>}</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">pgf, tikz</span>}</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetikzlibrary</span>{arrows, shapes.arrows, shapes.geometric, shapes.multipart,</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>decorations.pathmorphing, positioning, swigs}</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">preview</span>}</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co">%% TIKZ_CODE %%</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">preview</span>}</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[active, tightpage]{<span class="ex">preview</span>}</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">pgf, tikz</span>}</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetikzlibrary</span>{arrows, shapes.arrows, shapes.geometric, shapes.multipart,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>decorations.pathmorphing, positioning, swigs}</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">preview</span>}</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co">%% TIKZ_CODE %%</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">preview</span>}</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="swigs-for-single-exposure-models" class="level3">
 <h3 class="anchored" data-anchor-id="swigs-for-single-exposure-models">SWIGs for single exposure models</h3>
 <p>We will recreate the SWIG template in Figure 2 (b) of Swanson et al.&nbsp;<a href="https://doi.org/10.1080/01621459.2018.1434530">here</a>.</p>
 <div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/iv-bw_d7c37d64c9a0d54bc02d72073d066bd7">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  line width=1.5pt},</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  swig vsplit={gap=5pt, inner line width right=0.5pt},</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  swig hsplit={gap=5pt, inner line width lower=0.5pt}};</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G, shape=swig vsplit]{</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G$</span>}</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="ss">$g$</span>}};</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X, right=10mm of G,</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit]{</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X^g$</span>}</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="ss">$x$</span>}};</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{<span class="ss">$U$</span>};</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, ell, shape=ellipse, right=10mm of X]{<span class="ss">$Y^x$</span>};</span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth]</span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>  (G) edge[out=360, in=170] (X)</span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  (U) edge (X)</span>
-<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
-<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  (X) to[out=330, in=180] (Y);</span>
-<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  line width=1.5pt},</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  swig vsplit={gap=5pt, inner line width right=0.5pt},</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  swig hsplit={gap=5pt, inner line width lower=0.5pt}};</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G, shape=swig vsplit]{</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G$</span>}</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="ss">$g$</span>}};</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X, right=10mm of G,</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit]{</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X^g$</span>}</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="ss">$x$</span>}};</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{<span class="ss">$U$</span>};</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, ell, shape=ellipse, right=10mm of X]{<span class="ss">$Y^x$</span>};</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth]</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>  (G) edge[out=360, in=170] (X)</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  (U) edge (X)</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>  (X) to[out=330, in=180] (Y);</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/iv-bw-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
 </div>
 <p>Let’s add colour in the same way as in the original figure.</p>
 <div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/iv-color_74b2203c9bb5ff68a2db10bbd398bd44">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  line width=1.5pt},</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  swig vsplit={gap=5pt},</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  swig hsplit={gap=5pt, inner line width lower=0.5pt}};</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G, shape=swig vsplit,</span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  swig vsplit={line color right=red}]{</span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G$</span>}</span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="fu">\textcolor</span>{red}{<span class="ss">$g$</span>}}};</span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X, right=10mm of G,</span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X^{</span><span class="sc">\textcolor</span><span class="ss">{red}{g}}$</span>}</span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x$</span>}}};</span>
-<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{<span class="ss">$U$</span>};</span>
-<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, ell, shape=ellipse, right=10mm of X]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x}}$</span>};</span>
-<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
-<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>  (G) edge[out=360, in=170] (X)</span>
-<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>  (U) edge (X)</span>
-<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
-<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>  (X) to[out=330, in=180] (Y);</span>
-<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  line width=1.5pt},</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  swig vsplit={gap=5pt},</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  swig hsplit={gap=5pt, inner line width lower=0.5pt}};</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G, shape=swig vsplit,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  swig vsplit={line color right=red}]{</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G$</span>}</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="fu">\textcolor</span>{red}{<span class="ss">$g$</span>}}};</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X, right=10mm of G,</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X^{</span><span class="sc">\textcolor</span><span class="ss">{red}{g}}$</span>}</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x$</span>}}};</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{<span class="ss">$U$</span>};</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, ell, shape=ellipse, right=10mm of X]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x}}$</span>};</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>  (G) edge[out=360, in=170] (X)</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>  (U) edge (X)</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>  (X) to[out=330, in=180] (Y);</span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/iv-color-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
@@ -987,72 +1014,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-2-independent-exposures">SWIG for MVMR model with 2 independent exposures</h4>
 <p>Since <span class="math inline">\(G_1\)</span> an instrument for both <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_2\)</span> represents a pleiotropic effect in this case.</p>
 <div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-pleiotropy_9f04f42a6c4c609966bd1e2237d19974">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  line width=1.5pt},</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  swig vsplit={gap=5pt},</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  swig hsplit={gap=5pt, inner line width lower=0.5pt}};</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G1, </span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  shape=swig vsplit,</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  swig vsplit={line color right=red}]{</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G_1$</span>}</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="fu">\textcolor</span>{red}{<span class="ss">$g_1$</span>}}};</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X1, </span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  right=10mm of G1,</span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2}}$</span>}</span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_1$</span>}}};</span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X2, </span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>  below = 1mm of X1,</span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2}}$</span>}</span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_2$</span>}}};</span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G2, </span>
-<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>  left = 10mm of X2,</span>
-<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a>  shape=swig vsplit,</span>
-<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>  swig vsplit={line color right=red}]{</span>
-<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G_2$</span>}</span>
-<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="fu">\textcolor</span>{red}{<span class="ss">$g_2$</span>}}};</span>
-<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=U, </span>
-<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>  ell, </span>
-<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
-<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a>  above right=7.5mm and 5mm of X1, </span>
-<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>  fill=gray]{<span class="ss">$U$</span>};</span>
-<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, </span>
-<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>  ell, </span>
-<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
-<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 20mm of X1]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1, x_2}}$</span>};</span>
-<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
-<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
-<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X2)</span>
-<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X2)</span>
-<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X1)</span>
-<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
-<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
-<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
-<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
-<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>  (X2) to[out=330, in=190] (Y);</span>
-<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/mvmr-pleiotropy-1.png" class="img-fluid" style="width:65.0%"></p>
-</div>
-</div>
-</section>
-<section id="swig-for-mvmr-model-with-x_2-confounder-of-x_1y" class="level4">
-<h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-confounder-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> confounder of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-confounder_bedec9c42e8591b5ce3e59cf35078d57">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1071,15 +1032,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
 <span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
 <span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>}</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2}}$</span>}</span>
 <span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_1$</span>}}};</span>
 <span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X2, </span>
-<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  below = 3mm of X1,</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  below = 1mm of X1,</span>
 <span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
 <span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
 <span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2}</span><span class="sc">\phantom</span><span class="ss">{,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>}</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2}}$</span>}</span>
 <span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_2$</span>}}};</span>
 <span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G2, </span>
@@ -1098,7 +1059,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, </span>
 <span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a>  ell, </span>
 <span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
-<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 30mm of X1]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>};</span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 20mm of X1]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1, x_2}}$</span>};</span>
 <span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-48"><a href="#cb38-48" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
 <span id="cb38-49"><a href="#cb38-49" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
@@ -1108,18 +1069,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-53"><a href="#cb38-53" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
 <span id="cb38-54"><a href="#cb38-54" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
 <span id="cb38-55"><a href="#cb38-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
-<span id="cb38-56"><a href="#cb38-56" aria-hidden="true" tabindex="-1"></a>  (X2) edge[out=330, in=10] (X1)</span>
-<span id="cb38-57"><a href="#cb38-57" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
-<span id="cb38-58"><a href="#cb38-58" aria-hidden="true" tabindex="-1"></a>  (X2) to[out=330, in=190] (Y);</span>
-<span id="cb38-59"><a href="#cb38-59" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-56"><a href="#cb38-56" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
+<span id="cb38-57"><a href="#cb38-57" aria-hidden="true" tabindex="-1"></a>  (X2) to[out=330, in=190] (Y);</span>
+<span id="cb38-58"><a href="#cb38-58" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/mvmr-confounder-1.png" class="img-fluid" style="width:65.0%"></p>
+<p><img src="index_files/figure-html/mvmr-pleiotropy-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
 </div>
 </section>
-<section id="swig-for-mvmr-model-with-x_2-collider-of-x_1y" class="level4">
-<h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-collider-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> collider of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-collider_0bf7231fd5f4a04a1aa440b6b1dd75bc">
+<section id="swig-for-mvmr-model-with-x_2-confounder-of-x_1y" class="level4">
+<h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-confounder-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> confounder of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-confounder_bedec9c42e8591b5ce3e59cf35078d57">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1138,7 +1098,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
 <span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
 <span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2</span><span class="sc">\phantom</span><span class="ss">{,</span><span class="sc">\,</span><span class="ss">x_1,</span><span class="sc">\,</span><span class="ss">y}}}$</span>}</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>}</span>
 <span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_1$</span>}}};</span>
 <span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X2, </span>
@@ -1146,7 +1106,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
 <span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
 <span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2,</span><span class="sc">\,</span><span class="ss">x_1,</span><span class="sc">\,</span><span class="ss">y}}$</span>}</span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2}</span><span class="sc">\phantom</span><span class="ss">{,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>}</span>
 <span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_2$</span>}}};</span>
 <span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G2, </span>
@@ -1163,32 +1123,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a>  fill=gray]{<span class="ss">$U$</span>};</span>
 <span id="cb39-42"><a href="#cb39-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-43"><a href="#cb39-43" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, </span>
-<span id="cb39-44"><a href="#cb39-44" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
-<span id="cb39-45"><a href="#cb39-45" aria-hidden="true" tabindex="-1"></a>  swig hsplit={line color lower=red},</span>
-<span id="cb39-46"><a href="#cb39-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 30mm of X1]{</span>
-<span id="cb39-47"><a href="#cb39-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\nodepart</span>{upper}{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1}}$</span>}</span>
-<span id="cb39-48"><a href="#cb39-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\nodepart</span>{lower}{<span class="ss">$</span><span class="sc">\textcolor</span><span class="ss">{red}{y}$</span>}};</span>
-<span id="cb39-49"><a href="#cb39-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-50"><a href="#cb39-50" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
-<span id="cb39-51"><a href="#cb39-51" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
-<span id="cb39-52"><a href="#cb39-52" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X2)</span>
-<span id="cb39-53"><a href="#cb39-53" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X2)</span>
-<span id="cb39-54"><a href="#cb39-54" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X1)</span>
-<span id="cb39-55"><a href="#cb39-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
-<span id="cb39-56"><a href="#cb39-56" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
-<span id="cb39-57"><a href="#cb39-57" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
-<span id="cb39-58"><a href="#cb39-58" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=20] (X2)</span>
-<span id="cb39-59"><a href="#cb39-59" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
-<span id="cb39-60"><a href="#cb39-60" aria-hidden="true" tabindex="-1"></a>  (Y) to[out=220, in=10] (X2);</span>
-<span id="cb39-61"><a href="#cb39-61" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-44"><a href="#cb39-44" aria-hidden="true" tabindex="-1"></a>  ell, </span>
+<span id="cb39-45"><a href="#cb39-45" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
+<span id="cb39-46"><a href="#cb39-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 30mm of X1]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>};</span>
+<span id="cb39-47"><a href="#cb39-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-48"><a href="#cb39-48" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
+<span id="cb39-49"><a href="#cb39-49" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
+<span id="cb39-50"><a href="#cb39-50" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X2)</span>
+<span id="cb39-51"><a href="#cb39-51" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X2)</span>
+<span id="cb39-52"><a href="#cb39-52" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X1)</span>
+<span id="cb39-53"><a href="#cb39-53" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
+<span id="cb39-54"><a href="#cb39-54" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
+<span id="cb39-55"><a href="#cb39-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
+<span id="cb39-56"><a href="#cb39-56" aria-hidden="true" tabindex="-1"></a>  (X2) edge[out=330, in=10] (X1)</span>
+<span id="cb39-57"><a href="#cb39-57" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
+<span id="cb39-58"><a href="#cb39-58" aria-hidden="true" tabindex="-1"></a>  (X2) to[out=330, in=190] (Y);</span>
+<span id="cb39-59"><a href="#cb39-59" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/mvmr-collider-1.png" class="img-fluid" style="width:65.0%"></p>
+<p><img src="index_files/figure-html/mvmr-confounder-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
 </div>
 </section>
-<section id="swig-for-mvmr-model-with-x_2-mediator-of-x_1y" class="level4">
-<h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-mediator-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> mediator of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-mediator_ce15cbf45a0e44582b209a4867613465">
+<section id="swig-for-mvmr-model-with-x_2-collider-of-x_1y" class="level4">
+<h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-collider-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> collider of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-collider_0bf7231fd5f4a04a1aa440b6b1dd75bc">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1207,7 +1165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
 <span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
 <span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2</span><span class="sc">\phantom</span><span class="ss">{,</span><span class="sc">\,</span><span class="ss">x_2}}}$</span>}</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2</span><span class="sc">\phantom</span><span class="ss">{,</span><span class="sc">\,</span><span class="ss">x_1,</span><span class="sc">\,</span><span class="ss">y}}}$</span>}</span>
 <span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_1$</span>}}};</span>
 <span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X2, </span>
@@ -1215,7 +1173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
 <span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
 <span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
-<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2,</span><span class="sc">\,</span><span class="ss">x_1}}$</span>}</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2,</span><span class="sc">\,</span><span class="ss">x_1,</span><span class="sc">\,</span><span class="ss">y}}$</span>}</span>
 <span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_2$</span>}}};</span>
 <span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G2, </span>
@@ -1232,22 +1190,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a>  fill=gray]{<span class="ss">$U$</span>};</span>
 <span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, </span>
-<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a>  ell, </span>
-<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
-<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 30mm of X1]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>};</span>
-<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
-<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
-<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X2)</span>
-<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X2)</span>
-<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X1)</span>
-<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
-<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
-<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
-<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=35] (X2)</span>
-<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
-<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a>  (X2) to[out=330, in=190] (Y);</span>
-<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a>  swig hsplit={line color lower=red},</span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 30mm of X1]{</span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\nodepart</span>{upper}{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1}}$</span>}</span>
+<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\nodepart</span>{lower}{<span class="ss">$</span><span class="sc">\textcolor</span><span class="ss">{red}{y}$</span>}};</span>
+<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X2)</span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X2)</span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X1)</span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
+<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
+<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=20] (X2)</span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a>  (Y) to[out=220, in=10] (X2);</span>
+<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/mvmr-collider-1.png" class="img-fluid" style="width:65.0%"></p>
+</div>
+</div>
+</section>
+<section id="swig-for-mvmr-model-with-x_2-mediator-of-x_1y" class="level4">
+<h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-mediator-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> mediator of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;}" data-hash="index_cache/html/mvmr-mediator_ce15cbf45a0e44582b209a4867613465">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  line width=1.5pt},</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  swig vsplit={gap=5pt},</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  swig hsplit={gap=5pt, inner line width lower=0.5pt}};</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G1, </span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  shape=swig vsplit,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  swig vsplit={line color right=red}]{</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G_1$</span>}</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="fu">\textcolor</span>{red}{<span class="ss">$g_1$</span>}}};</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X1, </span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  right=10mm of G1,</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_1^{</span><span class="sc">\phantom</span><span class="ss">{1}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2</span><span class="sc">\phantom</span><span class="ss">{,</span><span class="sc">\,</span><span class="ss">x_2}}}$</span>}</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_1$</span>}}};</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=X2, </span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>  below = 3mm of X1,</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>  shape=swig hsplit,</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>  swig hsplit = {line color lower=red,</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>                 line width lower=2.5pt}]{</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{upper}{<span class="ss">$X_2^{</span><span class="sc">\phantom</span><span class="ss">{2}</span><span class="sc">\textcolor</span><span class="ss">{red}{g_1,</span><span class="sc">\,</span><span class="ss">g_2,</span><span class="sc">\,</span><span class="ss">x_1}}$</span>}</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{lower}{<span class="fu">\textcolor</span>{red}{<span class="ss">$x_2$</span>}}};</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=G2, </span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>  left = 10mm of X2,</span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>  shape=swig vsplit,</span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>  swig vsplit={line color right=red}]{</span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{left}{<span class="ss">$G_2$</span>}</span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a><span class="fu">\nodepart</span>{right}{<span class="fu">\textcolor</span>{red}{<span class="ss">$g_2$</span>}}};</span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=U, </span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>  ell, </span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a>  above right=7.5mm and 5mm of X1, </span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a>  fill=gray]{<span class="ss">$U$</span>};</span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span>[name=Y, </span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a>  ell, </span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a>  shape=ellipse, </span>
+<span id="cb41-46"><a href="#cb41-46" aria-hidden="true" tabindex="-1"></a>  below right=2mm and 30mm of X1]{<span class="ss">$Y^{</span><span class="sc">\textcolor</span><span class="ss">{red}{x_1,</span><span class="sc">\,</span><span class="ss">x_2}}$</span>};</span>
+<span id="cb41-47"><a href="#cb41-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-48"><a href="#cb41-48" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[-&gt;, line width=1.5pt,&gt;=stealth, color=blue]</span>
+<span id="cb41-49"><a href="#cb41-49" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X1)</span>
+<span id="cb41-50"><a href="#cb41-50" aria-hidden="true" tabindex="-1"></a>  (G1) edge[out=360, in=150] (X2)</span>
+<span id="cb41-51"><a href="#cb41-51" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X2)</span>
+<span id="cb41-52"><a href="#cb41-52" aria-hidden="true" tabindex="-1"></a>  (G2) edge[out=360, in=170] (X1)</span>
+<span id="cb41-53"><a href="#cb41-53" aria-hidden="true" tabindex="-1"></a>  (U) edge (X1)</span>
+<span id="cb41-54"><a href="#cb41-54" aria-hidden="true" tabindex="-1"></a>  (U) edge[out=270, in=45] (X2)</span>
+<span id="cb41-55"><a href="#cb41-55" aria-hidden="true" tabindex="-1"></a>  (U) edge (Y)</span>
+<span id="cb41-56"><a href="#cb41-56" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=35] (X2)</span>
+<span id="cb41-57"><a href="#cb41-57" aria-hidden="true" tabindex="-1"></a>  (X1) edge[out=330, in=170] (Y)</span>
+<span id="cb41-58"><a href="#cb41-58" aria-hidden="true" tabindex="-1"></a>  (X2) to[out=330, in=190] (Y);</span>
+<span id="cb41-59"><a href="#cb41-59" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/mvmr-mediator-1.png" class="img-fluid" style="width:65.0%"></p>
 </div>
@@ -1262,7 +1289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Click here for session info
 </summary>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-4_77c6c15de5ade02fe9a94534c9b190d5">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.2.1 (2022-06-23)
 Platform: aarch64-apple-darwin20 (64-bit)
