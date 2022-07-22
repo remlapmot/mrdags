@@ -457,6 +457,30 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 \end{tikzcd}
 ```
 
+### Single genotype DAG using simpler TikZ code
+
+```{tikz tikz-single-dag-3}
+#| out.width='65%'
+\usetikzlibrary{positioning}
+\tikzset{
+    > = stealth,
+    every path/.append style = {
+        arrows = ->,
+        thick
+    }
+}
+\tikz{
+    \node (g) {$G$};
+    \node (x) [right = of g] {$X$};
+    \node (y) [right = of x] {$Y$};
+    \node (u) [above right = 0.5cm and 0.25cm of x] {$U$};
+    \path (g) edge (x);
+    \path (x) edge (y);
+    \path (u) edge (x);
+    \path (u) edge (y);
+}
+```
+
 ### Multiple genotype DAG using TikZ
 
 ```{tikz tkz-multiple-dag}
