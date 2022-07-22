@@ -1,20 +1,19 @@
 \documentclass{article}
-\usepackage[active,tightpage]{preview}
+\usepackage[active, tightpage]{preview}
 \usepackage{amsmath}
 \usepackage{tikz}
 \usetikzlibrary{positioning, calc, shapes.geometric, shapes.multipart,
-	shapes, arrows.meta, arrows,decorations.markings, external, trees}
+	shapes, arrows.meta, arrows, decorations.markings, external, trees}
 
 % Create custom arrow style:
 \tikzstyle{Arrow} = [
-thick,
-decoration={
-markings,
-mark=at position 1 with {
-\arrow[thick]{latex}
-}
-},
-shorten >= 3pt, preaction = {decorate}
+  thick,
+  decoration={markings,
+              mark=at position 1 with {\arrow[thick]{latex}}},
+  shorten >= 3pt, 
+  preaction = {decorate}
+]
+
 ]
 
 \begin{document}
