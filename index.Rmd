@@ -157,10 +157,10 @@ DiagrammeR::grViz("
       U [label='Confounders', pos='3,1!']
 
       node [shape=plaintext, height=0.3, width=0.3]
-      GX [label='Genotypes for phenotype', pos='0,0!']
+      GX [label='Genotypes \n for phenotype', pos='0,0!']
       X [label='Phenotype', pos='2,0!']
       Y [label='Outcome', pos='4,0!']
-      GY [label='Genotypes for outcome', pos='6,0!']
+      GY [label='Genotypes \n for outcome', pos='6,0!']
 
       { rank = same; GX X Y GY }
 
