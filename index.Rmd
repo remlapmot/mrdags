@@ -171,7 +171,7 @@ DiagrammeR::grViz("
       Y -> X [color=blue, penwidth=2]
       GY -> Y [color=blue, penwidth=2]
       }
-      ", height = 250)
+      ", height = 200)
 ```
 
 ### Single genotype path diagram
