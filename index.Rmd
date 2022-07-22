@@ -477,10 +477,10 @@ For a bidirectional MR analysis we can combine the 2 separate DAGs into a single
 \node (9) at (3,0.05) {\phantom{$Y$}};
 \draw[Arrow] (1) -- (2);
 \draw[Arrow] (8) -- (9);
-\draw[BlueArrow, color=blue] (7) -- (6);
+\draw[BlueArrow] (7) -- (6);
 \draw[Arrow] (4) -- (2);
 \draw[Arrow] (4) -- (3);
-\draw[BlueArrow, color=blue] (5) -- (3);
+\draw[BlueArrow] (5) -- (3);
 \end{tikzpicture}
 ```
 
