@@ -44,3 +44,6 @@ README.html
 /.quarto/
 
 /index_files/
+
+*.tex
+*.log
