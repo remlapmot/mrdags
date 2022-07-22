@@ -434,6 +434,29 @@ We can now plot our DAGs.
 \end{tikzpicture}
 ```
 
+### Single genotype DAG using tikz-cd
+
+The tikz-cd package provides helpful syntax for making commutative diagrams which we can use to produce DAGs.
+
+First install the package.
+
+```r
+tinytex::tlmgr_install("tikz-cd")
+```
+
+Then we can plot the single instrument DAG using the following code.
+
+```{tikz tkz-single-dag-2}
+#| out.width='65%',
+#| engine.opts=list(template = "tikz-template.tex")
+\usetikzlibrary{cd}
+\tikzcdset{arrow style=tikz, diagrams={>=stealth}}
+\begin{tikzcd}[column sep=tiny]
+& & & & U \arrow[dl, thick] \arrow[dr, thick] & \\
+G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
+\end{tikzcd}
+```
+
 ### Multiple genotype DAG using TikZ
 
 ```{tikz tkz-multiple-dag}
@@ -613,7 +636,7 @@ Thomas Richardson provides a TikZ/PGF shape library for SWIGs called tikz-swigs,
 * Install the package into your TinyTeX installation with  
 
     ```r
-    tinytex::install_tlmgr("tikz-swigs")
+    tinytex::tlmgr_install("tikz-swigs")
     ```  
 * Its user manual is available [here](http://mirrors.ctan.org/graphics/pgf/contrib/tikz-swigs/tikz-swigs.pdf)
 
