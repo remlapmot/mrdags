@@ -213,7 +213,7 @@ Instead drawing correlated error terms between $X$ and $Y$.
 DiagrammeR::grViz("
       digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+      graph [rankdir=TB, layout=neato, splines=true]
 
       node [shape=box, height=0.3, width=0.3]
       G [label=<<I>G</I>>, pos='0,0!']
@@ -223,6 +223,7 @@ DiagrammeR::grViz("
       node [shape=circle, height=0.35, fixedsize=true]
       Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
       Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+      dummy [label='', pos='3,1!', color=white, height=0.5]
 
       G -> X [label='<I>&beta;@_{GX}</I>']
       Ex -> X [label=1]
