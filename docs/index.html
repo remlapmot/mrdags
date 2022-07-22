@@ -662,14 +662,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  decoration={markings,</span>
 <span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>              mark=at position 1 with {<span class="fu">\arrow</span>[thick, blue]{latex}}},</span>
 <span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  shorten &gt;= 3pt, </span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  preaction = {decorate}</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">preview</span>}</span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="co">%% TIKZ_CODE %%</span></span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">preview</span>}</span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  preaction = {decorate},</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  color = blue</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">preview</span>}</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="co">%% TIKZ_CODE %%</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">preview</span>}</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can now plot our DAGs.</p>
 <section id="single-genotype-dag-using-tikz" class="level3">
 <h3 class="anchored" data-anchor-id="single-genotype-dag-using-tikz">Single genotype DAG using TikZ</h3>
@@ -715,7 +716,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="bidirectional-mr-figure-of-combined-dags-using-tikz" class="level3">
 <h3 class="anchored" data-anchor-id="bidirectional-mr-figure-of-combined-dags-using-tikz">Bidirectional MR figure of combined DAGs using TikZ</h3>
 <p>For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.</p>
-<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-bidir-fig_a7f6438b814313e4a94c71901e82afa3">
+<div class="cell" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;}" data-hash="index_cache/html/tkz-bidir-fig_a0f9cb48e725c85b7cb88f05e5111309">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_X$</span>};</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
@@ -729,10 +730,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (9) at (3,0.05) {<span class="fu">\phantom</span>{<span class="ss">$Y$</span>}};</span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (1) -- (2);</span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (8) -- (9);</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow, color=blue] (7) -- (6);</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow] (7) -- (6);</span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (2);</span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[Arrow] (4) -- (3);</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow, color=blue] (5) -- (3);</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[BlueArrow] (5) -- (3);</span>
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/tkz-bidir-fig-1.png" class="img-fluid" style="width:65.0%"></p>
