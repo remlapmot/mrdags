@@ -16,4 +16,3 @@ format:
     link-external-icon: true
     format:
     toc-depth: 4
-    dev: ragg_png
