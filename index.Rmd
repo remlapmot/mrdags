@@ -6,7 +6,8 @@ date: "`r Sys.Date()`"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE,
-                      dev = "ragg_png")
+                      dev = "svg")
+Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.56.1/lib/libgs.dylib.9.56")
 ```
 
 ## Introduction
@@ -422,7 +423,8 @@ We can now plot our DAGs.
 
 ```{tikz tkz-single-dag}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  engine.opts=list(dvisvgm.opts = "--font-format=woff"))
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
