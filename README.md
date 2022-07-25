@@ -27,8 +27,9 @@ sudo apt-get install -y libpoppler-cpp-dev
 
 On macOS *dvisvgm* requires the ghostscript dynamically linked library *libgs.dylib*.
 
-For some reason (maybe arm64/x64 issue) the library with Homebrew did not work under Quarto.
+The library with Homebrew did not work under Quarto because it only included the arm64 architecture.
 Hence download from e.g. [here](https://pages.uoregon.edu/koch/) and do a customised installed.
+This includes both arm64 and x86_64 architectures.
 
 ## Package dependencies
 
