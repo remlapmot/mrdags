@@ -21,6 +21,8 @@ Imports:
   tidyverse,
   tinytex
 SystemRequirements: 
+  dvisvgm
+  Ghostscript
   pandoc (>= 2.3.1) - https://pandoc.org/
   quarto (>= 0.9.613) - https://quarto.org/
 Remotes:
