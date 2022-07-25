@@ -6,8 +6,18 @@ date: "`r Sys.Date()`"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE,
-                      dev = "svg")
-Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.56.1/lib/libgs.dylib.9.56")
+                      dev = "svg",
+                      fig.align = 'center')
+
+# Note: the dylib from homebrew (brew install ghostscript) did not work when run through Quarto
+# Using advice from Andrew Heiss blogpost
+# https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/#connecting-dvisvgm-to-ghostscript-on-macos
+# So installed the .pkg from Richard Koch 
+# https://pages.uoregon.edu/koch/
+# During the installation click customise and select the dynamic library
+if (Sys.info()[['sysname']] == 'Darwin') {
+  Sys.setenv(LIBGS = "/usr/local/lib/libgs.9.56.dylib")
+}
 ```
 
 ## Introduction
@@ -405,7 +415,8 @@ In its LaTeX preamble, this code loads in several tikz libraries. As such for ou
 ````{verbatim}
 ```{tikz}
 #| out.width="65%", 
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 % Your tikz code goes here ...
 \end{tikzpicture}
@@ -424,7 +435,7 @@ We can now plot our DAGs.
 ```{tikz tkz-single-dag}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  engine.opts=list(dvisvgm.opts = "--font-format=woff"))
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
@@ -451,7 +462,8 @@ Then we can plot the single instrument DAG using the following code.
 
 ```{tikz tkz-single-dag-2}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \usetikzlibrary{cd}
 \tikzcdset{arrow style=tikz, diagrams={>=stealth}}
 \begin{tikzcd}[column sep=tiny]
@@ -463,7 +475,8 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 ### Single genotype DAG using simpler TikZ code
 
 ```{tikz tikz-single-dag-3}
-#| out.width='65%'
+#| out.width='65%',
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -488,7 +501,8 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 
 ```{tikz tkz-multiple-dag}
 #| out.width='65%', 
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
@@ -513,7 +527,8 @@ For a bidirectional MR analysis we can combine the 2 separate DAGs into a single
 
 ```{tikz tkz-bidir-fig}
 #| out.width='65%', 
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_X$};
 \node (2) at (1.5,0) {$X$};
@@ -542,7 +557,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 ```{tikz tkz-mvmr-dag-1}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -565,7 +581,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 ```{tikz tkz-mvmr-dag-2}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -588,7 +605,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 ```{tikz tkz-mvmr-dag-3}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -610,7 +628,8 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 ```{tikz tkz-mvmr-dag-4}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template.tex")
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -677,7 +696,8 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 
 ```{tikz iv-bw}
 #| out.width='65%',
-#| engine.opts=list(template = "tikz-template-swig-tr.tex")
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -709,7 +729,8 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 Let's add colour in the same way as in the original figure.
 
 ```{tikz iv-color}
-#| engine.opts=list(template = "tikz-template-swig-tr.tex"),
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff"),
 #| out.width='65%'
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
@@ -751,7 +772,8 @@ Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) mode
 Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case.
 
 ```{tikz mvmr-pleiotropy}
-#| engine.opts=list(template = "tikz-template-swig-tr.tex"),
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff"),
 #| out.width='65%'
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
@@ -816,7 +838,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 #### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
 
 ```{tikz, mvmr-confounder}
-#| engine.opts=list(template = "tikz-template-swig-tr.tex"),
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff"),
 #| out.width='65%'
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
@@ -882,7 +905,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 #### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$
 
 ```{tikz, mvmr-collider}
-#| engine.opts=list(template = "tikz-template-swig-tr.tex"),
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff"),
 #| out.width='65%'
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
@@ -950,7 +974,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 #### SWIG for MVMR model with $X_2$ mediator of $X_1$--$Y$
 
 ```{tikz, mvmr-mediator}
-#| engine.opts=list(template = "tikz-template-swig-tr.tex"),
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff"),
 #| out.width='65%'
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
