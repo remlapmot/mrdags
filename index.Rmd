@@ -9,9 +9,13 @@ knitr::opts_chunk$set(cache = TRUE,
                       dev = "svg",
                       fig.align = 'center')
 
-# Note: the dylib from homebrew (brew install ghostscript) did not work when run through Quarto
-# Using advice from Andrew Heiss blogpost
+# Using advice from Andrew Heiss blogpost to use SVGs in HTML from TikZ
 # https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/#connecting-dvisvgm-to-ghostscript-on-macos
+# For svg figures we require the latex package dvisvgm
+if (!tinytex::check_installed('dvisvgm')) tinytex::tlmgr_install('dvisvgm')
+# On macOS dvisvgm needs the ghostscript library dynamically linked to it via
+# either the LIBGS environment variable or the --libgs flag
+# The libgs.dylib from Homebrew (brew install ghostscript) did not work when run through Quarto
 # So installed the .pkg from Richard Koch 
 # https://pages.uoregon.edu/koch/
 # During the installation click customise and select the dynamic library
