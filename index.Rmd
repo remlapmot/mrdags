@@ -437,7 +437,9 @@ The `tikz-template.tex` file includes the TikZ preamble code from Eleanor Murray
 
 We can now plot our DAGs.
 
-### Single genotype DAG using TikZ
+### Single genotype DAGs using TikZ
+
+#### Specifying node coordinates
 
 ```{tikz tkz-single-dag}
 #| out.width='65%',
