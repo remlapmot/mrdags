@@ -304,11 +304,11 @@ This can be labelled as follows.
 
 ```{r ggdg-single-dag-2}
 #| fig.height=3.5
-mrdag <- mrdag %>% 
+mrdag <- mrdag %>%
   dag_label(
     labels = c(
-      "X" = "Exposure", 
-      "Y" = "Outcome", 
+      "X" = "Exposure",
+      "Y" = "Outcome",
       "G" = "Genotype",
       "U" = "Confounders"))
 ggdag(mrdag,  use_labels = "label") + theme_dag()
@@ -382,7 +382,7 @@ Adjustment set for the effect of $X$ on $Y$.
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
-       outcome = "Y", 
+       outcome = "Y",
        coords = coords) %>%
   ggdag_adjustment_set() + theme_dag()
 ```  
@@ -420,7 +420,7 @@ Tikz is a package for LaTeX and so pdf is its natural output. So far I have not 
 
 We will use some of the LaTeX code for drawing DAGs using tikz provided by Eleanor Murray [here](https://github.com/eleanormurray/causalgraphs_latex).
 
-In its LaTeX preamble, this code loads in several tikz libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
+In its LaTeX preamble, this code loads in several TikZ libraries. As such for our tikz code chunks to compile in our Rmd file we need to define a new template file, e.g.`tikz-template.tex`, and call our tikz code chunks as follows.
 
 ````{verbatim}
 ```{tikz}
@@ -433,7 +433,7 @@ In its LaTeX preamble, this code loads in several tikz libraries. As such for ou
 ```
 ````  
 
-The `tikz-template.tex` file includes the tikz preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
+The `tikz-template.tex` file includes the TikZ preamble code from Eleanor Murray's LaTeX code plus the required template code. The contents of the template file is as follows.
 
 ```{verbatim, lang='tex', file='tikz-template.tex'}
 ```
