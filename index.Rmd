@@ -507,7 +507,9 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 }
 ```
 
-### Multiple genotype DAG using TikZ
+### Multiple genotype DAGs using TikZ
+
+#### Specifying node coordinates
 
 ```{tikz tkz-multiple-dag}
 #| out.width='65%', 
