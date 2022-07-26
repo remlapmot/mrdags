@@ -14,9 +14,6 @@ knitr::opts_chunk$set(cache = TRUE,
 # For svg figures we require the latex package dvisvgm
 if (!tinytex::check_installed("dvisvgm")) tinytex::tlmgr_install("dvisvgm")
 # On macOS dvisvgm needs the ghostscript library dynamically linked to it via
-# either the LIBGS environment variable or the --libgs flag
-# The libgs.dylib from Homebrew (brew install ghostscript) did not work when run through Quarto
-# This is because it was only for arm64, whereas the one below includes both architectures arm64 and x86_64
 # either the LIBGS environment variable or the --libgs flag.
 # The libgs.dylib from Homebrew (brew install ghostscript) did not work when
 # run through Quarto.
