@@ -229,7 +229,7 @@ DiagrammeR::grViz("
       ", height = 250)
 ```
 
-Instead drawing correlated error terms between $X$ and $Y$.
+#### Including correlated error terms between exposure and outcome
 
 ```{r dg-single-path-2}
 DiagrammeR::grViz("
