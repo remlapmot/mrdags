@@ -457,7 +457,7 @@ We can now plot our DAGs.
 \end{tikzpicture}
 ```
 
-### Single genotype DAG using tikz-cd
+#### Single genotype DAG using tikz-cd
 
 The tikz-cd package provides helpful syntax for making commutative diagrams which we can use to produce DAGs.
 
@@ -481,7 +481,7 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 \end{tikzcd}
 ```
 
-### Single genotype DAG using simpler TikZ code
+#### Single genotype DAG using simpler TikZ code
 
 ```{tikz tikz-single-dag-3}
 #| out.width='65%',
