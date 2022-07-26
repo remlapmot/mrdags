@@ -686,6 +686,7 @@ We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivar
 
 We can produce some nice plots with the **quickdag** package, which appears to be based on Eleanor Murray's TikZ code, from [here](https://github.com/jrgant/quickdag)
 
+### Single genotype DAG
 ```{r quckdg-single-dag, message=FALSE, warning=FALSE}
 #| out.width='65%'
 if (!require("quickdag")) remotes::install_github("jrgant/quickdag")
@@ -697,6 +698,8 @@ edges <- c("G -> X",
 dag  <- qd_dag(edges, verbose = FALSE)
 dag %>% render_graph()
 ```
+
+### Single genotype SWIG
 
 We can also draw the single world intervention graph (SWIG) for the IV model as follows.
 
