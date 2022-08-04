@@ -164,7 +164,57 @@ DiagrammeR::grViz("
 
 ### Bidirectional MR figure of combined DAGs
 
-For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
+For a bidirectional MR analysis there are 2 separate DAGs which are as follows.
+
+```{r dg-bidir-fig-1}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      GX [label='Genotypes \n for phenotype', pos='0,0!']
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+
+      { rank = same; GX X Y }
+
+      GX -> X [penwidth=2]
+      U -> X [penwidth=2]
+      U -> Y [penwidth=2]
+      X -> Y [penwidth=2]
+      }
+      ", height = 200)
+```
+
+```{r bg-bidir-fig-2}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+      GY [label='Genotypes \n for outcome', pos='6,0!']
+
+      { rank = same; X Y GY }
+
+      U -> X [penwidth=2]
+      U -> Y [penwidth=2]
+      Y -> X [penwidth=2]
+      GY -> Y [penwidth=2]
+      }
+      ", height = 200)
+```
+
+We can combine these into a single figure as follows.
 
 ```{r dg-bidir-fig}
 DiagrammeR::grViz("
@@ -192,6 +242,10 @@ DiagrammeR::grViz("
       }
       ", height = 200)
 ```
+
+Arguably we could add additional blue arrows from the Confounders node.
+
+If you prefer a greyscale figure replace `blue` with `grey`/`DimGrey`/`grey30` (or change the number as required. See [here](https://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#colors) for more colors.
 
 ### Single genotype path diagram
 
