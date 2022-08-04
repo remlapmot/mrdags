@@ -610,7 +610,41 @@ Again this could be extended for more genotypes.
 
 ### Bidirectional MR figure of combined DAGs using TikZ
 
-For a bidirectional MR analysis we can combine the 2 separate DAGs into a single figure as follows.
+For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
+
+```{tikz tkz-bidir-fig-1}
+#| out.width='65%', 
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
+\begin{tikzpicture}
+\node (1) at (0,0) {$G_X$};
+\node (2) at (1.5,0) {$X$};
+\node (3) at (3,0) {$Y$};
+\node (4) at (2.25,1) {$U$};
+\draw[Arrow] (1) -- (2);
+\draw[Arrow] (2) -- (3);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\end{tikzpicture}
+```
+
+```{tikz tkz-bidir-fig-2}
+#| out.width='65%', 
+#| engine.opts=list(template = "tikz-template.tex",
+#|                  dvisvgm.opts = "--font-format=woff")
+\begin{tikzpicture}
+\node (2) at (1.5,0) {$X$};
+\node (3) at (3,0) {$Y$};
+\node (4) at (2.25,1) {$U$};
+\node (5) at (4.5,0) {$G_Y$};
+\draw[Arrow] (3) -- (2);
+\draw[Arrow] (4) -- (2);
+\draw[Arrow] (4) -- (3);
+\draw[Arrow] (5) -- (3);
+\end{tikzpicture}
+```
+
+We can combine these into a single figure as follows.
 
 ```{tikz tkz-bidir-fig}
 #| out.width='65%', 
