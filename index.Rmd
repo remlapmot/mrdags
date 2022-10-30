@@ -1167,5 +1167,6 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 <details><summary>Click here for session info</summary>
 ```{r}
 sessionInfo()
+quarto::quarto_version()
 ```
 </details>
