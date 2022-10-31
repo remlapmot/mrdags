@@ -34,18 +34,17 @@ sudo apt-get install -y libpoppler-cpp-dev
 
 On macOS *dvisvgm* requires the Ghostscript dynamically linked library *libgs.dylib*.
 
-The version of the Homebrew library did not work under Quarto because it only included the arm64 architecture.
-Hence download from e.g. [here](https://pages.uoregon.edu/koch/) and do a customised installed.
-This includes both arm64 and x86_64 architectures.
+On an M1/M2 Mac the version of this library distributed by Homebrew (`brew install ghostscript`) did not work under Quarto because it only included the arm64 architecture.
+Hence download a version of the library which has both arm64 and x86_64 architectures from [here](https://pages.uoregon.edu/koch/) and do a customised installation.
 
 ## Dependency packages
 
-This project uses **renv**, so the install the required packages at their right versions, run in R
+This project uses **renv**, so to the install the required packages at the same versions that produced the rendered output, run in R
 ```r
 renv::restore()
 ```
 
-Alternatively, but without the guarantee that the package version numbers run in R
+Alternatively, but without the guarantee that the package version numbers will be same that generated the output, run in R
 ```r
 devtools::install_dev_deps()
 ```
@@ -55,4 +54,4 @@ TinyTeX then needs to be installed with
 tinytex::install_tinytex()
 ```
 
-The LaTeX package *dvisvgm* will be installed by TinyTeX during a render.
+The LaTeX packages *dvisvgm* and *pgf* will be installed by TinyTeX during a render.
