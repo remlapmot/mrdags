@@ -32,25 +32,44 @@ sudo apt-get install -y libpoppler-cpp-dev
 
 ### macOS system requirements
 
-On macOS *dvisvgm* requires the Ghostscript dynamically linked library *libgs.dylib*.
+On macOS the LaTeX package *dvisvgm* requires the Ghostscript dynamically linked library *libgs.dylib*. On Macs with x86_64 chips simply installing Ghostscript from Homebrew will provide this library.
+```bash
+brew install ghostscript
+```
 
-On an M1/M2 Mac the version of this library distributed by Homebrew (`brew install ghostscript`) did not work under Quarto because it only included the arm64 architecture.
-Hence download a version of the library which has both arm64 and x86_64 architectures from [here](https://pages.uoregon.edu/koch/) and do a customised installation (halfway through the installer process click the *Customise* button and add *libgs* to the list of items to be installed).
-You will find the *libgs.dylib* link at `/usr/local/lib/libgs.dylib` which is a symbolic link to the specific version of the file, currently `/usr/local/share/ghostscript/10.00.0/lib/libgs.dylib.10.00`
-The `LIBGS` environment variable is set near the top of *index.Rmd* using
+On Apple silicon Macs (M1 and M2 chips) the version of this library distributed by Homebrew does not work under Quarto because it only included the arm64 architecture (and Quarto is x86_64).
+You can either install the x86_64 version using
+```
+arch -x86_64 brew install ghostscript
+```
+
+Alternatively, you can install a version of the library which has both arm64 and x86_64 architectures.
+Such a version is available from [here](https://pages.uoregon.edu/koch/).
+About halfway through the installation process click the *Customise* button and add the *Ghostscript Dynamic Library* as the second item to be installed.
+After the installer has finished you will find *libgs.dylib* at `/usr/local/lib/libgs.dylib`.
+This is a symbolic link to the specific version of the file, currently `/usr/local/share/ghostscript/10.00.0/lib/libgs.dylib.10.00`
+To allow *dvisvgm* to find this library, the `LIBGS` environment variable is set near the top of *index.Rmd* using
 ```r
 Sys.setenv(LIBGS = "/usr/local/lib/libgs.dylib")
 ```
+
+Note that running 
+```bash
+file /usr/local/lib/libgs.dylib
+```
+will report which architecture/s your version of the file has.
 
 ## Dependency packages
 
 This project uses **renv**, so to the install the required packages at the same versions that produced the rendered output, run in R
 ```r
+# install.packages("renv")
 renv::restore()
 ```
 
 Alternatively, but without the guarantee that the package version numbers will be same that generated the output, run in R
 ```r
+# install.packages("devtools")
 devtools::install_dev_deps()
 ```
 
@@ -59,4 +78,4 @@ TinyTeX then needs to be installed with
 tinytex::install_tinytex()
 ```
 
-The LaTeX packages *dvisvgm* and *pgf* will be installed by TinyTeX during a render.
+During a render, TinyTeX will install the LaTeX packages *dvisvgm* and *pgf* if they are missing.
