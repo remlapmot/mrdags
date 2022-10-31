@@ -23,7 +23,7 @@ if (!tinytex::check_installed("dvisvgm")) tinytex::tlmgr_install("dvisvgm")
 # https://pages.uoregon.edu/koch/
 # During the installation click customise and select the dynamic library
 if (Sys.info()[["sysname"]] == "Darwin") {
-  Sys.setenv(LIBGS = "/usr/local/lib/libgs.9.56.dylib")
+  Sys.setenv(LIBGS = "/usr/local/lib/libgs.dylib")
 }
 ```
 
