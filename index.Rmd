@@ -22,7 +22,7 @@ if (!tinytex::check_installed("dvisvgm")) tinytex::tlmgr_install("dvisvgm")
 # Installing the Ghostscript .pkg from Richard Koch
 # https://pages.uoregon.edu/koch/
 # During the installation click customise and select the dynamic library
-if (Sys.info()[["sysname"]] == "Darwin") {
+if (Sys.info()[["sysname"]] == "Darwin" && Sys.info()[["machine"]] == "arm64") {
   Sys.setenv(LIBGS = "/usr/local/lib/libgs.dylib")
 }
 ```
