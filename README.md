@@ -37,6 +37,10 @@ On macOS *dvisvgm* requires the Ghostscript dynamically linked library *libgs.dy
 On an M1/M2 Mac the version of this library distributed by Homebrew (`brew install ghostscript`) did not work under Quarto because it only included the arm64 architecture.
 Hence download a version of the library which has both arm64 and x86_64 architectures from [here](https://pages.uoregon.edu/koch/) and do a customised installation (halfway through the installer process click the *Customise* button and add *libgs* to the list of items to be installed).
 You will find the *libgs.dylib* link at `/usr/local/lib/libgs.dylib` which is a symbolic link to the specific version of the file, currently `/usr/local/share/ghostscript/10.00.0/lib/libgs.dylib.10.00`
+The `LIBGS` environment variable is set near the top of *index.Rmd* using
+```r
+Sys.setenv(LIBGS = "/usr/local/lib/libgs.dylib")
+```
 
 ## Dependency packages
 
