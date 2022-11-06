@@ -267,7 +267,7 @@ DiagrammeR::grViz("
       X -> Y [minlen=3]
       C -> Y
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 #### Horizontal pleiotropy (no bias)
@@ -293,7 +293,7 @@ DiagrammeR::grViz("
       U -> Y
       X -> Y
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 #### Confounding via linkage disequilibrium
@@ -322,7 +322,7 @@ DiagrammeR::grViz("
       X -> Y
       C -> Y
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 #### Vertical pleiotropy
@@ -377,7 +377,7 @@ DiagrammeR::grViz("
       X -> Y
       C -> Y
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 #### Correlated pleiotropy
@@ -405,7 +405,7 @@ DiagrammeR::grViz("
       X -> Y
       C -> Y
       }
-      ", height = 200)
+      ", height = 300)
 ```
 
 ### Single genotype path diagram
