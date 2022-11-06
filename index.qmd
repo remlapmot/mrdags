@@ -237,6 +237,9 @@ Arguably we could add additional blue arrows from the Confounders node.
 
 If you prefer a greyscale figure replace `blue` with `grey`/`DimGrey`/`grey30` (or change the number as required. See [here](https://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#colors) for more colors.
 
+### Pleiotropy DAGs
+
+There are many types of pleiotropy. Let's plot some of the pleiotropy DAGs from Sanderson et al., NRM, 2022 [here](https://doi.org/10.1038/s43586-022-00099-6). 
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
