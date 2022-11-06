@@ -325,6 +325,34 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
+#### Vertical pleiotropy
+
+```{r dg-pleio-4}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB]
+
+      node [shape=ellipse]
+      U [label='Confounders']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G [label='Genotype']
+      X [label='Phenotype 1']
+      Y [label='Outcome']
+      C [label='Phenotype 2']
+
+      { rank = same; G X C Y }
+
+      G -> X [minlen=2]
+      X -> C [minlen=2]
+      U -> X
+      U -> Y
+      C -> Y [minlen=2]
+      }
+      ", height = 200)
+```
+
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
