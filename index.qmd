@@ -295,6 +295,36 @@ DiagrammeR::grViz("
       }
       ", height = 200)
 ```
+
+#### Confounding via linkage disequilibrium
+
+```{r dg-pleio-3}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G1 [label='Genotype 1', pos='0,0!']
+      G2 [label='Genotype 2', pos='0,-1!']
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+      C [label='Other phenotype', pos='2,-1!']
+
+      G1 -> X
+      G1 -> G2 [dir='both']
+      G2 -> C
+      U -> X
+      U -> Y
+      X -> Y
+      C -> Y
+      }
+      ", height = 200)
+```
+
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
