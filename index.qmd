@@ -353,6 +353,33 @@ DiagrammeR::grViz("
       ", height = 200)
 ```
 
+#### Misspecification of the primary phenotype
+
+```{r dg-pleio-5}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G [label='Genotype', pos='0,0!']
+      X [label='Phenotype 1', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+      C [label='Phenotype 2', pos='2,-1!']
+
+      G -> C
+      C -> X
+      U -> X
+      U -> Y
+      X -> Y
+      C -> Y
+      }
+      ", height = 200)
+```
+
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
