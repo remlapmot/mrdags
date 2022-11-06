@@ -12,6 +12,7 @@ Imports:
   ggdag,
   Hmisc,
   knitr (>= 1.37),
+  markdown,
   magick,
   pdftools,
   quarto,
