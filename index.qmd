@@ -240,6 +240,35 @@ If you prefer a greyscale figure replace `blue` with `grey`/`DimGrey`/`grey30` (
 ### Pleiotropy DAGs
 
 There are many types of pleiotropy. Let's plot some of the pleiotropy DAGs from Sanderson et al., NRM, 2022 [here](https://doi.org/10.1038/s43586-022-00099-6). 
+
+#### Horizontal pleiotropy (causes bias)
+
+```{r dg-pleio-1}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB]
+
+      node [shape=ellipse]
+      U [label='Confounders']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G [label='Genotype']
+      X [label='Phenotype']
+      Y [label='Outcome']
+      C [label='Other phenotype']
+
+      { rank = same; G X Y }
+
+      G -> X [minlen=3]
+      G -> C
+      U -> X
+      U -> Y
+      X -> Y [minlen=3]
+      C -> Y
+      }
+      ", height = 200)
+```
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
