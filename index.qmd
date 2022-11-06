@@ -269,6 +269,32 @@ DiagrammeR::grViz("
       }
       ", height = 200)
 ```
+
+#### Horizontal pleiotropy (no bias)
+
+```{r dg-pleio-2}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G [label='Genotype', pos='0,0!']
+      X [label='Phenotype', pos='2,0!']
+      Y [label='Outcome', pos='4,0!']
+      C [label='Other phenotype', pos='2,-1!']
+
+      G -> X
+      G -> C
+      U -> X
+      U -> Y
+      X -> Y
+      }
+      ", height = 200)
+```
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
