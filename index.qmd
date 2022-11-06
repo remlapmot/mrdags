@@ -116,8 +116,6 @@ DiagrammeR::grViz("
       X [label='Phenotype', pos='2,0!']
       Y [label='Outcome', pos='4,0!']
 
-      { rank = same; G2 X Y }
-
       G1 -> X 
       G2 -> X 
       G3 -> X 
@@ -148,8 +146,6 @@ DiagrammeR::grViz("
       X [label='Phenotype', pos='2,0!']
       Y [label='Outcome', pos='4,0!']
 
-      { rank = same; G2 X Y }
-
       G1 -> X 
       G2 -> X 
       G3 -> X 
@@ -178,8 +174,6 @@ DiagrammeR::grViz("
       X [label='Phenotype', pos='2,0!']
       Y [label='Outcome', pos='4,0!']
 
-      { rank = same; GX X Y }
-
       GX -> X [penwidth=2]
       U -> X [penwidth=2]
       U -> Y [penwidth=2]
@@ -201,8 +195,6 @@ DiagrammeR::grViz("
       X [label='Phenotype', pos='2,0!']
       Y [label='Outcome', pos='4,0!']
       GY [label='Genotypes \n for outcome', pos='6,0!']
-
-      { rank = same; X Y GY }
 
       U -> X [penwidth=2]
       U -> Y [penwidth=2]
