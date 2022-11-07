@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.256">
+<meta name="generator" content="quarto-1.2.262">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tom Palmer">
-<meta name="dcterms.date" content="2022-11-06">
+<meta name="dcterms.date" content="2022-11-07">
 
 <title>R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses</title>
 <style>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 6, 2022</p>
+      <p class="date">November 7, 2022</p>
     </div>
   </div>
   
@@ -255,11 +255,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This webpage shows some R code for generating figures, directed acyclic graphs (DAGs), and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.</p>
 <p>First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/tdyvrs_21f63fcc5c7cb25db9a0b353b01b1ce0">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/tdyvrs_c31f4c623e3db75fb26b1f2b304d1cb7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you do not already one you will need a LaTeX installation. In R it is easiest to install <a href="https://yihui.org/tinytex/">TinyTeX</a> as follows.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/tnytx_88b8ef167d9afaafbdcceb39902a897d">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/tnytx_c245e657977373834bf401b6fe1bc6ff">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -270,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We will draw the DAGs using Graphviz which uses the DOT language to describe graphs.</p>
 <section id="single-genotype-dag" class="level3">
 <h3 class="anchored" data-anchor-id="single-genotype-dag">Single genotype DAG</h3>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-dag_ad9917d200e3e4e7d46e1b2492b7f7da">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-dag_bfed9d7ce230a97a8ad6d6f01d71ac68">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -293,13 +293,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-ad158b0e7be0f9e8f220" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ad158b0e7be0f9e8f220">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=box, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype\"]\n      Y [label=\"Outcome\"]\n\n      { rank = same; G X Y }\n\n      G -> X [minlen=3]\n      U -> X\n      U -> Y\n      X -> Y [minlen=3]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-14c928b5a8c15208e5f2" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-14c928b5a8c15208e5f2">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=box, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype\"]\n      Y [label=\"Outcome\"]\n\n      { rank = same; G X Y }\n\n      G -> X [minlen=3]\n      U -> X\n      U -> Y\n      X -> Y [minlen=3]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="version-without-borders-around-observed-variables" class="level4">
 <h4 class="anchored" data-anchor-id="version-without-borders-around-observed-variables">Version without borders around observed variables</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-dag-2_62df673c41394e4f15f7929c80e6ae8e">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-dag-2_a0bd61149dc9e309a7b9f84cda293b14">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -322,15 +322,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-243005a5834126a10930" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-243005a5834126a10930">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype\"]\n      Y [label=\"Outcome\"]\n\n      { rank = same; G X Y }\n\n      G -> X [minlen=3]\n      U -> X\n      U -> Y\n      X -> Y [minlen=3]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9d0e385fc621c8e7daa9" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9d0e385fc621c8e7daa9">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype\"]\n      Y [label=\"Outcome\"]\n\n      { rank = same; G X Y }\n\n      G -> X [minlen=3]\n      U -> X\n      U -> Y\n      X -> Y [minlen=3]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 </section>
 <section id="multiple-genotype-dag" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-genotype-dag">Multiple genotype DAG</h3>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-multiple-dag_036abcbc2f9af7d4609d08be8cb02fef">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-multiple-dag_7c0708be9c654116d6d900c0d0d43cea">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -355,14 +355,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-04888fcfdd42fd77d829" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-04888fcfdd42fd77d829">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=box, height=0.3, width=0.3]\n      G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n      G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n      G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n\n      G1 -> X \n      G2 -> X \n      G3 -> X \n      U -> X\n      U -> Y\n      X -> Y \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-02fbfdeb6757b808a6ad" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-02fbfdeb6757b808a6ad">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=box, height=0.3, width=0.3]\n      G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n      G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n      G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n\n      G1 -> X \n      G2 -> X \n      G3 -> X \n      U -> X\n      U -> Y\n      X -> Y \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>This could be extended for more genotypes.</p>
 <section id="version-without-borders-around-observed-variables-1" class="level4">
 <h4 class="anchored" data-anchor-id="version-without-borders-around-observed-variables-1">Version without borders around observed variables</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-multiple-dag-2_3ab7e0cd255a7539fb9f19e24b3aaeb3">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-multiple-dag-2_26d25a49b16b12dd8bf367f67478211d">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -387,8 +387,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-f3ba18791ce467c6ad78" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f3ba18791ce467c6ad78">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n      G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n      G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n\n      G1 -> X \n      G2 -> X \n      G3 -> X \n      U -> X\n      U -> Y\n      X -> Y \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-942a5a3ea7fcd1c9d8db" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-942a5a3ea7fcd1c9d8db">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n      G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n      G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n\n      G1 -> X \n      G2 -> X \n      G3 -> X \n      U -> X\n      U -> Y\n      X -> Y \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -396,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="bidirectional-mr-figure-of-combined-dags" class="level3">
 <h3 class="anchored" data-anchor-id="bidirectional-mr-figure-of-combined-dags">Bidirectional MR figure of combined DAGs</h3>
 <p>For a bidirectional MR analysis there are 2 separate DAGs which are as follows.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-bidir-fig-1_49e7f1868c3f4910c700828eb23d1c9f">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-bidir-fig-1_3d3644bd8186b5ba04cfce6c7d1fbd62">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -417,11 +417,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-fdc5c082eba0bef98c9c" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fdc5c082eba0bef98c9c">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n\n      GX -> X [penwidth=2]\n      U -> X [penwidth=2]\n      U -> Y [penwidth=2]\n      X -> Y [penwidth=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-10b35edb4155bce190d1" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10b35edb4155bce190d1">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n\n      GX -> X [penwidth=2]\n      U -> X [penwidth=2]\n      U -> Y [penwidth=2]\n      X -> Y [penwidth=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/bg-bidir-fig-2_32b325f712cb202f879fdebf1f2843a2">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/bg-bidir-fig-2_04571bbfd3cadfce97f432c3cbcb8553">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -442,12 +442,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-08f03aa2f75f5c6dc71b" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-08f03aa2f75f5c6dc71b">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n      U -> X [penwidth=2]\n      U -> Y [penwidth=2]\n      Y -> X [penwidth=2]\n      GY -> Y [penwidth=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c7d7d43aeba103f092ef" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c7d7d43aeba103f092ef">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n      U -> X [penwidth=2]\n      U -> Y [penwidth=2]\n      Y -> X [penwidth=2]\n      GY -> Y [penwidth=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>We can combine these into a single figure as follows.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-bidir-fig_85af545c80546646888f98309c66bd0c">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-bidir-fig_ef7b75576215a1058a4703702b42e701">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -473,8 +473,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-4d2a32c1d823e8481eb8" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4d2a32c1d823e8481eb8">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n      { rank = same; GX X Y GY }\n\n      GX -> X [penwidth=2]\n      U -> X [penwidth=2]\n      U -> Y [penwidth=2]\n      X -> Y [penwidth=2]\n      Y -> X [color=blue, penwidth=2]\n      GY -> Y [color=blue, penwidth=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3bd357515716d3fcb862" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3bd357515716d3fcb862">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n      { rank = same; GX X Y GY }\n\n      GX -> X [penwidth=2]\n      U -> X [penwidth=2]\n      U -> Y [penwidth=2]\n      X -> Y [penwidth=2]\n      Y -> X [color=blue, penwidth=2]\n      GY -> Y [color=blue, penwidth=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Arguably we could add additional blue arrows from the Confounders node.</p>
@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There are many types of pleiotropy. Let’s plot some of the pleiotropy DAGs from Sanderson et al., NRM, 2022 <a href="https://doi.org/10.1038/s43586-022-00099-6">here</a>.</p>
 <section id="horizontal-pleiotropy-causes-bias" class="level4">
 <h4 class="anchored" data-anchor-id="horizontal-pleiotropy-causes-bias">Horizontal pleiotropy (causes bias)</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-1_65900613d309e51076ed8d12016c7846">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-1_437b78988272a48cd27c17af0d892a6a">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -511,14 +511,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-bb905b87b58b7ee34e06" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bb905b87b58b7ee34e06">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype\"]\n      Y [label=\"Outcome\"]\n      C [label=\"Other phenotype\"]\n\n      { rank = same; G X Y }\n\n      G -> X [minlen=3]\n      G -> C\n      U -> X\n      U -> Y\n      X -> Y [minlen=3]\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-750edc8bcf32a550b9ef" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-750edc8bcf32a550b9ef">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype\"]\n      Y [label=\"Outcome\"]\n      C [label=\"Other phenotype\"]\n\n      { rank = same; G X Y }\n\n      G -> X [minlen=3]\n      G -> C\n      U -> X\n      U -> Y\n      X -> Y [minlen=3]\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="horizontal-pleiotropy-no-bias" class="level4">
 <h4 class="anchored" data-anchor-id="horizontal-pleiotropy-no-bias">Horizontal pleiotropy (no bias)</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-2_6c7728475dfa3edc9c223a0a566944e7">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-2_e9d702da199b977b7d79cfc5ae416680">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -541,14 +541,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-a7c58ef5c7ce55e13a63" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a7c58ef5c7ce55e13a63">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n      G -> X\n      G -> C\n      U -> X\n      U -> Y\n      X -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-32b1d6703b36cb52868a" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-32b1d6703b36cb52868a">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n      G -> X\n      G -> C\n      U -> X\n      U -> Y\n      X -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="confounding-via-linkage-disequilibrium" class="level4">
 <h4 class="anchored" data-anchor-id="confounding-via-linkage-disequilibrium">Confounding via linkage disequilibrium</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-3_4568c6e2d8156263ac15d6abf9e33821">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-3_8b059d749be5c182cd3cdf9f4a89a3e3">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -574,14 +574,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-7fb8ff66a1099ed13eb1" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7fb8ff66a1099ed13eb1">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G1 [label=\"Genotype 1\", pos=\"0,0!\"]\n      G2 [label=\"Genotype 2\", pos=\"0,-1!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n      G1 -> X\n      G1 -> G2 [dir=\"both\"]\n      G2 -> C\n      U -> X\n      U -> Y\n      X -> Y\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a5e0e072e85033ba57b3" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a5e0e072e85033ba57b3">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G1 [label=\"Genotype 1\", pos=\"0,0!\"]\n      G2 [label=\"Genotype 2\", pos=\"0,-1!\"]\n      X [label=\"Phenotype\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n      G1 -> X\n      G1 -> G2 [dir=\"both\"]\n      G2 -> C\n      U -> X\n      U -> Y\n      X -> Y\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="vertical-pleiotropy" class="level4">
 <h4 class="anchored" data-anchor-id="vertical-pleiotropy">Vertical pleiotropy</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-4_0c0e63cf3ebc1759cc74781990016433">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-4_7ba6baab5b18cfb60230fd722df13482">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -606,14 +606,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-d558da11aafb26d629ab" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d558da11aafb26d629ab">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype 1\"]\n      Y [label=\"Outcome\"]\n      C [label=\"Phenotype 2\"]\n\n      { rank = same; G X C Y }\n\n      G -> X [minlen=2]\n      X -> C [minlen=2]\n      U -> X\n      U -> Y\n      C -> Y [minlen=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6a83d2ced6f44d6739ad" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6a83d2ced6f44d6739ad">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\"]\n      X [label=\"Phenotype 1\"]\n      Y [label=\"Outcome\"]\n      C [label=\"Phenotype 2\"]\n\n      { rank = same; G X C Y }\n\n      G -> X [minlen=2]\n      X -> C [minlen=2]\n      U -> X\n      U -> Y\n      C -> Y [minlen=2]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="misspecification-of-the-primary-phenotype" class="level4">
 <h4 class="anchored" data-anchor-id="misspecification-of-the-primary-phenotype">Misspecification of the primary phenotype</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-5_d10ce3f7f16e055ebaed11490b43fe40">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-5_21a754a3daa68bbcce1f6d90ad56c24a">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -637,14 +637,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-84cdb20455d7dd08a1f7" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-84cdb20455d7dd08a1f7">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype 1\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n      G -> C\n      C -> X\n      U -> X\n      U -> Y\n      X -> Y\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1308c5319e362e065f3b" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1308c5319e362e065f3b">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype 1\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n      G -> C\n      C -> X\n      U -> X\n      U -> Y\n      X -> Y\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="correlated-pleiotropy" class="level4">
 <h4 class="anchored" data-anchor-id="correlated-pleiotropy">Correlated pleiotropy</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-6_cb813982b05fbe092fd3d5b74b4244a2">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-pleio-6_4320ac73a1ee6bc2d914f1c8398af6ad">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -669,8 +669,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-d45dd5b0f933cc0d6164" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d45dd5b0f933cc0d6164">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype 1\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n      G -> X\n      G -> C\n      C -> X\n      U -> X\n      U -> Y\n      X -> Y\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a3d86832c9c49b62544d" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a3d86832c9c49b62544d">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse]\n      U [label=\"Confounders\", pos=\"3,1!\"]\n\n      node [shape=plaintext, height=0.3, width=0.3]\n      G [label=\"Genotype\", pos=\"0,0!\"]\n      X [label=\"Phenotype 1\", pos=\"2,0!\"]\n      Y [label=\"Outcome\", pos=\"4,0!\"]\n      C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n      G -> X\n      G -> C\n      C -> X\n      U -> X\n      U -> Y\n      X -> Y\n      C -> Y\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -679,7 +679,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="single-genotype-path-diagram">Single genotype path diagram</h3>
 <section id="explicitly-including-the-confounder" class="level4">
 <h4 class="anchored" data-anchor-id="explicitly-including-the-confounder">Explicitly including the confounder</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-path_fb0603f279cabe249c9e43cc955602b1">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-path_3da4960fa574c8f801c42fe1c6bb53b8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -708,14 +708,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-9850a70965f8425f0ead" style="width:100%;height:241px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9850a70965f8425f0ead">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse, height=0.3, width=0.3]\n      U [label=<<I>U<\/I>>, pos=\"3,1!\"]\n\n      node [shape=box, height=0.3, width=0.3]\n      G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n      X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n      Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n      node [shape=circle, height=0.35, fixedsize=true]\n      Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n      Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n\n      G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n      Ex -> X [label=1]\n      Ey -> Y [label=1]\n      U -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UX<\/SUB><\/FONT><\/I>>]\n      U -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UY<\/SUB><\/FONT><\/I>>]\n      X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n      U -> U [dir=\"both\", headport=\"n\", tailport=\"n\"]\n      G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b6545a2486268ca9889a" style="width:100%;height:241px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b6545a2486268ca9889a">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato]\n\n      node [shape=ellipse, height=0.3, width=0.3]\n      U [label=<<I>U<\/I>>, pos=\"3,1!\"]\n\n      node [shape=box, height=0.3, width=0.3]\n      G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n      X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n      Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n      node [shape=circle, height=0.35, fixedsize=true]\n      Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n      Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n\n      G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n      Ex -> X [label=1]\n      Ey -> Y [label=1]\n      U -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UX<\/SUB><\/FONT><\/I>>]\n      U -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UY<\/SUB><\/FONT><\/I>>]\n      X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n      U -> U [dir=\"both\", headport=\"n\", tailport=\"n\"]\n      G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="including-correlated-error-terms-between-exposure-and-outcome" class="level4">
 <h4 class="anchored" data-anchor-id="including-correlated-error-terms-between-exposure-and-outcome">Including correlated error terms between exposure and outcome</h4>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-path-2_49bcd042b342b1c3af71f4a036303944">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dg-single-path-2_a1a1e880f000b26c373437340adf5d9e">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DiagrammeR<span class="sc">::</span><span class="fu">grViz</span>(<span class="st">"</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="st">      digraph mrdag {</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -740,8 +740,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
 <span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>, <span class="at">height =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-34f9bcbaaae21780df1c" style="width:100%;height:241px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-34f9bcbaaae21780df1c">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato, splines=true]\n\n      node [shape=box, height=0.3, width=0.3]\n      G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n      X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n      Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n      node [shape=circle, height=0.35, fixedsize=true]\n      Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n      Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n      dummy [label=\"\", pos=\"3,1!\", color=white, height=0.5]\n\n      G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n      Ex -> X [label=1]\n      Ey -> Y [label=1]\n      X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n      Ex -> Ey [dir=\"both\", label=<<I>&rho;<\/I>>]\n      G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f34a6903ac47b48a1513" style="width:100%;height:241px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f34a6903ac47b48a1513">{"x":{"diagram":"\n      digraph mrdag {\n\n      graph [rankdir=TB, layout=neato, splines=true]\n\n      node [shape=box, height=0.3, width=0.3]\n      G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n      X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n      Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n      node [shape=circle, height=0.35, fixedsize=true]\n      Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n      Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n      dummy [label=\"\", pos=\"3,1!\", color=white, height=0.5]\n\n      G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n      Ex -> X [label=1]\n      Ey -> Y [label=1]\n      X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n      Ex -> Ey [dir=\"both\", label=<<I>&rho;<\/I>>]\n      G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -750,13 +750,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="dagitty-package" class="level2">
 <h2 class="anchored" data-anchor-id="dagitty-package">dagitty package</h2>
 <p>The website for DAGitty is <a href="http://www.dagitty.net/" class="uri">http://www.dagitty.net/</a></p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dgtty_4703291c36c6df52aa905e7445bdc3aa">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dgtty_d240e71caf410dde0b85bd23f7df1753">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="using-dot-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="using-dot-syntax">Using DOT syntax</h3>
 <p>The DAG for a single genotype.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dgtty-single-dag_1dc8bbc6af195880a2e4d2f8254b8a4c">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dgtty-single-dag_e3091314472b1c3bad09b86211ce3d58">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mrdag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag {</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">  G -&gt; X -&gt; Y</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="st">  X &lt;- U -&gt; Y</span></span>
@@ -778,7 +778,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="using-ggdag" class="level3">
 <h3 class="anchored" data-anchor-id="using-ggdag">Using ggdag</h3>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag_71fe4775256be84da6a83309d2a5fa4f">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag_0dc922930e0535f5b5bf73a9648fc03f">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mrdag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag {</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">  G -&gt; X -&gt; Y</span></span>
@@ -800,7 +800,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>This can be labelled as follows.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-2_9e261105ba47da2f86da628e56edfae9">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-2_76257b2a161735d23ea1b477e5d45394">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mrdag <span class="ot">&lt;-</span> mrdag <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dag_label</span>(</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
@@ -818,7 +818,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Dagitty can identify the instrumental variable on the DAG.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-3_a2b40cff7cb2606c9468bb623539ed9b">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-3_e25d00cff732341a426a64bd865c2ddd">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mrdag <span class="sc">%&gt;%</span> <span class="fu">ggdag_instrumental</span>() <span class="sc">+</span> <span class="fu">theme_dag</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -832,7 +832,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="using-r-model-type-syntax-in-ggdag" class="level3">
 <h3 class="anchored" data-anchor-id="using-r-model-type-syntax-in-ggdag">Using R model type syntax in ggdag</h3>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-4_d7f08f5c34c6685937d11c2c0f732375">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-4_927d96da05ea9c05ed34f9729511c273">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">G =</span> <span class="dv">0</span>, <span class="at">X =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">2</span>, <span class="at">U =</span> <span class="fl">1.5</span>),</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="fu">c</span>(<span class="at">G =</span> <span class="dv">0</span>, <span class="at">X =</span> <span class="dv">0</span>, <span class="at">Y =</span> <span class="dv">0</span>, <span class="at">U =</span> <span class="dv">1</span>))</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -860,7 +860,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Plotting directly with <strong>ggplot2</strong> functions.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-5_8c2831bc9120b150d40b69725374b2e9">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-5_15dd12408f508577f87eeac5a4d89981">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mrdag <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> x,</span>
@@ -881,7 +881,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Showing the paths.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-6_5d6502b94aee4788f66a1b841ab82c45">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-6_5206e90736fcaf0ddbecc25958f0457b">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dagify</span>(Y <span class="sc">~</span> X <span class="sc">+</span> U,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       X <span class="sc">~</span> U <span class="sc">+</span> G,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">exposure =</span> <span class="st">"X"</span>,</span>
@@ -896,7 +896,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Adjustment set for the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-7_89db596b98169d3ec47be83f3a5d88b8">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-single-dag-7_7fdaa7106d204ab66640db45e8cc88b2">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dagify</span>(Y <span class="sc">~</span> X <span class="sc">+</span> U,</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>       X <span class="sc">~</span> U <span class="sc">+</span> G,</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">exposure =</span> <span class="st">"X"</span>,</span>
@@ -915,7 +915,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="multiple-genotype-dag-1" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-genotype-dag-1">Multiple genotype DAG</h3>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-multiple-dag_f6ca53c88caf601245cc0643c9643adf">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ggdg-multiple-dag_55fea69aae58e287137d6f29ad860615">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>coords2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">G1 =</span> <span class="dv">0</span>, <span class="at">G2 =</span> <span class="dv">0</span>, <span class="at">G3 =</span> <span class="dv">0</span>, <span class="at">X =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">2</span>, <span class="at">U =</span> <span class="fl">1.5</span>),</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> <span class="fu">c</span>(<span class="at">G1 =</span> <span class="fl">0.5</span>, <span class="at">G2 =</span> <span class="dv">0</span>, <span class="at">G3 =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">X =</span> <span class="dv">0</span>, <span class="at">Y =</span> <span class="dv">0</span>, <span class="at">U =</span> <span class="dv">1</span>))</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -993,7 +993,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="single-genotype-dags-using-tikz">Single genotype DAGs using TikZ</h3>
 <section id="specifying-node-coordinates" class="level4">
 <h4 class="anchored" data-anchor-id="specifying-node-coordinates">Specifying node coordinates</h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-single-dag_219a964b7785301e6fec4c383e254602">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-single-dag_c7ce2768d02ea363f40782aac1aa4b0c">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G$</span>};</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
@@ -1019,7 +1019,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First install the package.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_install</span>(<span class="st">"tikz-cd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then we can plot the single instrument DAG using the following code.</p>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-single-dag-2_c972e94c16d8e6ebc49d055369cc91eb">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-single-dag-2_1ae83bfc505c51a90569f3f6b2a43d31">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetikzlibrary</span>{cd}</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzcdset</span>{arrow style=tikz, diagrams={&gt;=stealth}}</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzcd</span>}[column sep=tiny]</span>
@@ -1037,7 +1037,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="single-genotype-dag-using-simpler-tikz-code" class="level4">
 <h4 class="anchored" data-anchor-id="single-genotype-dag-using-simpler-tikz-code">Single genotype DAG using simpler TikZ code</h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tikz-single-dag-3_c5a4a066e958d797c98831ae1904ff57">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tikz-single-dag-3_f82c70633ee10f5385655ea1dcd3632e">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetikzlibrary</span>{positioning}</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    &gt; = stealth,</span>
@@ -1070,7 +1070,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="multiple-genotype-dags-using-tikz">Multiple genotype DAGs using TikZ</h3>
 <section id="specifying-node-coordinates-1" class="level4">
 <h4 class="anchored" data-anchor-id="specifying-node-coordinates-1">Specifying node coordinates</h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-multiple-dag_c755689410e9090bdfb407b32572b0b4">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-multiple-dag_72357c8f79fa9e8ebeaf0dffe82259e2">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
@@ -1097,7 +1097,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="multiple-genotype-dag-using-circularly-spaced-genotypes" class="level4">
 <h4 class="anchored" data-anchor-id="multiple-genotype-dag-using-circularly-spaced-genotypes">Multiple genotype DAG using circularly spaced genotypes</h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-multiple-dag-circular_6b7fbe7b184404c6e1f0dcd4e2851df6">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-multiple-dag-circular_e32a774cf619ca77ccb02479027824a8">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
@@ -1125,7 +1125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="bidirectional-mr-figure-of-combined-dags-using-tikz" class="level3">
 <h3 class="anchored" data-anchor-id="bidirectional-mr-figure-of-combined-dags-using-tikz">Bidirectional MR figure of combined DAGs using TikZ</h3>
 <p>For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.</p>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-bidir-fig-1_fb0405f501504c042609e8dc89eaa703">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-bidir-fig-1_603177df46dd7b31b0e486a9902e4ff6">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_X$</span>};</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
@@ -1144,7 +1144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-bidir-fig-2_8ff84daec7a633dfc8466983a740391d">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-bidir-fig-2_67da470d9e8b8426acee650e54eb63f7">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (3) at (3,0) {<span class="ss">$Y$</span>};</span>
@@ -1164,7 +1164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>We can combine these into a single figure as follows.</p>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-bidir-fig_2cdab3c0de7584a1e27b3d74205df101">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-bidir-fig_c9cae121ed31f90d21f73a22df640dda">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_X$</span>};</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X$</span>};</span>
@@ -1197,7 +1197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, <a href="https://doi.org/10.1093/ije/dyy262">doi:10.1093/ije/dyy262</a> <a href="https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif">here</a>.</p>
 <section id="scenario-1-x_2-confounder-of-x_1-and-y" class="level4">
 <h4 class="anchored" data-anchor-id="scenario-1-x_2-confounder-of-x_1-and-y">Scenario 1: <span class="math inline">\(X_2\)</span> confounder of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-1_447690cd498c57e2c32b8cac562186db">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-1_53c36cf4aa414a9973506f2f34062d18">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -1225,7 +1225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="scenario-2-x_2-collider-of-x_1-and-y" class="level4">
 <h4 class="anchored" data-anchor-id="scenario-2-x_2-collider-of-x_1-and-y">Scenario 2: <span class="math inline">\(X_2\)</span> collider of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-2_1999d957e5fb909ae7f89132c29877f2">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-2_2545e70e02c3e9bd4609c1f42cf4a5a4">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -1253,7 +1253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="scenario-3-x_2-on-a-pleiotropic-pathway" class="level4">
 <h4 class="anchored" data-anchor-id="scenario-3-x_2-on-a-pleiotropic-pathway">Scenario 3: <span class="math inline">\(X_2\)</span> on a pleiotropic pathway</h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-3_4ef4e0c0daf2884ff91a82d725a5c39a">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-3_7d6af986177f9cf9d85138b47fa9f575">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -1280,7 +1280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="scenario-4-x_2-mediator-of-the-effect-of-x_1-on-y" class="level4">
 <h4 class="anchored" data-anchor-id="scenario-4-x_2-mediator-of-the-effect-of-x_1-on-y">Scenario 4: <span class="math inline">\(X_2\)</span> mediator of the effect of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-4_e9934e092f88adc088f476bff62d7c1d">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/tkz-mvmr-dag-4_9c1ad6d88df429f596178266ba598a64">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (1) at (0,0) {<span class="ss">$G_2$</span>};</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\node</span> (2) at (1.5,0) {<span class="ss">$X_2$</span>};</span>
@@ -1313,7 +1313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We can produce some nice plots with the <strong>quickdag</strong> package, which appears to be based on Eleanor Murray’s TikZ code, from <a href="https://github.com/jrgant/quickdag">here</a></p>
 <section id="single-genotype-dag-1" class="level3">
 <h3 class="anchored" data-anchor-id="single-genotype-dag-1">Single genotype DAG</h3>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/quckdg-single-dag_517d3b1b17d1b2b603188f1b9a6fa501">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/quckdg-single-dag_61d76ba0ff2cebd406a7136363c85c81">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"quickdag"</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jrgant/quickdag"</span>)</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quickdag)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"G -&gt; X"</span>,</span>
@@ -1323,23 +1323,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>dag  <span class="ot">&lt;-</span> <span class="fu">qd_dag</span>(edges, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>dag <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-75626613f2a0a8b6e196" style="width:65%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-75626613f2a0a8b6e196">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = \"G\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = \"X\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = \"Y\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6ffcc723e86577822a63" style="width:65%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6ffcc723e86577822a63">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = \"G\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = \"X\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = \"Y\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="single-genotype-swig" class="level3">
 <h3 class="anchored" data-anchor-id="single-genotype-swig">Single genotype SWIG</h3>
 <p>We can also draw the single world intervention graph (SWIG) for the IV model as follows.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/quckdg-single-swig_786a1a4d2a1df5032b29ec4aadfa35c8">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/quckdg-single-swig_5b500dfdc27721b9a7bd440df6db7e12">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>swig <span class="ot">&lt;-</span> dag <span class="sc">%&gt;%</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qd_swig</span>(<span class="at">fixed.nodes =</span> <span class="fu">c</span>(<span class="st">"G"</span>, <span class="st">"X"</span>),</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">custom.labels =</span> <span class="fu">c</span>(<span class="st">"G"</span> <span class="ot">=</span> <span class="st">"g"</span>,</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"X"</span> <span class="ot">=</span> <span class="st">"x"</span>))</span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>swig <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-5839e2dd408f1976c745" style="width:65%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5839e2dd408f1976c745">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = <G <font point-size=\"15\">&#124;<\/font> <i>g=g<\/i><FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = <X<FONT POINT-SIZE=\"8\"><SUP><i>g=g<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = <Y<FONT POINT-SIZE=\"8\"><SUP><i>x=x<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-094d22eb2ff423922523" style="width:65%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-094d22eb2ff423922523">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = <G <font point-size=\"15\">&#124;<\/font> <i>g=g<\/i><FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = <X<FONT POINT-SIZE=\"8\"><SUP><i>g=g<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = <Y<FONT POINT-SIZE=\"8\"><SUP><i>x=x<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -1368,7 +1368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="swigs-for-single-exposure-models" class="level3">
 <h3 class="anchored" data-anchor-id="swigs-for-single-exposure-models">SWIGs for single exposure models</h3>
 <p>We will recreate the SWIG template in Figure 2 (b) of Swanson et al.&nbsp;<a href="https://doi.org/10.1080/01621459.2018.1434530">here</a>.</p>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/iv-bw_555f82bfd8b13339a59f6c811bf7c636">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/iv-bw_3cb37ee18f4fda182151aaa51e4b7d63">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1404,7 +1404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Let’s add colour in the same way as in the original figure.</p>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/iv-color_22d42cbdec16066a0a2989b5675a64aa">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/iv-color_9f432cb2f2534f45a4b7221899c55e73">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1449,7 +1449,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="swig-for-mvmr-model-with-2-independent-exposures" class="level4">
 <h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-2-independent-exposures">SWIG for MVMR model with 2 independent exposures</h4>
 <p>Since <span class="math inline">\(G_1\)</span> an instrument for both <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_2\)</span> represents a pleiotropic effect in this case.</p>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-pleiotropy_685513a0236f62d3c56687e1c24b22e1">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-pleiotropy_40b8a514d444294a8ec25a60091a67e2">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1519,7 +1519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="swig-for-mvmr-model-with-x_2-confounder-of-x_1y" class="level4">
 <h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-confounder-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> confounder of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-confounder_dc790df905feb3c261fbbeca414c6e00">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-confounder_9f49b240d493597ae66f9eed8aa9bf66">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1590,7 +1590,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="swig-for-mvmr-model-with-x_2-collider-of-x_1y" class="level4">
 <h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-collider-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> collider of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-collider_c8ac1f99a6044dae7550b5d65a8d9147">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-collider_a1cf4709d6404f6995d867ba597b278d">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1663,7 +1663,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="swig-for-mvmr-model-with-x_2-mediator-of-x_1y" class="level4">
 <h4 class="anchored" data-anchor-id="swig-for-mvmr-model-with-x_2-mediator-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> mediator of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></h4>
-<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-mediator_d405b81ac97c57a54909f703f20f7ecf">
+<div class="cell" data-layout-align="center" data-engine.opts="{&quot;template&quot;:&quot;tikz-template-swig-tr.tex&quot;,&quot;dvisvgm.opts&quot;:&quot;--font-format=woff&quot;}" data-hash="index_cache/html/mvmr-mediator_9c570d4125f839852515dd869145cb90">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\tikzset</span>{line width=1.5pt, outer sep=0pt,</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  ell/.style={draw, fill=white, inner sep=2pt,</span>
@@ -1740,59 +1740,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 Click here for session info
 </summary>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_dc7bbc7e0b96f0379d1fe82485f89213">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.2 (2022-10-31)
-Platform: aarch64-apple-darwin20 (64-bit)
-Running under: macOS Ventura 13.0
-
-Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
-
-locale:
-[1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices datasets  utils     methods   base     
-
-other attached packages:
- [1] quickdag_0.2.0   DiagrammeR_1.0.9 ggdag_0.2.7      dagitty_0.3-1   
- [5] forcats_0.5.2    stringr_1.4.1    dplyr_1.0.10     purrr_0.3.5     
- [9] readr_2.1.3      tidyr_1.2.1      tibble_3.1.8     ggplot2_3.3.6   
-[13] tidyverse_1.3.2 
-
-loaded via a namespace (and not attached):
- [1] httr_1.4.4          tidygraph_1.2.2     jsonlite_1.8.3     
- [4] modelr_0.1.9        assertthat_0.2.1    renv_0.16.0        
- [7] googlesheets4_1.0.1 cellranger_1.1.0    yaml_2.3.6         
-[10] pillar_1.8.1        backports_1.4.1     glue_1.6.2         
-[13] digest_0.6.30       checkmate_2.1.0     RColorBrewer_1.1-3 
-[16] rvest_1.0.3         colorspace_2.0-3    htmltools_0.5.3    
-[19] pkgconfig_2.0.3     broom_1.0.1         haven_2.5.1        
-[22] scales_1.2.1        tzdb_0.3.0          htmlTable_2.4.1    
-[25] googledrive_2.0.0   generics_0.1.3      ellipsis_0.3.2     
-[28] withr_2.5.0         cli_3.4.1           magrittr_2.0.3     
-[31] crayon_1.5.2        readxl_1.4.1        evaluate_0.17      
-[34] fs_1.5.2            fansi_1.0.3         MASS_7.3-58.1      
-[37] xml2_1.3.3          tools_4.2.2         hms_1.1.2          
-[40] gargle_1.2.1        lifecycle_1.0.3     V8_4.2.1           
-[43] munsell_0.5.0       reprex_2.0.2        messaging_0.1.0    
-[46] compiler_4.2.2      tinytex_0.42        rlang_1.0.6        
-[49] grid_4.2.2          rsvg_2.3.2          rstudioapi_0.14    
-[52] htmlwidgets_1.5.4   visNetwork_2.1.2    igraph_1.3.5       
-[55] rmarkdown_2.17      boot_1.3-28         codetools_0.2-18   
-[58] gtable_0.3.1        DBI_1.1.3           curl_4.3.3         
-[61] R6_2.5.1            lubridate_1.8.0     knitr_1.40         
-[64] fastmap_1.1.0       utf8_1.2.2          DiagrammeRsvg_0.1  
-[67] stringi_1.7.8       Rcpp_1.0.9          vctrs_0.5.0        
-[70] dbplyr_2.2.1        tidyselect_1.2.0    xfun_0.34          </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] '1.2.256'</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_dbb87897a292a551a095cd3ff1e36f46">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="do">## R version 4.2.2 (2022-10-31)</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Platform: aarch64-apple-darwin20 (64-bit)</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Running under: macOS Ventura 13.0</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Matrix products: default</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="do">## BLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="do">## LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="do">## locale:</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="do">## attached base packages:</span></span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] stats     graphics  grDevices datasets  utils     methods   base     </span></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="do">## other attached packages:</span></span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] quickdag_0.2.0   DiagrammeR_1.0.9 ggdag_0.2.7      dagitty_0.3-1   </span></span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  [5] forcats_0.5.2    stringr_1.4.1    dplyr_1.0.10     purrr_0.3.5     </span></span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  [9] readr_2.1.3      tidyr_1.2.1      tibble_3.1.8     ggplot2_3.4.0   </span></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="do">## [13] tidyverse_1.3.2 </span></span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a><span class="do">## loaded via a namespace (and not attached):</span></span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] fs_1.5.2            lubridate_1.9.0     RColorBrewer_1.1-3 </span></span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  [4] httr_1.4.4          DiagrammeRsvg_0.1   tools_4.2.2        </span></span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  [7] backports_1.4.1     utf8_1.2.2          R6_2.5.1           </span></span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a><span class="do">## [10] DBI_1.1.3           colorspace_2.0-3    withr_2.5.0        </span></span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a><span class="do">## [13] gridExtra_2.3       tidyselect_1.2.0    curl_4.3.3         </span></span>
+<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a><span class="do">## [16] compiler_4.2.2      cli_3.4.1           rvest_1.0.3        </span></span>
+<span id="cb53-29"><a href="#cb53-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [19] htmlTable_2.4.1     xml2_1.3.3          labeling_0.4.2     </span></span>
+<span id="cb53-30"><a href="#cb53-30" aria-hidden="true" tabindex="-1"></a><span class="do">## [22] scales_1.2.1        checkmate_2.1.0     digest_0.6.30      </span></span>
+<span id="cb53-31"><a href="#cb53-31" aria-hidden="true" tabindex="-1"></a><span class="do">## [25] rmarkdown_2.17      pkgconfig_2.0.3     htmltools_0.5.3    </span></span>
+<span id="cb53-32"><a href="#cb53-32" aria-hidden="true" tabindex="-1"></a><span class="do">## [28] dbplyr_2.2.1        fastmap_1.1.0       htmlwidgets_1.5.4  </span></span>
+<span id="cb53-33"><a href="#cb53-33" aria-hidden="true" tabindex="-1"></a><span class="do">## [31] rlang_1.0.6         readxl_1.4.1        rstudioapi_0.14    </span></span>
+<span id="cb53-34"><a href="#cb53-34" aria-hidden="true" tabindex="-1"></a><span class="do">## [34] farver_2.1.1        visNetwork_2.1.2    generics_0.1.3     </span></span>
+<span id="cb53-35"><a href="#cb53-35" aria-hidden="true" tabindex="-1"></a><span class="do">## [37] jsonlite_1.8.3      googlesheets4_1.0.1 magrittr_2.0.3     </span></span>
+<span id="cb53-36"><a href="#cb53-36" aria-hidden="true" tabindex="-1"></a><span class="do">## [40] Rcpp_1.0.9          munsell_0.5.0       fansi_1.0.3        </span></span>
+<span id="cb53-37"><a href="#cb53-37" aria-hidden="true" tabindex="-1"></a><span class="do">## [43] viridis_0.6.2       lifecycle_1.0.3     stringi_1.7.8      </span></span>
+<span id="cb53-38"><a href="#cb53-38" aria-hidden="true" tabindex="-1"></a><span class="do">## [46] yaml_2.3.6          ggraph_2.1.0        MASS_7.3-58.1      </span></span>
+<span id="cb53-39"><a href="#cb53-39" aria-hidden="true" tabindex="-1"></a><span class="do">## [49] grid_4.2.2          ggrepel_0.9.2       crayon_1.5.2       </span></span>
+<span id="cb53-40"><a href="#cb53-40" aria-hidden="true" tabindex="-1"></a><span class="do">## [52] graphlayouts_0.8.3  haven_2.5.1         hms_1.1.2          </span></span>
+<span id="cb53-41"><a href="#cb53-41" aria-hidden="true" tabindex="-1"></a><span class="do">## [55] knitr_1.40          pillar_1.8.1        igraph_1.3.5       </span></span>
+<span id="cb53-42"><a href="#cb53-42" aria-hidden="true" tabindex="-1"></a><span class="do">## [58] boot_1.3-28         codetools_0.2-18    reprex_2.0.2       </span></span>
+<span id="cb53-43"><a href="#cb53-43" aria-hidden="true" tabindex="-1"></a><span class="do">## [61] glue_1.6.2          evaluate_0.17       V8_4.2.2           </span></span>
+<span id="cb53-44"><a href="#cb53-44" aria-hidden="true" tabindex="-1"></a><span class="do">## [64] renv_0.16.0         modelr_0.1.9        vctrs_0.5.0        </span></span>
+<span id="cb53-45"><a href="#cb53-45" aria-hidden="true" tabindex="-1"></a><span class="do">## [67] tzdb_0.3.0          tweenr_2.0.2        cellranger_1.1.0   </span></span>
+<span id="cb53-46"><a href="#cb53-46" aria-hidden="true" tabindex="-1"></a><span class="do">## [70] gtable_0.3.1        polyclip_1.10-4     messaging_0.1.0    </span></span>
+<span id="cb53-47"><a href="#cb53-47" aria-hidden="true" tabindex="-1"></a><span class="do">## [73] assertthat_0.2.1    xfun_0.34           ggforce_0.4.1      </span></span>
+<span id="cb53-48"><a href="#cb53-48" aria-hidden="true" tabindex="-1"></a><span class="do">## [76] broom_1.0.1         tidygraph_1.2.2     rsvg_2.3.2         </span></span>
+<span id="cb53-49"><a href="#cb53-49" aria-hidden="true" tabindex="-1"></a><span class="do">## [79] viridisLite_0.4.1   googledrive_2.0.0   gargle_1.2.1       </span></span>
+<span id="cb53-50"><a href="#cb53-50" aria-hidden="true" tabindex="-1"></a><span class="do">## [82] tinytex_0.42        timechange_0.1.1    ellipsis_0.3.2</span></span>
+<span id="cb53-51"><a href="#cb53-51" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
+<span id="cb53-52"><a href="#cb53-52" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] '1.2.262'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 
