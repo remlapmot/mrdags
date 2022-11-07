@@ -770,6 +770,36 @@ Again this could be extended for more genotypes.
 \end{tikzpicture}
 ```
 
+### Pleiotropy DAGs using TikZ
+
+#### Horizontal pleiotropy (causes bias)
+
+```{tikz tkz-pleio-1}
+#| out.width='65%',
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+\usetikzlibrary{positioning}
+\tikzset{
+    > = stealth,
+    every path/.append style = {
+        arrows = ->,
+        thick
+    }
+}
+\tikz{
+    \node (g) {$G$};
+    \node (x1) [right = of g] {$X_1$};
+    \node (y) [right = of x1] {$Y$};
+    \node (u) [above right = 0.5cm and 0.25cm of x1] {$U$};
+    \node (x2) [below = of x1] {$X_2$};
+    \path (g) edge (x1);
+    \path (x1) edge (y);
+    \path (u) edge (x1);
+    \path (u) edge (y);
+    \path (g) edge (x2);
+    \path (x2) edge (y);
+}
+```
+
 ### Bidirectional MR figure of combined DAGs using TikZ
 
 For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
