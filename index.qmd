@@ -790,7 +790,7 @@ Again this could be extended for more genotypes.
     \node (x1) [right = of g] {$X_1$};
     \node (y) [right = of x1] {$Y$};
     \node (u) [above right = 0.5cm and 0.25cm of x1] {$U$};
-    \node (x2) [below = of x1] {$X_2$};
+    \node (x2) [below = 0.5cm of x1] {$X_2$};
     \path (g) edge (x1);
     \path (x1) edge (y);
     \path (u) edge (x1);
@@ -818,7 +818,7 @@ Again this could be extended for more genotypes.
     \node (x1) [right = of g] {$X_1$};
     \node (y) [right = of x1] {$Y$};
     \node (u) [above right = 0.5cm and 0.25cm of x1] {$U$};
-    \node (x2) [below = of x1] {$X_2$};
+    \node (x2) [below = 0.5cm of x1] {$X_2$};
     \path (g) edge (x1);
     \path (x1) edge (y);
     \path (u) edge (x1);
@@ -845,8 +845,8 @@ Again this could be extended for more genotypes.
     \node (x1) [right = of g1] {$X_1$};
     \node (y) [right = of x1] {$Y$};
     \node (u) [above right = 0.5cm and 0.25cm of x1] {$U$};
-    \node (x2) [below = of x1] {$X_2$};
-    \node (g2) [below = of g1] {$G_2$};
+    \node (x2) [below = 0.5cm of x1] {$X_2$};
+    \node (g2) [below = 0.5cm of g1] {$G_2$};
     \path (g1) edge (x1);
     \path (x1) edge (y);
     \path (u) edge (x1);
@@ -875,7 +875,7 @@ Again this could be extended for more genotypes.
     \node (x1) [right = of g] {$X_1$};
     \node (x2) [right = of x1] {$X_2$};
     \node (y) [right = of x2] {$Y$};
-    \node (u) [above = of x2] {$U$};
+    \node (u) [above = 0.5cm of x2] {$U$};
     \path (g) edge (x1);
     \path (x1) edge (x2);
     \path (u) edge (x1);
@@ -902,7 +902,7 @@ Again this could be extended for more genotypes.
     \node (x1) [right = of g] {$X_1$};
     \node (y) [right = of x1] {$Y$};
     \node (u) [above right = 0.5cm and 0.25cm of x1] {$U$};
-    \node (x2) [below = 0.25cm of x1] {$X_2$};
+    \node (x2) [below = 0.5cm of x1] {$X_2$};
     \path (x1) edge (y);
     \path (u) edge (x1);
     \path (u) edge (y);
