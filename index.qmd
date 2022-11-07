@@ -161,6 +161,129 @@ DiagrammeR::grViz("
       ", height = 300)
 ```
 
+### MVMR DAGs 
+
+We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, [doi:10.1093/ije/dyy262](https://doi.org/10.1093/ije/dyy262) [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
+
+#### Scenario 1: $X_2$ confounder of $X_1$ and $Y$
+
+```{r mvmr-dag-1}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G1 [label='<I>G@_{1}</I>', pos='0,0!']
+      X1 [label='<I>X@_{1}</I>', pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
+      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+
+      G1 -> X1
+      G2 -> X2
+      U -> X1
+      U -> Y
+      U -> X2
+      X1 -> Y
+      X2 -> Y
+      X2 -> X1
+      }
+      ", height = 300)
+```
+
+#### Scenario 2: $X_2$ collider of $X_1$ and $Y$
+
+```{r mvmr-dag-2}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G1 [label='<I>G@_{1}</I>', pos='0,0!']
+      X1 [label='<I>X@_{1}</I>', pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
+      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+
+      G1 -> X1
+      G2 -> X2
+      U -> X1
+      U -> Y
+      U -> X2
+      X1 -> Y
+      Y -> X2
+      X1 -> X2
+      }
+      ", height = 300)
+```
+
+#### Scenario 3: $X_2$ on a pleiotropic pathway
+
+```{r mvmr-dag-3}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G1 [label='<I>G@_{1}</I>', pos='0,0!']
+      X1 [label='<I>X@_{1}</I>', pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
+      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+
+      G1 -> X1
+      G2 -> X2
+      U -> X1
+      U -> Y
+      U -> X2
+      X1 -> Y
+      X2 -> Y
+      }
+      ", height = 300)
+```
+
+#### Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
+
+```{r mvmr-dag-4}
+DiagrammeR::grViz("
+      digraph mrdag {
+
+      graph [rankdir=TB, layout=neato]
+
+      node [shape=ellipse]
+      U [label='Confounders', pos='3,1!']
+
+      node [shape=plaintext, height=0.3, width=0.3]
+      G1 [label='<I>G@_{1}</I>', pos='0,0!']
+      X1 [label='<I>X@_{1}</I>', pos='2,0!']
+      Y [label=<<I>Y</I>>, pos='4,0!']
+      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+
+      G1 -> X1
+      G2 -> X2
+      U -> X1
+      U -> Y
+      U -> X2
+      X1 -> Y
+      X2 -> Y
+      X1 -> X2
+      }
+      ", height = 300)
+```
+
 ### Bidirectional MR figure of combined DAGs
 
 For a bidirectional MR analysis there are 2 separate DAGs which are as follows.
