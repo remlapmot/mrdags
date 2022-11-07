@@ -42,6 +42,8 @@ Installing Ghostscript from Homebrew will provide this library.
 brew install ghostscript
 ```
 
+If you have an Apple Silicon Mac it is advisable to use a pre-release version of Quarto, version 1.2.50 or later, because then the deno executable is arm64 and hence the arm64 *libgs.dylib* library from Homebrew will work.
+
 ## Dependency packages
 
 This project uses **renv**, so to the install the required packages at the same versions that produced the rendered output, run in R
