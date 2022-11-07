@@ -272,6 +272,7 @@ DiagrammeR::grViz("
       G2 [label='<I>G@_{2}</I>', pos='0,-1!']
       X2 [label='<I>X@_{2}</I>', pos='2,-1!']
 
+      edge [arrowhead='vee']
       G1 -> X1
       G2 -> X2
       U -> X1
