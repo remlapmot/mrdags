@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tom Palmer">
-<meta name="dcterms.date" content="2022-11-07">
+<meta name="dcterms.date" content="2022-11-21">
 
 <title>R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses</title>
 <style>
@@ -231,6 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#swig-for-mvmr-model-with-x_2-mediator-of-x_1y" id="toc-swig-for-mvmr-model-with-x_2-mediator-of-x_1y" class="nav-link" data-scroll-target="#swig-for-mvmr-model-with-x_2-mediator-of-x_1y">SWIG for MVMR model with <span class="math inline">\(X_2\)</span> mediator of <span class="math inline">\(X_1\)</span>–<span class="math inline">\(Y\)</span></a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#excalidraw-diagrams" id="toc-excalidraw-diagrams" class="nav-link" data-scroll-target="#excalidraw-diagrams">Excalidraw diagrams</a></li>
   <li><a href="#session-information-for-reproducibility" id="toc-session-information-for-reproducibility" class="nav-link" data-scroll-target="#session-information-for-reproducibility">Session information for reproducibility</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/remlapmot/mrdags/blob/master/index.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -257,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 7, 2022</p>
+      <p class="date">November 21, 2022</p>
     </div>
   </div>
   
@@ -2093,17 +2094,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 </section>
 </section>
+<section id="excalidraw-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="excalidraw-diagrams">Excalidraw diagrams</h2>
+<p><a href="https://excalidraw.com/" class="uri">https://excalidraw.com/</a> is a virtual whiteboard for sketching hand-drawn like diagrams, such as the MR DAG!</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_b7aa7b79a804b315405376aca5b9198d">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/mr-dag.excalidraw.png" class="img-fluid figure-img" width="566"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you want to download the image above to upload into excalidraw, please download it as a <a href="img/mr-dag.excalidraw.png">png</a> or <a href="img/mr-dag.excalidraw.svg">svg</a>.</p>
+</section>
 <section id="session-information-for-reproducibility" class="level2">
 <h2 class="anchored" data-anchor-id="session-information-for-reproducibility">Session information for reproducibility</h2>
 <details>
 <summary>
 Click here for session info
 </summary>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_dbb87897a292a551a095cd3ff1e36f46">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_ce5f1c50f73c30249338922c4b9ed7bb">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="do">## R version 4.2.2 (2022-10-31)</span></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Platform: aarch64-apple-darwin20 (64-bit)</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Running under: macOS Ventura 13.0</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Running under: macOS Ventura 13.0.1</span></span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Matrix products: default</span></span>
 <span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="do">## BLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib</span></span>
@@ -2126,34 +2141,34 @@ Click here for session info
 <span id="cb63-24"><a href="#cb63-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  [4] httr_1.4.4          DiagrammeRsvg_0.1   tools_4.2.2        </span></span>
 <span id="cb63-25"><a href="#cb63-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  [7] backports_1.4.1     utf8_1.2.2          R6_2.5.1           </span></span>
 <span id="cb63-26"><a href="#cb63-26" aria-hidden="true" tabindex="-1"></a><span class="do">## [10] DBI_1.1.3           colorspace_2.0-3    withr_2.5.0        </span></span>
-<span id="cb63-27"><a href="#cb63-27" aria-hidden="true" tabindex="-1"></a><span class="do">## [13] gridExtra_2.3       tidyselect_1.2.0    processx_3.8.0     </span></span>
-<span id="cb63-28"><a href="#cb63-28" aria-hidden="true" tabindex="-1"></a><span class="do">## [16] curl_4.3.3          compiler_4.2.2      cli_3.4.1          </span></span>
-<span id="cb63-29"><a href="#cb63-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [19] rvest_1.0.3         htmlTable_2.4.1     xml2_1.3.3         </span></span>
-<span id="cb63-30"><a href="#cb63-30" aria-hidden="true" tabindex="-1"></a><span class="do">## [22] labeling_0.4.2      checkmate_2.1.0     scales_1.2.1       </span></span>
-<span id="cb63-31"><a href="#cb63-31" aria-hidden="true" tabindex="-1"></a><span class="do">## [25] digest_0.6.30       rmarkdown_2.17      pkgconfig_2.0.3    </span></span>
-<span id="cb63-32"><a href="#cb63-32" aria-hidden="true" tabindex="-1"></a><span class="do">## [28] htmltools_0.5.3     dbplyr_2.2.1        fastmap_1.1.0      </span></span>
-<span id="cb63-33"><a href="#cb63-33" aria-hidden="true" tabindex="-1"></a><span class="do">## [31] htmlwidgets_1.5.4   rlang_1.0.6         readxl_1.4.1       </span></span>
-<span id="cb63-34"><a href="#cb63-34" aria-hidden="true" tabindex="-1"></a><span class="do">## [34] rstudioapi_0.14     visNetwork_2.1.2    generics_0.1.3     </span></span>
-<span id="cb63-35"><a href="#cb63-35" aria-hidden="true" tabindex="-1"></a><span class="do">## [37] farver_2.1.1        jsonlite_1.8.3      googlesheets4_1.0.1</span></span>
-<span id="cb63-36"><a href="#cb63-36" aria-hidden="true" tabindex="-1"></a><span class="do">## [40] magrittr_2.0.3      Rcpp_1.0.9          munsell_0.5.0      </span></span>
-<span id="cb63-37"><a href="#cb63-37" aria-hidden="true" tabindex="-1"></a><span class="do">## [43] fansi_1.0.3         viridis_0.6.2       lifecycle_1.0.3    </span></span>
-<span id="cb63-38"><a href="#cb63-38" aria-hidden="true" tabindex="-1"></a><span class="do">## [46] stringi_1.7.8       yaml_2.3.6          ggraph_2.1.0       </span></span>
-<span id="cb63-39"><a href="#cb63-39" aria-hidden="true" tabindex="-1"></a><span class="do">## [49] MASS_7.3-58.1       grid_4.2.2          ggrepel_0.9.2      </span></span>
-<span id="cb63-40"><a href="#cb63-40" aria-hidden="true" tabindex="-1"></a><span class="do">## [52] crayon_1.5.2        graphlayouts_0.8.3  haven_2.5.1        </span></span>
-<span id="cb63-41"><a href="#cb63-41" aria-hidden="true" tabindex="-1"></a><span class="do">## [55] hms_1.1.2           knitr_1.40          ps_1.7.2           </span></span>
-<span id="cb63-42"><a href="#cb63-42" aria-hidden="true" tabindex="-1"></a><span class="do">## [58] pillar_1.8.1        igraph_1.3.5        boot_1.3-28        </span></span>
-<span id="cb63-43"><a href="#cb63-43" aria-hidden="true" tabindex="-1"></a><span class="do">## [61] codetools_0.2-18    quarto_1.2          reprex_2.0.2       </span></span>
-<span id="cb63-44"><a href="#cb63-44" aria-hidden="true" tabindex="-1"></a><span class="do">## [64] glue_1.6.2          evaluate_0.17       V8_4.2.2           </span></span>
-<span id="cb63-45"><a href="#cb63-45" aria-hidden="true" tabindex="-1"></a><span class="do">## [67] renv_0.16.0         modelr_0.1.9        vctrs_0.5.0        </span></span>
-<span id="cb63-46"><a href="#cb63-46" aria-hidden="true" tabindex="-1"></a><span class="do">## [70] tzdb_0.3.0          tweenr_2.0.2        cellranger_1.1.0   </span></span>
-<span id="cb63-47"><a href="#cb63-47" aria-hidden="true" tabindex="-1"></a><span class="do">## [73] gtable_0.3.1        polyclip_1.10-4     messaging_0.1.0    </span></span>
-<span id="cb63-48"><a href="#cb63-48" aria-hidden="true" tabindex="-1"></a><span class="do">## [76] assertthat_0.2.1    xfun_0.34           ggforce_0.4.1      </span></span>
-<span id="cb63-49"><a href="#cb63-49" aria-hidden="true" tabindex="-1"></a><span class="do">## [79] broom_1.0.1         tidygraph_1.2.2     rsvg_2.3.2         </span></span>
-<span id="cb63-50"><a href="#cb63-50" aria-hidden="true" tabindex="-1"></a><span class="do">## [82] later_1.3.0         viridisLite_0.4.1   googledrive_2.0.0  </span></span>
-<span id="cb63-51"><a href="#cb63-51" aria-hidden="true" tabindex="-1"></a><span class="do">## [85] gargle_1.2.1        tinytex_0.42        timechange_0.1.1   </span></span>
-<span id="cb63-52"><a href="#cb63-52" aria-hidden="true" tabindex="-1"></a><span class="do">## [88] ellipsis_0.3.2</span></span>
-<span id="cb63-53"><a href="#cb63-53" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
-<span id="cb63-54"><a href="#cb63-54" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] '1.2.262'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-27"><a href="#cb63-27" aria-hidden="true" tabindex="-1"></a><span class="do">## [13] tidyselect_1.2.0    processx_3.8.0      curl_4.3.3         </span></span>
+<span id="cb63-28"><a href="#cb63-28" aria-hidden="true" tabindex="-1"></a><span class="do">## [16] compiler_4.2.2      cli_3.4.1           rvest_1.0.3        </span></span>
+<span id="cb63-29"><a href="#cb63-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [19] htmlTable_2.4.1     xml2_1.3.3          scales_1.2.1       </span></span>
+<span id="cb63-30"><a href="#cb63-30" aria-hidden="true" tabindex="-1"></a><span class="do">## [22] checkmate_2.1.0     digest_0.6.30       rmarkdown_2.18     </span></span>
+<span id="cb63-31"><a href="#cb63-31" aria-hidden="true" tabindex="-1"></a><span class="do">## [25] pkgconfig_2.0.3     htmltools_0.5.3     dbplyr_2.2.1       </span></span>
+<span id="cb63-32"><a href="#cb63-32" aria-hidden="true" tabindex="-1"></a><span class="do">## [28] fastmap_1.1.0       htmlwidgets_1.5.4   rlang_1.0.6        </span></span>
+<span id="cb63-33"><a href="#cb63-33" aria-hidden="true" tabindex="-1"></a><span class="do">## [31] readxl_1.4.1        rstudioapi_0.14     visNetwork_2.1.2   </span></span>
+<span id="cb63-34"><a href="#cb63-34" aria-hidden="true" tabindex="-1"></a><span class="do">## [34] generics_0.1.3      jsonlite_1.8.3      googlesheets4_1.0.1</span></span>
+<span id="cb63-35"><a href="#cb63-35" aria-hidden="true" tabindex="-1"></a><span class="do">## [37] magrittr_2.0.3      Rcpp_1.0.9          munsell_0.5.0      </span></span>
+<span id="cb63-36"><a href="#cb63-36" aria-hidden="true" tabindex="-1"></a><span class="do">## [40] fansi_1.0.3         lifecycle_1.0.3     stringi_1.7.8      </span></span>
+<span id="cb63-37"><a href="#cb63-37" aria-hidden="true" tabindex="-1"></a><span class="do">## [43] yaml_2.3.6          MASS_7.3-58.1       grid_4.2.2         </span></span>
+<span id="cb63-38"><a href="#cb63-38" aria-hidden="true" tabindex="-1"></a><span class="do">## [46] crayon_1.5.2        haven_2.5.1         hms_1.1.2          </span></span>
+<span id="cb63-39"><a href="#cb63-39" aria-hidden="true" tabindex="-1"></a><span class="do">## [49] knitr_1.41          ps_1.7.2            pillar_1.8.1       </span></span>
+<span id="cb63-40"><a href="#cb63-40" aria-hidden="true" tabindex="-1"></a><span class="do">## [52] igraph_1.3.5        boot_1.3-28         quarto_1.2         </span></span>
+<span id="cb63-41"><a href="#cb63-41" aria-hidden="true" tabindex="-1"></a><span class="do">## [55] reprex_2.0.2        glue_1.6.2          evaluate_0.18      </span></span>
+<span id="cb63-42"><a href="#cb63-42" aria-hidden="true" tabindex="-1"></a><span class="do">## [58] V8_4.2.2            renv_0.16.0         modelr_0.1.10      </span></span>
+<span id="cb63-43"><a href="#cb63-43" aria-hidden="true" tabindex="-1"></a><span class="do">## [61] vctrs_0.5.1         tzdb_0.3.0          cellranger_1.1.0   </span></span>
+<span id="cb63-44"><a href="#cb63-44" aria-hidden="true" tabindex="-1"></a><span class="do">## [64] gtable_0.3.1        messaging_0.1.0     assertthat_0.2.1   </span></span>
+<span id="cb63-45"><a href="#cb63-45" aria-hidden="true" tabindex="-1"></a><span class="do">## [67] xfun_0.35           broom_1.0.1         tidygraph_1.2.2    </span></span>
+<span id="cb63-46"><a href="#cb63-46" aria-hidden="true" tabindex="-1"></a><span class="do">## [70] rsvg_2.3.2          later_1.3.0         googledrive_2.0.0  </span></span>
+<span id="cb63-47"><a href="#cb63-47" aria-hidden="true" tabindex="-1"></a><span class="do">## [73] gargle_1.2.1        tinytex_0.42        timechange_0.1.1   </span></span>
+<span id="cb63-48"><a href="#cb63-48" aria-hidden="true" tabindex="-1"></a><span class="do">## [76] ellipsis_0.3.2</span></span>
+<span id="cb63-49"><a href="#cb63-49" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
+<span id="cb63-50"><a href="#cb63-50" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] '1.2.269'</span></span>
+<span id="cb63-51"><a href="#cb63-51" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_version</span>()</span>
+<span id="cb63-52"><a href="#cb63-52" aria-hidden="true" tabindex="-1"></a><span class="do">## tlmgr revision 63068 (2022-04-18 07:58:07 +0200)</span></span>
+<span id="cb63-53"><a href="#cb63-53" aria-hidden="true" tabindex="-1"></a><span class="do">## tlmgr using installation: /Users/tom/Library/TinyTeX</span></span>
+<span id="cb63-54"><a href="#cb63-54" aria-hidden="true" tabindex="-1"></a><span class="do">## TeX Live (https://tug.org/texlive) version 2022</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 
