@@ -71,6 +71,8 @@ devtools::install_dev_deps()
 ```
 This works because there is a `DESCRIPTION` file.
 
+### TinyTeX
+
 TinyTeX then needs to be installed with
 ```r
 tinytex::install_tinytex()
