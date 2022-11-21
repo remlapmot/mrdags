@@ -52,6 +52,14 @@ This project uses **renv**, to install the required packages at the same version
 renv::restore()
 ```
 
+### Updating packages within renv
+
+Run
+```r
+renv::update()
+renv::snapshot(prompt = FALSE)
+```
+
 Alternatively, but without the guarantee that the package version numbers will be same that generated the output, run in R
 ```r
 # install.packages("devtools")
