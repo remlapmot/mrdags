@@ -1624,6 +1624,17 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 \end{tikzpicture}
 ```
 
+## Excalidraw diagrams
+
+<https://excalidraw.com/> is a virtual whiteboard for sketching hand-drawn like diagrams, such as the MR DAG!
+
+```{r}
+#| echo: false
+knitr::include_graphics("img/mr-dag.excalidraw.png")
+```
+
+If you want to download the image above to upload into excalidraw, please download it as a [png](img/mr-dag.excalidraw.png) or [svg](img/mr-dag.excalidraw.svg).
+
 ## Session information for reproducibility
 
 <details><summary>Click here for session info</summary>
