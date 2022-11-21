@@ -60,11 +60,14 @@ renv::update()
 renv::snapshot(prompt = FALSE)
 ```
 
+### Using devtools instead of renv
+
 Alternatively, but without the guarantee that the package version numbers will be same that generated the output, run in R
 ```r
 # install.packages("devtools")
 devtools::install_dev_deps()
 ```
+This works because there is a `DESCRIPTION` file.
 
 TinyTeX then needs to be installed with
 ```r
