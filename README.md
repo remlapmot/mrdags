@@ -46,6 +46,8 @@ If you have an Apple Silicon Mac it is advisable to use a pre-release version of
 
 ## Dependency packages
 
+### Using renv
+
 This project uses **renv**, to install the required packages at the same versions that produced the rendered output, run in R
 ```r
 # install.packages("renv")
