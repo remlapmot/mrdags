@@ -1641,5 +1641,6 @@ If you want to download the image above to upload into excalidraw, please downlo
 ```{r}
 sessionInfo()
 quarto::quarto_version()
+tinytex::tlmgr_version()
 ```
 </details>
