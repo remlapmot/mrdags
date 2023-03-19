@@ -4,8 +4,13 @@ author: "Tom Palmer"
 date: "`r Sys.Date()`"
 format:
   html:
-    monofont: "JetBrains Mono"
+    monofont: "Fira Code"
 ---
+
+```{=html}
+<!-- HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE,

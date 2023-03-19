@@ -16,10 +16,6 @@ Rendered at https://remlapmot.github.io/mrdags/
 
 ## System requirements
 
-### JetBrains Mono font
-
-Install JetBrains Mono from [here](https://www.jetbrains.com/lp/mono/).
-
 ### Linux system requirements
 
 The following dependencies for **ggdag** and I think **igraph** are required. Install them on Debian/Ubuntu with  
