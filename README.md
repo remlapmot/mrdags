@@ -7,9 +7,20 @@ To build the output (*index.html*) open the project in RStudio (e.g., double-cli
 quarto::quarto_render()
 ```
 
+or after the packages or **renv** or R version has been updated
+```r
+quarto::quarto_render(cache_refresh = TRUE)
+```
+
 Or run in your terminal
 ```bash
 quarto render
+```
+
+or
+
+```bash
+quarto render --cache-refresh
 ```
 
 Rendered at https://remlapmot.github.io/mrdags/
