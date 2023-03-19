@@ -21,7 +21,8 @@ Imports:
   remotes,
   rmarkdown,
   tidyverse,
-  tinytex
+  tinytex,
+  webshot
 SystemRequirements: 
   dvisvgm
   Ghostscript
