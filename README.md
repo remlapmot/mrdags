@@ -49,7 +49,9 @@ Installing Ghostscript from Homebrew will provide this library.
 brew install ghostscript
 ```
 
-If you have an Apple Silicon Mac it is advisable to use a pre-release version of Quarto, version 1.2.56 or later, because then the deno executable is arm64 and hence the arm64 *libgs.dylib* library from Homebrew will work.
+Then update the path to *libgs.dylib* in the `setup` chunk in *index.qmd*.
+
+If you have an Apple Silicon Mac it is advisable to use a pre-release version of Quarto, version 1.2.56 or later, because then the `deno` executable is arm64 and hence the arm64 *libgs.dylib* library from Homebrew will work.
 
 ## Dependency packages
 
