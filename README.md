@@ -51,6 +51,11 @@ brew install ghostscript
 
 Then update the path to *libgs.dylib* in the `setup` chunk in *index.qmd*.
 
+Additionally it is helpful to set the `SHELL` environment variable to the shell you use, e.g., Homebrew `zsh` by setting in your *.Renviron* file
+```
+SHELL=/opt/homebrew/bin/zsh
+```
+
 If you have an Apple Silicon Mac it is advisable to use a pre-release version of Quarto, version 1.2.56 or later, because then the `deno` executable is arm64 and hence the arm64 *libgs.dylib* library from Homebrew will work.
 
 ## Dependency packages
