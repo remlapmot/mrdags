@@ -1,7 +1,8 @@
 ---
 title: "R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
 author: "Tom Palmer"
-date: "`r Sys.Date()`"
+date: "2019-01-24"
+date-modified: last-modified
 format:
   html:
     monofont: "Fira Code"
