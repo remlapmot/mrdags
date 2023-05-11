@@ -5,13 +5,14 @@ date: "2019-01-24"
 date-modified: last-modified
 format:
   html:
-    monofont: "Fira Code"
+    monofont: "Fira Mono"
 bibliography: refs.bib
 ---
 
 ```{=html}
 <!-- HTML -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css"> -->
+<link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
 ```
 
 ```{r setup, include=FALSE}
