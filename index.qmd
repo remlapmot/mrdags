@@ -614,8 +614,8 @@ DiagrammeR::grViz("
       U -> X [label='<I>&beta;@_{UX}</I>']
       U -> Y [label='<I>&beta;@_{UY}</I>']
       X -> Y [label='<I>&beta;@_{XY}</I>']
-      U -> U [dir='both', headport='n', tailport='n', label='var(<I>U</I>)']
-      G -> G [dir='both', headport='w', tailport='w', label='var(<I>G</I>)']
+      U -> U [dir='both', headport='n', tailport='n', label=<var(<I>U</I>)>]
+      G -> G [dir='both', headport='w', tailport='w', label=<var(<I>G</I>)>]
       Ex -> Ex [dir='both', headport='n', tailport='n', label=<<I>&sigma;@_{X}@^{2}</I>>]
       Ey -> Ey [dir='both', headport='n', tailport='n', label=<<I>&sigma;@_{Y}@^{2}</I>>]
       }
