@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 format:
   html:
     monofont: "Fira Code"
+bibliography: refs.bib
 ---
 
 ```{=html}
@@ -179,7 +180,7 @@ DiagrammeR::grViz("
 
 ### MVMR DAGs 
 
-We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, [doi:10.1093/ije/dyy262](https://doi.org/10.1093/ije/dyy262) [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
+We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
 
 #### Scenario 1: $X_2$ confounder of $X_1$ and $Y$
 
@@ -384,7 +385,7 @@ If you prefer a greyscale figure replace `blue` with `grey`/`DimGrey`/`grey30` (
 
 ### Pleiotropy DAGs
 
-There are many types of pleiotropy. Let's plot some of the pleiotropy DAGs from Sanderson et al., NRM, 2022 [here](https://doi.org/10.1038/s43586-022-00099-6). 
+There are many types of pleiotropy. Let's plot some of the pleiotropy DAGs from @sanderson-nrmp-2022.
 
 #### Horizontal pleiotropy (causes bias)
 
@@ -1186,7 +1187,7 @@ We can combine these into a single figure as follows.
 
 ### MVMR DAGs using TikZ
 
-We can plot the DAGs in Figure 4 of Sanderson et al., An examination of multivariable Mendelian randomization in the single-sample and two-sample summary data settings, IJE, 2019, 713-727, [doi:10.1093/ije/dyy262](https://doi.org/10.1093/ije/dyy262) [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
+We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.oup.com/view-large/figure/162152273/dyy262f4.tif).
 
 #### Scenario 1: $X_2$ confounder of $X_1$ and $Y$
 
@@ -1701,3 +1702,5 @@ quarto::quarto_version()
 tinytex::tlmgr_version()
 ```
 </details>
+
+## References
