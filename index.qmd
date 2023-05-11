@@ -40,7 +40,7 @@ if (!tinytex::check_installed("dvisvgm")) tinytex::tlmgr_install("dvisvgm")
 # The libgs.dylib from Homebrew (brew install ghostscript) is sufficient.
 if (Sys.info()[["sysname"]] == "Darwin") {
   # Ghostscript from Homebrew
-  Sys.setenv(LIBGS = "/opt/homebrew/Cellar/ghostscript/10.01.1/lib/libgs.dylib")
+  Sys.setenv(LIBGS = "/opt/homebrew/Cellar/ghostscript/10.01.1_1/lib/libgs.dylib")
   if (Sys.info()[["machine"]] == "arm64" && compareVersion(as.character(quarto::quarto_version()), "1.2.56") == -1) {
     # Install Ghostscript from https://pages.uoregon.edu/koch/Ghostscript-10.00-Full.pkg
     Sys.setenv(LIBGS = "/usr/local/lib/libgs.dylib")    
