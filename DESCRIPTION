@@ -22,7 +22,8 @@ Imports:
   rmarkdown,
   tidyverse,
   tinytex,
-  webshot
+  webshot,
+  yaml
 SystemRequirements: 
   dvisvgm
   Ghostscript
