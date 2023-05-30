@@ -160,7 +160,7 @@
     },
     "RcppArmadillo": {
       "Package": "RcppArmadillo",
-      "Version": "0.12.2.0.0",
+      "Version": "0.12.4.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -170,7 +170,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "39aed0e5fbb0b775a1752ad7813fc56c"
+      "Hash": "5402c9d935b45fe528538703b5edf680"
     },
     "RcppEigen": {
       "Package": "RcppEigen",
@@ -721,7 +721,7 @@
     },
     "ggdag": {
       "Package": "ggdag",
-      "Version": "0.2.9",
+      "Version": "0.2.10",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -741,7 +741,7 @@
         "tibble",
         "tidygraph"
       ],
-      "Hash": "7e14295d3db04db0efaf1d05beb0c62c"
+      "Hash": "07e9bed17027af3a3dfe3a1faecce837"
     },
     "ggforce": {
       "Package": "ggforce",
@@ -1124,7 +1124,7 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.42",
+      "Version": "1.43",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1136,7 +1136,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "8329a9bcc82943c8069104d4be3ee22d"
+      "Hash": "9775eb076713f627c07ce41d8199d8f6"
     },
     "labeling": {
       "Package": "labeling",
