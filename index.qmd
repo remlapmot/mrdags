@@ -1,5 +1,5 @@
 ---
-title: "R, DOT, and TikZ code to plot DAGs and SWIGs for Mendelian randomization analyses"
+title: "R, DOT, and TikZ code to plot directed acyclic graphs and single world intervention graphs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: "2019-01-24"
 date-modified: last-modified
