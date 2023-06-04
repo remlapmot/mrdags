@@ -58,6 +58,11 @@ SHELL=/opt/homebrew/bin/zsh
 
 If you have an Apple Silicon Mac it is advisable to use a pre-release version of Quarto, version 1.2.56 or later, because then the `deno` executable is arm64 and hence the arm64 *libgs.dylib* library from Homebrew will work.
 
+And on macOS you need to make sure the current user has write permission to `/usr/local/bin` by running the following command in Terminal, as per [here](https://yihui.org/tinytex/#installation).
+```
+sudo chown -R $(whoami) /usr/local/bin
+```
+
 ## Dependency packages
 
 ### Using renv
