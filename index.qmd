@@ -762,6 +762,7 @@ Showing the paths.
 
 ```{r ggdg-single-dag-6}
 #| fig.height=3.5
+set.seed(123)
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
