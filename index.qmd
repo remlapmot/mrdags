@@ -725,7 +725,6 @@ It correctly identifies the genotype, $G$, as the instrumental variable.
 #| fig.height=3.5
 coords <- list(x = c(G = 0, X = 1, Y = 2, U = 1.5),
                y = c(G = 0, X = 0, Y = 0, U = 1))
-
 mrdag <- dagify(
   X ~ G + U,
   Y ~ X + U,
@@ -739,7 +738,6 @@ mrdag <- dagify(
   outcome = "Y",
   coords = coords
 )
-
 ggdag(mrdag, use_labels = "label") + theme_dag()
 ```
 
@@ -790,7 +788,6 @@ This shows that the path from $G$ to $X$ is unconfounded. And that when $U$ is a
 ```{r ggdg-multiple-dag}
 coords2 <- list(x = c(G1 = 0, G2 = 0, G3 = 0, X = 1, Y = 2, U = 1.5),
                 y = c(G1 = 0.5, G2 = 0, G3 = -0.5, X = 0, Y = 0, U = 1))
-
 mrdag <- dagify(
   X ~ G1,
   X ~ G2,
@@ -802,7 +799,6 @@ mrdag <- dagify(
   outcome = "Y",
   coords = coords2
 )
-
 ggdag(mrdag) + theme_dag()
 ```
 
