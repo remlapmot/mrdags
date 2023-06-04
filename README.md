@@ -49,7 +49,7 @@ Installing Ghostscript from Homebrew will provide this library.
 brew install ghostscript
 ```
 
-Then update the path to *libgs.dylib* in the `setup` chunk in *index.qmd*.
+The path to *libgs.dylib* in the `setup` chunk in *index.qmd* should be general.
 
 Additionally it is helpful to set the `SHELL` environment variable to the shell you use, e.g., Homebrew `zsh` by setting in your *.Renviron* file
 ```
@@ -88,7 +88,7 @@ Alternatively, but without the guarantee that the package version numbers will b
 # install.packages("devtools")
 devtools::install_dev_deps()
 ```
-This works because there is a `DESCRIPTION` file.
+This works because this repo includes a `DESCRIPTION` file.
 
 ### TinyTeX
 
