@@ -1692,6 +1692,25 @@ And the DAG showing effects that are not allowed under the IV core conditions.
 knitr::include_graphics("img/mr-dag-violations.excalidraw.png")
 ```
 
+## dagtex DAGs
+
+```{r}
+# remotes::install_github("malcolmbarrett/dagtex")
+library(dagtex)
+```
+
+```{r}
+dagtex() %>%
+  add_node("z") %>%
+  add_node("x") %>%
+  add_node("y") %>%
+  add_node("u", above = "x") %>%
+  add_edge("z", "x") %>%
+  add_edge("x", "y") %>%
+  add_edge("u", "x") %>%
+  add_edge("u", "y")
+```
+
 ## Session information for reproducibility
 
 <details><summary>Click here for session info</summary>
