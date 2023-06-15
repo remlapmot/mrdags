@@ -1711,6 +1711,18 @@ dagtex() %>%
   add_edge("u", "y")
 ```
 
+```{r}
+dagtex() %>%
+  add_swig_node("z") %>%
+  add_swig_node("x") %>%
+  add_swig_node("y") %>%
+  add_swig_node("u", above = "x") %>%
+  add_edge("z", "x") %>%
+  add_edge("x", "y") %>%
+  add_edge("u", "x") %>%
+  add_edge("u", "y")
+```
+
 ## Session information for reproducibility
 
 <details><summary>Click here for session info</summary>
