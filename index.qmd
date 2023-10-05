@@ -74,80 +74,79 @@ We will draw the DAGs using Graphviz which uses the DOT language to describe gra
 
 ```{r dg-single-dag}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB]
+  graph [rankdir=TB]
 
-      node [shape=ellipse]
-      U [label='Confounders']
+  node [shape=ellipse]
+  U [label='Confounders']
 
-      node [shape=box, height=0.3, width=0.3]
-      G [label='Genotype']
-      X [label='Phenotype']
-      Y [label='Outcome']
+  node [shape=box, height=0.3, width=0.3]
+  G [label='Genotype']
+  X [label='Phenotype']
+  Y [label='Outcome']
+  { rank = same; G X Y }
 
-      { rank = same; G X Y }
-
-      G -> X [minlen=3]
-      U -> X
-      U -> Y
-      X -> Y [minlen=3]
-      }
-      ", height = 200)
+  G -> X [minlen=3]
+  U -> X
+  U -> Y
+  X -> Y [minlen=3]
+  }
+  ", height = 200)
 ```
 
 #### Version without borders around observed variables
 
 ```{r dg-single-dag-2}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB]
+  graph [rankdir=TB]
 
-      node [shape=ellipse]
-      U [label='Confounders']
+  node [shape=ellipse]
+  U [label='Confounders']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G [label='Genotype']
-      X [label='Phenotype']
-      Y [label='Outcome']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G [label='Genotype']
+  X [label='Phenotype']
+  Y [label='Outcome']
 
-      { rank = same; G X Y }
+  { rank = same; G X Y }
 
-      G -> X [minlen=3]
-      U -> X
-      U -> Y
-      X -> Y [minlen=3]
-      }
-      ", height = 200)
+  G -> X [minlen=3]
+  U -> X
+  U -> Y
+  X -> Y [minlen=3]
+  }
+  ", height = 200)
 ```
 
 ### Multiple genotype DAG
 
 ```{r dg-multiple-dag}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=box, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
-      G2 [label='<I>G@_{2}</I>', pos='0,0!']
-      G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
+  node [shape=box, height=0.3, width=0.3]
+  G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
+  G2 [label='<I>G@_{2}</I>', pos='0,0!']
+  G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
 
-      G1 -> X 
-      G2 -> X 
-      G3 -> X 
-      U -> X
-      U -> Y
-      X -> Y 
-      }
-      ", height = 300)
+  G1 -> X 
+  G2 -> X 
+  G3 -> X 
+  U -> X
+  U -> Y
+  X -> Y 
+  }
+  ", height = 300)
 ```
 
 This could be extended for more genotypes.
@@ -156,28 +155,28 @@ This could be extended for more genotypes.
 
 ```{r dg-multiple-dag-2}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
-      G2 [label='<I>G@_{2}</I>', pos='0,0!']
-      G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G1 [label='<I>G@_{1}</I>', pos='0,0.75!']
+  G2 [label='<I>G@_{2}</I>', pos='0,0!']
+  G3 [label='<I>G@_{3}</I>', pos='0,-0.75!']
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
 
-      G1 -> X 
-      G2 -> X 
-      G3 -> X 
-      U -> X
-      U -> Y
-      X -> Y 
-      }
-      ", height = 300)
+  G1 -> X 
+  G2 -> X 
+  G3 -> X 
+  U -> X
+  U -> Y
+  X -> Y 
+  }
+  ", height = 300)
 ```
 
 ### MVMR DAGs 
@@ -188,120 +187,120 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 
 ```{r mvmr-dag-1}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0!']
-      X1 [label='<I>X@_{1}</I>', pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
-      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
-      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G1 [label='<I>G@_{1}</I>', pos='0,0!']
+  X1 [label='<I>X@_{1}</I>', pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
+  G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+  X2 [label='<I>X@_{2}</I>', pos='2,-1!']
 
-      G1 -> X1
-      G2 -> X2
-      U -> X1
-      U -> Y
-      U -> X2
-      X1 -> Y
-      X2 -> Y
-      X2 -> X1
-      }
-      ", height = 300)
+  G1 -> X1
+  G2 -> X2
+  U -> X1
+  U -> Y
+  U -> X2
+  X1 -> Y
+  X2 -> Y
+  X2 -> X1
+  }
+  ", height = 300)
 ```
 
 #### Scenario 2: $X_2$ collider of $X_1$ and $Y$
 
 ```{r mvmr-dag-2}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0!']
-      X1 [label='<I>X@_{1}</I>', pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
-      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
-      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G1 [label='<I>G@_{1}</I>', pos='0,0!']
+  X1 [label='<I>X@_{1}</I>', pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
+  G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+  X2 [label='<I>X@_{2}</I>', pos='2,-1!']
 
-      G1 -> X1
-      G2 -> X2
-      U -> X1
-      U -> Y
-      U -> X2
-      X1 -> Y
-      Y -> X2
-      X1 -> X2
-      }
-      ", height = 300)
+  G1 -> X1
+  G2 -> X2
+  U -> X1
+  U -> Y
+  U -> X2
+  X1 -> Y
+  Y -> X2
+  X1 -> X2
+  }
+  ", height = 300)
 ```
 
 #### Scenario 3: $X_2$ on a pleiotropic pathway
 
 ```{r mvmr-dag-3}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0!']
-      X1 [label='<I>X@_{1}</I>', pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
-      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
-      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G1 [label='<I>G@_{1}</I>', pos='0,0!']
+  X1 [label='<I>X@_{1}</I>', pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
+  G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+  X2 [label='<I>X@_{2}</I>', pos='2,-1!']
 
-      G1 -> X1
-      G2 -> X2
-      U -> X1
-      U -> Y
-      U -> X2
-      X1 -> Y
-      X2 -> Y
-      }
-      ", height = 300)
+  G1 -> X1
+  G2 -> X2
+  U -> X1
+  U -> Y
+  U -> X2
+  X1 -> Y
+  X2 -> Y
+  }
+  ", height = 300)
 ```
 
 #### Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
 
 ```{r mvmr-dag-4}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G1 [label='<I>G@_{1}</I>', pos='0,0!']
-      X1 [label='<I>X@_{1}</I>', pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
-      G2 [label='<I>G@_{2}</I>', pos='0,-1!']
-      X2 [label='<I>X@_{2}</I>', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G1 [label='<I>G@_{1}</I>', pos='0,0!']
+  X1 [label='<I>X@_{1}</I>', pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
+  G2 [label='<I>G@_{2}</I>', pos='0,-1!']
+  X2 [label='<I>X@_{2}</I>', pos='2,-1!']
 
-      edge [arrowhead='vee']
-      G1 -> X1
-      G2 -> X2
-      U -> X1
-      U -> Y
-      U -> X2
-      X1 -> Y
-      X2 -> Y
-      X1 -> X2
-      }
-      ", height = 300)
+  edge [arrowhead='vee']
+  G1 -> X1
+  G2 -> X2
+  U -> X1
+  U -> Y
+  U -> X2
+  X1 -> Y
+  X2 -> Y
+  X1 -> X2
+  }
+  ", height = 300)
 ```
 
 ### Bidirectional MR figure of combined DAGs
@@ -310,75 +309,75 @@ For a bidirectional MR analysis there are 2 separate DAGs which are as follows.
 
 ```{r dg-bidir-fig-1}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      GX [label='Genotypes \n for phenotype', pos='0,0!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  GX [label='Genotypes \n for phenotype', pos='0,0!']
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
 
-      GX -> X [penwidth=2]
-      U -> X [penwidth=2]
-      U -> Y [penwidth=2]
-      X -> Y [penwidth=2]
-      }
-      ", height = 200)
+  GX -> X [penwidth=2]
+  U -> X [penwidth=2]
+  U -> Y [penwidth=2]
+  X -> Y [penwidth=2]
+  }
+  ", height = 200)
 ```
 
 ```{r bg-bidir-fig-2}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-      GY [label='Genotypes \n for outcome', pos='6,0!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
+  GY [label='Genotypes \n for outcome', pos='6,0!']
 
-      U -> X [penwidth=2]
-      U -> Y [penwidth=2]
-      Y -> X [penwidth=2]
-      GY -> Y [penwidth=2]
-      }
-      ", height = 200)
+  U -> X [penwidth=2]
+  U -> Y [penwidth=2]
+  Y -> X [penwidth=2]
+  GY -> Y [penwidth=2]
+  }
+  ", height = 200)
 ```
 
 We can combine these into a single figure as follows.
 
 ```{r dg-bidir-fig}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      GX [label='Genotypes \n for phenotype', pos='0,0!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-      GY [label='Genotypes \n for outcome', pos='6,0!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  GX [label='Genotypes \n for phenotype', pos='0,0!']
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
+  GY [label='Genotypes \n for outcome', pos='6,0!']
 
-      { rank = same; GX X Y GY }
+  { rank = same; GX X Y GY }
 
-      GX -> X [penwidth=2]
-      U -> X [penwidth=2]
-      U -> Y [penwidth=2]
-      X -> Y [penwidth=2]
-      Y -> X [color=blue, penwidth=2]
-      GY -> Y [color=blue, penwidth=2]
-      }
-      ", height = 200)
+  GX -> X [penwidth=2]
+  U -> X [penwidth=2]
+  U -> Y [penwidth=2]
+  X -> Y [penwidth=2]
+  Y -> X [color=blue, penwidth=2]
+  GY -> Y [color=blue, penwidth=2]
+  }
+  ", height = 200)
 ```
 
 Arguably we could add additional blue arrows from the Confounders node.
@@ -393,167 +392,167 @@ There are many types of pleiotropy. Let's plot some of the pleiotropy DAGs from 
 
 ```{r dg-pleio-1}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB]
+  graph [rankdir=TB]
 
-      node [shape=ellipse]
-      U [label='Confounders']
+  node [shape=ellipse]
+  U [label='Confounders']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G [label='Genotype']
-      X [label='Phenotype']
-      Y [label='Outcome']
-      C [label='Other phenotype']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G [label='Genotype']
+  X [label='Phenotype']
+  Y [label='Outcome']
+  C [label='Other phenotype']
 
-      { rank = same; G X Y }
+  { rank = same; G X Y }
 
-      G -> X [minlen=3]
-      G -> C
-      U -> X
-      U -> Y
-      X -> Y [minlen=3]
-      C -> Y
-      }
-      ", height = 300)
+  G -> X [minlen=3]
+  G -> C
+  U -> X
+  U -> Y
+  X -> Y [minlen=3]
+  C -> Y
+  }
+  ", height = 300)
 ```
 
 #### Horizontal pleiotropy (no bias)
 
 ```{r dg-pleio-2}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G [label='Genotype', pos='0,0!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-      C [label='Other phenotype', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G [label='Genotype', pos='0,0!']
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
+  C [label='Other phenotype', pos='2,-1!']
 
-      G -> X
-      G -> C
-      U -> X
-      U -> Y
-      X -> Y
-      }
-      ", height = 300)
+  G -> X
+  G -> C
+  U -> X
+  U -> Y
+  X -> Y
+  }
+  ", height = 300)
 ```
 
 #### Confounding via linkage disequilibrium
 
 ```{r dg-pleio-3}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G1 [label='Genotype 1', pos='0,0!']
-      G2 [label='Genotype 2', pos='0,-1!']
-      X [label='Phenotype', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-      C [label='Other phenotype', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G1 [label='Genotype 1', pos='0,0!']
+  G2 [label='Genotype 2', pos='0,-1!']
+  X [label='Phenotype', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
+  C [label='Other phenotype', pos='2,-1!']
 
-      G1 -> X
-      G1 -> G2 [dir='both']
-      G2 -> C
-      U -> X
-      U -> Y
-      X -> Y
-      C -> Y
-      }
-      ", height = 300)
+  G1 -> X
+  G1 -> G2 [dir='both']
+  G2 -> C
+  U -> X
+  U -> Y
+  X -> Y
+  C -> Y
+  }
+  ", height = 300)
 ```
 
 #### Vertical pleiotropy
 
 ```{r dg-pleio-4}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB]
+  graph [rankdir=TB]
 
-      node [shape=ellipse]
-      U [label='Confounders']
+  node [shape=ellipse]
+  U [label='Confounders']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G [label='Genotype']
-      X [label='Phenotype 1']
-      Y [label='Outcome']
-      C [label='Phenotype 2']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G [label='Genotype']
+  X [label='Phenotype 1']
+  Y [label='Outcome']
+  C [label='Phenotype 2']
 
-      { rank = same; G X C Y }
+  { rank = same; G X C Y }
 
-      G -> X [minlen=2]
-      X -> C [minlen=2]
-      U -> X
-      U -> Y
-      C -> Y [minlen=2]
-      }
-      ", height = 200)
+  G -> X [minlen=2]
+  X -> C [minlen=2]
+  U -> X
+  U -> Y
+  C -> Y [minlen=2]
+  }
+  ", height = 200)
 ```
 
 #### Misspecification of the primary phenotype
 
 ```{r dg-pleio-5}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G [label='Genotype', pos='0,0!']
-      X [label='Phenotype 1', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-      C [label='Phenotype 2', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G [label='Genotype', pos='0,0!']
+  X [label='Phenotype 1', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
+  C [label='Phenotype 2', pos='2,-1!']
 
-      G -> C
-      C -> X
-      U -> X
-      U -> Y
-      X -> Y
-      C -> Y
-      }
-      ", height = 300)
+  G -> C
+  C -> X
+  U -> X
+  U -> Y
+  X -> Y
+  C -> Y
+  }
+  ", height = 300)
 ```
 
 #### Correlated pleiotropy
 
 ```{r dg-pleio-6}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse]
-      U [label='Confounders', pos='3,1!']
+  node [shape=ellipse]
+  U [label='Confounders', pos='3,1!']
 
-      node [shape=plaintext, height=0.3, width=0.3]
-      G [label='Genotype', pos='0,0!']
-      X [label='Phenotype 1', pos='2,0!']
-      Y [label='Outcome', pos='4,0!']
-      C [label='Phenotype 2', pos='2,-1!']
+  node [shape=plaintext, height=0.3, width=0.3]
+  G [label='Genotype', pos='0,0!']
+  X [label='Phenotype 1', pos='2,0!']
+  Y [label='Outcome', pos='4,0!']
+  C [label='Phenotype 2', pos='2,-1!']
 
-      G -> X
-      G -> C
-      C -> X
-      U -> X
-      U -> Y
-      X -> Y
-      C -> Y
-      }
-      ", height = 300)
+  G -> X
+  G -> C
+  C -> X
+  U -> X
+  U -> Y
+  X -> Y
+  C -> Y
+  }
+  ", height = 300)
 ```
 
 ### Single genotype path diagram
@@ -561,32 +560,32 @@ DiagrammeR::grViz("
 #### Explicitly including the confounder
 ```{r dg-single-path}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse, height=0.3, width=0.3]
-      U [label=<<I>U</I>>, pos='3,1!']
+  node [shape=ellipse, height=0.3, width=0.3]
+  U [label=<<I>U</I>>, pos='3,1!']
 
-      node [shape=box, height=0.3, width=0.3]
-      G [label=<<I>G</I>>, pos='0,0!']
-      X [label=<<I>X</I>>, pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
+  node [shape=box, height=0.3, width=0.3]
+  G [label=<<I>G</I>>, pos='0,0!']
+  X [label=<<I>X</I>>, pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
 
-      node [shape=circle, height=0.35, fixedsize=true]
-      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
-      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+  Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
 
-      G -> X [label='<I>&beta;@_{GX}</I>']
-      Ex -> X [label=1]
-      Ey -> Y [label=1]
-      U -> X [label='<I>&beta;@_{UX}</I>']
-      U -> Y [label='<I>&beta;@_{UY}</I>']
-      X -> Y [label='<I>&beta;@_{XY}</I>']
-      U -> U [dir='both', headport='n', tailport='n']
-      G -> G [dir='both', headport='w', tailport='w']
-      }
-      ", height = 250)
+  G -> X [label='<I>&beta;@_{GX}</I>']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  U -> X [label='<I>&beta;@_{UX}</I>']
+  U -> Y [label='<I>&beta;@_{UY}</I>']
+  X -> Y [label='<I>&beta;@_{XY}</I>']
+  U -> U [dir='both', headport='n', tailport='n']
+  G -> G [dir='both', headport='w', tailport='w']
+  }
+  ", height = 250)
 ```
 
 #### Including variance terms
@@ -595,62 +594,62 @@ Note in the diagram below $\sigma_{X}^2$ and $\sigma_{Y}^2$ represent the varian
 
 ```{r dg-single-path-variance}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato]
+  graph [rankdir=TB, layout=neato]
 
-      node [shape=ellipse, height=0.3, width=0.3]
-      U [label=<<I>U</I>>, pos='3,1!']
+  node [shape=ellipse, height=0.3, width=0.3]
+  U [label=<<I>U</I>>, pos='3,1!']
 
-      node [shape=box, height=0.3, width=0.3]
-      G [label=<<I>G</I>>, pos='0,0!']
-      X [label=<<I>X</I>>, pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
+  node [shape=box, height=0.3, width=0.3]
+  G [label=<<I>G</I>>, pos='0,0!']
+  X [label=<<I>X</I>>, pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
 
-      node [shape=circle, height=0.35, fixedsize=true]
-      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
-      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+  Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
 
-      G -> X [label='<I>&beta;@_{GX}</I>']
-      Ex -> X [label=1]
-      Ey -> Y [label=1]
-      U -> X [label='<I>&beta;@_{UX}</I>']
-      U -> Y [label='<I>&beta;@_{UY}</I>']
-      X -> Y [label='<I>&beta;@_{XY}</I>']
-      U -> U [dir='both', headport='n', tailport='n', label=<var(<I>U</I>)>]
-      G -> G [dir='both', headport='w', tailport='w', label=<var(<I>G</I>)>]
-      Ex -> Ex [dir='both', headport='n', tailport='n', label=<<I>&sigma;@_{X}@^{2}</I>>]
-      Ey -> Ey [dir='both', headport='n', tailport='n', label=<<I>&sigma;@_{Y}@^{2}</I>>]
-      }
-      ", height = 250)
+  G -> X [label='<I>&beta;@_{GX}</I>']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  U -> X [label='<I>&beta;@_{UX}</I>']
+  U -> Y [label='<I>&beta;@_{UY}</I>']
+  X -> Y [label='<I>&beta;@_{XY}</I>']
+  U -> U [dir='both', headport='n', tailport='n', label=<var(<I>U</I>)>]
+  G -> G [dir='both', headport='w', tailport='w', label=<var(<I>G</I>)>]
+  Ex -> Ex [dir='both', headport='n', tailport='n', label=<<I>&sigma;@_{X}@^{2}</I>>]
+  Ey -> Ey [dir='both', headport='n', tailport='n', label=<<I>&sigma;@_{Y}@^{2}</I>>]
+  }
+  ", height = 250)
 ```
 
 #### Including correlated error terms between exposure and outcome
 
 ```{r dg-single-path-2}
 DiagrammeR::grViz("
-      digraph mrdag {
+  digraph mrdag {
 
-      graph [rankdir=TB, layout=neato, splines=true]
+  graph [rankdir=TB, layout=neato, splines=true]
 
-      node [shape=box, height=0.3, width=0.3]
-      G [label=<<I>G</I>>, pos='0,0!']
-      X [label=<<I>X</I>>, pos='2,0!']
-      Y [label=<<I>Y</I>>, pos='4,0!']
+  node [shape=box, height=0.3, width=0.3]
+  G [label=<<I>G</I>>, pos='0,0!']
+  X [label=<<I>X</I>>, pos='2,0!']
+  Y [label=<<I>Y</I>>, pos='4,0!']
 
-      node [shape=circle, height=0.35, fixedsize=true]
-      Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
-      Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
-      dummy [label='', pos='3,1!', color=white, height=0.5]
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
+  Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+  dummy [label='', pos='3,1!', color=white, height=0.5]
 
-      G -> X [label='<I>&beta;@_{GX}</I>']
-      Ex -> X [label=1]
-      Ey -> Y [label=1]
-      X -> Y [label='<I>&beta;@_{XY}</I>']
-      Ex -> Ey [dir='both', label=<<I>&rho;</I>>]
-      G -> G [dir='both', headport='w', tailport='w']
-      }
-      ", height = 250)
+  G -> X [label='<I>&beta;@_{GX}</I>']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  X -> Y [label='<I>&beta;@_{XY}</I>']
+  Ex -> Ey [dir='both', label=<<I>&rho;</I>>]
+  G -> G [dir='both', headport='w', tailport='w']
+  }
+  ", height = 250)
 ```
 
 ## dagitty package
