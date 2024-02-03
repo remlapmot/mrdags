@@ -20,7 +20,8 @@ knitr::opts_chunk$set(
   cache = TRUE,
   dev = "svg",
   fig.align = "center",
-  collapse = TRUE
+  collapse = TRUE,
+  comment = '#>'
 )
 
 # pgf for tikz
