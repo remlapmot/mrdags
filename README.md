@@ -57,6 +57,8 @@ brew install ghostscript
 
 The path to _libgs.dylib_ in the `setup` chunk in _index.qmd_ should be general.
 
+Also on macOS this project requires X11, which is easiest to obtain and install from <https://www.xquartz.org/>.
+
 Additionally it is helpful to set the `SHELL` environment variable to the shell you use, e.g., Homebrew `zsh` by setting in your _.Renviron_ file
 
 ```
