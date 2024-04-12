@@ -162,7 +162,7 @@
     },
     "RcppArmadillo": {
       "Package": "RcppArmadillo",
-      "Version": "0.12.8.1.0",
+      "Version": "0.12.8.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -172,7 +172,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "e78bbbb81a5dcd71a4bd3268d6ede0b1"
+      "Hash": "85c0c4491c06db4814ed7e39b960973c"
     },
     "RcppEigen": {
       "Package": "RcppEigen",
@@ -491,14 +491,14 @@
     },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.15.2",
+      "Version": "1.15.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "536dfe4ac4093b5d115caed7a1a7223b"
+      "Hash": "8ee9ac56ef633d0c7cab8b2ca87d683e"
     },
     "dbplyr": {
       "Package": "dbplyr",
@@ -1010,7 +1010,7 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.8",
+      "Version": "0.5.8.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1022,7 +1022,7 @@
         "rlang",
         "utils"
       ],
-      "Hash": "149431ee39aba5bdc264112c8ff94444"
+      "Hash": "81d371a9cc60640e74e4ab6ac46dcedc"
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
@@ -1121,7 +1121,7 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.45",
+      "Version": "1.46",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1133,7 +1133,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "1ec462871063897135c1bcbe0fc8f07d"
+      "Hash": "6e008ab1d696a5283c79765fa7b56b47"
     },
     "labeling": {
       "Package": "labeling",
@@ -1306,14 +1306,14 @@
     },
     "munsell": {
       "Package": "munsell",
-      "Version": "0.5.0",
+      "Version": "0.5.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "colorspace",
         "methods"
       ],
-      "Hash": "6dfe8bf774944bd5595785e3229d8771"
+      "Hash": "4fd8900853b746af55b81fda99da7695"
     },
     "nlme": {
       "Package": "nlme",
