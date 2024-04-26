@@ -125,6 +125,7 @@ div.csl-indent {
 <script src="site_libs/viz-1.8.2/viz.js"></script>
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -349,8 +350,8 @@ window.Quarto = {
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-2fbdc44b83bf65965a23" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2fbdc44b83bf65965a23">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype\"]\n  Y [label=\"Outcome\"]\n  { rank = same; G X Y }\n\n  G -> X [minlen=3]\n  U -> X\n  U -> Y\n  X -> Y [minlen=3]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-51f288ca43caf298f18b" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-51f288ca43caf298f18b">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype\"]\n  Y [label=\"Outcome\"]\n  { rank = same; G X Y }\n\n  G -> X [minlen=3]\n  U -> X\n  U -> Y\n  X -> Y [minlen=3]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="version-without-borders-around-observed-variables" class="level4">
@@ -378,8 +379,8 @@ window.Quarto = {
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-07e3971e501314ca657d" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-07e3971e501314ca657d">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype\"]\n  Y [label=\"Outcome\"]\n\n  { rank = same; G X Y }\n\n  G -> X [minlen=3]\n  U -> X\n  U -> Y\n  X -> Y [minlen=3]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bf393bcc3491a8170125" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bf393bcc3491a8170125">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype\"]\n  Y [label=\"Outcome\"]\n\n  { rank = same; G X Y }\n\n  G -> X [minlen=3]\n  U -> X\n  U -> Y\n  X -> Y [minlen=3]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -411,8 +412,8 @@ window.Quarto = {
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-7ac5d5bbe5b844d6133f" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7ac5d5bbe5b844d6133f">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n\n  G1 -> X \n  G2 -> X \n  G3 -> X \n  U -> X\n  U -> Y\n  X -> Y \n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c4c525eb0a3d3342dc1b" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c4c525eb0a3d3342dc1b">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n\n  G1 -> X \n  G2 -> X \n  G3 -> X \n  U -> X\n  U -> Y\n  X -> Y \n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>This could be extended for more genotypes.</p>
@@ -443,8 +444,8 @@ window.Quarto = {
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-596b987ffac025024d0c" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-596b987ffac025024d0c">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n\n  G1 -> X \n  G2 -> X \n  G3 -> X \n  U -> X\n  U -> Y\n  X -> Y \n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-52807c8ea43e777b029c" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-52807c8ea43e777b029c">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0.75!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  G3 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>3<\/SUB><\/FONT><\/I>>, pos=\"0,-0.75!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n\n  G1 -> X \n  G2 -> X \n  G3 -> X \n  U -> X\n  U -> Y\n  X -> Y \n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -481,8 +482,8 @@ window.Quarto = {
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-9160e4357a1fefc46722" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9160e4357a1fefc46722">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  X2 -> Y\n  X2 -> X1\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c9bb13df3b869b331048" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c9bb13df3b869b331048">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  X2 -> Y\n  X2 -> X1\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -515,8 +516,8 @@ window.Quarto = {
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-600c362517d686a3311a" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-600c362517d686a3311a">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  Y -> X2\n  X1 -> X2\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-63153ee1a2588e2bf1ba" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-63153ee1a2588e2bf1ba">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  Y -> X2\n  X1 -> X2\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -548,8 +549,8 @@ window.Quarto = {
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-2e6a7a3f541ca997b4c6" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2e6a7a3f541ca997b4c6">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  X2 -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-627063a017ce051f0bca" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-627063a017ce051f0bca">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  X2 -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -583,8 +584,8 @@ window.Quarto = {
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-95495159a35b1c582cbe" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-95495159a35b1c582cbe">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  edge [arrowhead=\"vee\"]\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  X2 -> Y\n  X1 -> X2\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-30bc50a08e1348b2819f" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-30bc50a08e1348b2819f">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"0,0!\"]\n  X1 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>1<\/SUB><\/FONT><\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n  G2 [label = <<I>G<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"0,-1!\"]\n  X2 [label = <<I>X<FONT POINT-SIZE=\"8\"><SUB>2<\/SUB><\/FONT><\/I>>, pos=\"2,-1!\"]\n\n  edge [arrowhead=\"vee\"]\n  G1 -> X1\n  G2 -> X2\n  U -> X1\n  U -> Y\n  U -> X2\n  X1 -> Y\n  X2 -> Y\n  X1 -> X2\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -613,8 +614,8 @@ window.Quarto = {
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-6735aa5b1e73da2e1ab5" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6735aa5b1e73da2e1ab5">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n\n  GX -> X [penwidth=2]\n  U -> X [penwidth=2]\n  U -> Y [penwidth=2]\n  X -> Y [penwidth=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1cb954e291a0433d9733" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1cb954e291a0433d9733">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n\n  GX -> X [penwidth=2]\n  U -> X [penwidth=2]\n  U -> Y [penwidth=2]\n  X -> Y [penwidth=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -638,8 +639,8 @@ window.Quarto = {
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-c93b58ab765ca1f08ff4" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c93b58ab765ca1f08ff4">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n  U -> X [penwidth=2]\n  U -> Y [penwidth=2]\n  Y -> X [penwidth=2]\n  GY -> Y [penwidth=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-74ec1ceecbefb9c43d01" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-74ec1ceecbefb9c43d01">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n  U -> X [penwidth=2]\n  U -> Y [penwidth=2]\n  Y -> X [penwidth=2]\n  GY -> Y [penwidth=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>We can combine these into a single figure as follows.</p>
@@ -669,8 +670,8 @@ window.Quarto = {
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-4474baac56c19121fcee" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4474baac56c19121fcee">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n  { rank = same; GX X Y GY }\n\n  GX -> X [penwidth=2]\n  U -> X [penwidth=2]\n  U -> Y [penwidth=2]\n  X -> Y [penwidth=2]\n  Y -> X [color=blue, penwidth=2]\n  GY -> Y [color=blue, penwidth=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-94cfa9774146f04b914d" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-94cfa9774146f04b914d">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  GX [label=\"Genotypes \n for phenotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  GY [label=\"Genotypes \n for outcome\", pos=\"6,0!\"]\n\n  { rank = same; GX X Y GY }\n\n  GX -> X [penwidth=2]\n  U -> X [penwidth=2]\n  U -> Y [penwidth=2]\n  X -> Y [penwidth=2]\n  Y -> X [color=blue, penwidth=2]\n  GY -> Y [color=blue, penwidth=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Arguably we could add additional blue arrows from the Confounders node.</p>
@@ -707,8 +708,8 @@ window.Quarto = {
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-e310c558a05ea081870c" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e310c558a05ea081870c">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype\"]\n  Y [label=\"Outcome\"]\n  C [label=\"Other phenotype\"]\n\n  { rank = same; G X Y }\n\n  G -> X [minlen=3]\n  G -> C\n  U -> X\n  U -> Y\n  X -> Y [minlen=3]\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-918e1e0dc61a6686d7e4" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-918e1e0dc61a6686d7e4">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype\"]\n  Y [label=\"Outcome\"]\n  C [label=\"Other phenotype\"]\n\n  { rank = same; G X Y }\n\n  G -> X [minlen=3]\n  G -> C\n  U -> X\n  U -> Y\n  X -> Y [minlen=3]\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -737,8 +738,8 @@ window.Quarto = {
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-dc6d2c067127aecf6dd3" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dc6d2c067127aecf6dd3">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n  G -> X\n  G -> C\n  U -> X\n  U -> Y\n  X -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-716496d806ab09cff61c" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-716496d806ab09cff61c">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n  G -> X\n  G -> C\n  U -> X\n  U -> Y\n  X -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -770,8 +771,8 @@ window.Quarto = {
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-8683496e568dcebc1469" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8683496e568dcebc1469">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label=\"Genotype 1\", pos=\"0,0!\"]\n  G2 [label=\"Genotype 2\", pos=\"0,-1!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n  G1 -> X\n  G1 -> G2 [dir=\"both\"]\n  G2 -> C\n  U -> X\n  U -> Y\n  X -> Y\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6bac42a4e5df12aef0a4" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6bac42a4e5df12aef0a4">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G1 [label=\"Genotype 1\", pos=\"0,0!\"]\n  G2 [label=\"Genotype 2\", pos=\"0,-1!\"]\n  X [label=\"Phenotype\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Other phenotype\", pos=\"2,-1!\"]\n\n  G1 -> X\n  G1 -> G2 [dir=\"both\"]\n  G2 -> C\n  U -> X\n  U -> Y\n  X -> Y\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -802,8 +803,8 @@ window.Quarto = {
 <span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-489aaf1eb37b8df4f886" style="width:100%;height:193px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-489aaf1eb37b8df4f886">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype 1\"]\n  Y [label=\"Outcome\"]\n  C [label=\"Phenotype 2\"]\n\n  { rank = same; G X C Y }\n\n  G -> X [minlen=2]\n  X -> C [minlen=2]\n  U -> X\n  U -> Y\n  C -> Y [minlen=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-27c744b14cc265002c0f" style="width:100%;height:193px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-27c744b14cc265002c0f">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\"]\n  X [label=\"Phenotype 1\"]\n  Y [label=\"Outcome\"]\n  C [label=\"Phenotype 2\"]\n\n  { rank = same; G X C Y }\n\n  G -> X [minlen=2]\n  X -> C [minlen=2]\n  U -> X\n  U -> Y\n  C -> Y [minlen=2]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -833,8 +834,8 @@ window.Quarto = {
 <span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-9fda387dd2aa5fcf063b" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9fda387dd2aa5fcf063b">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype 1\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n  G -> C\n  C -> X\n  U -> X\n  U -> Y\n  X -> Y\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9cb9c2564da54eb03f7e" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9cb9c2564da54eb03f7e">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype 1\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n  G -> C\n  C -> X\n  U -> X\n  U -> Y\n  X -> Y\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -865,8 +866,8 @@ window.Quarto = {
 <span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-3b0b372bc27622f2691d" style="width:100%;height:290px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3b0b372bc27622f2691d">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype 1\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n  G -> X\n  G -> C\n  C -> X\n  U -> X\n  U -> Y\n  X -> Y\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-db12eca50adcdf7eadd0" style="width:100%;height:290px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-db12eca50adcdf7eadd0">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse]\n  U [label=\"Confounders\", pos=\"3,1!\"]\n\n  node [shape=plaintext, height=0.3, width=0.3]\n  G [label=\"Genotype\", pos=\"0,0!\"]\n  X [label=\"Phenotype 1\", pos=\"2,0!\"]\n  Y [label=\"Outcome\", pos=\"4,0!\"]\n  C [label=\"Phenotype 2\", pos=\"2,-1!\"]\n\n  G -> X\n  G -> C\n  C -> X\n  U -> X\n  U -> Y\n  X -> Y\n  C -> Y\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -904,8 +905,8 @@ window.Quarto = {
 <span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-c9498d24323661939b96" style="width:100%;height:241px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c9498d24323661939b96">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse, height=0.3, width=0.3]\n  U [label=<<I>U<\/I>>, pos=\"3,1!\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n  X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n  node [shape=circle, height=0.35, fixedsize=true]\n  Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n  Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n\n  G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n  Ex -> X [label=1]\n  Ey -> Y [label=1]\n  U -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UX<\/SUB><\/FONT><\/I>>]\n  U -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UY<\/SUB><\/FONT><\/I>>]\n  X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n  U -> U [dir=\"both\", headport=\"n\", tailport=\"n\"]\n  G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5f9858b9bc3236dd6a89" style="width:100%;height:241px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5f9858b9bc3236dd6a89">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse, height=0.3, width=0.3]\n  U [label=<<I>U<\/I>>, pos=\"3,1!\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n  X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n  node [shape=circle, height=0.35, fixedsize=true]\n  Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n  Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n\n  G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n  Ex -> X [label=1]\n  Ey -> Y [label=1]\n  U -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UX<\/SUB><\/FONT><\/I>>]\n  U -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UY<\/SUB><\/FONT><\/I>>]\n  X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n  U -> U [dir=\"both\", headport=\"n\", tailport=\"n\"]\n  G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -943,8 +944,8 @@ window.Quarto = {
 <span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-8515d461e51ff7feb837" style="width:100%;height:241px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8515d461e51ff7feb837">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse, height=0.3, width=0.3]\n  U [label=<<I>U<\/I>>, pos=\"3,1!\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n  X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n  node [shape=circle, height=0.35, fixedsize=true]\n  Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n  Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n\n  G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n  Ex -> X [label=1]\n  Ey -> Y [label=1]\n  U -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UX<\/SUB><\/FONT><\/I>>]\n  U -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UY<\/SUB><\/FONT><\/I>>]\n  X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n  U -> U [dir=\"both\", headport=\"n\", tailport=\"n\", label=<var(<I>U<\/I>)>]\n  G -> G [dir=\"both\", headport=\"w\", tailport=\"w\", label=<var(<I>G<\/I>)>]\n  Ex -> Ex [dir=\"both\", headport=\"n\", tailport=\"n\", label = <<I>&sigma;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><FONT POINT-SIZE=\"8\"><SUP>2<\/SUP><\/FONT><\/I>>]\n  Ey -> Ey [dir=\"both\", headport=\"n\", tailport=\"n\", label = <<I>&sigma;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><FONT POINT-SIZE=\"8\"><SUP>2<\/SUP><\/FONT><\/I>>]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-656eb1ae575a1ce4514e" style="width:100%;height:241px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-656eb1ae575a1ce4514e">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato]\n\n  node [shape=ellipse, height=0.3, width=0.3]\n  U [label=<<I>U<\/I>>, pos=\"3,1!\"]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n  X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n  node [shape=circle, height=0.35, fixedsize=true]\n  Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n  Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n\n  G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n  Ex -> X [label=1]\n  Ey -> Y [label=1]\n  U -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UX<\/SUB><\/FONT><\/I>>]\n  U -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>UY<\/SUB><\/FONT><\/I>>]\n  X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n  U -> U [dir=\"both\", headport=\"n\", tailport=\"n\", label=<var(<I>U<\/I>)>]\n  G -> G [dir=\"both\", headport=\"w\", tailport=\"w\", label=<var(<I>G<\/I>)>]\n  Ex -> Ex [dir=\"both\", headport=\"n\", tailport=\"n\", label = <<I>&sigma;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><FONT POINT-SIZE=\"8\"><SUP>2<\/SUP><\/FONT><\/I>>]\n  Ey -> Ey [dir=\"both\", headport=\"n\", tailport=\"n\", label = <<I>&sigma;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><FONT POINT-SIZE=\"8\"><SUP>2<\/SUP><\/FONT><\/I>>]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -975,8 +976,8 @@ window.Quarto = {
 <span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
 <span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>, <span class="at">height =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-7c57e1fa6c2f5a6f110a" style="width:100%;height:241px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7c57e1fa6c2f5a6f110a">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato, splines=true]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n  X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n  node [shape=circle, height=0.35, fixedsize=true]\n  Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n  Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n  dummy [label=\"\", pos=\"3,1!\", color=white, height=0.5]\n\n  G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n  Ex -> X [label=1]\n  Ey -> Y [label=1]\n  X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n  Ex -> Ey [dir=\"both\", label=<<I>&rho;<\/I>>]\n  G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5cb1650ebd21d978e529" style="width:100%;height:241px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5cb1650ebd21d978e529">{"x":{"diagram":"\n  digraph mrdag {\n\n  graph [rankdir=TB, layout=neato, splines=true]\n\n  node [shape=box, height=0.3, width=0.3]\n  G [label=<<I>G<\/I>>, pos=\"0,0!\"]\n  X [label=<<I>X<\/I>>, pos=\"2,0!\"]\n  Y [label=<<I>Y<\/I>>, pos=\"4,0!\"]\n\n  node [shape=circle, height=0.35, fixedsize=true]\n  Ex [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>X<\/SUB><\/FONT><\/I>>, pos=\"2,1!\"]\n  Ey [label = <<I>&epsilon;<FONT POINT-SIZE=\"8\"><SUB>Y<\/SUB><\/FONT><\/I>>, pos=\"4,1!\"]\n  dummy [label=\"\", pos=\"3,1!\", color=white, height=0.5]\n\n  G -> X [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>GX<\/SUB><\/FONT><\/I>>]\n  Ex -> X [label=1]\n  Ey -> Y [label=1]\n  X -> Y [label = <<I>&beta;<FONT POINT-SIZE=\"8\"><SUB>XY<\/SUB><\/FONT><\/I>>]\n  Ex -> Ey [dir=\"both\", label=<<I>&rho;<\/I>>]\n  G -> G [dir=\"both\", headport=\"w\", tailport=\"w\"]\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -1758,8 +1759,8 @@ window.Quarto = {
 <span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>dag  <span class="ot">&lt;-</span> <span class="fu">qd_dag</span>(edges, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>dag <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-5308bdc8e494a4f660bb" style="width:65%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-5308bdc8e494a4f660bb">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = \"G\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = \"X\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = \"Y\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-92d955d5f8d577cd097b" style="width:65%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-92d955d5f8d577cd097b">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = \"G\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = \"X\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = \"Y\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -1771,8 +1772,8 @@ window.Quarto = {
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qd_swig</span>(<span class="at">fixed.nodes =</span> <span class="fu">c</span>(<span class="st">"G"</span>, <span class="st">"X"</span>))</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>swig <span class="sc">%&gt;%</span> <span class="fu">render_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-f25ad8d9117f865a8106" style="width:65%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-f25ad8d9117f865a8106">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = <G <font point-size=\"15\">&#124;<\/font> <i>g<\/i> <FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = <X<FONT POINT-SIZE=\"8\"><SUP><i>g<\/i><\/SUP><\/FONT> <font point-size=\"15\">&#124;<\/font> <i>x<\/i> <FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = <Y<FONT POINT-SIZE=\"8\"><SUP><i>x<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-dd709098a16e72137004" style="width:65%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-dd709098a16e72137004">{"x":{"diagram":"digraph {\n\ngraph [rankdir = \"LR\",\n       layout = \"dot\"]\n\nnode [shape = \"plaintext\",\n      penwidth = \"0.5\",\n      fontname = \"serif\",\n      width = \"0\",\n      height = \"0\"]\n\nedge [arrowsize = \"0.4\",\n     penwidth = \"0.5\"]\n\n  \"1\" [label = <G <font point-size=\"15\">&#124;<\/font> <i>g<\/i> <FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"2\" [label = \"U\", fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"3\" [label = <X<FONT POINT-SIZE=\"8\"><SUP><i>g<\/i><\/SUP><\/FONT> <font point-size=\"15\">&#124;<\/font> <i>x<\/i> <FONT POINT-SIZE=\"8\"><SUB> <\/SUB><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"4\" [label = <Y<FONT POINT-SIZE=\"8\"><SUP><i>x<\/i><\/SUP><\/FONT>>, fillcolor = \"#FFFFFF\", fontcolor = \"#000000\"] \n  \"1\"->\"3\" \n  \"3\"->\"4\" \n  \"2\"->\"3\" \n  \"2\"->\"4\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -2174,7 +2175,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/mr-dag.excalidraw.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="566"></p>
+<p><img src="img/mr-dag.excalidraw.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2185,7 +2186,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/mr-dag-violations.excalidraw.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="566"></p>
+<p><img src="img/mr-dag-violations.excalidraw.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2199,13 +2200,13 @@ Click here for session info
 </summary>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R version 4.3.3 (2024-02-29)</span></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Platform: aarch64-apple-darwin20 (64-bit)</span></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Running under: macOS Sonoma 14.4</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R version 4.4.0 (2024-04-24)</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Platform: aarch64-apple-darwin20</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Running under: macOS Sonoma 14.4.1</span></span>
 <span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Matrix products: default</span></span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib </span></span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib </span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0</span></span>
 <span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; locale:</span></span>
 <span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
@@ -2220,34 +2221,33 @@ Click here for session info
 <span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] quickdag_0.2.0    DiagrammeR_1.0.11 ggdag_0.2.12      dagitty_0.3-4    </span></span>
 <span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] lubridate_1.9.3   forcats_1.0.0     stringr_1.5.1     dplyr_1.1.4      </span></span>
 <span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] purrr_1.0.2       readr_2.1.5       tidyr_1.3.1       tibble_3.2.1     </span></span>
-<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] ggplot2_3.5.0     tidyverse_2.0.0  </span></span>
+<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] ggplot2_3.5.1     tidyverse_2.0.0  </span></span>
 <span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb64-25"><a href="#cb64-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] gtable_0.3.4       xfun_0.42          htmlwidgets_1.6.4  visNetwork_2.1.2  </span></span>
-<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] ggrepel_0.9.5      processx_3.8.3     tzdb_0.4.0         vctrs_0.6.5       </span></span>
-<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] tools_4.3.3        ps_1.7.6           generics_0.1.3     curl_5.2.1        </span></span>
+<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] gtable_0.3.5       xfun_0.43          htmlwidgets_1.6.4  visNetwork_2.1.2  </span></span>
+<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] ggrepel_0.9.5      processx_3.8.4     tzdb_0.4.0         vctrs_0.6.5       </span></span>
+<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] tools_4.4.0        ps_1.7.6           generics_0.1.3     curl_5.2.1        </span></span>
 <span id="cb64-29"><a href="#cb64-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] fansi_1.0.6        pkgconfig_2.0.3    checkmate_2.3.1    RColorBrewer_1.1-3</span></span>
-<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17] lifecycle_1.0.4    farver_2.1.1       compiler_4.3.3     munsell_0.5.0     </span></span>
-<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [21] tinytex_0.49       ggforce_0.4.2      graphlayouts_1.1.1 codetools_0.2-19  </span></span>
-<span id="cb64-32"><a href="#cb64-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] htmltools_0.5.7    yaml_2.3.8         htmlTable_2.4.2    later_1.3.2       </span></span>
-<span id="cb64-33"><a href="#cb64-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] pillar_1.9.0       MASS_7.3-60.0.1    ellipsis_0.3.2     cachem_1.0.8      </span></span>
-<span id="cb64-34"><a href="#cb64-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [33] viridis_0.6.5      boot_1.3-30        tidyselect_1.2.1   digest_0.6.35     </span></span>
-<span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] stringi_1.8.3      rsvg_2.6.0         labeling_0.4.3     quarto_1.4        </span></span>
-<span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [41] polyclip_1.10-6    fastmap_1.1.1      grid_4.3.3         colorspace_2.1-0  </span></span>
-<span id="cb64-37"><a href="#cb64-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [45] cli_3.6.2          magrittr_2.0.3     messaging_0.1.0    ggraph_2.2.1      </span></span>
-<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [49] tidygraph_1.3.1    utf8_1.2.4         withr_3.0.0        backports_1.4.1   </span></span>
-<span id="cb64-39"><a href="#cb64-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [53] scales_1.3.0       timechange_0.3.0   rmarkdown_2.26     igraph_2.0.2      </span></span>
-<span id="cb64-40"><a href="#cb64-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [57] gridExtra_2.3      png_0.1-8          hms_1.1.3          memoise_2.0.1     </span></span>
-<span id="cb64-41"><a href="#cb64-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [61] evaluate_0.23      knitr_1.45         V8_4.4.2           viridisLite_0.4.2 </span></span>
-<span id="cb64-42"><a href="#cb64-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [65] rlang_1.1.3        Rcpp_1.0.12        glue_1.7.0         tweenr_2.0.3      </span></span>
-<span id="cb64-43"><a href="#cb64-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [69] renv_1.0.5         DiagrammeRsvg_0.1  rstudioapi_0.15.0  jsonlite_1.8.8    </span></span>
-<span id="cb64-44"><a href="#cb64-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [73] R6_2.5.1</span></span>
-<span id="cb64-45"><a href="#cb64-45" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
-<span id="cb64-46"><a href="#cb64-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] '1.4.551'</span></span>
-<span id="cb64-47"><a href="#cb64-47" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_version</span>()</span>
-<span id="cb64-48"><a href="#cb64-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tlmgr revision 69686 (2024-02-03 08:34:54 +0100)</span></span>
-<span id="cb64-49"><a href="#cb64-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tlmgr using installation: /Users/tom/Library/TinyTeX</span></span>
-<span id="cb64-50"><a href="#cb64-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TeX Live (https://tug.org/texlive) version 2023</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17] lifecycle_1.0.4    farver_2.1.1       compiler_4.4.0     munsell_0.5.1     </span></span>
+<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [21] tinytex_0.50       ggforce_0.4.2      graphlayouts_1.1.1 codetools_0.2-20  </span></span>
+<span id="cb64-32"><a href="#cb64-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] htmltools_0.5.8.1  yaml_2.3.8         htmlTable_2.4.2    later_1.3.2       </span></span>
+<span id="cb64-33"><a href="#cb64-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] pillar_1.9.0       MASS_7.3-60.2      cachem_1.0.8       viridis_0.6.5     </span></span>
+<span id="cb64-34"><a href="#cb64-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [33] boot_1.3-30        tidyselect_1.2.1   digest_0.6.35      stringi_1.8.3     </span></span>
+<span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] rsvg_2.6.0         labeling_0.4.3     quarto_1.4         polyclip_1.10-6   </span></span>
+<span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [41] fastmap_1.1.1      grid_4.4.0         colorspace_2.1-0   cli_3.6.2         </span></span>
+<span id="cb64-37"><a href="#cb64-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [45] magrittr_2.0.3     messaging_0.1.0    ggraph_2.2.1       tidygraph_1.3.1   </span></span>
+<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [49] utf8_1.2.4         withr_3.0.0        backports_1.4.1    scales_1.3.0      </span></span>
+<span id="cb64-39"><a href="#cb64-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [53] timechange_0.3.0   rmarkdown_2.26     igraph_2.0.3       gridExtra_2.3     </span></span>
+<span id="cb64-40"><a href="#cb64-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [57] hms_1.1.3          memoise_2.0.1      evaluate_0.23      knitr_1.46        </span></span>
+<span id="cb64-41"><a href="#cb64-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [61] V8_4.4.2           viridisLite_0.4.2  rlang_1.1.3        Rcpp_1.0.12       </span></span>
+<span id="cb64-42"><a href="#cb64-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [65] glue_1.7.0         tweenr_2.0.3       renv_1.0.7         DiagrammeRsvg_0.1 </span></span>
+<span id="cb64-43"><a href="#cb64-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [69] rstudioapi_0.16.0  jsonlite_1.8.8     R6_2.5.1</span></span>
+<span id="cb64-44"><a href="#cb64-44" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
+<span id="cb64-45"><a href="#cb64-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] '1.4.553'</span></span>
+<span id="cb64-46"><a href="#cb64-46" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_version</span>()</span>
+<span id="cb64-47"><a href="#cb64-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tlmgr revision 70671 (2024-03-17 02:10:09 +0100)</span></span>
+<span id="cb64-48"><a href="#cb64-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tlmgr using installation: /Users/tom/Library/TinyTeX</span></span>
+<span id="cb64-49"><a href="#cb64-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TeX Live (https://tug.org/texlive) version 2024</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </section>
