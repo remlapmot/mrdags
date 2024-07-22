@@ -2,7 +2,7 @@
 title: "R, DOT, and TikZ code to plot directed acyclic graphs and single world intervention graphs for Mendelian randomization analyses"
 author: "Tom Palmer"
 date: "2019-01-24"
-date-modified: last-modified
+date-modified: "`r Sys.Date()`"
 format:
   html:
     monofont: "Fira Mono"
