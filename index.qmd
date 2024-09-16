@@ -662,7 +662,7 @@ remotes::install_github('timelyportfolio/DiagrammeR')
 
 #### Explicitly including the confounder
 
-```{r dg-single-path}
+```{r dg-single-path-tp}
 DiagrammeR::add_mathjax(
 DiagrammeR::grViz("
   digraph mrdag {
