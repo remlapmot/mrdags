@@ -663,33 +663,35 @@ remotes::install_github('timelyportfolio/DiagrammeR')
 #### Explicitly including the confounder
 
 ```{r dg-single-path}
+DiagrammeR::add_mathjax(
 DiagrammeR::grViz("
   digraph mrdag {
 
   graph [rankdir=TB, layout=neato]
 
   node [shape=ellipse, height=0.3, width=0.3]
-  U [label=<<I>U</I>>, pos='3,1!']
+  U [label='$U$', pos='3,1!']
 
   node [shape=box, height=0.3, width=0.3]
-  G [label=<<I>G</I>>, pos='0,0!']
-  X [label=<<I>X</I>>, pos='2,0!']
-  Y [label=<<I>Y</I>>, pos='4,0!']
+  G [label='$G$', pos='0,0!']
+  X [label='$X$', pos='2,0!']
+  Y [label='$Y$', pos='4,0!']
 
   node [shape=circle, height=0.35, fixedsize=true]
-  Ex [label='<I>&epsilon;@_{X}</I>', pos='2,1!']
-  Ey [label='<I>&epsilon;@_{Y}</I>', pos='4,1!']
+  Ex [label='$\\\\varepsilon_{X}$', pos='2,1!']
+  Ey [label='$\\\\varepsilon_{Y}$', pos='4,1!']
 
-  G -> X [label='<I>&beta;@_{GX}</I>']
+  G -> X [label='$\\\\beta_{GX}$']
   Ex -> X [label=1]
   Ey -> Y [label=1]
-  U -> X [label='<I>&beta;@_{UX}</I>']
-  U -> Y [label='<I>&beta;@_{UY}</I>']
-  X -> Y [label='<I>&beta;@_{XY}</I>']
+  U -> X [label='$\\\\beta_{UX}$']
+  U -> Y [label='$\\\\beta_{UY}$']
+  X -> Y [label='$\\\\beta_{XY}$']
   U -> U [dir='both', headport='n', tailport='n']
   G -> G [dir='both', headport='w', tailport='w']
   }
   ", height = 250)
+)
 ```
 
 ## dagitty package
