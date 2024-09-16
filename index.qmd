@@ -1692,7 +1692,7 @@ And the DAG showing effects that are not allowed under the IV core conditions.
 knitr::include_graphics("img/mr-dag-violations.excalidraw.png")
 ```
 
-## Session information for reproducibility
+## R session information for reproducibility
 
 <details><summary>Click here for session info</summary>
 ```{r}
