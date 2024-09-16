@@ -761,6 +761,13 @@ DiagrammeR::grViz("
   ", height = 250)
 )
 ```
+
+Reinstall CRAN version of DiagrammeR (in case used as a dependency by any code below).
+
+```{r}
+install.packages('DiagrammeR')
+```
+
 ## dagitty package
 
 The website for DAGitty is <http://www.dagitty.net/>
