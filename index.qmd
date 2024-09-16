@@ -48,6 +48,8 @@ if (Sys.info()[["sysname"]] == "Darwin") {
     Sys.setenv(LIBGS = "/usr/local/lib/libgs.dylib")    
   }
 }
+
+if (packageVersion('DiagrammeR') < '1.0.11') stop('Re-install DiagrammeR from CRAN')
 ```
 
 ## Introduction
