@@ -731,6 +731,36 @@ DiagrammeR::grViz("
   ", height = 250)
 )
 ```
+
+#### Including correlated error terms between exposure and outcome
+
+```{r dg-single-path-2-tp}
+DiagrammeR::add_mathjax(
+DiagrammeR::grViz("
+  digraph mrdag {
+
+  graph [rankdir=TB, layout=neato, splines=true]
+
+  node [shape=box, height=0.3, width=0.3]
+  G [label='$G$', pos='0,0!']
+  X [label='$X$', pos='2,0!']
+  Y [label='$Y$', pos='4,0!']
+
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='$\\\\varepsilon_{X}$', pos='2,1!']
+  Ey [label='$\\\\varepsilon_{Y}$', pos='4,1!']
+  dummy [label='', pos='3,1!', color=white, height=0.5]
+
+  G -> X [label='$\\\\beta_{GX}$']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  X -> Y [label='$\\\\beta_{XY}$']
+  Ex -> Ey [dir='both', label='$\\\\rho$']
+  G -> G [dir='both', headport='w', tailport='w']
+  }
+  ", height = 250)
+)
+```
 ## dagitty package
 
 The website for DAGitty is <http://www.dagitty.net/>
