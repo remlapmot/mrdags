@@ -1,5 +1,10 @@
 ---
-output: html_fragment
+title: ''
+# output: html_fragment
+output:
+  html_document:
+    self_contained: true
+# always_allow_html: true
 ---
 
 ## Improved LaTeX rendering in DiagrammeR using the timelyportfolio fork of DiagrammeR
@@ -8,6 +13,11 @@ The timelyportfolio fork of DiagrammeR has much improved LaTeX support.
 
 Note because Quarto requires dependencies saved to disk I currently render this section using R Markdown. The Quarto tracking issue is <https://github.com/quarto-dev/quarto-cli/issues/10339>.
 
+<!-- Current error under Quarto is -->
+<!-- Error in FUN(X[[i]], ...) :  -->
+<!--   Dependency svg_mathjax2 0.1.0 is not disk-based -->
+<!-- Calls: .main ... dependencies_from_render -> html_dependencies_as_string -> lapply -> FUN -->
+
 ```{r setup}
 if (packageVersion('DiagrammeR') > '0.8.5') {
   try(detach("package:DiagrammeR", unload = TRUE, character.only = TRUE))
@@ -15,7 +25,7 @@ if (packageVersion('DiagrammeR') > '0.8.5') {
   remotes::install_github("timelyportfolio/DiagrammeR@feature/svg-mathjax", dependencies = TRUE)
 }
 library(DiagrammeR)
-library(htmltools)
+library(htmltools) # required for browsable()
 ```
 
 ### Single genotype path diagram
@@ -50,7 +60,8 @@ DiagrammeR::grViz("
   U -> U [dir='both', headport='n', tailport='n']
   G -> G [dir='both', headport='w', tailport='w']
   }
-  ", height = 250)
+  ", height = 250),
+  include_mathjax = FALSE
 )
 ```
 
@@ -88,7 +99,8 @@ DiagrammeR::grViz("
   Ex -> Ex [dir='both', headport='n', tailport='n', label='$\\\\sigma_{X}^{2}$']
   Ey -> Ey [dir='both', headport='n', tailport='n', label='$\\\\sigma_{Y}^{2}$']
   }
-  ", height = 250)
+  ", height = 250),
+  include_mathjax = FALSE
 )
 ```
 
@@ -118,7 +130,8 @@ DiagrammeR::grViz("
   Ex -> Ey [dir='both', label='$\\\\rho$']
   G -> G [dir='both', headport='w', tailport='w']
   }
-  ", height = 250)
+  ", height = 250),
+  include_mathjax = FALSE
 )
 ```
 
