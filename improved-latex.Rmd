@@ -1,0 +1,130 @@
+---
+output: html_fragment
+---
+
+## Improved LaTeX rendering in DiagrammeR using the timelyportfolio fork of DiagrammeR
+
+The timelyportfolio fork of DiagrammeR has much improved LaTeX support.
+
+Note because Quarto requires dependencies saved to disk I currently render this section using R Markdown. The Quarto tracking issue is <https://github.com/quarto-dev/quarto-cli/issues/10339>.
+
+```{r setup}
+if (packageVersion('DiagrammeR') > '0.8.5') {
+  try(detach("package:DiagrammeR", unload = TRUE, character.only = TRUE))
+  remove.packages('DiagrammeR')
+  remotes::install_github("timelyportfolio/DiagrammeR@feature/svg-mathjax", dependencies = TRUE)
+}
+library(DiagrammeR)
+library(htmltools)
+```
+
+### Single genotype path diagram
+
+#### Explicitly including the confounder
+
+```{r dg-single-path-tp}
+DiagrammeR::add_mathjax(
+DiagrammeR::grViz("
+  digraph mrdag {
+
+  graph [rankdir=TB, layout=neato]
+
+  node [shape=ellipse, height=0.3, width=0.3]
+  U [label='$U$', pos='3,1!']
+
+  node [shape=box, height=0.3, width=0.3]
+  G [label='$G$', pos='0,0!']
+  X [label='$X$', pos='2,0!']
+  Y [label='$Y$', pos='4,0!']
+
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='$\\\\varepsilon_{X}$', pos='2,1!']
+  Ey [label='$\\\\varepsilon_{Y}$', pos='4,1!']
+
+  G -> X [label='$\\\\beta_{GX}$']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  U -> X [label='$\\\\beta_{UX}$']
+  U -> Y [label='$\\\\beta_{UY}$']
+  X -> Y [label='$\\\\beta_{XY}$']
+  U -> U [dir='both', headport='n', tailport='n']
+  G -> G [dir='both', headport='w', tailport='w']
+  }
+  ", height = 250)
+)
+```
+
+#### Including variance terms
+
+Note in the diagram below $\sigma_{X}^2$ and $\sigma_{Y}^2$ represent the variance of the respective error/residual terms ($\varepsilon_X$, $\varepsilon_Y$) and not the variance of $X$ and $Y$.
+
+```{r dg-single-path-variance-tp}
+DiagrammeR::add_mathjax(
+DiagrammeR::grViz("
+  digraph mrdag {
+
+  graph [rankdir=TB, layout=neato]
+
+  node [shape=ellipse, height=0.3, width=0.3]
+  U [label='$U$', pos='3,1!']
+
+  node [shape=box, height=0.3, width=0.3]
+  G [label='$G$', pos='0,0!']
+  X [label='$X$', pos='2,0!']
+  Y [label='$Y$', pos='4,0!']
+
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='$\\\\varepsilon_X$', pos='2,1!']
+  Ey [label='$\\\\varepsilon_Y$', pos='4,1!']
+
+  G -> X [label='$\\\\beta_{GX}$']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  U -> X [label='$\\\\beta_{UX}$']
+  U -> Y [label='$\\\\beta_{UY}$']
+  X -> Y [label='$\\\\beta_{XY}$']
+  U -> U [dir='both', headport='n', tailport='n', label='$\\\\text{var}(U)$']
+  G -> G [dir='both', headport='w', tailport='w', label='$\\\\text{var}(G)$']
+  Ex -> Ex [dir='both', headport='n', tailport='n', label='$\\\\sigma_{X}^{2}$']
+  Ey -> Ey [dir='both', headport='n', tailport='n', label='$\\\\sigma_{Y}^{2}$']
+  }
+  ", height = 250)
+)
+```
+
+#### Including correlated error terms between exposure and outcome
+
+```{r dg-single-path-2-tp}
+DiagrammeR::add_mathjax(
+DiagrammeR::grViz("
+  digraph mrdag {
+
+  graph [rankdir=TB, layout=neato, splines=true]
+
+  node [shape=box, height=0.3, width=0.3]
+  G [label='$G$', pos='0,0!']
+  X [label='$X$', pos='2,0!']
+  Y [label='$Y$', pos='4,0!']
+
+  node [shape=circle, height=0.35, fixedsize=true]
+  Ex [label='$\\\\varepsilon_{X}$', pos='2,1!']
+  Ey [label='$\\\\varepsilon_{Y}$', pos='4,1!']
+  dummy [label='', pos='3,1!', color=white, height=0.5]
+
+  G -> X [label='$\\\\beta_{GX}$']
+  Ex -> X [label=1]
+  Ey -> Y [label=1]
+  X -> Y [label='$\\\\beta_{XY}$']
+  Ex -> Ey [dir='both', label='$\\\\rho$']
+  G -> G [dir='both', headport='w', tailport='w']
+  }
+  ", height = 250)
+)
+```
+
+Remember to reinstall the CRAN version of DiagrammeR.
+
+```{r}
+#| eval: false
+install.packages('DiagrammeR')
+```
