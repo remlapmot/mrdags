@@ -1326,6 +1326,37 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 ```{verbatim, file='tikz-template-swig-tr.tex', lang='tex'}
 ```
 
+### The simple SWIG for confounding
+
+```{tikz swig-conf-color}
+#| engine.opts=list(template = "tikz-template-swig-tr.tex",
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| out.width='65%'
+\begin{tikzpicture}
+\tikzset{line width=1.5pt, outer sep=0pt,
+  ell/.style={draw, fill=white, inner sep=2pt,
+  line width=1.5pt},
+  swig vsplit={gap=5pt, inner line width right=0.5pt},
+  swig hsplit={gap=5pt, inner line width lower=0.5pt}};
+
+\node[name=X,
+  shape=swig vsplit,
+  swig vsplit = {line color right=red,
+                 line width right=2.5pt}]{
+\nodepart{left}{$X$}
+\nodepart{right}{\textcolor{red}{$x$}}};
+
+\node[name=U, ell, shape=ellipse, above right=7.5mm and 5mm of X, fill=gray]{$U$};
+
+\node[name=Y, ell, shape=ellipse, right=10mm of X]{$Y^{\textcolor{red}{x}}$};
+
+\draw[->, line width=1.5pt,>=stealth, color=blue]
+  (U) edge[out=220, in=120] (X)
+  (U) edge (Y)
+  (X) to (Y);
+\end{tikzpicture}
+```
+
 ### SWIGs for single exposure models
 
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
