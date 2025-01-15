@@ -1403,11 +1403,12 @@ Let's add colour in the same way as in the original figure.
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
   line width=1.5pt},
-  swig vsplit={gap=5pt},
+  swig vsplit={gap=5pt, inner line width right=0.5pt},
   swig hsplit={gap=5pt, inner line width lower=0.5pt}};
 
 \node[name=G, shape=swig vsplit,
-  swig vsplit={line color right=red}]{
+  swig vsplit={line color right=red,
+               line width right=2.5pt}]{
 \nodepart{left}{$G$}
 \nodepart{right}{\textcolor{red}{$g$}}};
 
