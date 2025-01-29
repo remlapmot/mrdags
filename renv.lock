@@ -3969,21 +3969,21 @@
       ],
       "License": "GPL-3",
       "Encoding": "UTF-8",
+      "LazyData": "true",
       "RoxygenNote": "7.2.2",
       "URL": "https://github.com/jrgant/quickDAG",
       "BugReports": "https://github.com/jrgant/quickDAG/issues",
       "Suggests": [
         "testthat"
       ],
+      "Author": "Jason Gantenberg [aut, cre] (<https://orcid.org/0000-0002-8144-4273>)",
+      "Maintainer": "Jason Gantenberg <jason.gantenberg@gmail.com>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "quickdag",
       "RemoteUsername": "jrgant",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "6ea3c3baf82d8e1027db0806ac745a4c5b28a927",
-      "NeedsCompilation": "no",
-      "Author": "Jason Gantenberg [aut, cre] (<https://orcid.org/0000-0002-8144-4273>)",
-      "Maintainer": "Jason Gantenberg <jason.gantenberg@gmail.com>"
+      "RemoteRepo": "quickdag",
+      "RemoteRef": "master",
+      "RemoteSha": "6ea3c3baf82d8e1027db0806ac745a4c5b28a927"
     },
     "ragg": {
       "Package": "ragg",
