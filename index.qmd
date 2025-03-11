@@ -730,7 +730,7 @@ knitr::include_graphics("img/dagitty-net-mr-dag.png")
 
 The code is very similar to that above, ecept that the position values are different.
 
-```tikz
+```dot
 dag {
 bb="0,0,1,1"
 "Instrumental variable" [pos="0.150,0.200"]
