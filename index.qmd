@@ -734,8 +734,12 @@ plot(mrdag)
 
 ### Using ggdag
 
-```{r ggdg-single-dag, warning=FALSE, message=FALSE}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag
+#| warning: false
+#| message: false
+#| fig-alt: Single genotype DAG using ggdag.
+#| fig-height: 3.5
 library(ggdag)
 mrdag <- dagitty('dag {
   G -> X -> Y
