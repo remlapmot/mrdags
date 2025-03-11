@@ -169,7 +169,9 @@ This could be extended for more genotypes.
 
 #### Version without borders around observed variables
 
-```{r dg-multiple-dag-2}
+```{r}
+#| label: dg-multiple-dag-2
+#| fig-alt: Multiple genotype DAG without borders around observed variables.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -201,7 +203,9 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 
 #### Scenario 1: $X_2$ confounder of $X_1$ and $Y$
 
-```{r mvmr-dag-1}
+```{r}
+#| label: mvmr-dag-1
+#| fig-alt: MVMR DAG 1.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -231,7 +235,9 @@ DiagrammeR::grViz("
 
 #### Scenario 2: $X_2$ collider of $X_1$ and $Y$
 
-```{r mvmr-dag-2}
+```{r}
+#| label: mvmr-dag-2
+#| fig-alt: MVMR DAG 2.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -261,7 +267,9 @@ DiagrammeR::grViz("
 
 #### Scenario 3: $X_2$ on a pleiotropic pathway
 
-```{r mvmr-dag-3}
+```{r}
+#| label: mvmr-dag-3
+#| fig-alt: MVMR DAG 3.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -290,7 +298,9 @@ DiagrammeR::grViz("
 
 #### Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
 
-```{r mvmr-dag-4}
+```{r}
+#| label: mvmr-dag-4
+#| fig-alt: MVMR DAG 4.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -323,7 +333,9 @@ DiagrammeR::grViz("
 
 For a bidirectional MR analysis there are 2 separate DAGs which are as follows.
 
-```{r dg-bidir-fig-1}
+```{r}
+#| label: dg-bidir-fig-1
+#| fig-alt: Bidirectional DAG 1.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -345,7 +357,9 @@ DiagrammeR::grViz("
   ", height = 200)
 ```
 
-```{r bg-bidir-fig-2}
+```{r}
+#| label: bg-bidir-fig-2
+#| fig-alt: Bidirectional DAG 2.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -369,7 +383,9 @@ DiagrammeR::grViz("
 
 We can combine these into a single figure as follows.
 
-```{r dg-bidir-fig}
+```{r}
+#| label: dg-bidir-fig
+#| fig-alt: Combined DAGs representing bidirectional MR.
 DiagrammeR::grViz("
   digraph mrdag {
 
