@@ -542,7 +542,9 @@ DiagrammeR::grViz("
 
 #### Misspecification of the primary phenotype
 
-```{r dg-pleio-5}
+```{r}
+#| label: dg-pleio-5
+#| fig-alt: DAG for misspecification of the primary phenotype.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -569,7 +571,9 @@ DiagrammeR::grViz("
 
 #### Correlated pleiotropy
 
-```{r dg-pleio-6}
+```{r}
+#| label: dg-pleio-6
+#| fig-alt: DAG for correlated pleiotropy.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -598,7 +602,9 @@ DiagrammeR::grViz("
 ### Single genotype path diagram
 
 #### Explicitly including the confounder
-```{r dg-single-path}
+```{r}
+#| label: dg-single-path
+#| fig-alt: Single genotype path diagram including the confounder.
 DiagrammeR::grViz("
   digraph mrdag {
 
