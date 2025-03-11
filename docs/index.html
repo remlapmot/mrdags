@@ -1081,17 +1081,17 @@ window.Quarto = {
 </div>
 </div>
 <p>The code is very similar to that above, ecept that the position values are different.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dag {</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>bb="0,0,1,1"</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>"Instrumental variable" [pos="0.150,0.200"]</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>Confounder [latent,pos="0.600,0.100"]</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>Exposure [exposure,pos="0.400,0.200"]</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>Outcome [outcome,pos="0.800,0.200"]</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>"Instrumental variable" -&gt; Exposure</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>Confounder -&gt; Exposure</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>Confounder -&gt; Outcome</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>Exposure -&gt; Outcome</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="va">dag</span> <span class="ot">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="va">bb</span><span class="ot">=</span><span class="st">"0,0,1,1"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="st">"Instrumental variable"</span><span class="co"> </span><span class="ot">[</span><span class="va">pos</span><span class="ot">=</span><span class="st">"0.150,0.200"</span><span class="ot">]</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="va">Confounder</span><span class="co"> </span><span class="ot">[</span><span class="va">latent</span><span class="co">,</span><span class="va">pos</span><span class="ot">=</span><span class="st">"0.600,0.100"</span><span class="ot">]</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="va">Exposure</span><span class="co"> </span><span class="ot">[</span><span class="va">exposure</span><span class="co">,</span><span class="va">pos</span><span class="ot">=</span><span class="st">"0.400,0.200"</span><span class="ot">]</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="va">Outcome</span><span class="co"> </span><span class="ot">[</span><span class="va">outcome</span><span class="co">,</span><span class="va">pos</span><span class="ot">=</span><span class="st">"0.800,0.200"</span><span class="ot">]</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="st">"Instrumental variable"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Exposure</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="va">Confounder</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Exposure</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="va">Confounder</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Outcome</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="va">Exposure</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Outcome</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And dagitty also gives the tikz code.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">% This code uses the tikz package</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
