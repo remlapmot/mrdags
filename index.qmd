@@ -15,7 +15,9 @@ bibliography: refs.bib
 <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
 ```
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
 knitr::opts_chunk$set(
   cache = TRUE,
   dev = "svg",
@@ -55,12 +57,19 @@ if (Sys.info()[["sysname"]] == "Darwin") {
 This webpage shows some R code for generating figures, directed acyclic graphs (DAGs), and single world intervention graphs (SWIGs) for Mendelian randomization (MR) analyses.
 
 First, we load in the tidyverse collection of packages to have access to the pipe and the ggplot2 package, amongst other features.
-```{r tdyvrs, message=FALSE, warning=FALSE}
+
+```{r}
+#| label: tdyvrs
+#| message: false
+#| warning: false
 library(tidyverse)
 ```
 
 If you do not already one you will need a LaTeX installation. In R it is easiest to install [TinyTeX](https://yihui.org/tinytex/) as follows.
-```{r tnytx, eval=FALSE}
+
+```{r}
+#| label: tnytx
+#| eval: false
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
@@ -73,7 +82,9 @@ We will draw the DAGs using Graphviz which uses the DOT language to describe gra
 
 ### Single genotype DAG
 
-```{r dg-single-dag}
+```{r}
+#| label: dg-single-dag
+#| fig-alt: Single genotype DAG created with the DiagrammeR package.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -98,7 +109,9 @@ DiagrammeR::grViz("
 
 #### Version without borders around observed variables
 
-```{r dg-single-dag-2}
+```{r}
+#| label: dg-single-dag-2
+#| fig-alt: Single genotype DAG without borders around variables.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -124,7 +137,9 @@ DiagrammeR::grViz("
 
 ### Multiple genotype DAG
 
-```{r dg-multiple-dag}
+```{r}
+#| label: dg-multiple-dag
+#| fig-alt: Multiple genotype DAG created with the DiagrammeR package.
 DiagrammeR::grViz("
   digraph mrdag {
 
