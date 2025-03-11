@@ -638,7 +638,9 @@ DiagrammeR::grViz("
 
 Note in the diagram below $\sigma_{X}^2$ and $\sigma_{Y}^2$ represent the variance of the respective error/residual terms ($\varepsilon_X$, $\varepsilon_Y$) and not the variance of $X$ and $Y$.
 
-```{r dg-single-path-variance}
+```{r}
+#| label: dg-single-path-variance
+#| fig-alt: Single genotype path diagram including variance terms.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -672,7 +674,9 @@ DiagrammeR::grViz("
 
 #### Including correlated error terms between exposure and outcome
 
-```{r dg-single-path-2}
+```{r}
+#| label: dg-single-path-2
+#| fig-alt: Single genotype path diagram including correlated error terms between exposure and outcome.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -702,15 +706,20 @@ DiagrammeR::grViz("
 
 The website for DAGitty is <http://www.dagitty.net/>
 
-```{r dgtty, warning=FALSE, message=FALSE}
+```{r}
+#| label: dgtty
+#| warning: false
+#| message: false
 library(dagitty)
 ```
 
 ### Using DOT syntax
 
 The DAG for a single genotype.
-```{r dgtty-single-dag}
-#| fig.height=2
+```{r}
+#| label: dgtty-single-dag
+#| fig-alt: Single genotype DAG using DOT syntax.
+#| fig-height: 2
 mrdag <- dagitty('dag {
   G -> X -> Y
   X <- U -> Y
