@@ -422,7 +422,9 @@ There are many types of pleiotropy. Let's plot some of the pleiotropy DAGs from 
 
 #### Horizontal pleiotropy (causes bias)
 
-```{r dg-pleio-1}
+```{r}
+#| label: dg-pleio-1
+#| fig-alt: DAG for horizontal pleiotropy that causes bias.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -451,7 +453,9 @@ DiagrammeR::grViz("
 
 #### Horizontal pleiotropy (no bias)
 
-```{r dg-pleio-2}
+```{r}
+#| label: dg-pleio-2
+#| fig-alt: DAG for horizontal pleiotropy that does not cause bias.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -477,7 +481,9 @@ DiagrammeR::grViz("
 
 #### Confounding via linkage disequilibrium
 
-```{r dg-pleio-3}
+```{r}
+#| label: dg-pleio-3
+#| fig-alt: DAG for confounding via linkage disequilibrium.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -506,7 +512,9 @@ DiagrammeR::grViz("
 
 #### Vertical pleiotropy
 
-```{r dg-pleio-4}
+```{r}
+#| label: dg-pleio-4
+#| fig-alt: DAG for vertical pleiotropy.
 DiagrammeR::grViz("
   digraph mrdag {
 
