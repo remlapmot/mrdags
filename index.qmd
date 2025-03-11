@@ -719,6 +719,49 @@ mrdag %>% ggdag_instrumental() + theme_dag()
 
 It correctly identifies the genotype, $G$, as the instrumental variable.
 
+### Using the dagitty web interface
+
+We can draw the MR DAG in the dagitty web interface <https://www.dagitty.net/dags.html>.
+
+```{r}
+#| echo: false
+knitr::include_graphics("img/dagitty-net-mr-dag.png")
+```
+
+The code is very similar to that above, ecept that the position values are different.
+
+```tikz
+dag {
+bb="0,0,1,1"
+"Instrumental variable" [pos="0.150,0.200"]
+Confounder [latent,pos="0.600,0.100"]
+Exposure [exposure,pos="0.400,0.200"]
+Outcome [outcome,pos="0.800,0.200"]
+"Instrumental variable" -> Exposure
+Confounder -> Exposure
+Confounder -> Outcome
+Exposure -> Outcome
+}
+```
+
+And dagitty also gives the tikz code.
+
+```latex
+% This code uses the tikz package
+\begin{tikzpicture}
+\node (v0) at (0.150,-0.200) {Instrumental variable};
+\node (v1) at (0.600,-0.100) {Confounder};
+\node (v2) at (0.400,-0.200) {Exposure};
+\node (v3) at (0.800,-0.200) {Outcome};
+\draw [->] (v0) edge (v2);
+\draw [->] (v1) edge (v2);
+\draw [->] (v1) edge (v3);
+\draw [->] (v2) edge (v3);
+\end{tikzpicture}
+```
+
+This DAG is saved and available at <https://dagitty.net/dags.html?id=q2va7XkL>.
+
 ### Using R model type syntax in ggdag
 
 ```{r ggdg-single-dag-4}
