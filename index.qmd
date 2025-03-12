@@ -756,8 +756,10 @@ ggdag(ggmrdag) + theme_dag()
 
 This can be labelled as follows.
 
-```{r ggdg-single-dag-2}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag-2
+#| fig-height: 3.5
+#| fig-alt: Single genotype DAG created with ggdag with labels.
 mrdag <- mrdag %>%
   dag_label(
     labels = c(
@@ -770,8 +772,10 @@ ggdag(mrdag,  use_labels = "label") + theme_dag()
 
 Dagitty can identify the instrumental variable on the DAG.
 
-```{r ggdg-single-dag-3}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag-3
+#| fig-height: 3.5
+#| fig-alt: Identifying the instrumental variable using ggdag and dagitty.
 mrdag %>% ggdag_instrumental() + theme_dag()
 ```
 
@@ -822,8 +826,10 @@ This DAG is saved and available at <https://dagitty.net/dags.html?id=q2va7XkL>.
 
 ### Using R model type syntax in ggdag
 
-```{r ggdg-single-dag-4}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag-4
+#| fig-height: 3.5
+#| fig-alt: Specifying the DAG in ggdag with R model syntax.
 coords <- list(x = c(G = 0, X = 1, Y = 2, U = 1.5),
                y = c(G = 0, X = 0, Y = 0, U = 1))
 mrdag <- dagify(
@@ -844,8 +850,10 @@ ggdag(mrdag, use_labels = "label") + theme_dag()
 
 Plotting directly with **ggplot2** functions.
 
-```{r ggdg-single-dag-5}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag-5
+#| fig-height: 3.5
+#| fig-alt: Plotting directly with ggplots functions.
 mrdag %>%
   ggplot(aes(
     x = x,
@@ -861,8 +869,10 @@ mrdag %>%
 
 Showing the paths.
 
-```{r ggdg-single-dag-6}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag-6
+#| fig-height: 3.5
+#| fig-alt: Showing the paths on the DAG.
 set.seed(123)
 dagify(Y ~ X + U,
        X ~ U + G,
@@ -873,8 +883,10 @@ ggdag_paths() + theme_dag()
 
 Adjustment set for the effect of $X$ on $Y$.  
 
-```{r ggdg-single-dag-7}
-#| fig.height=3.5
+```{r}
+#| label: ggdg-single-dag-7
+#| fig-height: 3.5
+#| fig-alt: Showing the adjustment set.
 dagify(Y ~ X + U,
        X ~ U + G,
        exposure = "X",
