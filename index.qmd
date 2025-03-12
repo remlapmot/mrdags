@@ -1193,7 +1193,8 @@ Again this could be extended for more genotypes.
 
 ```{tikz tkz-pleio-5}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="MR DAG showing misspecification of the primary phenotype created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
