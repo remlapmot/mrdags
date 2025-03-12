@@ -1272,7 +1272,7 @@ For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
 #| out.width='65%', 
 #| engine.opts=list(template = "tikz-template.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| #| fig.alt="The reverse direction DAG required for the bidirectional MR figure."
+#| fig.alt="The reverse direction DAG required for the bidirectional MR figure."
 \begin{tikzpicture}
 \node (2) at (1.5,0) {$X$};
 \node (3) at (3,0) {$Y$};
