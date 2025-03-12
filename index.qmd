@@ -1470,7 +1470,8 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 ```{tikz swig-conf-color}
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| out.width='65%'
+#| out.width='65%',
+#| fig.alt="The simple SWIG for confounding."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1503,7 +1504,8 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 ```{tikz iv-bw}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The SWIG for the MR DAG."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1537,7 +1539,8 @@ Let's add colour in the same way as in the original figure.
 ```{tikz iv-color}
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| out.width='65%'
+#| out.width='65%',
+#| fig.alt="The SWIG for the MR DAG with colour."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1581,7 +1584,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 ```{tikz mvmr-pleiotropy}
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| out.width='65%'
+#| out.width='65%',
+#| fig.alt="The SWIG for the MVMR model with 2 independent exposures."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1647,7 +1651,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 ```{tikz, mvmr-confounder}
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| out.width='65%'
+#| out.width='65%',
+#| fig.alt="The SWIG for an MVMR model with confounding."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1714,7 +1719,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 ```{tikz, mvmr-collider}
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| out.width='65%'
+#| out.width='65%',
+#| fig.alt="The SWIG for the MVMR model with colliders.",
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1783,7 +1789,8 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 ```{tikz, mvmr-mediator}
 #| engine.opts=list(template = "tikz-template-swig-tr.tex",
 #|                  dvisvgm.opts = "--font-format=woff"),
-#| out.width='65%'
+#| out.width='65%',
+#| fig.alt="The SWIG for the MVMR model with mediation.",
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
