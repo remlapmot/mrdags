@@ -84,7 +84,6 @@ We will draw the DAGs using Graphviz which uses the DOT language to describe gra
 
 ```{r}
 #| label: dg-single-dag
-#| fig-alt: Single genotype DAG created with the DiagrammeR package.
 DiagrammeR::grViz("
   digraph mrdag {
 
@@ -104,7 +103,7 @@ DiagrammeR::grViz("
   U -> Y
   X -> Y [minlen=3]
   }
-  ", height = 200)
+  ", height = 200) %>% htmlwidgets::prependContent(htmltools::tag("title"))
 ```
 
 #### Version without borders around observed variables
