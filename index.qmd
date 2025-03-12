@@ -1858,6 +1858,7 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 
 ```{r}
 #| echo: false
+#| fig-alt: The MR DAG created using excalidraw.
 knitr::include_graphics("img/mr-dag.excalidraw.png")
 ```
 
@@ -1867,17 +1868,20 @@ And the DAG showing effects that are not allowed under the IV core conditions.
 
 ```{r}
 #| echo: false
+#| fig-alt: A second version of the MR DAG created using excalidraw.
 knitr::include_graphics("img/mr-dag-violations.excalidraw.png")
 ```
 
 ## Session information for reproducibility
 
 <details><summary>Click here for session info</summary>
+
 ```{r}
 sessionInfo()
 quarto::quarto_version()
 tinytex::tlmgr_version()
 ```
+
 </details>
 
 ## References
