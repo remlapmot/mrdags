@@ -899,7 +899,9 @@ This shows that the path from $G$ to $X$ is unconfounded. And that when $U$ is a
 
 ### Multiple genotype DAG
 
-```{r ggdg-multiple-dag}
+```{r} 
+#| label: gdg-multiple-dag
+#| fig-alt: Mulitple genotype DAG.
 coords2 <- list(x = c(G1 = 0, G2 = 0, G3 = 0, X = 1, Y = 2, U = 1.5),
                 y = c(G1 = 0.5, G2 = 0, G3 = -0.5, X = 0, Y = 0, U = 1))
 mrdag <- dagify(
@@ -953,7 +955,8 @@ We can now plot our DAGs.
 ```{tikz tkz-single-dag}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The MR DAG created with TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
@@ -981,7 +984,8 @@ Then we can plot the single instrument DAG using the following code.
 ```{tikz tkz-single-dag-2}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="Plotting the MR DAG using tikz-cd."
 \usetikzlibrary{cd}
 \tikzcdset{arrow style=tikz, diagrams={>=stealth}}
 \begin{tikzcd}[column sep=tiny]
@@ -994,7 +998,8 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 
 ```{tikz tikz-single-dag-3}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The MR DAG created using simpler tikz code."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1022,7 +1027,8 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 ```{tikz tkz-multiple-dag}
 #| out.width='65%', 
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The multiple genotype DAG created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
@@ -1046,7 +1052,8 @@ Again this could be extended for more genotypes.
 ```{tikz tkz-multiple-dag-circular}
 #| out.width='65%', 
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The multiple genotype DAG with circularly spaced genotypes."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
@@ -1069,7 +1076,8 @@ Again this could be extended for more genotypes.
 
 ```{tikz tkz-pleio-1}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The horizontal pleiotropy DAG created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1097,7 +1105,8 @@ Again this could be extended for more genotypes.
 
 ```{tikz tkz-pleio-2}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The DAG for horizontal pleiotropy which causes no bias created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1124,7 +1133,8 @@ Again this could be extended for more genotypes.
 
 ```{tikz tkz-pleio-3}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The DAG for confounding via linkage disequilibrium created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1154,7 +1164,8 @@ Again this could be extended for more genotypes.
 
 ```{tikz tkz-pleio-4}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The DAG for vertical pleiotropy created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1209,7 +1220,8 @@ Again this could be extended for more genotypes.
 
 ```{tikz tkz-pleio-6}
 #| out.width='65%',
-#| engine.opts=list(dvisvgm.opts = "--font-format=woff")
+#| engine.opts=list(dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The DAG for correlated pleiotropy created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1242,7 +1254,8 @@ For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
 ```{tikz tkz-bidir-fig-1}
 #| out.width='65%', 
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="One of the DAGs required for the bidirectional MR figure."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_X$};
 \node (2) at (1.5,0) {$X$};
@@ -1258,7 +1271,8 @@ For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
 ```{tikz tkz-bidir-fig-2}
 #| out.width='65%', 
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| #| fig.alt="The reverse direction DAG required for the bidirectional MR figure."
 \begin{tikzpicture}
 \node (2) at (1.5,0) {$X$};
 \node (3) at (3,0) {$Y$};
@@ -1276,7 +1290,8 @@ We can combine these into a single figure as follows.
 ```{tikz tkz-bidir-fig}
 #| out.width='65%', 
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="The bidirectional MR figure combining both DAGs."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_X$};
 \node (2) at (1.5,0) {$X$};
@@ -1306,7 +1321,8 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 ```{tikz tkz-mvmr-dag-1}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="MVMR DAG 1 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1330,7 +1346,8 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 ```{tikz tkz-mvmr-dag-2}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="MVMR DAG 2 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1354,7 +1371,8 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 ```{tikz tkz-mvmr-dag-3}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="MVMR DAG 3 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1377,7 +1395,8 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 ```{tikz tkz-mvmr-dag-4}
 #| out.width='65%',
 #| engine.opts=list(template = "tikz-template.tex",
-#|                  dvisvgm.opts = "--font-format=woff")
+#|                  dvisvgm.opts = "--font-format=woff"),
+#| fig.alt="MVMR DAG 4 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
