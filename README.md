@@ -69,7 +69,7 @@ SHELL=/opt/homebrew/bin/zsh
 
 And on macOS you need to make sure the current user has write permission to `/usr/local/bin` by running the following command in Terminal, as per [here](https://yihui.org/tinytex/#installation).
 
-```
+```sh
 sudo chown -R $(whoami) /usr/local/bin
 ```
 
