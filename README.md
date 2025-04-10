@@ -48,8 +48,18 @@ sudo apt-get install -y libpoppler-cpp-dev
 
 ### macOS system requirements
 
+#### XQuartz
+
+XQuartz is a requirement of one of the LaTeX packages.
+
+```sh
+brew install --cask xquartz
+```
+
+#### Ghostscript
+
 On macOS the LaTeX package _dvisvgm_ requires the Ghostscript dynamically linked shared library _libgs.dylib_.
-Installing Ghostscript from Homebrew will provide this library.
+Installing Ghostscript from Homebrew provides this library.
 
 ```bash
 brew install ghostscript
