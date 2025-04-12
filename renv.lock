@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.3",
+    "Version": "4.5.0",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -4019,7 +4019,7 @@
       "Suggests": [
         "testthat"
       ],
-      "Author": "Jason Gantenberg [aut, cre] (<https://orcid.org/0000-0002-8144-4273>)",
+      "Author": "Jason Gantenberg [aut, cre] (ORCID: <https://orcid.org/0000-0002-8144-4273>)",
       "Maintainer": "Jason Gantenberg <jason.gantenberg@gmail.com>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
