@@ -3965,43 +3965,41 @@
     },
     "quickdag": {
       "Package": "quickdag",
-      "Version": "0.2.0",
+      "Version": "0.2.1",
       "Source": "GitHub",
       "Title": "Make Beautiful Directed Acyclic Graphs",
-      "Authors@R": "person(\"Jason\", \"Gantenberg\", email = c(\"jason.gantenberg@gmail.com\", \"jason_gantenberg@brown.edu\"), role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-8144-4273\"))",
+      "Authors@R": "person(\"Jason\", \"Gantenberg\", , \"jason.gantenberg@gmail.com\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-8144-4273\"))",
       "Description": "This package allows the user the save directed acyclic graphs (DAGs) generated in DiagrammeR and export them to pdf, png, or svg format. Users may optionally choose to view the DAG without saving or to embed it in an RMarkdown document. In addition, quickDAG allows the user easily to reformat DAGs as single-world intervention graph (SWIG) templates.",
-      "Depends": [
-        "R (>= 3.5)",
-        "DiagrammeR"
-      ],
-      "Imports": [
-        "DiagrammeRsvg",
-        "rsvg",
-        "knitr",
-        "dagitty",
-        "stringr",
-        "purrr",
-        "dplyr",
-        "htmlTable",
-        "messaging"
-      ],
       "License": "GPL-3",
-      "Encoding": "UTF-8",
-      "LazyData": "true",
-      "RoxygenNote": "7.2.2",
       "URL": "https://github.com/jrgant/quickDAG",
       "BugReports": "https://github.com/jrgant/quickDAG/issues",
-      "Suggests": [
-        "testthat"
+      "Depends": [
+        "R (>= 3.5)"
       ],
+      "Imports": [
+        "dagitty",
+        "DiagrammeR",
+        "DiagrammeRsvg",
+        "dplyr",
+        "htmlTable",
+        "knitr",
+        "magrittr",
+        "messaging",
+        "purrr",
+        "rsvg",
+        "stringr",
+        "tibble"
+      ],
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.3.2",
       "Author": "Jason Gantenberg [aut, cre] (ORCID: <https://orcid.org/0000-0002-8144-4273>)",
       "Maintainer": "Jason Gantenberg <jason.gantenberg@gmail.com>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "jrgant",
+      "RemoteUsername": "remlapmot",
       "RemoteRepo": "quickdag",
-      "RemoteRef": "master",
-      "RemoteSha": "6ea3c3baf82d8e1027db0806ac745a4c5b28a927"
+      "RemoteRef": "fix-01",
+      "RemoteSha": "91d7a7abc82989f84cba2c3ee007698ad5c0655f"
     },
     "ragg": {
       "Package": "ragg",
