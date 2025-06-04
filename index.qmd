@@ -1429,8 +1429,9 @@ We can produce some nice plots with the **quickdag** package, which appears to b
 #| warning: false
 #| out-width: 65%
 #| fig-alt: The single genotype DAG created using quickdag.
-if (!require("quickdag")) remotes::install_github("jrgant/quickdag")
+# if (!require("quickdag")) remotes::install_github("jrgant/quickdag")
 library(quickdag)
+library(DiagrammeR)
 edges <- c("G -> X",
            "X -> Y",
            "U -> {X Y}")
