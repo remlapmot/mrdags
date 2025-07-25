@@ -3927,11 +3927,11 @@
       "Author": "Jason Gantenberg [aut, cre] (ORCID: <https://orcid.org/0000-0002-8144-4273>)",
       "Maintainer": "Jason Gantenberg <jason.gantenberg@gmail.com>",
       "RemoteType": "github",
-      "RemoteUsername": "remlapmot",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "jrgant",
       "RemoteRepo": "quickdag",
-      "RemoteRef": "fix-01",
-      "RemoteSha": "fa06691afc37435406a851db25a31ebdc3bd1008",
-      "RemoteHost": "api.github.com"
+      "RemoteRef": "master",
+      "RemoteSha": "1b302be85b13b8393d99bf815a37734cc5c00668"
     },
     "ragg": {
       "Package": "ragg",
