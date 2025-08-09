@@ -11,6 +11,7 @@ Imports:
   dagitty,
   DiagrammeR,
   ggdag,
+  gitcreds,
   Hmisc,
   knitr (>= 1.37),
   markdown,
