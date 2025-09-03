@@ -46,3 +46,5 @@ README.html
 /index_files/
 
 *.log
+
+**/*.quarto_ipynb
