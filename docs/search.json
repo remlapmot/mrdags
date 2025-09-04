@@ -32,7 +32,7 @@
     "href": "index.html#quickdag-package",
     "title": "R, DOT, and TikZ code to plot directed acyclic graphs and single world intervention graphs for Mendelian randomization analyses",
     "section": "quickdag package",
-    "text": "quickdag package\nWe can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray’s TikZ code, from here\n\nSingle genotype DAG\n\n# if (!require(\"quickdag\")) remotes::install_github(\"jrgant/quickdag\")\nlibrary(quickdag)\nlibrary(DiagrammeR)\nedges &lt;- c(\"G -&gt; X\",\n           \"X -&gt; Y\",\n           \"U -&gt; {X Y}\")\n# DAG\ndag  &lt;- qd_dag(edges, verbose = FALSE)\ndag |&gt; render_graph()\n\n\n\n\n\n\n\nSingle genotype SWIG\nWe can also draw the single world intervention graph (SWIG) for the IV model as follows.\n\nswig &lt;- dag |&gt;\n  qd_swig(fixed.nodes = c(\"G\", \"X\"))\nswig |&gt; render_graph()"
+    "text": "quickdag package\nWe can produce some nice plots with the quickdag package, which appears to be based on Eleanor Murray’s TikZ code, from here\n\nSingle genotype DAG\n\n# if (!require(\"quickdag\")) remotes::install_github(\"jrgant/quickdag\")\nlibrary(quickdag)\nlibrary(DiagrammeR)\nedges &lt;- c(\"G -&gt; X\",\n           \"X -&gt; Y\",\n           \"U -&gt; {X Y}\")\n# DAG\ndag  &lt;- qd_dag(edges, verbose = FALSE)\ndag |&gt; render_graph()\n\n\n\n\n\n\n\nSingle genotype SWIG\nWe can also draw the single world intervention graph (SWIG) for the IV model as follows.\n\nswig &lt;- dag |&gt;\n  qd_swig(fixed_nodes = c(\"G\", \"X\"))\nswig |&gt; render_graph()"
   },
   {
     "objectID": "index.html#thomas-richardsons-tikz-code-for-swigs",
