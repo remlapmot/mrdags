@@ -1449,7 +1449,7 @@ We can also draw the single world intervention graph (SWIG) for the IV model as 
 #| out-width: 65%
 #| fig-alt: The single genotype SWIG created using quickdag.
 swig <- dag |>
-  qd_swig(fixed.nodes = c("G", "X"))
+  qd_swig(fixed_nodes = c("G", "X"))
 swig |> render_graph()
 ```
 
