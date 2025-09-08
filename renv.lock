@@ -3963,10 +3963,10 @@
       "Maintainer": "Jason Gantenberg <jason.gantenberg@gmail.com>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "remlapmot",
+      "RemoteUsername": "jrgant",
       "RemoteRepo": "quickdag",
-      "RemoteRef": "fix-02",
-      "RemoteSha": "136ffd416fb764cb82f63eaa900de3a66d32102d"
+      "RemoteRef": "master",
+      "RemoteSha": "64ca133bff604388c314117d0f428ba56a2cfb23"
     },
     "ragg": {
       "Package": "ragg",
