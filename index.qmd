@@ -933,10 +933,10 @@ In its LaTeX preamble, this code loads in several TikZ libraries. As such for ou
 
 ````{verbatim}
 ```{tikz}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
 \begin{tikzpicture}
 % Your tikz code goes here ...
 \end{tikzpicture}
@@ -955,11 +955,11 @@ We can now plot our DAGs.
 #### Specifying node coordinates
 
 ```{tikz tkz-single-dag}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The MR DAG created with TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The MR DAG created with TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
@@ -985,11 +985,11 @@ tinytex::tlmgr_install("tikz-cd")
 Then we can plot the single instrument DAG using the following code.
 
 ```{tikz tkz-single-dag-2}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "Plotting the MR DAG using tikz-cd."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "Plotting the MR DAG using tikz-cd."
 \usetikzlibrary{cd}
 \tikzcdset{arrow style=tikz, diagrams={>=stealth}}
 \begin{tikzcd}[column sep=tiny]
@@ -1001,10 +1001,10 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 #### Single genotype DAG using simpler TikZ code
 
 ```{tikz tikz-single-dag-3}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The MR DAG created using simpler tikz code."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The MR DAG created using simpler tikz code."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1030,11 +1030,11 @@ G \arrow[thick]{rrr} & & & X \arrow[thick]{rr} & & Y
 #### Specifying node coordinates
 
 ```{tikz tkz-multiple-dag}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The multiple genotype DAG created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The multiple genotype DAG created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
@@ -1056,11 +1056,11 @@ Again this could be extended for more genotypes.
 #### Multiple genotype DAG using circularly spaced genotypes
 
 ```{tikz tkz-multiple-dag-circular}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The multiple genotype DAG with circularly spaced genotypes."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The multiple genotype DAG with circularly spaced genotypes."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X$};
@@ -1082,10 +1082,10 @@ Again this could be extended for more genotypes.
 #### Horizontal pleiotropy (causes bias)
 
 ```{tikz tkz-pleio-1}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The horizontal pleiotropy DAG created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The horizontal pleiotropy DAG created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1112,10 +1112,10 @@ Again this could be extended for more genotypes.
 #### Horizontal pleiotropy (no bias)
 
 ```{tikz tkz-pleio-2}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The DAG for horizontal pleiotropy which causes no bias created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The DAG for horizontal pleiotropy which causes no bias created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1141,10 +1141,10 @@ Again this could be extended for more genotypes.
 #### Confounding via linkage disequilibrium
 
 ```{tikz tkz-pleio-3}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The DAG for confounding via linkage disequilibrium created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The DAG for confounding via linkage disequilibrium created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1173,10 +1173,10 @@ Again this could be extended for more genotypes.
 #### Vertical pleiotropy
 
 ```{tikz tkz-pleio-4}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The DAG for vertical pleiotropy created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The DAG for vertical pleiotropy created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1202,10 +1202,10 @@ Again this could be extended for more genotypes.
 #### Misspecification of the primary phenotype
 
 ```{tikz tkz-pleio-5}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "MR DAG showing misspecification of the primary phenotype created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "MR DAG showing misspecification of the primary phenotype created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1232,10 +1232,10 @@ Again this could be extended for more genotypes.
 #### Correlated pleiotropy
 
 ```{tikz tkz-pleio-6}
-#| out-width: "65%"
-#| engine-opts:
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The DAG for correlated pleiotropy created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The DAG for correlated pleiotropy created using TikZ."
 \usetikzlibrary{positioning}
 \tikzset{
     > = stealth,
@@ -1266,11 +1266,11 @@ Again this could be extended for more genotypes.
 For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
 
 ```{tikz tkz-bidir-fig-1}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "One of the DAGs required for the bidirectional MR figure."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "One of the DAGs required for the bidirectional MR figure."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_X$};
 \node (2) at (1.5,0) {$X$};
@@ -1284,11 +1284,11 @@ For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
 ```
 
 ```{tikz tkz-bidir-fig-2}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The reverse direction DAG required for the bidirectional MR figure."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The reverse direction DAG required for the bidirectional MR figure."
 \begin{tikzpicture}
 \node (2) at (1.5,0) {$X$};
 \node (3) at (3,0) {$Y$};
@@ -1304,11 +1304,11 @@ For a bidirectional MR analysis there are 2 separate DAGs, which are as follows.
 We can combine these into a single figure as follows.
 
 ```{tikz tkz-bidir-fig}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The bidirectional MR figure combining both DAGs."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The bidirectional MR figure combining both DAGs."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_X$};
 \node (2) at (1.5,0) {$X$};
@@ -1336,11 +1336,11 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 #### Scenario 1: $X_2$ confounder of $X_1$ and $Y$
 
 ```{tikz tkz-mvmr-dag-1}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "MVMR DAG 1 created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "MVMR DAG 1 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1362,11 +1362,11 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 #### Scenario 2: $X_2$ collider of $X_1$ and $Y$
 
 ```{tikz tkz-mvmr-dag-2}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "MVMR DAG 2 created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "MVMR DAG 2 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1388,11 +1388,11 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 #### Scenario 3: $X_2$ on a pleiotropic pathway
 
 ```{tikz tkz-mvmr-dag-3}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "MVMR DAG 3 created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "MVMR DAG 3 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1413,11 +1413,11 @@ We can plot the DAGs in Figure 4 of @sanderson-ije-2019 [here](https://academic.
 #### Scenario 4: $X_2$ mediator of the effect of $X_1$ on $Y$
 
 ```{tikz tkz-mvmr-dag-4}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "MVMR DAG 4 created using TikZ."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "MVMR DAG 4 created using TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G_2$};
 \node (2) at (1.5,0) {$X_2$};
@@ -1490,11 +1490,11 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 ### The simple SWIG for confounding
 
 ```{tikz swig-conf-color}
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| out-width: "65%"
-#| fig-alt: "The simple SWIG for confounding."
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| fig-alt: "The simple SWIG for confounding."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1525,11 +1525,11 @@ To use the tikz chunk engine we again write a LaTeX template based on the preamb
 We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](https://doi.org/10.1080/01621459.2018.1434530).
 
 ```{tikz iv-bw}
-#| out-width: "65%"
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| fig-alt: "The SWIG for the MR DAG."
+%| out-width: "65%"
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| fig-alt: "The SWIG for the MR DAG."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1561,11 +1561,11 @@ We will recreate the SWIG template in Figure 2 (b) of Swanson et al. [here](http
 Let's add colour in the same way as in the original figure.
 
 ```{tikz iv-color}
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| out-width: "65%"
-#| fig-alt: "The SWIG for the MR DAG with colour."
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| fig-alt: "The SWIG for the MR DAG with colour."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1607,11 +1607,11 @@ Let's attempt the SWIG for the multivariable Mendelian randomization (MVMR) mode
 Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotropic effect in this case.
 
 ```{tikz mvmr-pleiotropy}
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| out-width: "65%"
-#| fig-alt: "The SWIG for the MVMR model with 2 independent exposures."
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| fig-alt: "The SWIG for the MVMR model with 2 independent exposures."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1675,11 +1675,11 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 #### SWIG for MVMR model with $X_2$ confounder of $X_1$--$Y$
 
 ```{tikz mvmr-confounder}
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| out-width: "65%"
-#| fig-alt: "The SWIG for an MVMR model with confounding."
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| fig-alt: "The SWIG for an MVMR model with confounding."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1744,11 +1744,11 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 #### SWIG for MVMR model with $X_2$ collider of $X_1$--$Y$
 
 ```{tikz mvmr-collider}
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| out-width: "65%"
-#| fig-alt: "The SWIG for the MVMR model with colliders."
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| fig-alt: "The SWIG for the MVMR model with colliders."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
@@ -1815,11 +1815,11 @@ Since $G_1$ an instrument for both $X_1$ and $X_2$, $X_2$ represents a pleiotrop
 #### SWIG for MVMR model with $X_2$ mediator of $X_1$--$Y$
 
 ```{tikz mvmr-mediator}
-#| engine-opts:
-#|   template: "tikz-template-swig-tr.tex"
-#|   dvisvgm.opts: "--font-format=woff"
-#| out-width: "65%"
-#| fig-alt: "The SWIG for the MVMR model with mediation."
+%| engine-opts:
+%|   template: "tikz-template-swig-tr.tex"
+%|   dvisvgm.opts: "--font-format=woff"
+%| out-width: "65%"
+%| fig-alt: "The SWIG for the MVMR model with mediation."
 \begin{tikzpicture}
 \tikzset{line width=1.5pt, outer sep=0pt,
   ell/.style={draw, fill=white, inner sep=2pt,
