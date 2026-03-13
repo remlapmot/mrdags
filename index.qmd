@@ -933,8 +933,8 @@ In its LaTeX preamble, this code loads in several TikZ libraries. As such for ou
 
 ````{verbatim}
 ```{tikz}
-%| out.width="65%", 
-%| engine.opts=list(template = "tikz-template.tex",
+%| out-width: "65%"
+%| engine-opts: list(template = "tikz-template.tex",
 %|                  dvisvgm.opts = "--font-format=woff")
 \begin{tikzpicture}
 % Your tikz code goes here ...
@@ -954,10 +954,10 @@ We can now plot our DAGs.
 #### Specifying node coordinates
 
 ```{tikz tkz-single-dag}
-%| out.width='65%',
-%| engine.opts=list(template = "tikz-template.tex",
+%| out-width: '65%'
+%| engine-opts: list(template = "tikz-template.tex",
 %|                  dvisvgm.opts = "--font-format=woff"),
-%| fig.alt="The MR DAG created with TikZ."
+%| fig-alt: "The MR DAG created with TikZ."
 \begin{tikzpicture}
 \node (1) at (0,0) {$G$};
 \node (2) at (1.5,0) {$X$};
